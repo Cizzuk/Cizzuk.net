@@ -1,0 +1,35 @@
+{% assign profiles = site.data.profile %}
+{% assign texts = site.data.texts %}
+
+{% if page.current_nav %}
+  {% assign current_nav = page.current_nav.name %}
+  {% assign current_nav_url = page.current_nav.url %}
+{% elsif page.collection and page.collection != "home" %}
+  {% assign current_nav = texts.collections[page.collection] %}
+  {% assign current_nav_url = settings.collections[page.collection].url %}
+{% endif %}
+
+<header>
+  <nav>
+    <ol>
+      <li>
+        <a href="{{ '/' | relative_url }}">
+          <img class="proficon" src="{{ profiles.proficon | relative_url }}" alt aria-hidden>
+          {% if page.layout == 'home' %}
+          <h1>Cizzuk</h1>
+          {% else %}
+          <span>Cizzuk</span>
+          {% endif %}
+        </a>
+        {% if current_nav %}
+        <span class="separator" inert>/</span>
+        {% endif %}
+      </li>
+      {% if current_nav %}
+      <li>
+        <a href="{{ current_nav_url | relative_url }}"><span>{{ current_nav }}</span></a>
+      </li>
+      {% endif %}
+    </ol>
+  </nav>
+</header>

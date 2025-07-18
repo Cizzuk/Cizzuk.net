@@ -1,0 +1,106 @@
+{% assign profiles = site.data.profile %}
+{% assign settings = site.data.settings %}
+{% assign texts = site.data.texts %}
+{% assign type = include.type | default: "default" %}
+
+{% if page.title != "" and page.layout != "home" %}
+{% capture title %}{{ page.title }} - {{ site.title }}{% endcapture %}
+{% else %}
+{% assign title = site.title %}
+{% endif %}
+{% assign icon = page.icon | default: page.image | default: profiles.siteicon %}
+
+<meta charset="utf-8">
+
+{% if type == "lang-redirect" %}
+<script src="{{ '/assets/js/lang-redirect.js' | relative_url }}"></script>
+<noscript><meta http-equiv="refresh" content="0;url=/{{ site.fallback_lang | default: site.lang | default: site.languages[0] }}{{ page.url | relative_url | replace: 'index.html', '' }}"></noscript>
+<meta name="robots" content="noindex,noarchive">
+{% else %}
+{% if page.layout == "home" %}
+<script src="{{ '/assets/js/home.js' | relative_url }}" defer></script>
+{% endif %}
+<link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+{% endif %}
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>{{ title }}</title>
+
+<meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafcff">
+
+{% if icon %}
+<link rel="apple-touch-icon" href="{{ icon | relative_url }}">
+{% endif %}
+<link rel="icon" type="image/png" href="{{ settings.head.favicon }}">
+
+{% if page.description %}
+<meta name="description" content="{{ page.description }}">
+{% elsif page.collection == "home" %}
+<meta name="description" content="{{ profiles.bio | strip_html }}">
+{% endif %}
+
+{% if page.layout == "post" %}
+{% if page.date %}
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{% endif %}
+{% if page.update %}
+<meta property="article:modified_time" content="{{ page.update | date_to_xmlschema }}">
+{% endif %}
+{% if page.author %}
+<meta property="article:author" content="{{ page.author }}">
+{% endif %}
+{% endif %}
+
+<meta name="twitter:card" content="summary">
+<meta property="og:url" content="{{ site.url }}/{{ page.lang }}{{ page.url }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:site_name" content="{{ site.title }}">
+{% if page.description %}
+<meta property="og:description" content="{{ page.description }}">
+{% elsif page.collection == "home" %}
+<meta property="og:description" content="{{ profiles.bio | strip_html }}">
+{% endif %}
+{% if page.ogp or icon %}
+<meta property="og:image" content="{{ site.url }}{{ page.ogp | default: icon }}">
+{% endif %}
+{% if page.ogp_alt %}
+<meta property="og:image:alt" content="{{ page.ogp_alt }}">
+{% endif %}
+{% if page.layout == "post" %}
+<meta property="og:type" content="article">
+{% elsif page.layout == "home" %}
+<meta property="og:type" content="profile">
+{% else %}
+<meta property="og:type" content="website">
+{% endif %}
+
+{% if site.languages %}
+{% for lang in site.languages %}
+{% if lang == site.default_lang %}
+{% continue %}
+{% endif %}
+<link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}/{{ lang }}{{ page.permalink }}">
+{% endfor %}
+{% endif %}
+
+{% if settings.head.noindex == true or page.noindex == true or page.hidden == true or page.lang != site.active_lang %}
+<meta name="robots" content="noindex">
+{% endif %}
+
+{% if page.canonical %}
+<link rel="canonical" href="{{ page.canonical }}">
+{% elsif settings.head.canonical %}
+<link rel="canonical" href="{{ settings.head.canonical }}/{{ page.lang }}{{ page.permalink }}">
+{% endif %}
+
+{% if page.itunes_app %}
+<meta name="apple-itunes-app" content="app-id={{ page.itunes_app }}">
+{% endif %}
+
+{% if settings.collections[page.collection].hasfeed == true %}
+<link rel="alternate" type="application/rss+xml" href="{{ feed_url = '/' | append: page.collection | append: '/' | append: page.collection | append: '.atom' | relative_url}}">
+{% endif %}
+
+{% include schema.html %}

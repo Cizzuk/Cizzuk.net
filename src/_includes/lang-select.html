@@ -1,0 +1,20 @@
+{% assign texts = site.data.texts %}
+{% assign rtl_languages = "ar,arc,dv,fa,he,ks,nqo,ps,syr,ur,yi" | split: ',' %}
+{% assign languages = page.lang-exclusive | default: site.languages %}
+{% if languages.size > 1 or page.lang-exclusive == nil %}
+<ul>
+  {% for lang in languages %}
+  {% if languages contains lang or languages == nil %}
+  <li>
+    <a {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ page.url | replace: 'index.html', '' }}"{% endstatic_href %}
+      {% if page.lang and page.lang != site.active_lang %} lang="{{ lang }}" rel="alternate"{% endif %}
+      {% if lang == site.active_lang %} class="active" aria-current="true"
+      {% else %} rel="alternate" lang="{{ lang }}" hreflang="{{ lang }}"{% endif %}
+      {% if rtl_languages contains lang %} dir="rtl"{% endif %}>
+      {{- texts.lang[lang] | default: lang -}}
+    </a>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}

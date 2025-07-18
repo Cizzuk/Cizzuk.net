@@ -1,0 +1,24 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for lang in site.languages %}
+
+{% assign pages = site.pages | concat: site.posts %}
+{% for collection in site.collections %}
+  {% if collection.label != "posts" %}
+    {% assign pages = pages | concat: collection.docs %}
+  {% endif %}
+{% endfor %}
+
+{% for node in pages %}
+{% unless site.exclude_from_localization contains node.path %}
+{% if node.layout and node.layout != "atom" and node.hidden != true %}
+  <url>
+    <loc>{% if lang == site.default_lang %}{{ node.url | absolute_url }}{% else %}{{ node.url | prepend: lang | prepend: '/' | replace: "index.html", "" | absolute_url }}{% endif %}</loc>
+  </url>
+{% endif %}
+{% endunless %}
+{% endfor %}
+{% endfor %}
+</urlset>

@@ -1,0 +1,30 @@
+date_format: "%B %d, %Y"
+
+collections:
+  home: "Home"
+  app: "Applications"
+  announcements: "Announcements"
+  notes: "Notes"
+
+tags:
+  cse: "CSE"
+  safariweba11y: "WebA11Y"
+
+### Translates
+open_menu: "Open menu"
+close_menu: "Close menu"
+
+no_posts: "It looks like there are no posts yet.."
+show_more: "Show more"
+
+update: "Update"
+
+contact: "Contact"
+pgp: "PGP Key"
+tip: "Send a tip"
+subscribe: "Subscribe"
+
+feed_available:
+  start: "Also available in "
+  link: "Atom Feed"
+  end: ""

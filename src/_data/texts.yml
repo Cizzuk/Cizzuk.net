@@ -1,0 +1,72 @@
+date_format: "%Y年 %-m月 %-d日"
+
+collections:
+  home: "ホーム"
+  app: "アプリ"
+  announcements: "アナウンス"
+  notes: "ノート"
+
+tags:
+  cse: "CSE"
+  safariweba11y: "WebA11Y"
+
+### Translates
+open_menu: "メニューを開く"
+close_menu: "メニューを閉じる"
+
+no_posts: "まだポストがひとつもないようです。"
+show_more: "もっと見る"
+
+update: "更新"
+
+contact: "連絡先"
+pgp: "PGP公開鍵"
+tip: "チップを送る"
+subscribe: "フィードを登録"
+
+feed_available:
+  start: ""
+  link: "Atomフィード"
+  end: "でも配信しています"
+
+### Languages
+lang:
+  en: "English"
+  ja: "日本語"
+  zh: "中文"
+  zh-CN: "中文（简体）"
+  zh-TW: "中文（繁體）"
+  zh-HK: "中文（香港）"
+  es: "Español"
+  es-419: "Español (Latinoamérica)"
+  fr: "Français"
+  de: "Deutsch"
+  ru: "Русский"
+  pt: "Português"
+  it: "Italiano"
+  ko: "한국어"
+  tr: "Türkçe"
+  nl: "Nederlands"
+  ar: "العربية"
+  sv: "Svenska"
+  da: "Dansk"
+  vi: "Tiếng Việt"
+  no: "Norsk"
+  pl: "Polski"
+  fi: "Suomi"
+  id: "Bahasa Indonesia"
+  he: "עברית"
+  el: "Ελληνικά"
+  ro: "Română"
+  hu: "Magyar"
+  cs: "Čeština"
+  ca: "Català"
+  sk: "Slovenčina"
+  uk: "Українська"
+  hr: "Hrvatski"
+  ms: "Bahasa Melayu"
+  hi: "हिन्दी"
+  kk: "Қазақша"
+  bg: "Български"
+  sl: "Slovenščina"
+  lt: "Lietuvių"

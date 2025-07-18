@@ -1,0 +1,74 @@
+source: "./src"
+destination: "./_site"
+title: "Cizzuk"
+url: "https://cizzuk.net"
+timezone: "Asia/Tokyo"
+
+collections:
+  app:
+    output: true
+  announcements:
+    output: true
+  notes:
+    output: true
+
+defaults:
+- 
+  scope:
+    type: "announcements"
+  values:
+    author: "Cizzuk"
+- 
+  scope:
+    type: "notes"
+  values:
+    author: "Cizzuk"
+
+lang: "ja"
+languages: ['ja', 'en']
+default_lang: "no-default"
+fallback_lang: "en"
+exclude_from_localization:
+- "assets"
+- "css"
+- "javascript"
+- "images"
+- "ico"
+- "robots.txt"
+- "ads.txt"
+- "sitemap.xml"
+- "_headers"
+- "_redirects"
+- ".well-known"
+
+sass:
+  sourcemap: "never"
+  style: "compressed"
+
+plugins:
+- "jekyll-polyglot"
+
+include:
+- "_headers"
+- "_redirects"
+- ".well-known"
+
+builder:
+  processAssets:
+    enabled: true
+    filters:
+      - "*.png"
+      - "*.svg"
+      - "*.css"
+      - "*.js"
+  minifyFiles:
+    enabled: true
+    html: true
+    xml: true
+    xmlPatterns:
+      - "*.atom"
+      - "*.xml"
+  cleanup:
+    enabled: true
+    removeEmptyAtoms: true
+  

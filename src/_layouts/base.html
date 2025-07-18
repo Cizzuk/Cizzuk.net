@@ -1,0 +1,32 @@
+{% if site.active_lang == "no-default" %}
+{% include head.html type="lang-redirect" %}
+{% else %}
+
+{% assign rtl_languages = "ar,arc,dv,fa,he,ks,nqo,ps,syr,ur,yi" | split: ',' %}
+{% assign lang = site.active_lang | default: page.lang | default: site.lang %}
+{% if site.dir == "rtl" %}
+  {% assign dir = "rtl" %}
+{% elsif site.dir == "ltr" %}
+  {% assign dir = "ltr" %}
+{% else %}
+  {% if rtl_languages contains lang %}
+    {% assign dir = "rtl" %}
+  {% else %}
+    {% assign dir = "ltr" %}
+  {% endif %}
+{% endif %}
+{% assign settings = site.data.settings %}
+<!doctype html>
+<html{% if lang %} lang="{{ lang }}"{% endif %}{% if dir == "rtl" %} dir="rtl"{% endif %}>
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% unless page.layout == "home" %}
+    {% include header.html %}
+    {% endunless %}
+    {{ content }}
+    {% include footer.html %}
+  </body>
+</html>
+{% endif %}

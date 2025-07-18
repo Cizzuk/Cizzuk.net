@@ -1,0 +1,24 @@
+{
+  "name": "cizzuk-net-builder",
+  "version": "0",
+  "author": "Cizzuk",
+  "description": "Build script for Cizzuk.net Jekyll website",
+  "main": "dist/builder.js",
+  "scripts": {
+    "build": "tsc && node dist/builder.js",
+    "dev": "jekyll serve --watch",
+    "clean": "rm -rf dist _site",
+    "jekyll-build": "JEKYLL_ENV=production jekyll build"
+  },
+  "devDependencies": {
+    "@types/html-minifier-terser": "^7.0.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "js-yaml": "^4.1.0",
+    "terser": "^5.24.0"
+  }
+}

@@ -1,0 +1,21 @@
+altstore:
+  palsource: "https://i.cizzuk.net/altstore/source.pal.json"
+
+cse:
+  latest: "3.10"
+  appstore: "https://apps.apple.com/app/cse/id6445840140"
+  source: "https://github.com/Cizzuk/CSE"
+
+weba11y:
+  latest: "2.3"
+  appstore: "https://apps.apple.com/app/weba11y/id6445839110"
+  source: "https://github.com/Cizzuk/WebA11y"
+
+falll:
+  latest: "4.0.2"
+  playweb: "https://i.cizzuk.net/junk/falll/"
+  appstore: "https://apps.apple.com/app/fallll/id1526930790"
+  msstore: "https://www.microsoft.com/store/apps/9NJ13XVFLH0Z"
+  amznas: "https://www.amazon.com/dp/B09M76193G"
+  linux: "https://i.cizzuk.net/file/FALLLL.tar.xz"
+  altstore: "altstore://install?url=https://i.cizzuk.net/file/FALLLL-iOS.ipa"

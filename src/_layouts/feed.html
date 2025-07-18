@@ -1,0 +1,29 @@
+---
+layout: base
+---
+{% assign settings = site.data.settings %}
+{% assign texts = site.data.texts %}
+{% assign posts = site[page.collection] | sort: 'date' | reverse | where_exp: "post", "post.hidden != true" %}
+
+<main{% if page.lang and page.lang != site.active_lang %} lang="{{ page.lang }}"{% endif %}>
+
+  <h1>{{ texts.collections[page.collection] }}</h1>
+  
+  {% if settings.collections[page.collection].hasfeed %}
+  {% assign feed_url = '/' | append: page.collection | append: '/' | append: page.collection | append: '.atom' %}
+  <p>{{ texts.feed_available.start }}<a href="{{ feed_url }}">{{ texts.feed_available.link }}</a>{{ texts.feed_available.end }}</p>
+  {% endif %}
+
+  {{ content }}
+
+  {% if posts.size > 0 %}
+  <section>
+    {% for post in posts %}
+    {% include postbox.html post=post heading='h2' %}
+    {% endfor %}
+  </section>
+  {% else %}
+  <strong>{{ texts.no_posts }}</strong>
+  {% endif %}
+
+</main>
