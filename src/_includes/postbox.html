@@ -5,6 +5,6 @@
 <article class="postbox"{% if post.lang and post.lang != site.active_lang %} lang="{{ post.lang }}"{% endif %}>
   <a href="{{ post.url | relative_url }}">
     <{{ heading }} class="postbox-title">{{ post.title | escape }}</{{ heading }}>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: texts.date_format }}</time>
+    <time datetime="{{ post.date | date: site.iso8601_date_only }}">{{ post.date | date: texts.date_format }}</time>
   </a>
 </article>

@@ -43,10 +43,10 @@
 
 {% if page.layout == "post" %}
 {% if page.date %}
-<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+<meta property="article:published_time" content="{{ page.date | date: site.iso8601_date_only }}">
 {% endif %}
 {% if page.update %}
-<meta property="article:modified_time" content="{{ page.update | date_to_xmlschema }}">
+<meta property="article:modified_time" content="{{ page.update | date: site.iso8601_date_only }}">
 {% endif %}
 {% if page.author %}
 <meta property="article:author" content="{{ page.author }}">

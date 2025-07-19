@@ -4,6 +4,8 @@ title: "Cizzuk"
 url: "https://cizzuk.net"
 timezone: "Asia/Tokyo"
 
+iso8601_date_only: "%Y-%m-%d"
+
 collections:
   app:
     output: true

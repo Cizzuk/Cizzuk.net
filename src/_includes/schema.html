@@ -39,9 +39,9 @@
     {% if page.title != "" %}
     "headline":"{{ page.title | escape }}",
     {% endif %}
-    "datePublished":"{{ page.date | date_to_iso8601 }}",
+    "datePublished":"{{ page.date | date: site.iso8601_date_only }}",
     {% if page.update %}
-    "dateModified":"{{ page.update | date_to_iso8601 }}",
+    "dateModified":"{{ page.update | date: site.iso8601_date_only }}",
     {% endif %}
     {% if icon %}
     "image":"{{ site.url }}{{ icon | relative_url }}",

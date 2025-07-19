@@ -8,11 +8,11 @@ layout: base
     <h1 itemprop="headline">{{ page.title }}</h1>
     {% endif %}
     {% assign date_format = page.date_format | default: texts.date_format | default: "%Y-%m-%d" %}
-    <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">
+    <time itemprop="datePublished" datetime="{{ page.date | date: site.iso8601_date_only }}">
       {{- page.date | date: texts.date_format -}}
     </time>
     {% if page.update %}
-    <time itemprop="dateModified" datetime="{{ page.update | date_to_xmlschema }}">
+    <time itemprop="dateModified" datetime="{{ page.update | date: site.iso8601_date_only }}">
       {{- texts.update }}: {{ page.update | date: texts.date_format -}}
     </time>
     {% endif %}
