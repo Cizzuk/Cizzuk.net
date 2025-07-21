@@ -20,7 +20,7 @@ Tor Browser上でセキュリティレベルを最大のSafestにすると、XSS
 
 必要な時だけPNG画像で表示されるようにします。SafestではJavaScriptが無効になる性質を利用します。
 
-あらかじめPNG版とSVG版の画像を用意しておいて、スクリプトで画像を置き換えるようにします。例えばクラスが`svg`要素の画像の拡張子を`.png`から`.svg`に置き換えるとか。これは[Tor Project](https://www.torproject.org)や[Tails](https://tails.net)の公式サイトで実際に使用されている手法です。
+あらかじめPNG版とSVG版の画像を用意しておいて、スクリプトで画像を置き換えるようにします。例えばクラスが`svg`である要素の画像の拡張子を`.png`から`.svg`に置き換えるとか。これは[Tor Project](https://www.torproject.org)や[Tails](https://tails.net)の公式サイトで実際に使用されている手法です。
 
 ただ、この手法には欠点があります。スクリプトによる置換が行われる前に、ブラウザがPNG版の画像を読み込みに行ってしまうので、無駄な帯域を使用してしまうのです。
 
