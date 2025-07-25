@@ -194,7 +194,7 @@ class WebsiteBuilder {
         for (const xmlFile of uniqueXmlFiles) {
             try {
                 const content = fs.readFileSync(xmlFile, 'utf8');
-                const minified = this.minifyXML(content);
+                const minified = await this.minifyXML(content);
                 fs.writeFileSync(xmlFile, minified);
                 console.log(`✅ Minified XML: ${path.basename(xmlFile)}`);
             } catch (error) {
@@ -247,14 +247,39 @@ class WebsiteBuilder {
     }
 
     /**
-     * Minify XML content by removing comments and extra whitespace
+     * Minify XML and HTML content marked with <!--html_content-->
      */
-    private minifyXML(content: string): string {
-        return content
-            .replace(/<!--[\s\S]*?-->/g, '') // Remove XML comments
-            .replace(/>\s+</g, '><')         // Remove whitespace between tags
-            .replace(/^\s+|\s+$/gm, '')      // Remove leading/trailing whitespace
-            .trim();
+    private async minifyXML(content: string): Promise<string> {
+        const parts: string[] = [];
+        let lastIndex = 0;
+        
+        // Split into alternating XML/HTML parts
+        for (const match of content.matchAll(/<!--html_content-->([\s\S]*?)<!--\/html_content-->/gi)) {
+            const xmlPart = content.substring(lastIndex, match.index!);
+            const htmlPart = match[1];
+            parts.push(xmlPart, htmlPart);
+            lastIndex = match.index! + match[0].length;
+        }
+        parts.push(content.substring(lastIndex));
+        
+        // Process: XML(even), HTML(odd)
+        let result = '';
+        for (let i = 0; i < parts.length; i++) {
+            if (i % 2) {
+                try {
+                    result += await this.minifyHTML(parts[i]);
+                } catch {
+                    result += parts[i];
+                }
+            } else {
+                result += parts[i]
+                    .replace(/<!--[\s\S]*?-->/g, '') // Remove XML comments
+                    .replace(/>\s+</g, '><')         // Remove whitespace between tags
+                    .replace(/^\s+|\s+$/gm, '')      // Remove leading/trailing whitespace
+                    .trim();
+            }
+        }
+        return result;
     }
 
     /**

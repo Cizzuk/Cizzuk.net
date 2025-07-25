@@ -45,7 +45,7 @@
     {% for tag in post.tags %}
     <category term="{{ tag }}"{% if texts.tags[tag] %} label="{{ texts.tags[tag] }}"{% endif %} />
     {% endfor %}
-    <content type="html"><![CDATA[{{ post.content }}]]></content>
+    <content type="html"><![CDATA[<!--html_content-->{{ post.content }}<!--/html_content-->]]></content>
   </entry>
   {% endfor %}
 
