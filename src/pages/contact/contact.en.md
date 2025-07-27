@@ -7,9 +7,9 @@ title: "Contact"
 ---
 {% assign profiles = site.data.profile %}
 
-If you have any questions or need assistance, please don't hesitate to reach out. 
+If you have any questions or need assistance, please contact me by e-mail. 
 
-I am fluent in Japanese and have a basic understanding of English. For other languages, I might use a translator.
+I am a native Japanese speaker and a beginner in English. For other languages, I use a translator.
 
 [{{ profiles.mail }}](mailto:{{ profiles.mail }}){:.btn}
 
