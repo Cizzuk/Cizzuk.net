@@ -6,7 +6,7 @@ layout: base
 {% assign settings = site.data.settings %}
 <main{% if page.lang and page.lang != site.active_lang %} lang="{{ page.lang }}"{% endif %}>
   <div class="profbox">
-    <div class="proficon" id="drpct-main" aria-hidden>
+    <div class="proficon" data-svg="drpct" aria-hidden>
       <noscript>
         <img src="{{ profiles.proficon }}" alt>
       </noscript>
@@ -22,7 +22,7 @@ layout: base
       {% endcapture %}
       <li>
         {% if sameas.svgicon %}
-        <a id="icon-{{ sameas.svgicon }}" href="{{ sameas.url }}" title="{{ sameas.name }}" rel="me" aria-label="{{ sameas.name }}">
+        <a data-svg="{{ sameas.svgicon }}" href="{{ sameas.url }}" title="{{ sameas.name }}" rel="me" aria-label="{{ sameas.name }}">
           <noscript>{{ icon_html }}</noscript>
         </a>
         {% else %}
@@ -37,14 +37,14 @@ layout: base
     
     <ul>
       <li>
-        <a id="icon-mail" href="/contact/" title="{{ texts.contact }}" aria-label="{{ texts.contact }}">
+        <a data-svg="mail" href="/contact/" title="{{ texts.contact }}" aria-label="{{ texts.contact }}">
           <noscript>
             <img src="{{ '/assets/icons/mail.png' | relative_url }}" alt="{{ texts.contact }}" class="dark-reverse">
           </noscript>
         </a>
       </li>
       <li>
-        <a id="icon-heart" href="/tip/" title="{{ texts.tip }}" aria-label="{{ texts.tip }}">
+        <a data-svg="heart" href="/tip/" title="{{ texts.tip }}" aria-label="{{ texts.tip }}">
           <noscript>
             <img src="{{ '/assets/icons/heart.png' | relative_url }}" alt="{{ texts.tip }}" class="dark-reverse">
           </noscript>
