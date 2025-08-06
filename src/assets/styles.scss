@@ -243,6 +243,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
+    margin: 10px 0;
     padding: 0;
     
     li {
@@ -296,12 +297,12 @@ header {
   }
   
   .app-icon {
-    border-radius: 20px;
+    border-radius: 25%;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
     flex-grow: 0;
-    height: 100px;
     margin-inline-end: 16px;
     width: 100px;
+    max-width: 100%;
   }
   
   .app-info {
