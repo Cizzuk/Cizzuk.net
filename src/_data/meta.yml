@@ -2,12 +2,12 @@ altstore:
   palsource: "https://i.cizzuk.net/altstore/source.pal.json"
 
 cse:
-  latest: "3.10"
+  latest: "4.0"
   appstore: "https://apps.apple.com/app/cse/id6445840140"
   source: "https://github.com/Cizzuk/CSE"
 
 weba11y:
-  latest: "2.3"
+  latest: "3.0"
   appstore: "https://apps.apple.com/app/weba11y/id6445839110"
   source: "https://github.com/Cizzuk/WebA11y"
 

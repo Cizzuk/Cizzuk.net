@@ -5,7 +5,7 @@ collection: "app"
 permalink: "/app/weba11y/"
 description: "Safari extension to improve web accessibility."
 hide_title: true
-icon: "/assets/app/weba11y/icon.png"
+icon: "/assets/app/weba11y/icon.webp"
 itunes_app: "6445839110"
 title: "WebA11Y"
 ---

@@ -5,7 +5,7 @@ collection: "app"
 permalink: "/app/cse/"
 description: "Safari Extension to customize your search engine."
 hide_title: true
-icon: "/assets/app/cse/icon.png"
+icon: "/assets/app/cse/icon.webp"
 itunes_app: "6445840140"
 title: "Customize Search Engine"
 ---

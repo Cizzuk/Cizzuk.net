@@ -5,7 +5,7 @@ collection: "app"
 permalink: "/app/cse/"
 description: "Safariの検索エンジンをカスタマイズするための拡張機能です。"
 hide_title: true
-icon: "/assets/app/cse/icon.png"
+icon: "/assets/app/cse/icon.webp"
 itunes_app: "6445840140"
 title: "Customize Search Engine"
 ---

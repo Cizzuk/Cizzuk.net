@@ -5,7 +5,7 @@ collection: "app"
 permalink: "/app/weba11y/"
 description: "Webアクセシビリティを向上させるためのSafari拡張機能です。"
 hide_title: true
-icon: "/assets/app/weba11y/icon.png"
+icon: "/assets/app/weba11y/icon.webp"
 itunes_app: "6445839110"
 title: "WebA11Y"
 ---
