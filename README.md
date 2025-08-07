@@ -24,6 +24,22 @@ Cloudflare Pagesで使用することを想定しています。
 npm run build
 ```
 
+## Server
+
+`_headers`と`_redirect`を含めてWebサーバーのテストを実施できます。あくまで擬似的なものです。
+
+以下を実行するとビルドを完了したのちにWebサーバーを起動します。アクセスログが表示され、圧縮はスキップされます
+
+```bash
+npm run dev
+```
+
+以下を実行するとWebサーバーを即座に起動します。アクセスログはなく、GzipとBrotliの圧縮をサポートしていて、実際のサーバーのように動作します。
+
+```bash
+npm run server
+```
+
 ## 特殊な仕様
 
 ### Polyglotの利用方法
