@@ -3,6 +3,7 @@ destination: "./_site"
 title: "Cizzuk"
 url: "https://cizzuk.net"
 timezone: "Asia/Tokyo"
+future: true
 
 iso8601_date_only: "%Y-%m-%d"
 

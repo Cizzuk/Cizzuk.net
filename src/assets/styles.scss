@@ -208,10 +208,10 @@ header {
       
       a {
         align-items: center;
+        color: var(--text);
         display: inline-flex;
         
         * {
-          color: var(--text);
           font-size: 1.2em;
         }
       }
@@ -297,12 +297,12 @@ header {
   }
   
   .app-icon {
-    border-radius: 25%;
+    border-radius: 25px;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
     flex-grow: 0;
+    height: 100px;
     margin-inline-end: 16px;
     width: 100px;
-    max-width: 100%;
   }
   
   .app-info {
