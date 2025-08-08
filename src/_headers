@@ -1,6 +1,6 @@
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self' 'unsafe-inline'; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-NSBjk0ZA/F5nWgqGhBkqYYBbnA7kqRjczavVDPzoYWo='; frame-ancestors 'none';
   Onion-Location: https://cizzuk3nqztjrgov2yybzttfcqczil5ebx74clwtmwoeugr5cktiutad.onion/:splat
   Referrer-Policy: no-referrer
   X-Frame-Options: DENY

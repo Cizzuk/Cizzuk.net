@@ -13,16 +13,7 @@
 <meta charset="utf-8">
 
 {% if type == "lang-redirect" %}
-<script>
-  (function() {
-    const siteLangs = {{ site.languages | jsonify }};
-    let userLang = navigator.language.split('-')[0];
-    if (!siteLangs.includes(userLang)) {
-      userLang = "{{ site.fallback_lang | default: site.lang | default: site.languages[0] }}";
-    }
-    window.location.replace(`/${userLang}${window.location.pathname}`);
-  })();
-</script>
+<script>!function(){let n=navigator.language.split("-")[0];["ja","en"].includes(n)||(n="en"),window.location.replace(`/${n}${window.location.pathname}`)}()</script>
 <noscript><meta http-equiv="refresh" content="0;url=/{{ site.fallback_lang | default: site.lang | default: site.languages[0] }}{{ page.url | relative_url | replace: 'index.html', '' }}"></noscript>
 <meta name="robots" content="noindex,noarchive">
 
