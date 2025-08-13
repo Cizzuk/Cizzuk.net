@@ -72,7 +72,6 @@ time {
 
 // Images
 img {
-  border-radius: 2%;
   height: auto;
   max-width: 100%;
   object-fit: cover;
@@ -297,10 +296,10 @@ header {
   }
   
   .app-icon {
-    border-radius: 25px;
+    aspect-ratio: 1;
+    border-radius: 25%;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
     flex-grow: 0;
-    height: 100px;
     margin-inline-end: 16px;
     width: 100px;
   }
@@ -414,6 +413,9 @@ footer {
   body {
     padding: 0 8px;
   }
+  .app .app-info {
+    min-width: 100%;
+  }
 }
 
 // Color variables
@@ -449,24 +451,20 @@ footer {
   :root {
     --accent: #0020ff;
     --accent-dark: #001080;
-    --bg: #fafcff;
     --bg-accent: #cad8f3;
     --bg-accent-high: #a0b0e0;
     --text: #000;
     --text-gray: #3c3c3c;
-    --heart: #c39;
   }
   
   @media (prefers-color-scheme: dark) {
     :root {
       --accent: #90c0ff;
       --accent-dark: #c0daff;
-      --bg: #000;
       --bg-accent: #2a304a;
       --bg-accent-high: #455075;
       --text: #fff;
       --text-gray: #b0b0b0;
-      --heart: #faa0f0;
     }
   }
 }
