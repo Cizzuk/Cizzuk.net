@@ -34,8 +34,10 @@ class WebsiteBuilder {
     private siteDir: string;
     private readonly rootDir: string;
     private readonly config: BuilderConfig;
+    private readonly buildStartTime: number;
 
     constructor() {
+        this.buildStartTime = Date.now();
         console.log('🚀 Starting website build process...');
         this.rootDir = process.cwd();
         
@@ -574,7 +576,11 @@ class WebsiteBuilder {
                 console.log('🔧 Step 4: Cleaning up...');
                 this.cleanupFiles();
                 
+                const buildTime = Date.now() - this.buildStartTime;
+
                 console.log('🎉 Build process completed successfully!');
+                console.log(`⏱️  Total build time: ${(buildTime / 1000).toFixed(2)}s`);
+                
             } finally {
                 // Always return to original directory
                 process.chdir(originalDir);
