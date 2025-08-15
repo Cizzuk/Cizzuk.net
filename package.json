@@ -5,7 +5,7 @@
   "description": "Build script for Cizzuk.net Jekyll website",
   "main": "dist/builder.js",
   "scripts": {
-    "build": "tsc && node dist/builder.js",
+    "build": "BUILD_START_TIME=$(node -p 'Date.now()') && tsc && BUILD_START_TIME=$BUILD_START_TIME node dist/builder.js",
     "server": "tsc && node dist/server.js",
     "dev": "npm run build || tsc && node dist/server.js --dev",
     "clean": "rm -rf dist _site src/.jekyll-cache"
