@@ -1,17 +1,17 @@
 # Cizzuk.net
 
-私のWebサイトのソースコードです。Jekyllを利用していますが、ビルドにはNode.jsも使用します。
+私のWebサイトのソースコードです。Jekyllを利用していますが、ビルドには[Bun](https://bun.com)も使用します。
 
 Jekyllでは[Polyglot](https://github.com/untra/polyglot)を利用してローカライズに対応させています。
 
-Node.jsで実行するビルドスクリプトはTypescriptで書かれています。
+Bunで実行するビルドスクリプトはTypescriptで書かれています。
 
 ## Install
 
-Ruby, RubyGem, Jekyll, Node.js, npmがそれぞれ利用できる環境である必要があります。
+Ruby, RubyGem, Jekyll, Bunがそれぞれ利用できる環境である必要があります。
 
 ```bash
-npm install; bundle install
+bun i; bundle install
 ```
 
 ## Build
@@ -21,7 +21,7 @@ npm install; bundle install
 Cloudflare Pagesで使用することを想定しています。
 
 ```bash
-npm run build
+bun run build
 ```
 
 ## Server
@@ -31,13 +31,13 @@ npm run build
 以下を実行するとビルドを完了したのちにWebサーバーを起動します。アクセスログが表示され、圧縮はスキップされます
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 以下を実行するとWebサーバーを即座に起動します。アクセスログはなく、GzipとBrotliの圧縮をサポートしていて、実際のサーバーのように動作します。
 
 ```bash
-npm run server
+bun run server
 ```
 
 ## 特殊な仕様
@@ -54,7 +54,7 @@ Liquidを用いて、ページの言語が`no-default`の場合はページのco
 
 ### ビルドスクリプト
 
-ビルドスクリプトはNode.jsで実行されます。単にRubyでJekyllのPluginを使うよりも慣れていて楽だったためです。
+ビルドスクリプトはBunで実行されます。単にRubyよりもJS/TSの方が慣れていて楽だったためです。
 
 1. 最初にJekyllでビルドを実行します。その後に`./_site/`以下のファイルに変更を加えます。
 2. HTML, XML, JavaScriptのMinifyをします。(スタイルシートはSCSSのコンパイル時にJekyllでMinifyされます)
