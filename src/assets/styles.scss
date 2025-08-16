@@ -296,10 +296,10 @@ header {
   }
   
   .app-icon {
-    aspect-ratio: 1;
     border-radius: 25%;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
     flex-grow: 0;
+    height: 100px;
     margin-inline-end: 16px;
     width: 100px;
   }
@@ -413,8 +413,13 @@ footer {
   body {
     padding: 0 8px;
   }
-  .app .app-info {
-    min-width: 100%;
+  .app {
+    .app-icon {
+      height: auto;
+    }
+    .app-info {
+      min-width: 100%;
+    }
   }
 }
 
