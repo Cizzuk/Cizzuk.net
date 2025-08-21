@@ -30,7 +30,7 @@ Once the source is added, you can find my apps either in the Browse tab or from 
 Even if you have already downloaded the app from the App Store, you can switch to managing it via AltStore PAL. The content of the app remains the same regardless of the installation method.
 
 <details lang="ja">
-  <summary>日本語</summary>
+<summary>日本語</summary>
 
 私がApp Storeで配信していたiOS向けアプリを、[AltStore PAL](https://altstore.io/)からインストールできるようになります。
 
