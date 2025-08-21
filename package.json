@@ -5,7 +5,7 @@
   "main": ".eleventy.js",
   "scripts": {
     "build:css": "sass public/assets/styles.scss:public/assets/styles.css --no-source-map",
-    "cleanup": "rm -r _site/",
+    "cleanup": "rm -r _site/ || true",
     "copy": "cp -r public/ _site/",
     "build": "npm run cleanup && npm run build:css && npm run copy && eleventy",
     "debug": "npm run cleanup && npm run build:css && npm run copy && run-p debug:11ty",
