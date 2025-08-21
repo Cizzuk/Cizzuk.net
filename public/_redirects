@@ -1,7 +1,5 @@
 /*/index.html /:splat/ 301
-
-/en/ / 301
-/ja/ / 301
+/favicon.ico /assets/favicon.png 302
 
 /en/app/* /projects/:splat 301
 /ja/app/* /projects/:splat 301
@@ -12,6 +10,5 @@
 /en/notes/* /notes/:splat 301
 /ja/notes/* /notes/:splat 301
 
-/favicon.ico /assets/favicon.png 302
-/llms.txt /en/llms.txt 302
-
+/en/ / 301
+/ja/ / 301
