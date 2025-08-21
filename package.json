@@ -1,0 +1,22 @@
+{
+  "name": "Cizzuk.net",
+  "version": "0",
+  "description": "Build script for Cizzuk.net",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cizzuk/Cizzuk.net.git"
+  },
+  "author": "Cizzuk",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Cizzuk/Cizzuk.net/issues"
+  },
+  "homepage": "https://github.com/Cizzuk/Cizzuk.net#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
