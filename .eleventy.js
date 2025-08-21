@@ -16,14 +16,34 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addCollection("posts", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("./src/posts/*.md").sort((a, b) => {
-      return new Date(b.date) - new Date(a.date);
+    const items = collectionApi.getFilteredByGlob("./src/posts/**/*.md");
+    // Ensure date from filename (YYYY-MM-DD-*) when front matter date is absent
+    items.forEach(item => {
+      if (!item.data.date) {
+        const m = item.inputPath.match(/(\d{4}-\d{2}-\d{2})-/);
+        if (m) item.data.date = m[1];
+      }
+    });
+    return items.sort((a, b) => {
+      const ad = a.data.date || a.date;
+      const bd = b.data.date || b.date;
+      return new Date(bd) - new Date(ad);
     });
   });
 
   eleventyConfig.addCollection("notes", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("./src/notes/*.md").sort((a, b) => {
-      return new Date(b.date) - new Date(a.date);
+    const items = collectionApi.getFilteredByGlob("./src/notes/**/*.md");
+    // Ensure date from filename (YYYY-MM-DD-*) when front matter date is absent
+    items.forEach(item => {
+      if (!item.data.date) {
+        const m = item.inputPath.match(/(\d{4}-\d{2}-\d{2})-/);
+        if (m) item.data.date = m[1];
+      }
+    });
+    return items.sort((a, b) => {
+      const ad = a.data.date || a.date;
+      const bd = b.data.date || b.date;
+      return new Date(bd) - new Date(ad);
     });
   });
 

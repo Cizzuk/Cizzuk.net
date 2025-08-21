@@ -1,8 +1,11 @@
-{% macro postbox(post, heading="b") %}
-  <article class="postbox"{% if post.lang %} lang="{{ post.lang }}"{% endif %}>
-    <a href="{{ post.url }}">
-      <{{ heading }} class="postbox-title">{{ post.title | escape }}</{{ heading }}>
-    <time datetime="{{ post.date | dateISO }}">{{ post.date | date }}</time>
+{%- macro postbox(item, heading="b") -%}
+  <article class="postbox"{% if item.data.lang %} lang="{{ item.data.lang }}"{% endif %}>
+    <a href="{{ item.url }}">
+      <{{ heading }} class="postbox-title">{{ item.data.title | escape }}</{{ heading }}>
+      {%- set d = item.data.date or item.date -%}
+      {%- if d -%}
+      <time datetime="{{ d | dateISO }}">{{ d | date }}</time>
+      {%- endif -%}
     </a>
   </article>
-{% endmacro %}
+{%- endmacro -%}

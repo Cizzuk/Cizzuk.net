@@ -12,7 +12,7 @@ description: "Posts of app updates, announcements, etc."
 {% if collections.posts | length > 0 %}
 <section>
   {% for post in collections.posts %}
-  {{ postbox(post.data, 'h2') }}
+  {{ postbox(post, 'h2') }}
   {% endfor %}
 </section>
 {% else %}
