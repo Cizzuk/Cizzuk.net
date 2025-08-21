@@ -5,9 +5,10 @@
   "main": ".eleventy.js",
   "scripts": {
     "build:css": "sass public/assets/styles.scss:public/assets/styles.css --no-source-map",
-    "prebuild": "rm -r _site/ && cp -r public/ _site/",
-    "build": "npm run prebuild && npm run build:css && eleventy",
-    "debug": "npm run prebuild && npm run build:css && run-p debug:11ty",
+    "cleanup": "rm -r _site/",
+    "copy": "cp -r public/ _site/",
+    "build": "npm run cleanup && npm run build:css && npm run copy && eleventy",
+    "debug": "npm run cleanup && npm run build:css && npm run copy && run-p debug:11ty",
     "debug:11ty": "eleventy --serve"
   },
   "repository": {

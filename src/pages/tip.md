@@ -7,6 +7,8 @@ description: "Send a tip to Cizzuk"
 noindex: true
 ---
 
+# {{ title }}
+
 Most of my applications are open-source and free. If you like them, please consider sending me a tip!
 
 ## GitHub Sponsors

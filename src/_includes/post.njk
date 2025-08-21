@@ -1,17 +1,19 @@
 {% extends "base.njk" %}
 
+{% block content %}
 <article itemscope itemtype="https://schema.org/BlogPosting" itemprop="articleBody">
   <hgroup>
-    <h1 itemprop="headline">{{ page.title }}</h1>
-    <time itemprop="datePublished" datetime="{{ page.date | date("yyyy-LL-dd") }}">
-      {{ page.date | date("LLLL dd, yyyy") }}
+    <h1 itemprop="headline">{{ title }}</h1>
+    <time itemprop="datePublished" datetime="{{ date | dateISO }}">
+      {{ date | date }}
     </time>
     {% if update %}
-    <time itemprop="dateModified" datetime="{{ update | date("yyyy-LL-dd") }}">
-      Updated: {{ update | date("LLLL dd, yyyy") }}
+    <time itemprop="dateModified" datetime="{{ update | dateISO }}">
+      Updated: {{ update | date }}
     </time>
     {% endif %}
   </hgroup>
 
   {{ content | safe }}
 </article>
+{% endblock %}

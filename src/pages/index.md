@@ -13,6 +13,7 @@ type: "home"
   </div>
   <h1>{{ site.title }}</h1>
   <p>{{ site.bio }}</p>
+  <p lang="ja">{{ site.bio_ja }}</p>
 
   <ul>
     <li>

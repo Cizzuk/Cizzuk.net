@@ -76,17 +76,6 @@ img, svg {
   vertical-align: middle;
 }
 
-dl {
-  margin: 20px 0;
-}
-dl dt {
-  font-weight: 500;
-  margin-top: 20px;
-}
-dl dd {
-  margin: 0 0 20px 1.5em;
-}
-
 ol, ul {
   margin: 20px 0;
   padding-inline-start: 2em;
@@ -96,7 +85,7 @@ li {
   margin: 0.2em 0;
 }
 
-:is(dl, ol, ul) :is(dl, ol, ul) {
+:is(ol, ul) :is(ol, ul) {
   margin: 0;
 }
 
@@ -163,6 +152,9 @@ details > :nth-child(2) {
   margin-top: 8px;
 }
 
+header {
+  margin: 20px 4px;
+}
 header .proficon {
   border-radius: 0;
   height: 24px;
@@ -266,7 +258,7 @@ header a * {
 }
 
 article hgroup {
-  margin: 30px auto;
+  margin: 20px auto 30px;
 }
 article hgroup h1 {
   margin: 4px 0;

@@ -1,4 +1,4 @@
-{% set lang = page.lang | default(site.lang) %}
+{% set lang = lang | default(site.lang) %}
 <!doctype html>
 <html{% if lang %} lang="{{ lang }}"{% endif %}>
   <head>
@@ -6,7 +6,7 @@
   </head>
   
   <body>
-    {% if page.type != "home" %}
+    {% if type != "home" %}
     <header>
       <a href="/">
         <img class="proficon" src="{{ site.icons.proficon }}" alt aria-hidden>
@@ -15,7 +15,7 @@
     </header>
     {% endif %}
 
-    {{ content | safe }}
+    {% block content %}{% endblock %}
 
     <footer>
       <p class="copy">© 2025 Cizzuk</p>

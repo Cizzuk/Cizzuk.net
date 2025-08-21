@@ -7,7 +7,9 @@ description: "Cizzuk's OpenPGP public key"
 update: 2025-03-17
 ---
 
-Last update: {{ update | date: "%B %d, %Y" }}
+# {{ title }}
+
+Last update: {{ update | date }}
 
 <table>
   <thead>
@@ -19,8 +21,8 @@ Last update: {{ update | date: "%B %d, %Y" }}
   </thead>
   <tr>
     <th>Create</th>
-  <td>{{ "2025-03-17" | date: "%B %d, %Y" }}</td>
-  <td>{{ "2025-03-17" | date: "%B %d, %Y" }}</td>
+  <td>{{ "2025-03-17" | date }}</td>
+  <td>{{ "2025-03-17" | date }}</td>
   </tr>
   <tr>
     <th>Key ID</th>
