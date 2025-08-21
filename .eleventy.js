@@ -1,8 +1,12 @@
 module.exports = function(eleventyConfig) {
   // Filters
+  // date
   const { DateTime } = require("luxon");
   eleventyConfig.addFilter("date", (dateString) => {
-    return DateTime.fromISO(dateString).toFormat("MMMM dd, yyyy");
+    return DateTime.fromISO(dateString).toFormat("MMMM d, yyyy");
+  });
+  eleventyConfig.addFilter("dateJA", (dateString) => {
+    return DateTime.fromISO(dateString).toFormat("yyyy年 M月 d日");
   });
   eleventyConfig.addFilter("dateISO", (dateString) => {
     return DateTime.fromISO(dateString).toFormat("yyyy-MM-dd");

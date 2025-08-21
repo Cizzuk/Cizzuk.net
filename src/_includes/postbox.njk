@@ -4,7 +4,13 @@
       <{{ heading }} class="postbox-title">{{ item.data.title | escape }}</{{ heading }}>
       {%- set d = item.data.date or item.date -%}
       {%- if d -%}
-      <time datetime="{{ d | dateISO }}">{{ d | date }}</time>
+      <time datetime="{{ d | dateISO }}">
+        {%- if item.data.lang == "ja" -%}
+        {{- d | dateJA -}}
+        {%- else -%}
+        {{- d | date -}}
+        {%- endif -%}
+      </time>
       {%- endif -%}
     </a>
   </article>

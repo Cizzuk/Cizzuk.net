@@ -41,6 +41,7 @@ p {
 
 a {
   color: var(--accent);
+  font-size: 1em;
   font-weight: 500;
   text-decoration: none;
 }
@@ -291,29 +292,30 @@ article hgroup time {
 }
 
 footer {
+  color: var(--text-gray);
   margin: 40px 0;
 }
 footer .copy {
-  color: var(--text-gray);
   display: inline-block;
   margin: 0;
+  padding-inline-end: 1.5em;
 }
-footer ul {
+footer nav {
+  display: inline-block;
+}
+footer nav ul {
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
-  padding-inline-start: 1.5em;
+  padding: 0;
 }
-footer ul li {
+footer nav ul li {
   margin: 0;
 }
-footer ul li a {
+footer nav ul li a {
   color: var(--text-gray);
   font-weight: normal;
   padding: 8px;
-}
-footer ul li a.active {
-  color: var(--accent-dark);
 }
 
 @view-transition {

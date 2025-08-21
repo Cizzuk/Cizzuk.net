@@ -5,7 +5,11 @@
   <hgroup>
     <h1 itemprop="headline">{{ title }}</h1>
     <time itemprop="datePublished" datetime="{{ date | dateISO }}">
+      {% if lang == "ja" %}
+      {{ date | dateJA }}
+      {% else %}
       {{ date | date }}
+      {% endif %}
     </time>
     {% if update %}
     <time itemprop="dateModified" datetime="{{ update | dateISO }}">
