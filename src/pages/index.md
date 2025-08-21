@@ -4,6 +4,8 @@ lang: "en"
 permalink: "/"
 type: "home"
 ---
+{% from 'appbox.njk' import appbox %}
+{% from 'postbox.njk' import postbox %}
 
 <div class="profbox">
   <div class="proficon" aria-hidden data-svg="drpct">
@@ -49,4 +51,32 @@ type: "home"
   </ul>
 </div>
 
+{% if collections.projects | length > 0 %}
+## [Projects](/projects/)
+<section>
+  {% for project in collections.projects | head(3) %}
+  {{ appbox(project.data.stitle or project.data.title,
+    description=project.data.description,
+    icon=project.data.icon,
+    url=project.url) }}
+  {% endfor %}
+</section>
+{% endif %}
 
+{% if collections.posts | length > 0 %}
+## [Posts](/posts/)
+<section>
+  {% for post in collections.posts | head(3) %}
+  {{ postbox(post, 'h2') }}
+  {% endfor %}
+</section>
+{% endif %}
+
+{% if collections.notes | length > 0 %}
+## [Notes](/notes/)
+<section>
+  {% for post in collections.notes | head(3) %}
+  {{ postbox(post, "h3") }}
+  {% endfor %}
+</section>
+{% endif %}

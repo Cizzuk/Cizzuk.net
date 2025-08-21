@@ -8,6 +8,14 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromISO(dateString).toFormat("yyyy-MM-dd");
   });
 
+  // head: return first N items
+  eleventyConfig.addFilter("head", (arr, n) => {
+    if (!Array.isArray(arr)) return arr;
+    const count = Number(n);
+    if (Number.isNaN(count)) return arr;
+    return count < 0 ? arr.slice(count) : arr.slice(0, count);
+  });
+
   // Collections
   eleventyConfig.addCollection("projects", function(collectionApi) {
     const projects = collectionApi.getFilteredByGlob("./src/projects/*.md");
