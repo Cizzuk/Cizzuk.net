@@ -6,9 +6,9 @@
     <time itemprop="datePublished" datetime="{{ page.date | date("yyyy-LL-dd") }}">
       {{ page.date | date("LLLL dd, yyyy") }}
     </time>
-    {% if page.update %}
-    <time itemprop="dateModified" datetime="{{ page.update | date("yyyy-LL-dd") }}">
-      Updated: {{ page.update | date("LLLL dd, yyyy") }}
+    {% if update %}
+    <time itemprop="dateModified" datetime="{{ update | date("yyyy-LL-dd") }}">
+      Updated: {{ update | date("LLLL dd, yyyy") }}
     </time>
     {% endif %}
   </hgroup>

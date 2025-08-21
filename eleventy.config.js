@@ -1,4 +1,5 @@
 module.exports = function(eleventyConfig) {
+  // Collections
   // _projects
   eleventyConfig.addCollection("projects", function(collectionApi) {
     const projects = collectionApi.getFilteredByGlob("./src/_projects/*.md");
@@ -19,4 +20,18 @@ module.exports = function(eleventyConfig) {
       return new Date(b.date) - new Date(a.date);
     });
   });
+
+  // Directory and engines
+  return {
+    templateFormats: ["md", "njk", "html"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
+    dir: {
+      input: "src",
+      includes: "_includes",
+      data: "_data",
+      output: "_site"
+    }
+  };
 };

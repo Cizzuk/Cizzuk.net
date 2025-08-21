@@ -6,7 +6,6 @@ title: "Tips"
 description: "Send a tip to Cizzuk"
 noindex: true
 ---
-{% assign cryptos = site.data.profile.crypto %}
 
 Most of my applications are open-source and free. If you like them, please consider sending me a tip!
 

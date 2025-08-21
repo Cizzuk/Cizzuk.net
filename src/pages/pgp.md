@@ -4,10 +4,10 @@ lang: "en"
 permalink: "/pgp/"
 title: "OpenPGP Public Key"
 description: "Cizzuk's OpenPGP public key"
-update: "2025-03-17"
+update: 2025-03-17
 ---
 
-Last update: {{ page.update | date: "LLLL dd, yyyy" }}
+Last update: {{ update | date: "%B %d, %Y" }}
 
 <table>
   <thead>
@@ -19,8 +19,8 @@ Last update: {{ page.update | date: "LLLL dd, yyyy" }}
   </thead>
   <tr>
     <th>Create</th>
-  <td>{{ "2025-03-17" | date: "LLLL dd, yyyy" }}</td>
-  <td>{{ "2025-03-17" | date: "LLLL dd, yyyy" }}</td>
+  <td>{{ "2025-03-17" | date: "%B %d, %Y" }}</td>
+  <td>{{ "2025-03-17" | date: "%B %d, %Y" }}</td>
   </tr>
   <tr>
     <th>Key ID</th>

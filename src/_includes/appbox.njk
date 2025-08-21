@@ -1,23 +1,25 @@
-{% capture content %}
-  {% if include.icon %}
-  <img src="{{ include.icon }}" class="app-icon" alt aria-hidden>
-  {% endif %}
-  <div class="app-info">
-    {% if include.type == "title" %}
-    <h1>{{ include.title }}</h1>
-    {% else %}
-    <b>{{ include.title }}</b>
+{% macro appbox(title, description, icon=null, url=null, type=null) %}
+  {% set content %}
+    {% if icon %}
+    <img src="{{ icon }}" class="app-icon" alt aria-hidden>
     {% endif %}
-    {{ include.description }}
-  </div>
-{% endcapture %}
+    <div class="app-info">
+      {% if type == "title" %}
+      <h1>{{ title }}</h1>
+      {% else %}
+      <b>{{ title }}</b>
+      {% endif %}
+      {{ description }}
+    </div>
+  {% endset %}
 
-{% if include.url %}
-<a href="{{ include.url }}" class="app">
-  {{ content }}
-</a>
-{% else %}
-<div class="app">
-  {{ content }}
-</div>
-{% endif %}
+  {% if url %}
+  <a href="{{ url }}" class="app">
+    {{ content | safe }}
+  </a>
+  {% else %}
+  <div class="app">
+    {{ content | safe }}
+  </div>
+  {% endif %}
+{% endmacro %}
