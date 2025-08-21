@@ -334,30 +334,31 @@ article hgroup {
 
 // Footer
 footer {
+  color: var(--text-gray);
   margin: 40px 0;
   
   .copy {
-    color: var(--text-gray);
     display: inline-block;
     margin: 0;
+    padding-inline-end: 1.5em;
   }
-  
-  ul {
-    display: inline-flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding-inline-start: 1.5em;
-    
-    li {
-      margin: 0;
+
+  nav {
+    display: inline-block;
+
+    ul {
+      display: inline-flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin: 0;
       
-      a {
-        color: var(--text-gray);
-        font-weight: normal;
-        padding: 8px;
-        
-        &.active {
-          color: var(--accent-dark);
+        a {
+          color: var(--text-gray);
+          font-weight: normal;
+          padding: 8px;
         }
       }
     }
