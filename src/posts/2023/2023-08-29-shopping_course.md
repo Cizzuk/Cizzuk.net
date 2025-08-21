@@ -5,7 +5,6 @@ permalink: "/posts/shopping_course/"
 description: "マリオカートWii ココナッツモールのBGMをアレンジしました。"
 icon: "/assets/posts/shopping_course/icon.png"
 title: "shopping_course"
-date: "2023-08-29"
 ---
 
 マリオカートWii ココナッツモールのBGMをアレンジしました。
