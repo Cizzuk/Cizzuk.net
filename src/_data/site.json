@@ -1,0 +1,11 @@
+{
+  "lang": "en",
+  "title": "Cizzuk",
+  "bio": "Hello, I'm a developer.",
+  "url": "https://cizzuk.net",
+  "icons": {
+    "favicon": "/assets/favicon.png",
+    "siteicon": "/assets/siteicon.png",
+    "proficon": "/assets/dropcat.png"
+  }
+}

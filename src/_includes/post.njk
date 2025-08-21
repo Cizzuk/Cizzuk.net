@@ -1,0 +1,17 @@
+{% extends "base.njk" %}
+
+<article itemscope itemtype="https://schema.org/BlogPosting" itemprop="articleBody">
+  <hgroup>
+    <h1 itemprop="headline">{{ page.title }}</h1>
+    <time itemprop="datePublished" datetime="{{ page.date | date("yyyy-LL-dd") }}">
+      {{ page.date | date("LLLL dd, yyyy") }}
+    </time>
+    {% if page.update %}
+    <time itemprop="dateModified" datetime="{{ page.update | date("yyyy-LL-dd") }}">
+      Updated: {{ page.update | date("LLLL dd, yyyy") }}
+    </time>
+    {% endif %}
+  </hgroup>
+
+  {{ content | safe }}
+</article>
