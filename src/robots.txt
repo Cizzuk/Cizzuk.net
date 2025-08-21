@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /cdn-cgi
-
-Sitemap: https://cizzuk.net/sitemap.xml
