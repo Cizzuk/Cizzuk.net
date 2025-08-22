@@ -161,16 +161,16 @@ module.exports = function(eleventyConfig) {
     const outRoot = path.join(__dirname, "_site");
     if (!fs.existsSync(outRoot)) return;
 
-    const walk = (dir) => {
+    const walk = async (dir) => {
       const entries = fs.readdirSync(dir, { withFileTypes: true });
       for (const e of entries) {
         const p = path.join(dir, e.name);
-        if (e.isDirectory()) walk(p);
-        else processFile(p);
+        if (e.isDirectory()) await walk(p);
+        else await processFile(p);
       }
     };
 
-    const processFile = (filePath) => {
+    const processFile = async (filePath) => {
       if (filePath.endsWith(".css")) {
         try {
           const css = fs.readFileSync(filePath, "utf8");
@@ -182,7 +182,7 @@ module.exports = function(eleventyConfig) {
       } else if (filePath.endsWith(".js")) {
         try {
           const js = fs.readFileSync(filePath, "utf8");
-          const min = Terser.minify(js, {
+          const min = await Terser.minify(js, {
             compress: {
               drop_console: true,
               drop_debugger: true,
@@ -206,7 +206,7 @@ module.exports = function(eleventyConfig) {
       }
     };
 
-    walk(outRoot);
+    await walk(outRoot);
   });
 
   return {
