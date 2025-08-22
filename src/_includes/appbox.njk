@@ -1,0 +1,26 @@
+{%- macro appbox(title, description=null, icon=null, url=null, type=null) -%}
+  {%- set content -%}
+    {%- if icon -%}
+    <img src="{{ icon }}" class="app-icon" alt aria-hidden>
+    {%- endif -%}
+    <div class="app-info">
+      {%- if type == "title" -%}
+      <h1>{{ title }}</h1>
+      {%- else -%}
+      <b>{{ title }}</b>
+      {%- endif -%}
+      {%- if description -%}
+      {{ description }}
+      {%- endif -%}
+    </div>
+  {%- endset -%}
+  {%- if url -%}
+  <a href="{{ url }}" class="app">
+    {{ content | safe }}
+  </a>
+  {%- else -%}
+  <div class="app">
+    {{ content | safe }}
+  </div>
+  {%- endif -%}
+{%- endmacro -%}

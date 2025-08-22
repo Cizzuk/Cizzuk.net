@@ -1,0 +1,23 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<article itemscope itemtype="https://schema.org/BlogPosting" itemprop="articleBody">
+  <hgroup>
+    <h1 itemprop="headline">{{ title }}</h1>
+    <time itemprop="datePublished" datetime="{{ date | dateISO }}">
+      {% if lang == "ja" %}
+      {{ date | dateJA }}
+      {% else %}
+      {{ date | date }}
+      {% endif %}
+    </time>
+    {% if update %}
+    <time itemprop="dateModified" datetime="{{ update | dateISO }}">
+      Updated: {{ update | date }}
+    </time>
+    {% endif %}
+  </hgroup>
+
+  {{ content | safe }}
+</article>
+{% endblock %}

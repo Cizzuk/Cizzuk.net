@@ -1,0 +1,29 @@
+{% set lang = lang | default(site.lang) %}
+<!doctype html>
+<html{% if lang %} lang="{{ lang }}"{% endif %}>
+  <head>
+  {% include "head.njk" %}
+  </head>
+  
+  <body>
+    {% if type != "home" %}
+    <header>
+      <a href="/">
+        <img class="proficon" src="{{ site.icons.proficon }}" alt aria-hidden>
+        <span>{{ site.title }}</span>
+      </a>
+    </header>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <footer>
+      <p class="copy">© {% currentYear %} Cizzuk</p>
+      <ul>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/posts/">Posts</a></li>
+        <li><a href="/notes/">Notes</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+{% if title and title != "" and type != "home" %}
+	{% set fullTitle = title + " - " + site.title %}
+{% else %}
+	{% set fullTitle = site.title %}
+{% endif %}
+{% set iconCandidate = icon | default(image) | default(site.icons.siteicon) %}
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="/assets/styles.css">
+{% if type == "home" %}
+<script src="/assets/home/js/home.js" defer></script>
+{% endif %}
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>{{ fullTitle }}</title>
+
+{% if iconCandidate %}
+<link rel="apple-touch-icon" href="{{ iconCandidate }}">
+{% endif %}
+<link rel="icon" type="image/png" href="{{ site.icons.favicon }}">
+
+{% if description %}
+<meta name="description" content="{{ description }}">
+{% elif type == "home" %}
+<meta name="description" content="{{ site.bio | striptags }}">
+{% endif %}
+
+{% if layout == "post" %}
+	{% if date %}
+	<meta property="article:published_time" content="{{ date | dateISO }}">
+	{% endif %}
+	{% if update %}
+	<meta property="article:modified_time" content="{{ update | dateISO }}">
+	{% endif %}
+	{% if author %}
+	<meta property="article:author" content="{{ author | default(site.title) }}">
+	{% endif %}
+{% endif %}
+
+<meta name="twitter:card" content="summary">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ fullTitle }}">
+<meta property="og:site_name" content="{{ site.title }}">
+{% if description %}
+<meta property="og:description" content="{{ description }}">
+{% elif type == "home" %}
+<meta property="og:description" content="{{ site.bio | striptags }}">
+{% endif %}
+{% if ogp or iconCandidate %}
+<meta property="og:image" content="{{ site.url }}{{ ogp | default(iconCandidate) }}">
+{% endif %}
+{% if ogp_alt %}
+<meta property="og:image:alt" content="{{ ogp_alt }}">
+{% endif %}
+{% if type == "home" %}
+<meta property="og:type" content="profile">
+{% elif layout == "post" %}
+<meta property="og:type" content="article">
+{% else %}
+<meta property="og:type" content="website">
+{% endif %}
+
+{% if noindex == true or hidden == true %}
+<meta name="robots" content="noindex">
+{% endif %}
+
+{% if canonical %}
+<link rel="canonical" href="{{ canonical }}">
+{% else %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% endif %}
+
+{% if links.itunes_app %}
+<meta name="apple-itunes-app" content="app-id={{ links.itunes_app }}">
+{% endif %}
