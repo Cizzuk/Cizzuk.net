@@ -272,9 +272,6 @@ article hgroup time {
 .postbox {
   margin: 20px 0;
 }
-.postbox * {
-  line-height: 1.4;
-}
 .postbox .postbox-title {
   font-size: 1.4em;
   font-weight: 400;
