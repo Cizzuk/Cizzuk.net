@@ -1,20 +1,25 @@
 module.exports = function(eleventyConfig) {
-  // Filters
+  // --- Settings ---
+  const TimeZone = "Asia/Tokyo";
+
+
+  // --- Filters ---
   // date
   const { DateTime } = require("luxon");
+  const toDTJST = (value) => {
+    if (!value) return DateTime.now().setZone(TimeZone);
+    if (value instanceof Date) return DateTime.fromJSDate(value, { zone: TimeZone });
+    if (typeof value === "string") return DateTime.fromISO(value, { zone: TimeZone });
+    return DateTime.fromISO(String(value), { zone: TimeZone });
+  };
   eleventyConfig.addFilter("date", (dateString) => {
-    return DateTime.fromISO(dateString).toFormat("MMMM d, yyyy");
+    return toDTJST(dateString).toFormat("MMMM d, yyyy");
   });
   eleventyConfig.addFilter("dateJA", (dateString) => {
-    return DateTime.fromISO(dateString).toFormat("yyyy年 M月 d日");
+    return toDTJST(dateString).toFormat("yyyy年 M月 d日");
   });
   eleventyConfig.addFilter("dateISO", (dateString) => {
-    return DateTime.fromISO(dateString).toFormat("yyyy-MM-dd");
-  });
-
-  // Shortcodes
-  eleventyConfig.addShortcode("currentYear", () => {
-    return DateTime.now().toFormat("yyyy");
+    return toDTJST(dateString).toFormat("yyyy-MM-dd");
   });
 
   // head: return first N items
@@ -25,7 +30,14 @@ module.exports = function(eleventyConfig) {
     return count < 0 ? arr.slice(count) : arr.slice(0, count);
   });
 
-  // Collections
+
+  // --- Shortcodes ---
+  eleventyConfig.addShortcode("currentYear", () => {
+    return DateTime.now().setZone(TimeZone).toFormat("yyyy");
+  });
+
+
+  // --- Collections ---
   eleventyConfig.addCollection("projects", function(collectionApi) {
     const projects = collectionApi.getFilteredByGlob("./src/projects/*.md");
     const order = require("./src/_data/projectOrder");
@@ -64,7 +76,8 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  // Base config
+
+  // --- Base config ---
   return {
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
