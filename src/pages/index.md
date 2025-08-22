@@ -55,7 +55,7 @@ type: "home"
 ## [Projects](/projects/)
 <section>
   {% for project in collections.projects | head(3) %}
-  {{ appbox(project.data.stitle or project.data.title,
+  {{ appbox(project.data.title,
     description=project.data.description,
     icon=project.data.icon,
     url=project.url) }}
