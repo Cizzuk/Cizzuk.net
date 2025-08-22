@@ -1,3 +1,5 @@
+# Cizzuk.net
+_site
 public/assets/styles.css
 
 # OS generated
@@ -8,14 +10,6 @@ public/assets/styles.css
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Ruby & Jekyll
-*.gem
-.bundle
-.jekyll-cache
-.sass-cache
-_site
-Gemfile.lock
 
 # Logs
 logs
