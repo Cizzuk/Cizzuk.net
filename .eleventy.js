@@ -20,6 +20,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("dateJA", (v) => toDTJST(v).toFormat("yyyy年 M月 d日"));
   eleventyConfig.addFilter("dateISO", (v) => toDTJST(v).toFormat("yyyy-MM-dd"));
 
+  // head: return first N items
   eleventyConfig.addFilter("head", (arr, n) => {
     if (!Array.isArray(arr)) return arr;
     const count = Number(n);
@@ -35,9 +36,12 @@ module.exports = function(eleventyConfig) {
     const items = api.getFilteredByGlob("./src/projects/*.md");
     const bySlug = new Map(items.map((p) => [p.fileSlug, p]));
     const order = require("./src/_data/projectOrder");
-    return order
+    const arr = order
       .map((id) => bySlug.get(id))
       .filter((p) => p && !p.data.hidden);
+    // Attach keyed access: collections.projects.<fileSlug>
+    for (const p of arr) arr[p.fileSlug] = { ...p.data, url: p.url };
+    return arr;
   });
 
   const ensureDateFromFilename = (item) => {

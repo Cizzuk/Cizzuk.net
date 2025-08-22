@@ -17,7 +17,7 @@ First, download AltStore PAL from the [official website](https://altstore.io/dow
 
 Next, open AltStore PAL using the link below and add Cizzuk's AltStore PAL source.
 
-[Add Source to AltStore PAL](altstore-pal://source?url={{ site.data.meta.altstore.palsource }})
+[Add Source to AltStore PAL](altstore-pal://source?url={{ collections.projects.cse.links.altstorepal }})
 
 Alternatively, enter the following link in the AltStore PAL app:
 
@@ -41,7 +41,7 @@ AltStore PALは現在、EU加盟国内でのみ利用できます。
 
 次に以下のリンクからAltStore PALを開いて、CizzukのAltStore PALソースを追加してください。
 
-[AltStore PALにソースを追加](altstore-pal://source?url={{ site.data.meta.altstore.palsource }})
+[AltStore PALにソースを追加](altstore-pal://source?url={{ collections.projects.cse.links.altstorepal }})
 
 あるいは以下のリンクをAltStore PALアプリ内で入力します。
 
