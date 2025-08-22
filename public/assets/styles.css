@@ -300,22 +300,19 @@ footer .copy {
   margin: 0;
   padding-inline-end: 1.5em;
 }
-footer nav {
-  display: inline-block;
-}
-footer nav ul {
+footer ul {
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
 }
-footer nav ul li {
+footer ul li {
   margin: 0;
+  margin-inline-end: 16px;
 }
-footer nav ul li a {
+footer ul li a {
   color: var(--text-gray);
   font-weight: normal;
-  padding: 8px;
 }
 
 @view-transition {
