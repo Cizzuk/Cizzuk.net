@@ -2,9 +2,9 @@
 layout: "post"
 lang: "en"
 permalink: "/posts/available-on-altstorepal/"
+title: "My iOS apps are available on AltStore PAL"
 tags: ['altstorepal']
 description: "Cizzuk's iOS apps are available for installation via AltStore PAL."
-title: "My iOS apps are available on AltStore PAL"
 ---
 
 My iOS apps I previously distributed on the App Store are available for installation via [AltStore PAL](https://altstore.io/).

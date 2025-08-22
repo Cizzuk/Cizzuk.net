@@ -2,9 +2,9 @@
 layout: "post"
 lang: "ja"
 permalink: "/posts/shopping_course/"
+title: "shopping_course"
 description: "マリオカートWii ココナッツモールのBGMをアレンジしました。"
 icon: "/assets/posts/shopping_course/icon.png"
-title: "shopping_course"
 ---
 
 マリオカートWii ココナッツモールのBGMをアレンジしました。
