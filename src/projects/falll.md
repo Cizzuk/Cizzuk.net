@@ -6,7 +6,7 @@ permalink: "/projects/falll/"
 title: "FALLLL"
 icon: "/assets/projects/falll/icon.png"
 version: "4.0.2"
-link:
+links:
   playweb: "https://i.cizzuk.net/junk/falll/"
   itunes_app: "1526930790"
   appstore: "https://apps.apple.com/app/fallll/id1526930790"
@@ -20,7 +20,7 @@ hidden: true
 
 {{ components.appbox(title, type="title", icon=icon) }}
 
-[Play on the Web]({{ link.playweb }})
+[Play on the Web]({{ links.playweb }})
 
 ## Download
 
