@@ -12,6 +12,11 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromISO(dateString).toFormat("yyyy-MM-dd");
   });
 
+  // Shortcodes
+  eleventyConfig.addShortcode("currentYear", () => {
+    return DateTime.now().toFormat("yyyy");
+  });
+
   // head: return first N items
   eleventyConfig.addFilter("head", (arr, n) => {
     if (!Array.isArray(arr)) return arr;
