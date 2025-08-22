@@ -21,3 +21,5 @@ description: "List of my projects"
 {% else %}
 <strong>No projects here</strong>
 {% endif %}
+
+Other projects are available on [GitHub](https://github.com/Cizzuk).
