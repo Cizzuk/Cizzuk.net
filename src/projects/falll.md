@@ -16,7 +16,7 @@ links:
   file:
     apk: "https://i.cizzuk.net/file/FALLLL.apk"
     linux: "https://i.cizzuk.net/file/FALLLL-Linux.tar.xz"
-    win: "https://i.cizzuk.net/file/FALLLL-Win.zip"
+    windows: "https://i.cizzuk.net/file/FALLLL-Windows.7z"
     macos: "https://i.cizzuk.net/file/FALLLL.dmg"
     ios: "https://i.cizzuk.net/file/FALLLL-iOS.ipa"
     tvos: "https://i.cizzuk.net/file/FALLLL-tvOS.ipa"
@@ -39,7 +39,7 @@ Latest Version: {{ version }}
 - File
   - [Andriod (APK)]({{ links.file.apk }})
   - [Linux (x86_64)]({{ links.file.linux }})
-  - [Windows (x86_64)]({{ links.file.win }})
+  - [Windows (x86_64)]({{ links.file.windows }})
   - [macOS (Universal)]({{ links.file.macos }})
   - [iOS]({{ links.file.ios }})
   - [tvOS]({{ links.file.tvos }})
