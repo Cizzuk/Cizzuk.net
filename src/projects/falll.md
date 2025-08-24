@@ -6,31 +6,43 @@ permalink: "/projects/falll/"
 title: "FALLLL"
 icon: "/assets/projects/falll/icon.png"
 version: "4.0.3"
-link:
+links:
   playweb: "https://i.cizzuk.net/junk/falll/"
   itunes_app: "1526930790"
-  appstore: "https://apps.apple.com/app/fallll/id1526930790"
-  msstore: "https://www.microsoft.com/store/apps/9NJ13XVFLH0Z"
-  apk: "https://i.cizzuk.net/file/FALLLL.apk"
-  linux: "https://i.cizzuk.net/file/FALLLL.tar.xz"
-  altstore: "altstore://install?url=https://i.cizzuk.net/file/FALLLL-iOS.ipa"
+  store:
+    appstore: "https://apps.apple.com/app/fallll/id1526930790"
+    msstore: "https://www.microsoft.com/store/apps/9NJ13XVFLH0Z"
+    altstore: "altstore://install?url=https://i.cizzuk.net/file/FALLLL-iOS.ipa"
+  file:
+    apk: "https://i.cizzuk.net/file/FALLLL.apk"
+    linux: "https://i.cizzuk.net/file/FALLLL-Linux.tar.xz"
+    win: "https://i.cizzuk.net/file/FALLLL-Win.zip"
+    macos: "https://i.cizzuk.net/file/FALLLL.dmg"
+    ios: "https://i.cizzuk.net/file/FALLLL-iOS.ipa"
+    tvos: "https://i.cizzuk.net/file/FALLLL-tvOS.ipa"
 hidden: true
 ---
 {% import 'appbox.njk' as components %}
 
 {{ components.appbox(title, type="title", icon=icon) }}
 
-[Play on the Web]({{ link.playweb }})
+[Play on the Web]({{ links.playweb }})
 
 ## Download
 
 Latest Version: {{ version }}
 
-- [Download on the App Store]({{ links.appstore }})
-- [Get it from Microsoft Store]({{ links.msstore }})
-- [Andriod (APK)]({{ links.apk }})
-- [Linux (x86_64)]({{ links.linux }})
-- [AltStore]({{ links.altstore }})
+- Store
+  - [Download on the App Store]({{ links.store.appstore }})
+  - [Get it from Microsoft Store]({{ links.store.msstore }})
+  - [AltStore]({{ links.store.altstore }})
+- File
+  - [Andriod (APK)]({{ links.file.apk }})
+  - [Linux (x86_64)]({{ links.file.linux }})
+  - [Windows (x86_64)]({{ links.file.win }})
+  - [macOS (Universal)]({{ links.file.macos }})
+  - [iOS]({{ links.file.ios }})
+  - [tvOS]({{ links.file.tvos }})
 
 <details>
   <summary>Compatibility</summary>
