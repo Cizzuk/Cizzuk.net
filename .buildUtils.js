@@ -8,6 +8,18 @@ const htmlMinifier = require("html-minifier-terser");
 const Terser = require("terser");
 const { DateTime } = require("luxon");
 
+// -------- Logging helper --------
+const logTag = (name, message) => {
+  let tag;
+  // Check if terminal supports color
+  if (process.stdout && process.stdout.isTTY) {
+    tag = `\x1b[90m[${name}]\x1b[0m`;
+  } else {
+    tag = `[${name}]`;
+  }
+  console.log(`${tag} ${message}`);
+};
+
 // -------- Date helpers --------
 const toDT = (value, tz) => {
   if (!value) {
@@ -65,6 +77,7 @@ const cleanDir = (dirPath) => {
   try {
     if (fs.existsSync(dirPath)) {
       fs.rmSync(dirPath, { recursive: true, force: false });
+      logTag("build", `cleaned: ${dirPath}`);
     }
   } catch (e) {
     console.warn("Failed to clean dir:", dirPath, e.message);
@@ -77,6 +90,7 @@ const compileSass = (srcFile, outFile, { style = "expanded", sourceMap = false }
   const result = sass.compile(srcFile, { style, sourceMap });
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(outFile, result.css);
+  logTag("sass", `${path.relative(process.cwd(), srcFile)} -> ${path.relative(process.cwd(), outFile)}`);
 };
 
 // -------- Minifiers --------
@@ -242,6 +256,7 @@ const renameAssetsAndRewriteHtml = async ({
 
   for (const [oldPath, newPath] of filesToRename) {
     fs.renameSync(oldPath, newPath);
+    logTag("rename", `${path.relative(outRoot, oldPath)} -> ${path.relative(outRoot, newPath)}`);
   }
 
   if (mapping.size === 0) return;
@@ -271,6 +286,7 @@ const renameAssetsAndRewriteHtml = async ({
 
     if (changed) {
       fs.writeFileSync(filePath, html);
+      logTag("rewrite", `HTML links in ${path.relative(outRoot, filePath)}`);
     }
   });
 };
@@ -296,4 +312,6 @@ module.exports = {
   renameAssetsAndRewriteHtml,
   // filters
   firstItems,
+  // logging
+  logTag,
 };

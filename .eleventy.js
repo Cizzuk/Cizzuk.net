@@ -18,10 +18,12 @@ module.exports = function(eleventyConfig) {
     renameAssetsAndRewriteHtml,
     // filters
     firstItems,
+    // logging
+    logTag,
   } = require("./.buildUtils");
 
 
-  // === Configurable Settings ===
+  // -------- Configurable Settings --------
   const TZ = "Asia/Tokyo";
   const DIRS = {
     input: "src",
@@ -55,7 +57,7 @@ module.exports = function(eleventyConfig) {
   };
 
 
-  // === Filters ===
+  // -------- Filters --------
   eleventyConfig.addFilter("date", (value) => {
     return toDT(value, TZ).toFormat("MMMM d, yyyy");
   });
@@ -72,11 +74,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("firstItems", firstItems);
 
 
-  // === Shortcodes ===
+  // -------- Shortcodes --------
   eleventyConfig.addShortcode("currentYear", () => getCurrentYear(TZ));
 
 
-  // === Collections === (exclude items with hidden: true)
+  // -------- Collections -------- (exclude items with hidden: true)
   eleventyConfig.addCollection("projects", (api) => {
     const items = api.getFilteredByGlob("./src/projects/*.md");
     const bySlug = new Map(items.map((project) => [project.fileSlug, project]));
@@ -114,7 +116,7 @@ module.exports = function(eleventyConfig) {
   });
 
 
-  // === Static & assets ===
+  // -------- Static & assets --------
   eleventyConfig.addPassthroughCopy({ [DIRS.public]: "/" });
   eleventyConfig.addWatchTarget(DIRS.public);
 
@@ -135,7 +137,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget(path.join(DIRS.public, DIRS.assetsSubdir, "styles.scss"));
 
 
-  // === Transforms ===
+  // -------- Transforms --------
   eleventyConfig.addTransform("minify-output", async (content, outputPath) => {
     if (!outputPath) {
       return content;
@@ -143,7 +145,9 @@ module.exports = function(eleventyConfig) {
 
     if (outputPath.endsWith(".html")) {
       try {
-        return await minifyHtml(content);
+        const out = await minifyHtml(content);
+        logTag("minify", `HTML ${outputPath}`);
+        return out;
       } catch (e) {
         console.warn("HTML minify failed for", outputPath, e.message);
         return content;
@@ -152,7 +156,9 @@ module.exports = function(eleventyConfig) {
 
     if (outputPath.endsWith(".js")) {
       try {
-        return await minifyJs(content);
+        const out = await minifyJs(content);
+        logTag("minify", `JS ${outputPath}`);
+        return out;
       } catch (e) {
         console.warn("JS minify failed for", outputPath, e.message);
         return content;
@@ -161,7 +167,9 @@ module.exports = function(eleventyConfig) {
 
     if (outputPath.endsWith(".xml")) {
       try {
-        return minifyXml(content);
+        const out = minifyXml(content);
+        logTag("minify", `XML ${outputPath}`);
+        return out;
       } catch (e) {
         console.warn("XML minify failed for", outputPath, e.message);
         return content;
@@ -172,7 +180,7 @@ module.exports = function(eleventyConfig) {
   });
 
 
-  // === Minify assets ===
+  // -------- Minify assets --------
   eleventyConfig.on("afterBuild", async () => {
     if (!fs.existsSync(outRoot)) {
       return;
@@ -186,6 +194,7 @@ module.exports = function(eleventyConfig) {
           const css = fs.readFileSync(filePath, "utf8");
           const minified = minifyCss(css);
           fs.writeFileSync(filePath, minified);
+          logTag("minify", `CSS ${filePath}`);
         } catch (e) {
           console.warn("CSS minify failed for", filePath, e.message);
         }
@@ -194,6 +203,7 @@ module.exports = function(eleventyConfig) {
           const js = fs.readFileSync(filePath, "utf8");
           const minified = await minifyJs(js);
           fs.writeFileSync(filePath, minified);
+          logTag("minify", `JS ${filePath}`);
         } catch (e) {
           console.warn("JS minify failed for", filePath, e.message);
         }
@@ -202,6 +212,7 @@ module.exports = function(eleventyConfig) {
           const xml = fs.readFileSync(filePath, "utf8");
           const minified = minifyXml(xml);
           fs.writeFileSync(filePath, minified);
+          logTag("minify", `XML ${filePath}`);
         } catch (e) {
           console.warn("XML minify failed for", filePath, e.message);
         }
