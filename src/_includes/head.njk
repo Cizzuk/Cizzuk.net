@@ -13,7 +13,7 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
-<title>{{ fullTitle }}</title>
+<title>{{ fullTitle | safe }}</title>
 
 {% if iconCandidate %}
 <link rel="apple-touch-icon" href="{{ iconCandidate }}">
@@ -21,9 +21,9 @@
 <link rel="icon" type="image/png" href="{{ site.icons.favicon }}">
 
 {% if description %}
-<meta name="description" content="{{ description }}">
+<meta name="description" content="{{ description | safe }}">
 {% elif type == "home" %}
-<meta name="description" content="{{ site.bio | striptags }}">
+<meta name="description" content="{{ site.bio | striptags | safe }}">
 {% endif %}
 
 {% if layout == "post" %}
@@ -41,17 +41,17 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ fullTitle }}">
-<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:site_name" content="{{ site.title | safe }}">
 {% if description %}
-<meta property="og:description" content="{{ description }}">
+<meta property="og:description" content="{{ description | safe }}">
 {% elif type == "home" %}
-<meta property="og:description" content="{{ site.bio | striptags }}">
+<meta property="og:description" content="{{ site.bio | striptags | safe }}">
 {% endif %}
 {% if ogp or iconCandidate %}
 <meta property="og:image" content="{{ site.url }}{{ ogp | default(iconCandidate) }}">
 {% endif %}
 {% if ogp_alt %}
-<meta property="og:image:alt" content="{{ ogp_alt }}">
+<meta property="og:image:alt" content="{{ ogp_alt | safe }}">
 {% endif %}
 {% if type == "home" %}
 <meta property="og:type" content="profile">
