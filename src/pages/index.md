@@ -54,7 +54,7 @@ type: "home"
 {% if collections.projects | length > 0 %}
 ## [Projects](/projects/)
 <section>
-  {% for project in collections.projects | head(3) %}
+  {% for project in collections.projects | firstItems(3) %}
   {{ appbox(project.data.stitle or project.data.title,
     description=project.data.description,
     icon=project.data.icon,
@@ -66,7 +66,7 @@ type: "home"
 {% if collections.posts | length > 0 %}
 ## [Posts](/posts/)
 <section>
-  {% for post in collections.posts | head(3) %}
+  {% for post in collections.posts | firstItems(3) %}
   {{ postbox(post, 'h2') }}
   {% endfor %}
 </section>
@@ -75,7 +75,7 @@ type: "home"
 {% if collections.notes | length > 0 %}
 ## [Notes](/notes/)
 <section>
-  {% for post in collections.notes | head(3) %}
+  {% for post in collections.notes | firstItems(3) %}
   {{ postbox(post, "h3") }}
   {% endfor %}
 </section>

@@ -1,129 +1,149 @@
 module.exports = function(eleventyConfig) {
-  const { DateTime } = require("luxon");
-  const fs = require("node:fs");
   const path = require("node:path");
-  const sass = require("sass");
-  const csso = require("csso");
-  const htmlMinifier = require("html-minifier-terser");
-  const Terser = require("terser");
+  const fs = require("node:fs");
+  const {
+    // date helpers
+    toDT,
+    getCurrentYear,
+    ensureDateFromFilename,
+    sortByDateDesc,
+    // build helpers
+    cleanDir,
+    compileSass,
+    // minifiers
+    minifyHtml,
+    minifyJs,
+    minifyXml,
+    // hashing & rewrite
+    renameAssetsAndRewriteHtml,
+    // filters
+    firstItems,
+  } = require("./.buildUtils");
 
+
+  // === Configurable Settings ===
   const TZ = "Asia/Tokyo";
-
-  // Filters
-  const toDTJST = (value) => {
-    if (!value) return DateTime.now().setZone(TZ);
-    if (value instanceof Date) return DateTime.fromJSDate(value, { zone: TZ });
-    if (typeof value === "string") return DateTime.fromISO(value, { zone: TZ });
-    return DateTime.fromISO(String(value), { zone: TZ });
+  const DIRS = {
+    input: "src",
+    includes: "_includes",
+    data: "_data",
+    output: "_site",
+    public: "public",
+    assetsSubdir: "assets",
   };
-  eleventyConfig.addFilter("date", (v) => toDTJST(v).toFormat("MMMM d, yyyy"));
-  eleventyConfig.addFilter("dateJA", (v) => toDTJST(v).toFormat("yyyy年 M月 d日"));
-  eleventyConfig.addFilter("dateISO", (v) => toDTJST(v).toFormat("yyyy-MM-dd"));
+  const ASSETS = {
+    // Primary stylesheet compilation
+    scssEntry: path.join(__dirname, DIRS.public, DIRS.assetsSubdir, "styles.scss"),
+    cssOut: path.join(__dirname, DIRS.output, DIRS.assetsSubdir, "styles.css"),
+    // File types to hash-and-rename after minify
+    hashIncludeExts: [
+      ".css",
+      ".js",
+      ".png",
+      ".jpg",
+      ".jpeg",
+      ".gif",
+      ".webp",
+      ".svg",
+      ".ico",
+      ".avif",
+      ".bmp",
+      ".tif",
+      ".tiff",
+    ],
+    renamePattern: "{name}-{hash}-opt{ext}",
+  };
 
-  // head: return first N items
-  eleventyConfig.addFilter("head", (arr, n) => {
-    if (!Array.isArray(arr)) return arr;
-    const count = Number(n);
-    if (Number.isNaN(count)) return arr;
-    return count < 0 ? arr.slice(count) : arr.slice(0, count);
+
+  // === Filters ===
+  eleventyConfig.addFilter("date", (value) => {
+    return toDT(value, TZ).toFormat("MMMM d, yyyy");
   });
 
-  // Shortcodes
-  eleventyConfig.addShortcode("currentYear", () => DateTime.now().setZone(TZ).toFormat("yyyy"));
+  eleventyConfig.addFilter("dateJA", (value) => {
+    return toDT(value, TZ).toFormat("yyyy年 M月 d日");
+  });
 
-  // Collections (exclude items with hidden: true)
+  eleventyConfig.addFilter("dateISO", (value) => {
+    return toDT(value, TZ).toFormat("yyyy-MM-dd");
+  });
+
+  // return first N items
+  eleventyConfig.addFilter("firstItems", firstItems);
+
+
+  // === Shortcodes ===
+  eleventyConfig.addShortcode("currentYear", () => getCurrentYear(TZ));
+
+
+  // === Collections === (exclude items with hidden: true)
   eleventyConfig.addCollection("projects", (api) => {
     const items = api.getFilteredByGlob("./src/projects/*.md");
-    const bySlug = new Map(items.map((p) => [p.fileSlug, p]));
+    const bySlug = new Map(items.map((project) => [project.fileSlug, project]));
+
     const order = require("./src/_data/projectOrder");
-    const arr = order
+
+    const orderedVisible = order
       .map((id) => bySlug.get(id))
-      .filter((p) => p && !p.data.hidden);
+      .filter((project) => project && !project.data.hidden);
+
     // Attach keyed access: collections.projects.<fileSlug>
-    for (const p of arr) arr[p.fileSlug] = { ...p.data, url: p.url };
-    return arr;
-  });
-
-  const ensureDateFromFilename = (item) => {
-    if (!item.data.date) {
-      const m = item.inputPath.match(/(\d{4}-\d{2}-\d{2})-/);
-      if (m) item.data.date = m[1];
+    for (const project of orderedVisible) {
+      orderedVisible[project.fileSlug] = { ...project.data, url: project.url };
     }
-  };
 
-  const sortByDateDesc = (a, b) => {
-    const ad = a.data.date || a.date;
-    const bd = b.data.date || b.date;
-    return new Date(bd) - new Date(ad);
-  };
+    return orderedVisible;
+  });
 
   eleventyConfig.addCollection("posts", (api) => {
     const items = api.getFilteredByGlob("./src/posts/**/*.md");
     items.forEach(ensureDateFromFilename);
-    return items.filter((i) => !i.data.hidden).sort(sortByDateDesc);
+
+    const visible = items.filter((item) => !item.data.hidden);
+    const sorted = visible.sort(sortByDateDesc);
+    return sorted;
   });
 
   eleventyConfig.addCollection("notes", (api) => {
     const items = api.getFilteredByGlob("./src/notes/**/*.md");
     items.forEach(ensureDateFromFilename);
-    return items.filter((i) => !i.data.hidden).sort(sortByDateDesc);
+
+    const visible = items.filter((item) => !item.data.hidden);
+    const sorted = visible.sort(sortByDateDesc);
+    return sorted;
   });
 
-  // Static & assets
-  eleventyConfig.addPassthroughCopy({ public: "/" });
-  eleventyConfig.addWatchTarget("public");
 
-  const compileSass = () => {
-    const src = path.join(__dirname, "public", "assets", "styles.scss");
-    if (!fs.existsSync(src)) return;
-    const outDir = path.join(__dirname, "_site", "assets");
-    const outFile = path.join(outDir, "styles.css");
-    const result = sass.compile(src, { style: "compressed", sourceMap: false });
-    fs.mkdirSync(outDir, { recursive: true });
-    fs.writeFileSync(outFile, result.css);
-  };
+  // === Static & assets ===
+  eleventyConfig.addPassthroughCopy({ [DIRS.public]: "/" });
+  eleventyConfig.addWatchTarget(DIRS.public);
 
-  const cleanOutputDir = () => {
-    const outRoot = path.join(__dirname, "_site");
-    try {
-      if (fs.existsSync(outRoot)) fs.rmSync(outRoot, { recursive: true, force: false });
-    } catch (e) {
-      console.warn("Failed to clean _site:", e.message);
-    }
-  };
+  const outRoot = path.join(__dirname, DIRS.output);
 
-  eleventyConfig.on("beforeBuild", cleanOutputDir);
-  eleventyConfig.on("beforeBuild", compileSass);
-  eleventyConfig.on("beforeWatch", compileSass);
-  eleventyConfig.addWatchTarget("public/assets/styles.scss");
+  function compileSassTask() {
+    compileSass(ASSETS.scssEntry, ASSETS.cssOut, {
+      style: "compressed",
+      sourceMap: false,
+    });
+  }
 
-  // Minify helpers (simple XML minifier; no special HTML island handling)
-  const minifyXML = (content) =>
-    content
-      .replace(/<!--[\s\S]*?-->/g, "")
-      .replace(/>\s+</g, "><")
-      .trim();
+  eleventyConfig.on("beforeBuild", () => {
+    cleanDir(outRoot);
+  });
+  eleventyConfig.on("beforeBuild", compileSassTask);
+  eleventyConfig.on("beforeWatch", compileSassTask);
+  eleventyConfig.addWatchTarget(path.join(DIRS.public, DIRS.assetsSubdir, "styles.scss"));
 
-  // Transforms
+
+  // === Transforms ===
   eleventyConfig.addTransform("minify-output", async (content, outputPath) => {
-    if (!outputPath) return content;
+    if (!outputPath) {
+      return content;
+    }
 
     if (outputPath.endsWith(".html")) {
       try {
-        return await htmlMinifier.minify(content, {
-          collapseWhitespace: true,
-          conservativeCollapse: false,
-          removeComments: true,
-          removeRedundantAttributes: true,
-          removeEmptyAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          minifyCSS: true,
-          minifyJS: true,
-          keepClosingSlash: true,
-          sortAttributes: true,
-          sortClassName: true,
-        });
+        return await minifyHtml(content);
       } catch (e) {
         console.warn("HTML minify failed for", outputPath, e.message);
         return content;
@@ -132,25 +152,16 @@ module.exports = function(eleventyConfig) {
 
     if (outputPath.endsWith(".js")) {
       try {
-        const min = await Terser.minify(content, {
-          compress: {
-            drop_console: true,
-            drop_debugger: true,
-            pure_funcs: ["console.log", "console.info"],
-          },
-          mangle: true,
-          format: { comments: false },
-        });
-        if (min.code) return min.code;
+        return await minifyJs(content);
       } catch (e) {
         console.warn("JS minify failed for", outputPath, e.message);
+        return content;
       }
-      return content;
     }
 
     if (outputPath.endsWith(".xml")) {
       try {
-        return minifyXML(content);
+        return minifyXml(content);
       } catch (e) {
         console.warn("XML minify failed for", outputPath, e.message);
         return content;
@@ -160,69 +171,63 @@ module.exports = function(eleventyConfig) {
     return content;
   });
 
-  // Minify passthrough assets in _site
+
+  // === Minify assets ===
   eleventyConfig.on("afterBuild", async () => {
-    const outRoot = path.join(__dirname, "_site");
-    if (!fs.existsSync(outRoot)) return;
+    if (!fs.existsSync(outRoot)) {
+      return;
+    }
 
-    const walk = async (dir) => {
-      const entries = fs.readdirSync(dir, { withFileTypes: true });
-      for (const e of entries) {
-        const p = path.join(dir, e.name);
-        if (e.isDirectory()) await walk(p);
-        else await processFile(p);
-      }
-    };
-
-    const processFile = async (filePath) => {
+    // First pass: minify passthrough CSS/JS/XML
+    const { walkDir, minifyCss } = require("./.buildUtils");
+    await walkDir(outRoot, async (filePath) => {
       if (filePath.endsWith(".css")) {
         try {
           const css = fs.readFileSync(filePath, "utf8");
-          const min = csso.minify(css).css;
-          fs.writeFileSync(filePath, min);
+          const minified = minifyCss(css);
+          fs.writeFileSync(filePath, minified);
         } catch (e) {
           console.warn("CSS minify failed for", filePath, e.message);
         }
       } else if (filePath.endsWith(".js")) {
         try {
           const js = fs.readFileSync(filePath, "utf8");
-          const min = await Terser.minify(js, {
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-              pure_funcs: ["console.log", "console.info"],
-            },
-            mangle: true,
-            format: { comments: false },
-          });
-          if (min.code) fs.writeFileSync(filePath, min.code);
+          const minified = await minifyJs(js);
+          fs.writeFileSync(filePath, minified);
         } catch (e) {
           console.warn("JS minify failed for", filePath, e.message);
         }
       } else if (filePath.endsWith(".xml")) {
         try {
           const xml = fs.readFileSync(filePath, "utf8");
-          const min = minifyXML(xml);
-          fs.writeFileSync(filePath, min);
+          const minified = minifyXml(xml);
+          fs.writeFileSync(filePath, minified);
         } catch (e) {
           console.warn("XML minify failed for", filePath, e.message);
         }
       }
-    };
+    });
 
-    await walk(outRoot);
+    // Second pass: rename cacheable assets + rewrite HTML
+    await renameAssetsAndRewriteHtml({
+      outRoot,
+      assetsSubdir: DIRS.assetsSubdir,
+      includeExts: ASSETS.hashIncludeExts,
+      renamePattern: ASSETS.renamePattern,
+    });
   });
 
+  
   return {
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
     dir: {
-      input: "src",
-      includes: "_includes",
-      data: "_data",
-      output: "_site",
+      input: DIRS.input,
+      includes: DIRS.includes,
+      data: DIRS.data,
+      output: DIRS.output,
     },
   };
 };
