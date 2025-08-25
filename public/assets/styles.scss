@@ -217,36 +217,16 @@ header {
       a {
         border-radius: 6px;
         display: inline-block;
+        height: 42px;
         padding: 6px;
         transition: background 0.2s;
-        
+        width: 42px;
+
         &:hover {
           background: var(--bg-accent);
         }
-        
-        * {
-          height: 30px;
-          width: 30px;
-        }
       }
     }
-  }
-}
-
-// Button
-.btn {
-  background: var(--bg-accent);
-  border-radius: 8px;
-  color: var(--text);
-  display: inline-block;
-  padding: 9px 17px;
-  transition: background 0.2s;
-  
-  &:hover,
-  &:focus {
-    background: var(--bg-accent-high);
-    color: var(--text);
-    text-decoration: none;
   }
 }
 
