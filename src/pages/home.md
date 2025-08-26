@@ -7,44 +7,44 @@ type: "home"
 {% from 'appbox.njk' import appbox %}
 {% from 'postbox.njk' import postbox %}
 
-<div class="profbox">
+<div class="profbox" itemscope itemtype="http://schema.org/Person">
   <div class="proficon" aria-hidden data-svg="drpct">
     <noscript>
-      <img src="{{ site.icons.proficon }}" alt>
+      <img src="{{ site.icons.proficon }}" alt itemprop="image">
     </noscript>
   </div>
-  <h1>{{ site.title }}</h1>
-  <p>{{ site.bio }}</p>
+  <h1 itemprop="name">{{ site.title }}</h1>
+  <p itemprop="description">{{ site.bio }}</p>
   <p lang="ja">{{ site.bio_ja }}</p>
 
   <ul>
     <li>
-      <a href="https://github.com/Cizzuk" aria-label="GitHub" data-svg="gh" title="GitHub" rel="me">
+      <a href="https://github.com/Cizzuk" title="GitHub" aria-label="GitHub" data-svg="gh" rel="me" itemprop="sameAs">
         <noscript>
-          <img alt="GitHub" src="/assets/home/icons/gh.png" class="dark-reverse">
+          <img src="/assets/home/icons/gh.png" alt="GitHub" class="dark-reverse">
         </noscript>
       </a>
     </li>
     <li>
-      <a href="https://zenn.dev/cizzuk" aria-label="Zenn" data-svg="zenn" title="Zenn" rel="me">
+      <a href="https://zenn.dev/cizzuk" title="Zenn" aria-label="Zenn" data-svg="zenn" rel="me" itemprop="sameAs">
         <noscript>
-          <img alt="Zenn" src="/assets/home/icons/zenn.png">
+          <img src="/assets/home/icons/zenn.png" alt="Zenn">
         </noscript>
       </a>
     </li>
   </ul>
   <ul>
     <li>
-      <a href="/contact/" aria-label="Contact" data-svg="mail" title="Contact">
+      <a href="/contact/" title="Contact" aria-label="Contact" data-svg="mail" itemprop="email">
         <noscript>
-          <img alt="Contact" src="/assets/home/icons/mail.png" class="dark-reverse">
+          <img src="/assets/home/icons/mail.png" alt="Contact" class="dark-reverse">
         </noscript>
       </a>
     </li>
     <li>
-      <a href="/tip/" aria-label="Send a tip" data-svg="heart" title="Send a tip">
+      <a href="/tip/" title="Send a tip" aria-label="Send a tip" data-svg="heart">
         <noscript>
-          <img alt="Send a tip" src="/assets/home/icons/heart.png" class="dark-reverse">
+          <img src="/assets/home/icons/heart.png" alt="Send a tip" class="dark-reverse">
         </noscript>
       </a>
     </li>
