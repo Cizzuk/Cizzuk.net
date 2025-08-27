@@ -5,6 +5,7 @@ permalink: "/posts/available-on-altstorepal/"
 tags: ['altstorepal']
 description: "Cizzuk's iOS apps are available for installation via AltStore PAL."
 title: "My iOS apps are available on AltStore PAL"
+update: 2025-08-27
 ---
 
 My iOS apps I previously distributed on the App Store are available for installation via [AltStore PAL](https://altstore.io/).
@@ -17,12 +18,12 @@ First, download AltStore PAL from the [official website](https://altstore.io/dow
 
 Next, open AltStore PAL using the link below and add Cizzuk's AltStore PAL source.
 
-[Add Source to AltStore PAL](altstore-pal://source?url={{ collections.projects.cse.links.altstorepal }})
+[Add Source to AltStore PAL](altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json)
 
 Alternatively, enter the following link in the AltStore PAL app:
 
 ```
-cizz.uk/altstorepal
+i.cizzuk.net/altstore/source.pal.json
 ```
 
 Once the source is added, you can find my apps either in the Browse tab or from the Cizzuk source.
@@ -41,12 +42,12 @@ AltStore PALは現在、EU加盟国内でのみ利用できます。
 
 次に以下のリンクからAltStore PALを開いて、CizzukのAltStore PALソースを追加してください。
 
-[AltStore PALにソースを追加](altstore-pal://source?url={{ collections.projects.cse.links.altstorepal }})
+[AltStore PALにソースを追加](altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json)
 
 あるいは以下のリンクをAltStore PALアプリ内で入力します。
 
 ```
-cizz.uk/altstorepal
+i.cizzuk.net/altstore/source.pal.json
 ```
 
 ソースを追加すると、BrowseタブかCizzukのソースから私のアプリを見つけることができます。
