@@ -13,7 +13,11 @@
     </time>
     {% if update %}
     <time itemprop="dateModified" datetime="{{ update | dateISO }}">
+      {% if lang == "ja" %}
+      更新: {{ update | dateJA }}
+      {% else %}
       Updated: {{ update | date }}
+      {% endif %}
     </time>
     {% endif %}
   </hgroup>
