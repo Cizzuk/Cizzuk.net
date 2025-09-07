@@ -55,7 +55,6 @@ Latest Version: {{ version }}
     <ul>
       <li>x86</li>
       <li>x64</li>
-      <li>Arm</li>
       <li>Arm64</li>
     </ul>
     <li>Linux</li>
