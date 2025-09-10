@@ -2,9 +2,9 @@
 layout: "post"
 lang: "ja"
 permalink: "/posts/treehouse_course/"
+title: "treehouse_course"
 description: "マリオカートWii メイプルツリーハウスのBGMをアレンジしました。"
 icon: "/assets/posts/treehouse_course/icon.png"
-title: "treehouse_course"
 ---
 
 マリオカートWii メイプルツリーハウスのBGMをアレンジしました。

@@ -5,15 +5,16 @@ collection: "app"
 permalink: "/projects/falll/"
 title: "FALLLL"
 icon: "/assets/projects/falll/icon.png"
-version: "4.0.2"
+version: "4.0.3"
 links:
   playweb: "https://i.cizzuk.net/junk/falll/"
   itunes_app: "1526930790"
-  appstore: "https://apps.apple.com/app/fallll/id1526930790"
-  msstore: "https://www.microsoft.com/store/apps/9NJ13XVFLH0Z"
-  apk: "https://i.cizzuk.net/file/FALLLL.apk"
-  linux: "https://i.cizzuk.net/file/FALLLL.tar.xz"
-  altstore: "altstore://install?url=https://i.cizzuk.net/file/FALLLL-iOS.ipa"
+  store:
+    appstore: "https://apps.apple.com/app/fallll/id1526930790"
+    msstore: "https://www.microsoft.com/store/apps/9NJ13XVFLH0Z"
+  file:
+    apk: "https://i.cizzuk.net/file/FALLLL.apk"
+    linux: "https://i.cizzuk.net/file/FALLLL-Linux.tar.xz"
 hidden: true
 ---
 {% import 'appbox.njk' as components %}
@@ -26,11 +27,10 @@ hidden: true
 
 Latest Version: {{ version }}
 
-- [Download on the App Store]({{ links.appstore }})
-- [Get it from Microsoft Store]({{ links.msstore }})
-- [Andriod (APK)]({{ links.apk }})
-- [Linux (x86_64)]({{ links.linux }})
-- [AltStore]({{ links.altstore }})
+- [Download on the App Store]({{ links.store.appstore }})
+- [Get it from Microsoft Store]({{ links.store.msstore }})
+- [Andriod (APK)]({{ links.file.apk }})
+- [Linux (x86_64)]({{ links.file.linux }})
 
 <details>
   <summary>Compatibility</summary>
@@ -43,7 +43,6 @@ Latest Version: {{ version }}
     <ul>
       <li>x86</li>
       <li>x64</li>
-      <li>Arm</li>
       <li>Arm64</li>
     </ul>
     <li>Linux</li>
