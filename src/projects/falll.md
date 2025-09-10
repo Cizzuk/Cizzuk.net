@@ -12,14 +12,9 @@ links:
   store:
     appstore: "https://apps.apple.com/app/fallll/id1526930790"
     msstore: "https://www.microsoft.com/store/apps/9NJ13XVFLH0Z"
-    altstore: "altstore://install?url=https://i.cizzuk.net/file/FALLLL-iOS.ipa"
   file:
     apk: "https://i.cizzuk.net/file/FALLLL.apk"
     linux: "https://i.cizzuk.net/file/FALLLL-Linux.tar.xz"
-    windows: "https://i.cizzuk.net/file/FALLLL-Windows.7z"
-    macos: "https://i.cizzuk.net/file/FALLLL.dmg"
-    ios: "https://i.cizzuk.net/file/FALLLL-iOS.ipa"
-    tvos: "https://i.cizzuk.net/file/FALLLL-tvOS.ipa"
 hidden: true
 ---
 {% import 'appbox.njk' as components %}
@@ -32,17 +27,10 @@ hidden: true
 
 Latest Version: {{ version }}
 
-- Store
-  - [Download on the App Store]({{ links.store.appstore }})
-  - [Get it from Microsoft Store]({{ links.store.msstore }})
-  - [AltStore]({{ links.store.altstore }})
-- File
-  - [Andriod (APK)]({{ links.file.apk }})
-  - [Linux (x86_64)]({{ links.file.linux }})
-  - [Windows (x86_64)]({{ links.file.windows }})
-  - [macOS (Universal)]({{ links.file.macos }})
-  - [iOS]({{ links.file.ios }})
-  - [tvOS]({{ links.file.tvos }})
+- [Download on the App Store]({{ links.store.appstore }})
+- [Get it from Microsoft Store]({{ links.store.msstore }})
+- [Andriod (APK)]({{ links.file.apk }})
+- [Linux (x86_64)]({{ links.file.linux }})
 
 <details>
   <summary>Compatibility</summary>
