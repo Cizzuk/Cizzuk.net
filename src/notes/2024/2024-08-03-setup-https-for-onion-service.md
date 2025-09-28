@@ -2,8 +2,8 @@
 layout: "post"
 lang: "ja"
 permalink: "/notes/setup-https-for-onion-service/"
-description: ".onionドメインのWebサイトでHTTPSを利用できるようにする方法を書きました。"
 title: "Onion ServiceのWebサイトをHTTPSに対応させる"
+description: ".onionドメインのWebサイトでHTTPSを利用できるようにする方法を書きました。"
 ---
 
 [Onion Service](https://community.torproject.org/onion-services/)は、HTTPSを利用しなくても通信は暗号化されていますし、[.onionドメイン自体が公開鍵](https://blog.torproject.org/v3-onion-services-usage/)であるため、通信先のサーバーが本物であることも保証されています。  

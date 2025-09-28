@@ -2,8 +2,8 @@
 layout: "post"
 lang: "ja"
 permalink: "/notes/setup-obfs4-bridge/"
-description: "obfs4ブリッジのセットアップ方法を書きました。"
 title: "自分専用のプライベートobfs4ブリッジを建てよう"
+description: "obfs4ブリッジのセットアップ方法を書きました。"
 ---
 
 そういえば日本語の情報が全然ないような気がするので書こうと思います。

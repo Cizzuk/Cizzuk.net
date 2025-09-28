@@ -3,9 +3,9 @@ layout: "post"
 lang: "ja"
 permalink: "/notes/svg-support-for-tor-browser/"
 canonical: "https://zenn.dev/cizzuk/articles/bcaa6fb4bcd6f4"
+title: "Tor Browser向けにSVG画像の対応をする"
 description: "Tor Browser上でセキュリティレベルをSafestにするとSVG画像が表示されない問題に対処します。"
 noindex: true
-title: "Tor Browser向けにSVG画像の対応をする"
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**
