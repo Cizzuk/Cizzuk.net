@@ -13,7 +13,7 @@ links:
     appstore: "https://apps.apple.com/app/fallll/id1526930790"
     msstore: "https://www.microsoft.com/store/apps/9NJ13XVFLH0Z"
   file:
-    apk: "https://i.cizzuk.net/file/FALLLL.apk"
+    apk: "https://icebox.cizzuk.net/file/FALLLL.apk"
     linux: "https://i.cizzuk.net/file/FALLLL-Linux.tar.xz"
 hidden: true
 ---
