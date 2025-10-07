@@ -261,7 +261,21 @@ const renameAssetsAndRewriteHtml = async ({
 
   if (mapping.size === 0) return;
 
-  // 2) Rewrite HTML references under outRoot
+  // 2) Append redirects so original asset URLs remain valid
+  const redirectsPath = path.join(outRoot, "_redirects");
+  const redirectLines = [];
+  for (const [oldWeb, newWeb] of mapping.entries()) {
+    redirectLines.push(`${oldWeb} ${newWeb} 302`);
+  }
+
+  if (redirectLines.length > 0) {
+    const hasRedirectsFile = fs.existsSync(redirectsPath);
+    const payload = (hasRedirectsFile ? "\n" : "") + redirectLines.join("\n") + "\n";
+    fs.appendFileSync(redirectsPath, payload);
+    logTag("redirects", `appended ${redirectLines.length} entries`);
+  }
+
+  // 3) Rewrite HTML references under outRoot
   await walkDir(outRoot, async (filePath) => {
     if (!filePath.endsWith(".html")) {
       return;
