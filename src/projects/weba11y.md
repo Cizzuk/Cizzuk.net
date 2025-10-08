@@ -10,7 +10,6 @@ version: "3.0"
 links:
   itunes_app: "6445839110"
   appstore: "https://apps.apple.com/app/weba11y/id6445839110"
-  altstorepal: "https://i.cizzuk.net/altstore/source.pal.json"
   source: "https://github.com/Cizzuk/WebA11Y"
 ---
 {% import 'appbox.njk' as components %}
@@ -23,7 +22,7 @@ Latest Version: {{ version }}
 
 [Download on the App Store]({{ links.appstore }})
 
-[Add Source to AltStore PAL](altstore-pal://source?url={{ links.altstorepal }})
+[AltStore PAL Source](https://api.altstore.io/source/i.cizzuk.net/altstore/source.pal.json?app=com.tsg0o0.safariweba11y)
 
 <details>
   <summary>Compatibility</summary>

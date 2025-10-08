@@ -9,7 +9,6 @@ version: "4.5"
 links:
   itunes_app: "6445840140"
   appstore: "https://apps.apple.com/app/cse/id6445840140"
-  altstorepal: "https://i.cizzuk.net/altstore/source.pal.json"
   source: "https://github.com/Cizzuk/CSE"
 ---
 {% import 'appbox.njk' as components %}
@@ -22,7 +21,7 @@ Latest Version: {{ version }}
 
 [Download on the App Store]({{ links.appstore }})
 
-[Add Source to AltStore PAL](altstore-pal://source?url={{ links.altstorepal }})
+[AltStore PAL Source](https://api.altstore.io/source/i.cizzuk.net/altstore/source.pal.json?app=com.tsg0o0.cse)
 
 <details>
   <summary>Compatibility</summary>
