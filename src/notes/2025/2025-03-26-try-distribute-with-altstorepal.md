@@ -6,7 +6,7 @@ canonical: "https://zenn.dev/cizzuk/articles/9636f9dba0acf4"
 title: "AltStore PALでアプリを配信してみる"
 description: "面白そうだし、せっかくなので記事にしようと思います。"
 noindex: true
-update: "2025-"
+update: "2025-10-10"
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**
