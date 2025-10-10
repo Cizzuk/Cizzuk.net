@@ -23,7 +23,7 @@ EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプ�
 2. AltStore PALで配信するには、アプリのパッケージと[ソース](https://faq.altstore.io/developers/make-a-source)(リポジトリのようなもの)を自分でホストする必要があります。ソースの書き方はあとで説明します。
 3. 代替アプリマーケットプレイスが利用可能な地域からでないと、直接インストール周りのテストをすることはできません(配信は可能です)。
 4. App Storeに配信しない場合でも、Apple Developer Programに登録する必要があります。もちろん有料です。
-5. 代替アプリマーケットプレイスにのみ配信する場合はApp Storeのような厳格な審査はありませんが、Appleによる[公証(Notarization)](https://developer.apple.com/jp/help/app-store-connect/distributing-apps-in-the-european-union/submit-for-notarization/)は受ける必要があります。
+5. 代替アプリマーケットプレイスにのみ配信する場合はApp Storeのような厳格な審査はありませんが、Appleによる[公証(Notarization)](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/submit-for-notarization)は受ける必要があります。
 6. 代替アプリマーケットプレイスで配信をするためには「[EUにおけるアプリに関する新しい規約の付属文書](https://developer.apple.com/contact/request/download/alternate_eu_terms_addendum.pdf)」に同意する必要があります。この規約にはAppleに支払う手数料に関して重大な変更が含まれており、簡単に説明はしますがご自身の責任のもとで本文も確認してください。
 
 ### コア技術料(CTF)
@@ -34,7 +34,7 @@ EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプ�
 
 対象地域に住むユーザーが同じApple Accountで過去1年間でアプリを1回以上インストールした回数を、「年間初回インストール」といいます。これが100万回を超えた場合、それ以降の1インストールごとに€0.50をAppleに支払う必要があります。年間初回インストールの対象になるインストールの種類は以下のページで確認できます。
 
-[年間初回インストールの種類 - 欧州連合 (EU) でのアプリ配信 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/distributing-apps-in-the-european-union/first-annual-install-types)
+[初年度アプリインストール数の測定 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/understanding-the-core-technology-fee/measure-your-first-annual-installs)
 
 もしも何かの拍子(SNS等で話題になるなど)で対象地域での総インストール数が100万を突破してしまい、かつ収益が不十分だった場合は損失になります。趣味やOSSのアプリを開発しているデベロッパーにとっては、不必要にリスクを負うことになると思います。
 
@@ -83,7 +83,7 @@ curl --header "Content-Type: application/json" \
 
 前述の通り、App Storeに配信しない場合でもAppleによる審査を受ける必要がありますが、ガイドラインはかなり緩和されています。**App Storeにも配信している場合はこの手順をスキップできます。**
 
-[認証に向けた審査申請 - 欧州連合 (EU) でのアプリ配信 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/distributing-apps-in-the-european-union/submit-for-notarization)
+[認証に向けた審査申請 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/submit-for-notarization)
 
 App Storeにアプリを配信しない場合でも、いままでと同じようにApp Store Connectにアプリを追加して詳細情報を入力します。このとき「レビュータイプ」を「認証」にすることで、代替アプリストア専用の審査に切り替えることができます。
 
