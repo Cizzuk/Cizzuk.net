@@ -6,46 +6,46 @@ canonical: "https://zenn.dev/cizzuk/articles/9636f9dba0acf4"
 title: "AltStore PALでアプリを配信してみる"
 description: "面白そうだし、せっかくなので記事にしようと思います。"
 noindex: true
-update: "2025-09-07"
+update: "2025-"
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**
 
-EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプリマーケットプレイス」が利用できるようになっています。日本でも[スマホ競争促進法](https://laws.e-gov.go.jp/law/506AC0000000058/)によって今年中には使えるようになりそうです。
+EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプリマーケットプレイス」が利用できるようになっています。日本でも[スマホ競争促進法](https://laws.e-gov.go.jp/law/506AC0000000058/)によって2025年内には使えるようになる予定です。
 
-面白そうなので触りたい。他に触ってる人を日本で見たこともないし、せっかくなので記事にしようと思います。
+面白そうなので触りたい。他に触ってる人を日本で見たこともないし、せっかくなので[AltStore PAL](https://faq.altstore.io/altstore-pal/what-is-altstore-pal)に配信するまでの過程を記事にしようと思います。
 
 ## 最初に知るべきこと
 
-本題に入る前にいくつか知っておくべき事があります。**中には金銭に関わるものの含まれるため、試そうと思っている場合は必ず把握しておいた方が良いです。**
+本題に入る前にいくつか知識を入れておきましょう。**中には金銭に関わるものの含まれるため、試そうと思っている場合は必ず把握しておいた方が良いです。**
 
-1. [AltStore PAL](https://faq.altstore.io/altstore-pal/what-is-altstore-pal)が何なのか知らない人は自分で調べてください。
+1. [AltStore PAL](https://faq.altstore.io/altstore-pal/what-is-altstore-pal)が何なのか知らない人は調べてください。
 2. AltStore PALで配信するには、アプリのパッケージと[ソース](https://faq.altstore.io/developers/make-a-source)(リポジトリのようなもの)を自分でホストする必要があります。ソースの書き方はあとで説明します。
-3. EUからでないと直接インストール周りのテストをすることはできません(配信は可能です)。
+3. 代替アプリマーケットプレイスが利用可能な地域からでないと、直接インストール周りのテストをすることはできません(配信は可能です)。
 4. App Storeに配信しない場合でも、Apple Developer Programに登録する必要があります。もちろん有料です。
 5. 代替アプリマーケットプレイスにのみ配信する場合はApp Storeのような厳格な審査はありませんが、Appleによる[公証(Notarization)](https://developer.apple.com/jp/help/app-store-connect/distributing-apps-in-the-european-union/submit-for-notarization/)は受ける必要があります。
 6. 代替アプリマーケットプレイスで配信をするためには「[EUにおけるアプリに関する新しい規約の付属文書](https://developer.apple.com/contact/request/download/alternate_eu_terms_addendum.pdf)」に同意する必要があります。この規約にはAppleに支払う手数料に関して重大な変更が含まれており、簡単に説明はしますがご自身の責任のもとで本文も確認してください。
 
 ### コア技術料(CTF)
 
-これはEU域内におけるアプリのインストール数に応じて課される追加の手数料です。詳しく知りたい場合は付属文書を読むか、サポートページを確認しましょう。
+これは対象地域におけるアプリのインストール数に応じて課される追加の手数料です。詳しく知りたい場合は付属文書を読むか、サポートページを確認しましょう。
 
 [Core Technology Fee - サポート - Apple Developer](https://developer.apple.com/jp/support/core-technology-fee/)
 
-EUに住むユーザーが同じApple Accountで過去1年間でアプリを1回以上インストールした回数を、「年間初回インストール」といいます。これが100万回を超えた場合、それ以降の1インストールごとに€0.50をAppleに支払う必要があります。年間初回インストールの対象になるインストールの種類は以下のページで確認できます。
+対象地域に住むユーザーが同じApple Accountで過去1年間でアプリを1回以上インストールした回数を、「年間初回インストール」といいます。これが100万回を超えた場合、それ以降の1インストールごとに€0.50をAppleに支払う必要があります。年間初回インストールの対象になるインストールの種類は以下のページで確認できます。
 
 [年間初回インストールの種類 - 欧州連合 (EU) でのアプリ配信 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/distributing-apps-in-the-european-union/first-annual-install-types)
 
-このCTFがいかに恐ろしいかを説明すると、何かの拍子(SNS等で話題になるなど)でアプリのインストール数が100万を突破し、かつ収益がCTFの支払額に満たない場合は損失になり、最悪の場合は冗談抜きで破産します。
+もしも何かの拍子(SNS等で話題になるなど)で対象地域での総インストール数が100万を突破してしまい、かつ収益が不十分だった場合は損失になります。趣味やOSSのアプリを開発しているデベロッパーにとっては、不必要にリスクを負うことになると思います。
 
-しかし、CTFには免除される条件もあります。
+一方で、CTFには以下のように免除される条件もあります。
 
 - 年間初回インストールが100万に満たない場合
 - 非営利団体、認定教育機関、政府機関などで、Apple Developer Programの免除を受けている場合
-- EUに限らず全世界で、アプリを通して一切の収益(有料アプリ、App内課金、サブスク、物販などすべての商業的な収益)を得ない非商業のデベロッパーの場合
+- 全世界で、アプリを通して商業的な収益(有料アプリ、App内課金、サブスク、広告収入、物販などすべて)を得ていない非商業のデベロッパーの場合
 - さらに条件を満たす小規模事業者は最大3年間CTFを免除される(ややこしいので詳しくはサポートを読んでください)
 
-注意すべきなのは、収益を得ているという判定は全世界でありEUに限らないこと、すでに15から30%の徴収を課されているApp Storeからの収益も含むこと、App内課金などに限らずアプリ内の物販などもカウントすることです。つまり絶対にCTFを支払わなくて済む安全な方法で配信をしたいのであれば、アプリからの収益は完全に0にする必要があります。
+一般のデベロッパーであれば、CTFを支払わなくて済む方法で配信をしたいのであれば、アプリからの収益は完全に0にする必要があります。注意すべきなのは、収益を得ているという判定は全世界でされること、すでに収益の一部を徴収されているApp Storeからの収益も含むこと、App内課金などに限らず広告収入やアプリ内の物販なども含むことです。
 
 追記: このCTF、来年2026年にCore Technology Commission (CTC)というものに移行されるようです。CTCへの移行の詳細についてはまだ公表されていませんが、CTFと同様に1インストールごとにかかる料金は存続するようです。
 
@@ -63,7 +63,7 @@ REST APIを利用してデベロッパーIDとメールアドレスを送信し�
 
 [ADP REST API \| AltStore](https://faq.altstore.io/developers/rest-api#register-developer-id)
 
-[App Store Connect](https://appstoreconnect.apple.com/access/users)でデベロッパーIDを確認してから、`curl`が使えるシェルで以下のコマンドを実行します。
+[App Store Connect](https://appstoreconnect.apple.com/access/users)でデベロッパーIDを確認してから、以下のコマンドを実行します。
 
 ```bash
 curl --header "Content-Type: application/json" \
@@ -77,7 +77,7 @@ curl --header "Content-Type: application/json" \
 
 受け取ったセキュリティトークンを[App Store Connect](https://appstoreconnect.apple.com/access/integrations/marketplace)で入力します。この時、代替アプリマーケットプレイスで配信するアプリも選択します(後から変更可能)。
 
-代替アプリマーケットプレイスへの通知を有効にすると、アプリが審査を通過した時に後で紹介する各ストア側の処理を自動で開始させることができます。
+代替アプリマーケットプレイスへの通知を有効にすると、アプリが審査を通過した時に後で紹介する各ストア側の処理を自動で開始させることができます。この「ストア側の処理」についてもあとで説明しますが、とりあえず有効にしておいて良いと思います。
 
 ## 公証(Notarization)を受ける
 
@@ -91,7 +91,7 @@ App Storeにアプリを配信しない場合でも、いままでと同じよ�
 
 ## 代替配信パッケージをAltStore PALに処理してもらう
 
-アプリは各ストア側でも処理してもらう必要があります。AltStoreでのやり方は以下のページにも書いてありますが、一応説明しようと思います。
+アプリはAppleに加えて各ストア側でも処理してもらう必要があります。AltStoreでのやり方は以下のページにも書いてありますが、一応説明しようと思います。
 
 [ADP REST API \| AltStore](https://faq.altstore.io/developers/adp-rest-api#download-adp)
 
@@ -125,8 +125,6 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
 [Make a Source \| AltStore](https://faq.altstore.io/developers/make-a-source)
 
 あと私のソースも参考適度に覗いてみてください: [https://i.cizzuk.net/altstore/source.pal.json](https://i.cizzuk.net/altstore/source.pal.json)
-
-ソースを書く前に、[AltStore Classic](https://faq.altstore.io/altstore-classic/how-to-install-altstore-macos)を自身のiPhoneにインストールすることをおすすめします。現状AltStore PALはEUからしかインストールできないため、作ったソースが期待通りのものかテストするにはClassicを使うしかないからです。ただしClassicはiOSのデバッグ機能を裏技っぽく利用していることだけ留意してください。
 
 ### ソースのメタデータ
 
@@ -201,7 +199,7 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
 先に紹介したものは省略します。
 
 - `bundleIdentifier`はアプリのBundleIDです。`Info.plist`の`CFBundleIdentifier`とかXcodeのプロジェクトの設定で確認できます。
-- `marketplaceID`はApp Store ConnectのApp情報から確認できるApple IDです。AltStore ClassicでソースをテストするときはこのIDを削除してください。
+- `marketplaceID`はApp Store ConnectのApp情報から確認できるApple IDです。
 - `developerName`は開発者の名前です。OSSでたくさんの人が関わっている時などは「[開発者名] & Various Contributors」と書くことも多いです。
 - `localizedDescription`はアプリの説明です。URLを入れることもできます。
 - `category`はオプションで、以下の中のどれかひとつのカテゴリを設定します。
@@ -215,7 +213,7 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
   - `utilities`
 - `screenshots`はオプションで、例のように簡単に設定することもできますが、iPad向けに別の画像を用意したり横向きの画像を設定することもできます。詳しくは[公式のドキュメント](https://faq.altstore.io/developers/make-a-source#screenshots)を参考にしてください。
 - `versions`はこのあと説明します。
-- `appPermissions`にはアプリのEntitlementsとプライバシーに関する情報を入力します。以下2つのEntitlementsはすべてのアプリに必ず含まれるものであるため省略できます。そのほかは必須です。
+- `appPermissions`にはアプリのEntitlementsとプライバシーに関する情報を入力します。以下2つのEntitlementsはすべてのアプリに必ず含まれるものであるため省略できます。そのほかは必須です。EntitlementsはApp Store Connectでビルドのメタデータから確認することができます。
   - `com.app.developer.team-identifier`
   - `application-identifier`
 
@@ -230,7 +228,7 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
     "buildVersion": "60",
     "date": "2023-03-30",
     "localizedDescription": "First AltStore release!",
-    "downloadURL": "https://myapp.com/adp",
+    "downloadURL": "https://example.com/adp",
     "size": 79821,
     "minOSVersion": "17.4"
   }
@@ -247,8 +245,6 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
 - `maxOSVersion`もオプションで追加できます。iOS/iPadOSの上限です。Classic時代の名残で、ほとんどのアプリには必要ないはずです。
 
 これでソースは完成したので、Web上にホストしてHTTPSでダウンロードできるようにします。
-
-先述の通り、`marketplaceID`を消してあげればAltStore Classicからでもインストール以外は確認できるようになるので、一度試しておきましょう。
 
 完成したソースのURLをユーザーに公開すれば、アプリをダウンロードできるようになります。
 
@@ -271,3 +267,4 @@ altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json
 - 2025/04/20 修正: AltStoreからセキュリティトークンを受け取る方法が変更されたため編集しました。
 - 2025/08/17 修正
 - 2025/09/07 更新
+- 2025/10/10 更新: 一部の文言や表現を変更しました。AltStore Classicでのテストに関する部分を削除しました。
