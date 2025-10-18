@@ -62,3 +62,6 @@ Latest Version: {{ version }}
   </ul>
 </details>
 
+---
+
+Also available: [FALLLL for GB](https://github.com/Cizzuk/falll-4gb)
