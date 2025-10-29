@@ -15,7 +15,6 @@ type: "home"
   </div>
   <h1 itemprop="name">{{ site.title }}</h1>
   <p itemprop="description">{{ site.bio }}</p>
-  <p lang="ja">{{ site.bio_ja }}</p>
 
   <ul>
     <li>
