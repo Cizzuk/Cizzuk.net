@@ -57,6 +57,10 @@ i {
   color: var(--text-gray);
 }
 
+strong, b {
+  font-weight: bold;
+}
+
 hr {
   border: none;
   border-top: 2px solid var(--bg-accent);
