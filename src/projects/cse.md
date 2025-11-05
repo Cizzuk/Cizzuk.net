@@ -21,7 +21,7 @@ Latest Version: {{ version }}
 
 [Download on the App Store]({{ links.appstore }})
 
-[AltStore PAL Source](https://api.altstore.io/source/i.cizzuk.net/altstore/source.pal.json?app=com.tsg0o0.cse)
+[AltStore PAL Source](https://i.cizzuk.net/altstore/)
 
 <details>
   <summary>Compatibility</summary>
