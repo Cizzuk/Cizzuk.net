@@ -5,6 +5,7 @@
   overflow-wrap: break-word;
   text-underline-offset: 0.1em;
   word-break: auto-phrase;
+  corner-shape: superellipse(1.2);
 }
 
 body {
@@ -129,14 +130,14 @@ code * {
 
 code {
   background: var(--bg-accent);
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 0.95em;
   margin: 0 1px;
   padding: 1px 4px;
 }
 
 pre code {
-  border-radius: 8px;
+  border-radius: 16px;
   direction: ltr;
   display: block;
   margin: 20px 0;
@@ -219,7 +220,7 @@ header {
       margin: 0 8px;
       
       a {
-        border-radius: 6px;
+        border-radius: 8px;
         display: inline-block;
         height: 42px;
         padding: 6px;
@@ -252,6 +253,11 @@ header {
     height: 102px;
     margin-inline-end: 16px;
     width: 102px;
+    // corner-shape supported in some browsers
+    @supports (corner-shape: superellipse(1.5)) {
+      border-radius: 32%;
+      corner-shape: superellipse(1.5);
+    }
   }
   
   .app-info {
