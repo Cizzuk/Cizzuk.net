@@ -14,7 +14,7 @@ links:
 
 {{ components.appbox(title, description=description, type="title", icon=icon) }}
 
-This is a simple note app linked with the file system. It can display text and images, and can save all other files.
+This is a simple note app linked with the file system. You can quickly check and edit your notes using the device's buttons or shortcuts.
 
 ## Download
 
@@ -50,7 +50,7 @@ In app settings, you can choose the action for launching from Camera Control fro
 
 And other app features:
 
-- The in-app camera shutter sound will be silent in Japan as well.
-- Quick access to notes by launching from the Action Button, Camera Control, Control Center and other shortcut actions.
-- Easily add new notes by pasting from the clipboard.
-- Notes can be easily copied to the clipboard with a swipe gesture.
+- Quick access to notes by launching from the Action Button, Camera Control, Control Center and other shortcut actions
+- Easily add new notes by pasting from the clipboard
+- Notes can be easily copied to the clipboard with a swipe gesture
+- The in-app camera shutter sound will be silent in Japan as well
