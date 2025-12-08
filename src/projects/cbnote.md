@@ -5,10 +5,11 @@ permalink: "/projects/cbnote/"
 title: "CBNote"
 description: "Replace Camera Control with Note app."
 icon: "/assets/projects/cbnote/icon.png"
-version: "0.2"
+version: "1.0"
 links:
   itunes_app: "6756120567"
   appstore: "https://apps.apple.com/app/cbnote/id6756120567"
+  source: "https://github.com/Cizzuk/CBNote"
 ---
 {% import 'appbox.njk' as components %}
 
@@ -49,9 +50,17 @@ In app settings, you can choose the action for launching from Camera Control fro
 - Add New Note
 - Open App Only
 
-And other app features:
+And other features:
 
 - Quick access to notes by launching from the Action Button, Camera Control, Control Center and other shortcut actions
 - Easily add new notes by pasting from the clipboard
 - Notes can be easily copied to the clipboard with a swipe gesture
-- The in-app camera shutter sound will be silent in Japan as well
+- Compatible with many file formats
+
+## License
+
+This application is licensed under the [MIT License]({{ links.source }}/blob/main/LICENSE).
+
+## Source Code
+
+The app is open source, the source code is available on [GitHub]({{ links.source }}).
