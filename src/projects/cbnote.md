@@ -5,7 +5,7 @@ permalink: "/projects/cbnote/"
 title: "CBNote"
 description: "Replace Camera Control with Note app."
 icon: "/assets/projects/cbnote/icon.png"
-version: "1.0"
+version: "1.1"
 links:
   itunes_app: "6756120567"
   appstore: "https://apps.apple.com/app/cbnote/id6756120567"
@@ -28,8 +28,11 @@ Latest Version: {{ version }}
 <details>
   <summary>Compatibility</summary>
   <ul>
-    <li>iOS 26.0 or later.</li>
-    <li>iPadOS 26.0 or later.</li>
+    <li>iOS 26.1 or later.</li>
+    <li>iPadOS 26.1 or later.</li>
+    <li>macOS 26.1 or later.</li>
+    <li>visionOS 26.1 or later.</li>
+    <li>watchOS 26.1 or later.</li>
   </ul>
 </details>
 
