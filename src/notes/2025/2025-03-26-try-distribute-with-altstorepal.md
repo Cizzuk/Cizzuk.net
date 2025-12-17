@@ -6,7 +6,7 @@ canonical: "https://zenn.dev/cizzuk/articles/9636f9dba0acf4"
 title: "AltStore PALでアプリを配信してみる"
 description: "面白そうだし、せっかくなので記事にしようと思います。"
 noindex: true
-update: "2025-11-05"
+update: "2025-12-17"
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**
@@ -23,7 +23,7 @@ EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプ�
 2. AltStore PALで配信するには、アプリのパッケージと[ソース](https://faq.altstore.io/developers/make-a-source)(リポジトリのようなもの)を自分でホストする必要があります。ソースの書き方はあとで説明します。
 3. 代替アプリマーケットプレイスが利用可能な地域からでないと、インストール周りのテストをすることはできませんが、配信は可能です。
 4. App Storeに配信しない場合でも、Apple Developer Programに登録する必要があります。もちろん有料です。
-5. 代替アプリマーケットプレイスにのみ配信する場合はApp Storeのような厳格な審査はありませんが、Appleによる[公証(Notarization)](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/submit-for-notarization)は受ける必要があります。
+5. 代替アプリマーケットプレイスにのみ配信する場合でも[公証(Notarization)](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/submit-for-notarization)というAppleによる審査を受ける必要があります。
 6. [AltStore PALのガイドライン](https://faq.altstore.io/developers/app-guidelines)にも準拠する必要があります。
 7. 代替アプリマーケットプレイスで配信をするためには「[EUにおけるアプリに関する新しい規約の付属文書](https://developer.apple.com/contact/request/download/alternate_eu_terms_addendum.pdf)」に同意する必要があります。この規約にはAppleに支払う手数料に関して重大な変更が含まれており、簡単に説明はしますがご自身の責任のもとで本文も確認してください。
 
@@ -82,13 +82,17 @@ curl --header "Content-Type: application/json" \
 
 ## 公証(Notarization)を受ける
 
-前述の通り、App Storeに配信しない場合でもAppleによる審査を受ける必要があります。これはセキュリティチェックのようなもので、ガイドラインはかなり緩和されています。**App Storeにも配信している場合はこの手順をスキップできます。**
+代替アプリマーケットプレイスのみの配信でも、公証というAppleによる審査を受ける必要があります。App Storeにも配信している場合はこの手順をスキップできます。
 
 [認証に向けた審査申請 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/submit-for-notarization)
 
-App Storeにアプリを配信しない場合でも、App Store Connectにアプリを追加して詳細情報を入力する必要があります。この情報はユーザーが設定でオフにしない限りアプリのインストール時に表示されます。この時「レビュータイプ」を「認証」にすることで、代替アプリストア用の審査(公証)に切り替えることができます。
+公証はApp Storeのガイドラインと比べると、特にビジネスを中心に多数の条項が削除されています。ただし有害なアプリは依然としてリジェクトの対象となります。ガイドラインの差分はApp Reviewガイドラインのページから簡単に確認できます。
 
-審査を通過すると、そのバージョンに「代替配信パッケージID (ADP ID)」が付与されます(審査履歴から確認できます)。これはあとで使用します。
+[App Reviewガイドライン - Apple Developer](https://developer.apple.com/jp/app-store/review/guidelines/)
+
+App Storeにアプリを配信しない場合でも、App Store Connectにアプリを追加して詳細情報を入力する必要があります。この情報はユーザーが設定でオフにしない限りアプリのインストール前に表示されます。また「レビュータイプ」を「認証」にすることで、代替アプリストア専用の審査(公証)に切り替えることができます。
+
+審査で承認されると、そのバージョンに「代替配信パッケージID (ADP ID)」が付与されます(App Store Connectの審査履歴から確認できます)。これはあとで使用します。
 
 ## 代替配信パッケージをAltStore PALに処理してもらう
 
@@ -237,7 +241,7 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
 
 アップデートを配信するたびに、配列に要素を追加します。**新しいバージョンは配列の先頭に追加してください。**
 
-- `version`と`buildVersion`: `Info.plist`に書かれているものと同じバージョンとビルド番号をそれぞれ記載します。基本的に両方がユーザーに表示されますが、`marketingVersion`を設定すると好きな文字列に表示上は変更できます。
+- `version`と`buildVersion`: `Info.plist`に書かれているものと同じバージョンとビルド番号をそれぞれ記載します。基本的に両方がユーザーに表示されますが、`marketingVersion`を設定すると別の文字列に差し替えることができます。
 - `date`: バージョンを公開した日付をISO 8601フォーマットで記述します。
 - `downloadURL`: 自身でホストしている代替配信パッケージへのURLを入力します。
 - `size`: アプリのサイズです。ユーザーの環境によってサイズが異なってしまうため正確でなくてもOKです。App Store Connectでビルドのメタデータから確認することができます。
@@ -269,28 +273,34 @@ altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json
 
 ## おまけ2: アプリの説明の翻訳
 
-公式のドキュメントには書いてませんが、Epic Gamesが利用していたので紹介します。
+公式のドキュメントには書いてませんが、AltStoreの公式ソースで利用されていたものを紹介します。
 
-ソースの`localizedDescription`は`_localizedDescriptions`というキーを使うとローカライズできます。
+`subtitle`や`localizedDescription`といった特定のキーに対応して、翻訳を設定できるキーが存在しています。以下は見つかったキーのリストです。
+
+| 翻訳対象になるテキストのキー | 翻訳内容のキー            |
+| ----------------------- | ----------------------- |
+| `subtitle`              | `localizedSubtitles`    |
+| `description`           | `localizedDescriptions` |
+| `localizedDescription`  | `localizedDescriptions` |
+
+これらのキーはソース内で以下のように、言語コードをキーとしたオブジェクトとして使用します。ソース自体の説明のほか、アプリやニュースでも利用できます。
 
 ```json
 "apps": [
     {
-        "name": "My Example App",
-        "localizedDescription": "Example Description",
-        "_localizedDescriptions": {
-            "en": "Example Description",
-            "ja": "説明の例"
+        "name": "Customize Search Engine",
+        "subtitle": "Customize your Safari's Search Engine",
+        "localizedSubtitles": {
+            "ja": "Safariの検索エンジンをカスタマイズ"
         },
-        
+        "localizedDescription": "Safari Extension to customize your search engine.",
+        "localizedDescriptions": {
+            "ja": "Safariの検索エンジンをカスタマイズするための拡張機能です。"
+        },
         ...
     }
 ]
 ```
-
-随筆時点ではAltStore PALは英語以外には非対応なのですが、デバイスの言語設定に合わせてこれらの翻訳が使われるようになります。
-
-アプリ名やスクリーンショットもローカライズできるのかは不明です。
 
 ## おまけ3: AltStore公式Mastodonにソースを登録する
 
