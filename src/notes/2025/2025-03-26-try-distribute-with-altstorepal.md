@@ -19,7 +19,7 @@ EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプ�
 
 ## 最初に知るべきこと
 
-本題に入る前にいくつか知識を入れておきましょう。**中には金銭に関わるものも含まれるため、試そうと思っている場合は必ず把握しておいた方が良いです。**
+本題に入る前にいくつか確認しておきましょう。
 
 1. [AltStore PAL](https://faq.altstore.io/altstore-pal/what-is-altstore-pal)が何なのか知らない人は調べてください。
 2. AltStore PALで配信するには、アプリのパッケージと[ソース](https://faq.altstore.io/developers/make-a-source)(リポジトリのようなもの)を自分でホストする必要があります。ソースの書き方はあとで説明します。
@@ -27,16 +27,8 @@ EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプ�
 4. App Storeに配信しない場合でも、Apple Developer Programに登録する必要があります。もちろん有料です。
 5. 代替アプリマーケットプレイスにのみ配信する場合でも[公証(Notarization)](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/submit-for-notarization)というAppleによる審査を受ける必要があります。
 6. [AltStore PALのガイドライン](https://faq.altstore.io/developers/app-guidelines)にも準拠する必要があります。
-7. EUで配信をするためには「[EUにおけるアプリに関する新しい規約の付属文書](https://developer.apple.com/contact/request/download/alternate_eu_terms_addendum.pdf)」に同意する必要があります。
-8. App Store経由でないApp内課金等の収益に対しても、[CTC](https://developer.apple.com/support/dma-and-apps-in-the-eu/#core-technology-commission)という手数料をAppleに支払う必要があります。
-
-## 「EUにおけるアプリに関する新しい規約の付属文書」に同意する
-
-EUでも配信する場合は、以下のページで付属文書に同意する必要があります。日本のみで配信する場合はこれに同意する必要はありません。
-
-[Alternative Terms Addendum for Apps in the EU - Contact Us - Apple Developer](https://developer.apple.com/contact/request/alternative-eu-terms-addendum/)
-
-ちなみにこれ以降のことは大体[AltStore PALのFAQ](https://faq.altstore.io/developers/distribute-with-altstore-pal)にも書かれています。
+7. EUで配信をするためには「[EUにおけるアプリに関する新しい規約の付属文書](https://developer.apple.com/contact/request/download/alternate_eu_terms_addendum.pdf)」に同意する必要があります。日本のみでの配信の場合は同意の必要はありません。
+8. App Store経由でないApp内課金等の収益に対しても、[手数料](https://developer.apple.com/jp/support/app-distribution-in-japan/#business-terms)をAppleに支払う必要があります。また、トランザクションをAppleに報告する義務が発生します。
 
 ## AltStore PALを代替アプリマーケットプレイスに追加する
 
