@@ -6,12 +6,14 @@ canonical: "https://zenn.dev/cizzuk/articles/9636f9dba0acf4"
 title: "AltStore PALでアプリを配信してみる"
 description: "面白そうだし、せっかくなので記事にしようと思います。"
 noindex: true
-update: "2025-12-17"
+update: "2025-12-18"
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**
 
-EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプリマーケットプレイス」が利用できるようになっています。日本でも[スマホ競争促進法](https://laws.e-gov.go.jp/law/506AC0000000058/)によって2025年内には使えるようになる~~予定です~~。追記: iOS 26.2 Beta 1で利用可能になりました！やったね！
+EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプリマーケットプレイス」が利用できるようになっています。日本でも[スマホ競争促進法](https://laws.e-gov.go.jp/law/506AC0000000058/)によって2025年内には使えるようになる~~予定です~~。
+
+追記: 2025年12月18日に法律が施行されたため、正式に日本でも配信が可能になりました。[Developerサポートページ](https://developer.apple.com/jp/support/app-distribution-in-japan/)からスマホ新法に関わる新たな変更を確認できます。
 
 面白そうなので触りたい。他に触ってる人を日本で見たこともないし、せっかくなので[AltStore PAL](https://faq.altstore.io/altstore-pal/what-is-altstore-pal)に配信するまでの過程を記事にしようと思います。
 
@@ -25,34 +27,12 @@ EUにあるiOS/iPadOSではApp Store以外のアプリストア「代替アプ�
 4. App Storeに配信しない場合でも、Apple Developer Programに登録する必要があります。もちろん有料です。
 5. 代替アプリマーケットプレイスにのみ配信する場合でも[公証(Notarization)](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/submit-for-notarization)というAppleによる審査を受ける必要があります。
 6. [AltStore PALのガイドライン](https://faq.altstore.io/developers/app-guidelines)にも準拠する必要があります。
-7. 代替アプリマーケットプレイスで配信をするためには「[EUにおけるアプリに関する新しい規約の付属文書](https://developer.apple.com/contact/request/download/alternate_eu_terms_addendum.pdf)」に同意する必要があります。この規約にはAppleに支払う手数料に関して重大な変更が含まれており、簡単に説明はしますがご自身の責任のもとで本文も確認してください。
-
-### コア技術料(CTF)
-
-これは対象地域におけるアプリのインストール数に応じて課される追加の手数料です。詳しく知りたい場合は付属文書を読むか、サポートページを確認しましょう。
-
-[Core Technology Fee - サポート - Apple Developer](https://developer.apple.com/jp/support/core-technology-fee/)
-
-対象地域に住むユーザーが同じApple Accountで過去1年間でアプリを1回以上インストールした回数を、「初年度アプリインストール数」といいます。これが100万回を超えた場合、それ以降の1インストールごとに€0.50をAppleに支払う必要があります。初年度アプリインストール数の対象になるインストールの種類は以下のページで確認できます。
-
-[初年度アプリインストール数の測定 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/understanding-the-core-technology-fee/measure-your-first-annual-installs)
-
-もしも何かの拍子(SNS等で話題になるなど)で対象地域での総インストール数が100万を突破してしまい、かつ収益が不十分だった場合は損失になります。趣味やOSSのアプリを開発しているデベロッパーにとっては、不必要にリスクを負うことになると思います。
-
-一方で、CTFには以下のように免除される条件もあります。
-
-- 初年度アプリインストール数が100万に満たない場合
-- 非営利団体、認定教育機関、政府機関などで、Apple Developer Programの免除を受けている場合
-- 全世界で、アプリを通して商業的な収益(有料アプリ、App内課金、サブスク、広告収入、物販などすべて)を得ていない非商業のデベロッパーの場合
-- さらに条件を満たす小規模事業者は最大3年間CTFを免除される(ややこしいので詳しくはサポートを読んでください)
-
-一般のデベロッパーでCTFで損害を出したくないのであれば、収益構造についてよく考えるか、アプリからの収益を完全に0にする必要があります。注意すべきなのは、収益を得ているという判定は全世界でされること、すでに収益の一部を徴収されているApp Storeからの収益も含むこと、App内課金などに限らず広告収入やアプリ内の物販なども含むことです。
-
-追記: このCTF、来年2026年にCore Technology Commission (CTC)というものに移行されるようです。CTCへの移行の詳細についてはまだ公表されていませんが、CTFと同様に1インストールごとにかかる料金は存続するようです。
+7. EUで配信をするためには「[EUにおけるアプリに関する新しい規約の付属文書](https://developer.apple.com/contact/request/download/alternate_eu_terms_addendum.pdf)」に同意する必要があります。
+8. App Store経由でないApp内課金等の収益に対しても、[CTC](https://developer.apple.com/support/dma-and-apps-in-the-eu/#core-technology-commission)という手数料をAppleに支払う必要があります。
 
 ## 「EUにおけるアプリに関する新しい規約の付属文書」に同意する
 
-以下のページで規約に同意できます。
+EUでも配信する場合は、以下のページで付属文書に同意する必要があります。日本のみで配信する場合はこれに同意する必要はありません。
 
 [Alternative Terms Addendum for Apps in the EU - Contact Us - Apple Developer](https://developer.apple.com/contact/request/alternative-eu-terms-addendum/)
 
@@ -78,6 +58,8 @@ curl --header "Content-Type: application/json" \
 
 セキュリティトークンが返ってくるので、それを[App Store Connectのマーケットプレイス](https://appstoreconnect.apple.com/access/integrations/marketplace)で入力します。この時、AltStore PALで配信するアプリも選択します(後から変更可能)。
 
+[代替アプリマーケットプレイスでの配信の管理 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/manage-distribution-on-an-alternative-app-marketplace)
+
 代替アプリマーケットプレイスへの通知を有効にすると、アプリが審査を通過した際に、各ストア側の処理を自動で開始させることができます。この「ストア側の処理」についてもあとで説明しますが、とりあえず有効にしておいて良いと思います。
 
 ## 公証(Notarization)を受ける
@@ -93,6 +75,8 @@ curl --header "Content-Type: application/json" \
 App Storeにアプリを配信しない場合でも、App Store Connectにアプリを追加して詳細情報を入力する必要があります。この情報はユーザーが設定でオフにしない限りアプリのインストール前に表示されます。また「レビュータイプ」を「認証」にすることで、代替アプリストア専用の審査(公証)に切り替えることができます。
 
 審査で承認されると、そのバージョンに「代替配信パッケージID (ADP ID)」が付与されます(App Store Connectの審査履歴から確認できます)。これはあとで使用します。
+
+[代替配信パッケージIDの取得 - App Store Connect - ヘルプ - Apple Developer](https://developer.apple.com/jp/help/app-store-connect/managing-alternative-distribution/get-an-alternative-distribution-package-id)
 
 ## 代替配信パッケージをAltStore PALに処理してもらう
 
