@@ -29,7 +29,7 @@ Latest Version: {{ version }}
 
 - [Download on the App Store]({{ links.store.appstore }})
 - [Get it from Microsoft Store]({{ links.store.msstore }})
-- [Andriod (APK)]({{ links.file.apk }})
+- [Android (APK)]({{ links.file.apk }})
 - [Linux (x86_64)]({{ links.file.linux }})
 
 <details>
