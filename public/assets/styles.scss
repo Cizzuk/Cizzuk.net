@@ -81,6 +81,7 @@ img {
 }
 
 img, svg {
+  border-radius: 10px;
   pointer-events: none;
   user-select: none;
   vertical-align: middle;
@@ -206,6 +207,10 @@ header {
     max-width: 100%;
     width: 120px;
     view-transition-name: drpct;
+
+    * {
+      border-radius: 0;
+    }
   }
   
   ul {
@@ -229,6 +234,10 @@ header {
 
         &:hover {
           background: var(--bg-accent);
+        }
+
+        img, svg {
+          border-radius: 0;
         }
       }
     }
