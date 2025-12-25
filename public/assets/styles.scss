@@ -256,17 +256,10 @@ header {
   }
   
   .app-icon {
-    border: var(--bg-accent) solid 1px;
-    border-radius: 25%;
     flex-grow: 0;
-    height: 102px;
+    height: 100px;
     margin-inline-end: 16px;
-    width: 102px;
-    // corner-shape supported in some browsers
-    @supports (corner-shape: superellipse(1.3)) {
-      border-radius: 30%;
-      corner-shape: superellipse(1.3);
-    }
+    width: 100px;
   }
   
   .app-info {

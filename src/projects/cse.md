@@ -4,7 +4,7 @@ lang: "en"
 permalink: "/projects/cse/"
 title: "Customize Search Engine"
 description: "Safari Extension to customize your search engine."
-icon: "/assets/projects/cse/icon.webp"
+icon: "/assets/projects/cse/icon.png"
 version: "4.11"
 links:
   itunes_app: "6445840140"

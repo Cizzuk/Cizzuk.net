@@ -5,7 +5,7 @@ collection: "app"
 permalink: "/projects/weba11y/"
 title: "WebA11Y"
 description: "Safari Extension to improve web accessibility."
-icon: "/assets/projects/weba11y/icon.webp"
+icon: "/assets/projects/weba11y/icon.png"
 version: "3.2"
 links:
   itunes_app: "6445839110"
