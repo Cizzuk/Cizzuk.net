@@ -5,7 +5,7 @@ permalink: "/projects/cse/"
 title: "Customize Search Engine"
 description: "Safari Extension to customize your search engine."
 icon: "/assets/projects/cse/icon.png"
-version: "4.11"
+version: "4.12"
 links:
   itunes_app: "6445840140"
   appstore: "https://apps.apple.com/app/cse/id6445840140"
@@ -14,6 +14,10 @@ links:
 {% import 'appbox.njk' as components %}
 
 {{ components.appbox(title, description=description, type="title", icon=icon) }}
+
+This extension allows you to use your preferred search engines, such as non-default search engines or AI assistants.
+
+You can also use it to change search engine settings, for example, by hiding AI Overviews or changing language settings.
 
 ## Download
 
@@ -56,7 +60,6 @@ Latest Version: {{ version }}
 ### Customize your Search Engine
 
 Change Safari's default search engine.  
-This is the most basic feature.
 
 ### CSE for Private Browse
 
@@ -64,7 +67,7 @@ Switch search engines in Private Browse.
 
 ### Quick Search
 
-Enter the keyword at the top to switch search engines.
+Enter the keyword to switch search engines.
 
 Example:
   - Search [br something](https://search.brave.com/search?q=something) to search in Brave Search
@@ -74,7 +77,7 @@ Example:
 
 ### Emoji Search
 
-If you enter only one emoji, you can search on [Emojipedia.org](https://emojipedia.org).
+If you enter only one emoji, you can search it on [Emojipedia.org](https://emojipedia.org).
 
 ### Switch Search Engines by Shortcuts and Focus
 
