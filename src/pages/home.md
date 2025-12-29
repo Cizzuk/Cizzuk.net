@@ -53,7 +53,7 @@ type: "home"
 {% if collections.projects | length > 0 %}
 ## [Projects](/projects/)
 <section>
-  {% for project in collections.projects | firstItems(3) %}
+  {% for project in collections.projects %}
   {{ appbox(project.data.title,
     description=project.data.description,
     icon=project.data.icon,
