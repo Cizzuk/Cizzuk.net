@@ -33,9 +33,6 @@ links:
   <ul>
     <li>iOS 26.2 またはそれ以降。</li>
     <li>iPadOS 26.2 またはそれ以降。</li>
-    <li>macOS 26.2 またはそれ以降。</li>
-    <li>visionOS 26.2 またはそれ以降。</li>
-    <li>watchOS 26.2 またはそれ以降。</li>
   </ul>
 </details>
 
