@@ -30,8 +30,6 @@ hidden: true
 
 ## Download
 
-Latest Version: {{ version }}
-
 ### Stores
 
 - [Download on the App Store]({{ links.store.appstore }})
@@ -46,6 +44,8 @@ Latest Version: {{ version }}
 - [iOS (IPA)]({{ links.file.ios }})
   - [Direct install on AltStore Classic](altstore-classic://install?url={{ links.file.ios }})
 - [tvOS (IPA)]({{ links.file.tvos }})
+
+Latest Version: {{ version }}
 
 <details>
   <summary>Compatibility</summary>

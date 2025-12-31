@@ -18,11 +18,11 @@ links:
 
 ## Download
 
-Latest Version: {{ version }}
-
 [Download on the App Store]({{ links.appstore }})
 
 [AltStore PAL Source](https://i.cizzuk.net/altstore/)
+
+Latest Version: {{ version }}
 
 <details>
   <summary>Compatibility</summary>

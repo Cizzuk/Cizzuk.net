@@ -19,11 +19,11 @@ This is a simple note app linked with the file system. You can quickly check and
 
 ## Download
 
-Latest Version: {{ version }}
-
 [Download on the App Store]({{ links.appstore }})
 
 [AltStore PAL Source](https://i.cizzuk.net/altstore/)
+
+Latest Version: {{ version }}
 
 <details>
   <summary>Compatibility</summary>
