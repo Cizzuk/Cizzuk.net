@@ -267,10 +267,12 @@ altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json
         "name": "Customize Search Engine",
         "subtitle": "Customize your Safari's Search Engine",
         "localizedSubtitles": {
+            "en": "Customize your Safari's Search Engine",
             "ja": "Safariの検索エンジンをカスタマイズ"
         },
         "localizedDescription": "Safari Extension to customize your search engine.",
         "localizedDescriptions": {
+            "en": "Safari Extension to customize your search engine.",
             "ja": "Safariの検索エンジンをカスタマイズするための拡張機能です。"
         },
         ...
