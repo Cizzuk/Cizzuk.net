@@ -6,7 +6,7 @@ permalink: "/projects/weba11y/"
 title: "WebA11Y"
 description: "Safari Extension to improve web accessibility."
 icon: "/assets/projects/weba11y/icon.png"
-version: "3.2"
+version: "3.3"
 links:
   itunes_app: "6445839110"
   appstore: "https://apps.apple.com/app/weba11y/id6445839110"
@@ -39,20 +39,17 @@ Latest Version: {{ version }}
   <ul>
     <li>English</li>
     <li>Japanese</li>
-    <li>Spanish</li>
   </ul>
 </details>
 
 ## Features
 
-### Bold Text
-Boldens all text
+You can make the following changes to the Website:
 
-### Button Shapes
-Underlines links and buttons
-
-### Font Change
-Changes the font
+- Boldens all text
+- Underline links and buttons
+- Change the font
+- Insert custom CSS
 
 ## License
 
