@@ -53,15 +53,6 @@ Latest Version: {{ version }}
   </ul>
 </details>
 
-<details>
-  <summary>Languages</summary>
-  <ul>
-    <li>English</li>
-    <li>Japanese</li>
-    <li>Spanish</li>
-  </ul>
-</details>
-
 ---
 
 Also available: [FALLLL for GB](https://github.com/Cizzuk/falll-4gb)
