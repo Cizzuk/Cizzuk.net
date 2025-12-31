@@ -9,7 +9,7 @@ version: "0.1"
 hidden: true
 links:
   itunes_app: "6756973793"
-  appstore: "https://apps.apple.com/app/sidesearch/id6756973793"
+  appstore: "https://apps.apple.com/app/side-search/id6756973793"
   source: "https://github.com/Cizzuk/Side-Search"
 ---
 {% import 'appbox.njk' as components %}
