@@ -3,7 +3,7 @@ layout: "default"
 lang: "en"
 permalink: "/projects/cse/"
 title: "Customize Search Engine"
-description: "Safari Extension to customize your search engine."
+description: "Customize your Safari's Search Engine"
 icon: "/assets/projects/cse/icon.png"
 version: "4.12"
 links:

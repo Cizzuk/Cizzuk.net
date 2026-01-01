@@ -3,7 +3,7 @@ layout: "default"
 lang: "en"
 permalink: "/projects/cbnote/"
 title: "CBNote"
-description: "Replace Camera Control with Note app."
+description: "Replace Camera Control with Note app"
 icon: "/assets/projects/cbnote/icon.png"
 version: "1.2"
 links:
