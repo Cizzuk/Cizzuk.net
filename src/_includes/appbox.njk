@@ -5,12 +5,12 @@
     {%- endif -%}
     <div class="app-info">
       {%- if type == "title" -%}
-      <h1>{{ title }}</h1>
+      <h1 class="app-title">{{ title }}</h1>
       {%- else -%}
-      <b>{{ title }}</b>
+      <b class="app-title">{{ title }}</b>
       {%- endif -%}
       {%- if description -%}
-      {{ description }}
+      <div class="app-desc">{{ description }}</div>
       {%- endif -%}
     </div>
   {%- endset -%}
