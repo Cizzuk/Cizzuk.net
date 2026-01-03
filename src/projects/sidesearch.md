@@ -5,7 +5,7 @@ permalink: "/projects/sidesearch/"
 title: "Side Search"
 description: "音声アシスタントを好きなものにカスタマイズ"
 icon: "/assets/projects/sidesearch/icon.png"
-version: "0.1"
+version: "0.2"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
@@ -15,7 +15,7 @@ links:
 
 {{ components.appbox(title, description=description, type="title", icon=icon) }}
 
-対応する地域で、サイドボタンに割り当てることができる音声対応アプリです。サイドボタンやショートカットから、お好みのAIアシスタントや検索エンジンを声で利用することができます。
+サイドボタンやアクションボタンなどからすばやく起動して、お好みのAIアシスタントや検索エンジンを、あなたの音声アシスタントにすることができます。対応する地域で、サイドボタンを長押しして起動できる音声対応アプリです。
 
 ## ダウンロード
 
