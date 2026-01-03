@@ -259,12 +259,14 @@ header {
   .app-icon {
     flex-grow: 0;
     height: 80px;
+    margin: 2px 0;
     margin-inline-end: 16px;
     width: 80px;
   }
   
   .app-info {
     flex-grow: 1;
+    margin: 2px 0;
     min-width: 122px;
     width: calc(100% - 118px);
   }
