@@ -5,7 +5,7 @@ permalink: "/projects/cbnote/"
 title: "CBNote"
 description: "Replace Camera Control with Note app"
 icon: "/assets/projects/cbnote/icon.png"
-version: "1.5"
+version: "1.6"
 links:
   itunes_app: "6756120567"
   appstore: "https://apps.apple.com/app/cbnote/id6756120567"
@@ -52,6 +52,7 @@ In app settings, you can choose the action for launching from Camera Control fro
 - Paste from Clipboard
 - Add New Note
 - Open App Only
+- Open URL
 
 And other features:
 
