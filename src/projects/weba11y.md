@@ -6,7 +6,7 @@ permalink: "/projects/weba11y/"
 title: "WebA11Y"
 description: "Improve Web Accessibility in Safari"
 icon: "/assets/projects/weba11y/icon.png"
-version: "3.3"
+version: "3.4"
 links:
   itunes_app: "6445839110"
   appstore: "https://apps.apple.com/app/weba11y/id6445839110"
@@ -48,7 +48,8 @@ You can make the following changes to the Website:
 
 - Boldens all text
 - Underline links and buttons
-- Change the font
+- Reduce animations and transitions
+- Use custom fonts
 - Insert custom CSS
 
 ## License
