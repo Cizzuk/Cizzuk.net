@@ -5,7 +5,7 @@ permalink: "/projects/sidesearch/"
 title: "Side Search"
 description: "音声アシスタントを好きなものにカスタマイズ"
 icon: "/assets/projects/sidesearch/icon.png"
-version: "1.0"
+version: "2.0"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
@@ -15,7 +15,7 @@ links:
 
 {{ components.appbox(title, description=description, type="title", icon=icon) }}
 
-サイドボタンやアクションボタンなどからすばやく起動して、お好みのAIアシスタントや検索エンジンを、あなたの音声アシスタントにすることができます。対応する地域で、サイドボタンを長押しして起動できる音声対応アプリです。
+お好みのAIアシスタントや検索エンジンを、あなたの音声アシスタントにします。対応する地域では、サイドボタンを長押しして起動できる音声対応アプリです。
 
 ## ダウンロード
 
@@ -40,6 +40,27 @@ links:
     <li>日本語</li>
   </ul>
 </details>
+
+## 機能
+
+### サイドボタンから起動
+
+対応する地域では、サイドボタンにSide Searchを割り当てることができます。
+お好みのアシスタントを、デフォルトのアシスタントにしましょう。
+
+### アシスタント
+
+#### URLベースアシスタント
+
+カスタムのURLを設定することで、さまざまなAIアシスタントや検索エンジンをアシスタントにできます。
+
+#### Apple Foundation Models
+
+Apple Intelligenceに対応しているデバイスで、プライバシー重視のモデルと会話をすることができます。
+
+#### Google Gemini API
+
+ご自身のAPIキーを使用して、Geminiと会話をしたり、Web検索を頼むことができます。
 
 ## ライセンス
 
