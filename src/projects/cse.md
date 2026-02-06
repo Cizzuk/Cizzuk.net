@@ -5,7 +5,7 @@ permalink: "/projects/cse/"
 title: "Customize Search Engine"
 description: "Customize your Safari's Search Engine"
 icon: "/assets/projects/cse/icon.png"
-version: "4.14"
+version: "4.15"
 links:
   itunes_app: "6445840140"
   appstore: "https://apps.apple.com/app/cse/id6445840140"
