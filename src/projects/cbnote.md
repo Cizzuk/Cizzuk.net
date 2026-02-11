@@ -5,7 +5,7 @@ permalink: "/projects/cbnote/"
 title: "CBNote"
 description: "Replace Camera Control with Note app"
 icon: "/assets/projects/cbnote/icon.png"
-version: "1.7"
+version: "1.8"
 links:
   itunes_app: "6756120567"
   appstore: "https://apps.apple.com/app/cbnote/id6756120567"
