@@ -18,14 +18,14 @@ type: "home"
 
   <ul>
     <li>
-      <a href="https://github.com/Cizzuk" title="GitHub" aria-label="GitHub" data-svg="gh" rel="me" itemprop="sameAs">
+      <a href="{{ site.links.github }}" title="GitHub" aria-label="GitHub" data-svg="gh" rel="me" itemprop="sameAs">
         <noscript>
           <img src="/assets/home/icons/gh.png" alt="GitHub" class="dark-reverse">
         </noscript>
       </a>
     </li>
     <li>
-      <a href="https://zenn.dev/cizzuk" title="Zenn" aria-label="Zenn" data-svg="zenn" rel="me" itemprop="sameAs">
+      <a href="{{ site.links.zenn }}" title="Zenn" aria-label="Zenn" data-svg="zenn" rel="me" itemprop="sameAs">
         <noscript>
           <img src="/assets/home/icons/zenn.png" alt="Zenn">
         </noscript>

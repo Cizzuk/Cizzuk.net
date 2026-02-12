@@ -7,5 +7,10 @@
     "favicon": "/assets/favicon.png",
     "siteicon": "/assets/siteicon.png",
     "proficon": "/assets/dropcat.png"
+  },
+  "links": {
+    "github": "https://github.com/Cizzuk",
+    "zenn": "https://zenn.dev/cizzuk",
+    "altstore": "https://i.cizzuk.net/altstore/"
   }
 }

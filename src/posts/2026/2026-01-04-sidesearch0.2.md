@@ -12,7 +12,7 @@ tags: ['sidesearch']
 - Speech Recognition is processed on-device, so the request has been removed
 - Made some other adjustments
 
-Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL](https://i.cizzuk.net/altstore/).
+Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ site.links.altstore }}).
 
 <details lang="ja">
 <summary>日本語</summary>

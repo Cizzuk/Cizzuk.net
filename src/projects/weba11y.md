@@ -21,7 +21,7 @@ links:
 
 [Download on the App Store]({{ links.appstore }})
 
-[AltStore PAL Source](https://i.cizzuk.net/altstore/)
+[AltStore PAL Source]({{ site.links.altstore }})
 
 Latest Version: {{ version }}
 

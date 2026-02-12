@@ -14,4 +14,4 @@ tags: ['sidesearch']
 
 このアプリは[Side Button Access](https://developer.apple.com/documentation/AppIntents/Launching-your-voice-based-conversational-app-from-the-side-button-of-iPhone)を利用した、日本にあるiPhone向けの音声ベース会話アプリです。
 
-[App Store]({{ collections.projects.sidesearch.links.appstore }})と[AltStore PAL](https://i.cizzuk.net/altstore/)で利用できます。
+[App Store]({{ collections.projects.sidesearch.links.appstore }})と[AltStore PAL]({{ site.links.altstore }})で利用できます。

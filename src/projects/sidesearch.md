@@ -22,7 +22,7 @@ links:
 
 [App Storeからダウンロード]({{ links.appstore }})
 
-[AltStore PAL ソース](https://i.cizzuk.net/altstore/)
+[AltStore PAL ソース]({{ site.links.altstore }})
 
 最新バージョン: {{ version }}
 

@@ -12,7 +12,7 @@ tags: ['sidesearch']
 - Fixed an issue where sound, including VoiceOver, would not play at all while using speech recognition
 - Made some other adjustments
 
-Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL](https://i.cizzuk.net/altstore/).
+Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ site.links.altstore }}).
 
 <details lang="ja">
 <summary>日本語</summary>

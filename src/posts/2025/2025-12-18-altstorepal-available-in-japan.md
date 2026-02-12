@@ -25,7 +25,7 @@ description: "日本でAltStore PALからCizzukのアプリをインストール
 
 もしくは以下のボタンからAltStore PALを開くか、リンクをアプリ内で入力して追加することもできます。
 
-[AltStore PALにソースを追加](altstore-pal://source?url=https://i.cizzuk.net/altstore/source.pal.json)
+[AltStore PALにソースを追加](altstore-pal://source?url={{ site.links.altstore }}source.pal.json)
 
 ```
 i.cizzuk.net/altstore/source.pal.json
