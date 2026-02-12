@@ -1,14 +1,10 @@
-{%- macro appbox(title, description=null, icon=null, url=null, type=null) -%}
+{%- macro appbox(title, description=null, icon=null, url=null, heading="b") -%}
   {%- set content -%}
     {%- if icon -%}
     <img src="{{ icon }}" class="app-icon" alt aria-hidden>
     {%- endif -%}
     <div class="app-info">
-      {%- if type == "title" -%}
-      <h1 class="app-title">{{ title }}</h1>
-      {%- else -%}
-      <b class="app-title">{{ title }}</b>
-      {%- endif -%}
+      <{{ heading }} class="app-title">{{ title }}</{{ heading }}>
       {%- if description -%}
       <div class="app-desc">{{ description }}</div>
       {%- endif -%}
