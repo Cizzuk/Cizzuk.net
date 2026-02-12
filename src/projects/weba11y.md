@@ -14,7 +14,7 @@ links:
 ---
 {% import 'appbox.njk' as components %}
 
-{{ components.appbox(title, description=description, type="title", icon=icon) }}
+{{ components.appbox(title, description=description, type="title", icon=icon, heading="h1") }}
 
 ## Download
 
