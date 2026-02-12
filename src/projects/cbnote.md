@@ -13,7 +13,7 @@ links:
 ---
 {% import 'appbox.njk' as components %}
 
-{{ components.appbox(title, description=description, type="title", icon=icon) }}
+{{ components.appbox(title, description=description, type="title", icon=icon, heading="h1") }}
 
 This is a simple note app linked with the file system. You can quickly check and edit your notes using the device's buttons or shortcuts.
 
