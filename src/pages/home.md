@@ -66,7 +66,7 @@ type: "home"
 ## [Posts](/posts/)
 <section>
   {% for post in collections.posts | firstItems(3) %}
-  {{ postbox(post, 'h2') }}
+  {{ postbox(post, 'h3') }}
   {% endfor %}
 </section>
 {% endif %}
