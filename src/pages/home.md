@@ -57,7 +57,8 @@ type: "home"
   {{ appbox(project.data.title,
     description=project.data.description,
     icon=project.data.icon,
-    url=project.url) }}
+    url=project.url,
+    heading="h3") }}
   {% endfor %}
 </section>
 {% endif %}
