@@ -15,7 +15,8 @@ description: "List of my projects"
   {{ appbox(project.data.title,
     description=project.data.description,
     icon=project.data.icon,
-    url=project.url) }}
+    url=project.url,
+    heading="h2") }}
   {% endfor %}
 </section>
 {% else %}
