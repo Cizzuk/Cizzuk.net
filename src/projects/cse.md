@@ -13,7 +13,7 @@ links:
 ---
 {% import 'appbox.njk' as components %}
 
-{{ components.appbox(title, description=description, type="title", icon=icon) }}
+{{ components.appbox(title, description=description, type="title", icon=icon, heading="h1") }}
 
 This extension allows you to use your preferred search engines, such as non-default search engines or AI assistants.
 
