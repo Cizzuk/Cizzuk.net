@@ -54,11 +54,7 @@ type: "home"
 ## [Projects](/projects/)
 <section>
   {% for project in collections.projects %}
-  {{ appbox(project.data.title,
-    description=project.data.description,
-    icon=project.data.icon,
-    url=project.url,
-    heading="h3") }}
+  {{ appbox(project, "h3") }}
   {% endfor %}
 </section>
 {% endif %}
@@ -67,7 +63,7 @@ type: "home"
 ## [Posts](/posts/)
 <section>
   {% for post in collections.posts | firstItems(3) %}
-  {{ postbox(post, 'h3') }}
+  {{ postbox(post, "h3") }}
   {% endfor %}
 </section>
 {% endif %}

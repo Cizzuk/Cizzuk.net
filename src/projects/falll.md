@@ -22,9 +22,10 @@ links:
     apk: "https://i.cizzuk.net/bucket/falll/FALLLL.apk"
 hidden: true
 ---
-{% import 'appbox.njk' as components %}
 
-{{ components.appbox(title, type="title", icon=icon, heading="h1") }}
+{% from 'appbox.njk' import appbox %}
+{% set thisapp = { title: title, description: description, icon: icon } %}
+{{ appbox(thisapp, "h1") }}
 
 [Play on the Web]({{ links.playweb }})
 

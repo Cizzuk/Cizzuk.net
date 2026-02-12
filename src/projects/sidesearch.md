@@ -11,9 +11,10 @@ links:
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
   source: "https://github.com/Cizzuk/Side-Search"
 ---
-{% import 'appbox.njk' as components %}
 
-{{ components.appbox(title, description=description, type="title", icon=icon, heading="h1") }}
+{% from 'appbox.njk' import appbox %}
+{% set thisapp = { title: title, description: description, icon: icon } %}
+{{ appbox(thisapp, "h1") }}
 
 お好みのAIアシスタントや検索エンジンを、あなたの音声アシスタントにします。対応する地域では、サイドボタンを長押しして起動できる音声対応アプリです。
 

@@ -7,12 +7,8 @@ icon: "/assets/projects/sidesearch/icon.png"
 tags: ['sidesearch']
 ---
 
-{% import 'appbox.njk' as components %}
-
-{{ components.appbox(collections.projects.sidesearch.title,
-  description=collections.projects.sidesearch.description,
-  icon=collections.projects.sidesearch.icon,
-  url=collections.projects.sidesearch.url) }}
+{% from 'appbox.njk' import appbox %}
+{{ appbox(collections.projects.sidesearch, "strong") }}
 
 対応する地域で、サイドボタンに割り当てることができる音声対応アプリです。サイドボタンやショートカットから、お好みのAIアシスタントや検索エンジンを声で利用することができます。
 

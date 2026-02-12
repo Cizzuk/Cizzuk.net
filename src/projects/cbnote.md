@@ -11,9 +11,10 @@ links:
   appstore: "https://apps.apple.com/app/cbnote/id6756120567"
   source: "https://github.com/Cizzuk/CBNote"
 ---
-{% import 'appbox.njk' as components %}
 
-{{ components.appbox(title, description=description, type="title", icon=icon, heading="h1") }}
+{% from 'appbox.njk' import appbox %}
+{% set thisapp = { title: title, description: description, icon: icon } %}
+{{ appbox(thisapp, "h1") }}
 
 This is a simple note app linked with the file system. You can quickly check and edit your notes using the device's buttons or shortcuts.
 

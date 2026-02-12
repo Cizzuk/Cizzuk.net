@@ -12,11 +12,7 @@ description: "List of my projects"
 {% if collections.projects | length > 0 %}
 <section>
   {% for project in collections.projects %}
-  {{ appbox(project.data.title,
-    description=project.data.description,
-    icon=project.data.icon,
-    url=project.url,
-    heading="h2") }}
+  {{ appbox(project, "h2") }}
   {% endfor %}
 </section>
 {% else %}

@@ -1,17 +1,19 @@
-{%- macro appbox(title, description=null, icon=null, url=null, heading="b") -%}
+{%- macro appbox(item, heading="b") -%}
+  {%- set data = item.data if item.data else item -%}
   {%- set content -%}
-    {%- if icon -%}
-    <img src="{{ icon }}" class="app-icon" alt aria-hidden>
+    {%- if data.icon -%}
+    <img src="{{ data.icon }}" class="app-icon" alt aria-hidden>
     {%- endif -%}
     <div class="app-info">
-      <{{ heading }} class="app-title">{{ title }}</{{ heading }}>
-      {%- if description -%}
-      <div class="app-desc">{{ description }}</div>
+      <{{ heading }} class="app-title">{{ data.title }}</{{ heading }}>
+      {%- if data.description -%}
+      <div class="app-desc">{{ data.description }}</div>
       {%- endif -%}
     </div>
   {%- endset -%}
-  {%- if url -%}
-  <a href="{{ url }}" class="app">
+
+  {%- if item.url -%}
+  <a href="{{ item.url }}" class="app">
     {{ content | safe }}
   </a>
   {%- else -%}
