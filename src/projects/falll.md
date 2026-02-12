@@ -24,7 +24,7 @@ hidden: true
 ---
 {% import 'appbox.njk' as components %}
 
-{{ components.appbox(title, type="title", icon=icon) }}
+{{ components.appbox(title, type="title", icon=icon, heading="h1") }}
 
 [Play on the Web]({{ links.playweb }})
 
