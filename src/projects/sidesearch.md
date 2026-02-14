@@ -5,7 +5,7 @@ permalink: "/projects/sidesearch/"
 title: "Side Search"
 description: "音声アシスタントを好きなものにカスタマイズ"
 icon: "/assets/projects/sidesearch/icon.png"
-version: "2.2"
+version: "2.3"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
