@@ -88,7 +88,7 @@ Safariで検索をする上で注意すべきなのは、CSEの設定だけで�
 4. 「高度なトラッキングとフィンガープリント保護」を使用する。
 5. 「プライバシー保護広告の測定」をオフにする。
 
-もしあなたがiCloud+を購読している場合は、[iCloudプライベートリレー](https://support.apple.com/102602)の使用をおすすめします。
+もしあなたがiCloud+に登録している場合は、[iCloudプライベートリレー](https://support.apple.com/102602)の使用をおすすめします。
 
 Safariのプライバシーについてより詳しく知りたい場合は[Appleによる説明](https://www.apple.com/legal/privacy/data/ja/safari/)をご覧ください。
 
