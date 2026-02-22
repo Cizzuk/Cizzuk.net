@@ -17,20 +17,17 @@ hidden: true
 {% set thisapp = { title: title, description: description, icon: icon } %}
 {{ appbox(thisapp, "h1") }}
 
-This is an alarm app. However, you cannot stop it easily.
-You need to perform an additional action in this app to stop the alarm completely.
-No more oversleeping!
+This is an alarm app. However, you cannot stop it easily. You need to perform an additional action in this app to stop the alarm completely.
 
 **THIS APP IS CURRENTLY IN BETA**
 
-Its operation may be unstable, and settings may not be carried over to future versions.
-I would appreciate it if you could send us feedback if you encounter any issues.
+Its operation may be unstable, and settings may not be carried over to future versions. I would appreciate it if you could send us feedback if you encounter any issues.
 
 ## Download
 
 <!-- [Download on the App Store]({{ links.appstore }}) -->
 
-<!-- [AltStore PAL Source]({{ site.links.altstore }}) -->
+[AltStore PAL Source]({{ site.links.altstore }})
 
 Latest Version: {{ version }}
 
