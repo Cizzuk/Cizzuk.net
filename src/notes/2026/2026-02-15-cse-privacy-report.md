@@ -4,7 +4,6 @@ lang: "ja"
 permalink: "/notes/cse-privacy-report/"
 title: "CSEのプライバシーに関するレポート"
 description: "プライバシーに関する透明性を向上させるため、CSEの外であなたの検索クエリがどのように扱われているのか説明します。"
-noindex: true
 ---
 
 [Customize Search Engine](https://cizzuk.net/projects/cse/)(以下CSE)では、ユーザーのプライバシーを最大限守れるよう努めています。しかし、いつでも完璧なわけではありません。
