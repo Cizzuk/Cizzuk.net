@@ -5,7 +5,7 @@ permalink: "/projects/alare/"
 title: "Alare"
 description: "No more oversleeping!"
 icon: "/assets/projects/alare/icon.png"
-version: "0.2"
+version: "0.3"
 links:
   # itunes_app: "6759486773"
   # appstore: "https://apps.apple.com/app/alare/id6759486773"
@@ -17,11 +17,9 @@ hidden: true
 {% set thisapp = { title: title, description: description, icon: icon } %}
 {{ appbox(thisapp, "h1") }}
 
-This is an alarm app. However, you cannot stop it easily. You need to perform an additional action in this app to stop the alarm completely.
+This is an alarm app. However, you cannot stop it easily.
 
-**THIS APP IS CURRENTLY IN BETA**
-
-Its operation may be unstable, and settings may not be carried over to future versions. I would appreciate it if you could send us feedback if you encounter any issues.
+Alare's alarm will continue to snooze automatically until you perform a special action. To prevent oversleeping, select an action that you believe will wake you up!
 
 ## Download
 
@@ -46,6 +44,19 @@ Latest Version: {{ version }}
     <li>Japanese</li>
   </ul>
 </details>
+
+## Wake-up Actions
+
+Here are the actions available to stop an alarm:
+
+- Wave Device
+  - Wave the device slowly and broadly like a flag.
+- Scan Code
+  - Scan the code placed outside the bed.
+- Drum Roll
+  - Drum roll your fingers on the screen.
+- Tap Button
+  - Just tap the button once.
 
 ## License
 
