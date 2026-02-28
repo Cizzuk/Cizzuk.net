@@ -83,8 +83,6 @@ img {
 
 img, svg {
   border-radius: 16px;
-  pointer-events: none;
-  user-select: none;
   vertical-align: middle;
 }
 
@@ -182,8 +180,10 @@ header {
     border-radius: 0;
     height: 24px;
     margin-inline-end: 8px;
-    width: 36px;
+    pointer-events: none;
+    user-select: none;
     view-transition-name: drpct;
+    width: 36px;
   }
   a {
     align-items: center;
@@ -205,9 +205,11 @@ header {
     aspect-ratio: 3/2;
     cursor: grab;
     display: inline-block;
+    pointer-events: none;
+    user-select: none;
+    view-transition-name: drpct;
     max-width: 100%;
     width: 120px;
-    view-transition-name: drpct;
 
     * {
       border-radius: 0;
