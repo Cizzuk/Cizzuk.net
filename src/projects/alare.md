@@ -3,14 +3,13 @@ layout: "default"
 lang: "en"
 permalink: "/projects/alare/"
 title: "Alare"
-description: "No more oversleeping!"
+description: "Alarm app to prevent oversleeping"
 icon: "/assets/projects/alare/icon.png"
-version: "0.3"
+version: "1.0"
 links:
-  # itunes_app: "6759486773"
-  # appstore: "https://apps.apple.com/app/alare/id6759486773"
+  itunes_app: "6759486773"
+  appstore: "https://apps.apple.com/app/alare/id6759486773"
   source: "https://github.com/Cizzuk/Alare"
-hidden: true
 ---
 
 {% from 'appbox.njk' import appbox %}
@@ -23,7 +22,7 @@ Alare's alarm will continue to snooze automatically until you perform a special 
 
 ## Download
 
-<!-- [Download on the App Store]({{ links.appstore }}) -->
+[Download on the App Store]({{ links.appstore }})
 
 [AltStore PAL Source]({{ site.links.altstore }})
 
