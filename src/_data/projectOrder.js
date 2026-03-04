@@ -1,7 +1,7 @@
 module.exports = [
   "cse",
-  "alare",
-  "cbnote",
   "sidesearch",
+  "cbnote",
+  "alare",
   "weba11y"
 ];
