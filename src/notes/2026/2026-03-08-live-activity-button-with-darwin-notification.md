@@ -2,9 +2,13 @@
 layout: "post"
 lang: "ja"
 permalink: "/notes/live-activity-button-with-darwin-notification/"
+canonical: "https://zenn.dev/cizzuk/articles/6966d91269e511"
 title: "Live Activityにボタンを追加してバックグラウンドで動作中の本体アプリに通知する"
 description: "アプリを開かずにLive Activityのボタンから、バックグラウンドにある本体アプリを操作できるようにする方法を解説します。"
+noindex: true
 ---
+
+**これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**
 
 ![Live Activityの例: 左にアプリアイコン、中央に状態を示すテキスト、右に終了ボタン](/assets/notes/live-activity-button-with-darwin-notification/1.png)
 
