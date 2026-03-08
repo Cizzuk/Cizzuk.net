@@ -58,7 +58,7 @@ CFNotificationCenterPostNotification(
 private static let DarwinNotifyCallback: CFNotificationCallback = { _, observer, _, _, _ in
     guard let observer else { return }
     let viewModel = Unmanaged<RecorderViewModel>.fromOpaque(observer).takeUnretainedValue()
-        // MARK: ここで通知を受け取った時の処理をする
+    // MARK: ここで通知を受け取った時の処理をする
 }
 ```
 
