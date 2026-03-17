@@ -51,8 +51,8 @@ type: "home"
 </div>
 
 {% if collections.projects | length > 0 %}
-## [Projects](/projects/)
 <section>
+  <h2><a href="/projects/">Projects</a></h2>
   {% for project in collections.projects %}
   {{ appbox(project, "h3") }}
   {% endfor %}
@@ -60,8 +60,8 @@ type: "home"
 {% endif %}
 
 {% if collections.posts | length > 0 %}
-## [Posts](/posts/)
 <section>
+  <h2><a href="/posts/">Posts</a></h2>
   {% for post in collections.posts | firstItems(3) %}
   {{ postbox(post, "h3") }}
   {% endfor %}
@@ -69,8 +69,8 @@ type: "home"
 {% endif %}
 
 {% if collections.notes | length > 0 %}
-## [Notes](/notes/)
 <section>
+  <h2><a href="/notes/">Notes</a></h2>
   {% for post in collections.notes | firstItems(3) %}
   {{ postbox(post, "h3") }}
   {% endfor %}
