@@ -1,12 +1,15 @@
 ---
-layout: "post"
+layout: "default"
 lang: "ja"
-permalink: "/notes/cse-privacy-report/"
+permalink: "/projects/cse/privacy-report/"
 title: "CSEのプライバシーに関するレポート"
 description: "プライバシーに関する透明性を向上させるため、CSEの外であなたの検索クエリがどのように扱われているのか説明します。"
+icon: "/assets/projects/cse/icon.png"
 ---
 
-[Customize Search Engine](https://cizzuk.net/projects/cse/)(以下CSE)では、ユーザーのプライバシーを最大限守れるよう努めています。しかし、いつでも完璧なわけではありません。
+# {{ title }}
+
+[Customize Search Engine](/projects/cse/)(以下CSE)では、ユーザーのプライバシーを最大限守れるよう努めています。しかし、いつでも完璧なわけではありません。
 
 プライバシーに関する透明性を向上させるため、CSEの外であなたの検索クエリがどのように扱われているのか、私の既知の範囲で説明します。
 
