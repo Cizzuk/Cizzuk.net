@@ -5,7 +5,7 @@ permalink: "/projects/sidesearch/"
 title: "Side Search"
 description: "サイドボタンをカスタマイズ"
 icon: "/assets/projects/sidesearch/icon.png"
-version: "2.5"
+version: "2.6"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
@@ -16,7 +16,7 @@ links:
 {% set thisapp = { title: title, description: description, icon: icon } %}
 {{ appbox(thisapp, "h1") }}
 
-お好みのAIアシスタントや検索エンジンを、あなたの音声アシスタントにします。
+サイドボタンやアクションボタンから素早く起動して、お好みのAIアシスタントや検索エンジンを、音声アシスタントとして利用できます。
 
 このアプリは[Side Button Access](https://developer.apple.com/documentation/AppIntents/Launching-your-voice-based-conversational-app-from-the-side-button-of-iPhone)を利用した、サイドボタンをカスタマイズするための音声ベース会話アプリです。
 
