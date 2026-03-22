@@ -25,15 +25,6 @@ type: "home"
       </a>
     </li>
     <li>
-      <a href="{{ site.links.zenn }}" title="Zenn" aria-label="Zenn" data-svg="zenn" rel="me" itemprop="sameAs">
-        <noscript>
-          <img src="/assets/home/icons/zenn.png" alt="Zenn">
-        </noscript>
-      </a>
-    </li>
-  </ul>
-  <ul>
-    <li>
       <a href="/contact/" title="Contact" aria-label="Contact" data-svg="mail" itemprop="email">
         <noscript>
           <img src="/assets/home/icons/mail.png" alt="Contact" class="dark-reverse">
