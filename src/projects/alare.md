@@ -5,7 +5,7 @@ permalink: "/projects/alare/"
 title: "Alare"
 description: "Alarm app to prevent oversleeping"
 icon: "/assets/projects/alare/icon.png"
-version: "1.0"
+version: "1.1"
 links:
   itunes_app: "6759486773"
   appstore: "https://apps.apple.com/app/alare/id6759486773"
