@@ -1,15 +1,15 @@
 ---
 layout: "default"
-lang: "en"
+lang: "ja"
 permalink: "/notes/"
 title: "Notes"
-description: "List of my notes"
+description: "Cizzukが書いたノートの一覧"
 ---
 {% from 'postbox.njk' import postbox %}
 
 # {{ title }}
 
-Some articles are also available on [Zenn](https://zenn.dev/cizzuk)
+ノートの一部は[Zenn](https://zenn.dev/cizzuk)でも公開しています。
 
 {% if collections.notes | length > 0 %}
 <section>
@@ -18,5 +18,5 @@ Some articles are also available on [Zenn](https://zenn.dev/cizzuk)
   {% endfor %}
 </section>
 {% else %}
-<strong>No notes available</strong>
+<strong>ノートはありません</strong>
 {% endif %}
