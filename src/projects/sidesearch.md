@@ -5,7 +5,7 @@ permalink: "/projects/sidesearch/"
 title: "Side Search"
 description: "サイドボタンをカスタマイズ"
 icon: "/assets/projects/sidesearch/icon.png"
-version: "2.8"
+version: "2.9"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
