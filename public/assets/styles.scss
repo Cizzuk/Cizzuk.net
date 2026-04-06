@@ -18,7 +18,9 @@ body {
 }
 
 // Typography
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 500;
   line-height: 1.2;
 }
@@ -47,7 +49,7 @@ a {
   font-size: 1em;
   font-weight: 500;
   text-decoration: none;
-  
+
   &:hover,
   &:focus {
     color: var(--accent-dark);
@@ -59,7 +61,8 @@ i {
   color: var(--text-gray);
 }
 
-strong, b {
+strong,
+b {
   font-weight: bold;
 }
 
@@ -81,13 +84,15 @@ img {
   width: 100%;
 }
 
-img, svg {
+img,
+svg {
   border-radius: 16px;
   vertical-align: middle;
 }
 
 // Lists
-ol, ul {
+ol,
+ul {
   margin: 20px 0;
   padding-inline-start: 2em;
 }
@@ -109,12 +114,13 @@ table {
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
-  
-  th, td {
+
+  th,
+  td {
     border: 1px solid var(--bg-accent-high);
     padding: 6px 12px;
   }
-  
+
   tbody th {
     font-weight: 600;
     text-align: initial;
@@ -162,13 +168,13 @@ section {
 // Details
 details {
   margin: 20px 4px;
-  
+
   summary {
     cursor: pointer;
     font-weight: 600;
   }
-  
-  & > :nth-child(2) {
+
+  &> :nth-child(2) {
     margin-top: 8px;
   }
 }
@@ -176,6 +182,7 @@ details {
 // Header
 header {
   margin: 20px 4px;
+
   .proficon {
     border-radius: 0;
     height: 24px;
@@ -185,11 +192,12 @@ header {
     view-transition-name: drpct;
     width: 36px;
   }
+
   a {
     align-items: center;
     color: var(--text);
     display: inline-flex;
-        
+
     * {
       font-size: 1.2em;
     }
@@ -200,7 +208,7 @@ header {
 .profbox {
   margin: 60px auto;
   text-align: center;
-  
+
   .proficon {
     aspect-ratio: 3/2;
     cursor: grab;
@@ -215,7 +223,7 @@ header {
       border-radius: 0;
     }
   }
-  
+
   ul {
     display: inline-flex;
     flex-wrap: wrap;
@@ -223,10 +231,10 @@ header {
     list-style: none;
     margin: 10px 0;
     padding: 0;
-    
+
     li {
       margin: 0 8px;
-      
+
       a {
         border-radius: 8px;
         display: inline-block;
@@ -239,7 +247,8 @@ header {
           background: var(--bg-accent);
         }
 
-        img, svg {
+        img,
+        svg {
           border-radius: 0;
         }
       }
@@ -254,11 +263,12 @@ header {
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0;
-  
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     color: var(--text);
   }
-  
+
   .app-icon {
     flex-grow: 0;
     height: 80px;
@@ -266,14 +276,14 @@ header {
     margin-inline-end: 16px;
     width: 80px;
   }
-  
+
   .app-info {
     flex-grow: 1;
     margin: 2px 0;
     min-width: 122px;
     width: calc(100% - 118px);
   }
-    
+
   .app-title {
     display: block;
     font-size: 1.4em;
@@ -295,11 +305,11 @@ header {
 // Post header
 article hgroup {
   margin: 20px auto 30px;
-  
+
   h1 {
     margin: 4px 0;
   }
-  
+
   time {
     display: inline-block;
     margin-inline-end: 20px;
@@ -308,20 +318,20 @@ article hgroup {
 
 .postbox {
   margin: 20px 0;
-  
+
   .postbox-title {
     font-size: 1.4em;
     font-weight: 400;
     line-height: 1.2;
     margin: 0;
   }
-  
+
   a {
     color: var(--text);
     display: block;
     padding: 4px 0;
   }
-  
+
   time {
     display: block;
     font-size: 0.9em;
@@ -332,23 +342,23 @@ article hgroup {
 footer {
   color: var(--text-gray);
   margin: 40px 0;
-  
+
   .copy {
     display: inline-block;
     margin: 0;
     margin-inline-end: 2em;
   }
 
-   ul {
-     display: inline-flex;
-     flex-wrap: wrap;
-     list-style: none;
-     padding: 0;
+  ul {
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
 
     li {
       margin: 0;
       margin-inline-end: 16px;
-    
+
       a {
         color: var(--text-gray);
         font-weight: normal;
@@ -366,10 +376,12 @@ footer {
   body {
     padding: 0 8px;
   }
+
   .app {
     .app-icon {
       height: auto;
     }
+
     .app-info {
       min-width: 100%;
     }
@@ -400,6 +412,7 @@ footer {
     --text-gray: #909095;
     --heart: #faa0f0;
   }
+
   .dark-reverse {
     filter: invert(1) hue-rotate(180deg);
   }
@@ -414,7 +427,7 @@ footer {
     --text: #000;
     --text-gray: #3c3c3c;
   }
-  
+
   @media (prefers-color-scheme: dark) {
     :root {
       --accent: #90c0ff;
@@ -428,6 +441,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   header .proficon,
   .profbox .proficon {
     view-transition-name: none;
