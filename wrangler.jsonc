@@ -7,5 +7,11 @@
   },
   "build": {
     "command": "npm run build"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "cizzuk.net/*",
+      "zone_name": "cizzuk.net"
+    }
+  ]
 }
