@@ -1,6 +1,6 @@
 # Cizzuk.net
 
-私のWebサイトのソースコードです。Eleventyを使用しています。
+私のWebサイトのソースコードです。Eleventyでビルドをして、Cloudflare Workersにデプロイします。
 
 ## Install
 
@@ -10,18 +10,26 @@ npm install
 
 ## Build
 
-以下のコマンドで`./_site/`以下に静的Webサイトがビルドされます。
+以下で`./_site/`にページがビルドされます。
 
 ```bash
 npm run build
 ```
 
-ビルド時にはHTML, CSS, JavaScript, XMLのMinifyも行われます。
+ビルド時にはHTML, CSS, JavaScript, XMLのMinifyして、キャッシュ可能なアセットのファイル名をユニークなものに変更します。
 
-また、以下のコマンドでローカルサーバーを起動します。
+## Test
+
+### Eleventy
 
 ```bash
 npm run serve
+```
+
+### Wrangler
+
+```bash
+npx wrangler dev
 ```
 
 ## License

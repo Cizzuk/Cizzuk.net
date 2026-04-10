@@ -23,6 +23,7 @@
     "html-minifier-terser": "latest",
     "luxon": "latest",
     "sass": "latest",
-    "terser": "latest"
+    "terser": "latest",
+    "wrangler": "latest"
   }
 }
