@@ -10,13 +10,19 @@ npm install
 
 ## Build
 
-以下で`./_site/`にページがビルドされます。
-
 ```bash
 npm run build
 ```
 
-ビルド時にはHTML, CSS, JavaScript, XMLのMinifyして、キャッシュ可能なアセットのファイル名をユニークなものに変更します。
+`./_site/`にページがビルドされます。
+
+ビルド時にはHTML, CSS, JavaScript, XMLをMinifyして、キャッシュ可能なアセットのファイル名をユニークなものに変更します。
+
+## Deploy
+
+```bash
+npx wrangler deploy
+```
 
 ## Test
 
