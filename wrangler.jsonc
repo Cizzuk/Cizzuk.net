@@ -1,6 +1,7 @@
 {
   "name": "cizzuk",
   "compatibility_date": "2026-04-10",
+  "workers_dev": false,
   "assets": {
     "directory": "./_site",
     "not_found_handling": "404-page"
@@ -10,8 +11,8 @@
   },
   "routes": [
     {
-      "pattern": "cizzuk.net/*",
-      "zone_name": "cizzuk.net"
+      "pattern": "cizzuk.net",
+      "custom_domain": true
     }
   ]
 }
