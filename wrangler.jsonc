@@ -2,6 +2,7 @@
   "name": "cizzuk",
   "compatibility_date": "2026-04-10",
   "workers_dev": false,
+  "send_metrics": false,
   "assets": {
     "directory": "./_site",
     "not_found_handling": "404-page"
