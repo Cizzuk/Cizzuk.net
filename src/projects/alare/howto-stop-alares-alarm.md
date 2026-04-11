@@ -1,9 +1,10 @@
 ---
-layout: "post"
+layout: "default"
 lang: "ja"
-permalink: "/notes/howto-stop-alares-alarm/"
+permalink: "/projects/alare/howto-stop-alarm/"
 title: "iPhoneやiPadにAlareのアラームが表示されて鳴り止まない場合"
 description: "Alareのアラームが何度も鳴って停止する方法がわからない場合の、アラームの停止方法を説明します。"
+icon: "/assets/projects/alare/icon.png"
 ---
 
 [Alare](https://cizzuk.net/projects/alare/)はiPhoneおよびiPad向けのアラームアプリで、強制的にスヌーズを何度も繰り返すことで寝坊を防止します。
