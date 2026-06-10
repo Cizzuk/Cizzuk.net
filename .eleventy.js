@@ -1,4 +1,4 @@
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   const path = require("node:path");
   const fs = require("node:fs");
   const {
@@ -25,6 +25,7 @@ module.exports = function(eleventyConfig) {
 
   // -------- Configurable Settings --------
   const TZ = "Asia/Tokyo";
+
   const DIRS = {
     input: "src",
     includes: "_includes",
@@ -33,10 +34,16 @@ module.exports = function(eleventyConfig) {
     public: "public",
     assetsSubdir: "assets",
   };
+
   const ASSETS = {
-    // Primary stylesheet compilation
-    scssEntry: path.join(__dirname, DIRS.public, DIRS.assetsSubdir, "styles.scss"),
-    cssOut: path.join(__dirname, DIRS.output, DIRS.assetsSubdir, "styles.css"),
+    // Sass compilation targets
+    sassFiles: [
+      {
+        entry: path.join(__dirname, DIRS.public, DIRS.assetsSubdir, "styles.scss"),
+        out: path.join(__dirname, DIRS.output, DIRS.assetsSubdir, "styles.css"),
+      },
+    ],
+
     // File types to hash-and-rename after minify
     hashIncludeExts: [
       ".css",
@@ -123,18 +130,19 @@ module.exports = function(eleventyConfig) {
   const outRoot = path.join(__dirname, DIRS.output);
 
   function compileSassTask() {
-    compileSass(ASSETS.scssEntry, ASSETS.cssOut, {
-      style: "compressed",
-      sourceMap: false,
+    ASSETS.sassFiles.forEach(({ entry, out }) => {
+      compileSass(entry, out, {
+        style: "compressed",
+        sourceMap: false,
+      });
+      eleventyConfig.addWatchTarget(entry);
     });
   }
 
   eleventyConfig.on("beforeBuild", () => {
     cleanDir(outRoot);
+    compileSassTask();
   });
-  eleventyConfig.on("beforeBuild", compileSassTask);
-  eleventyConfig.on("beforeWatch", compileSassTask);
-  eleventyConfig.addWatchTarget(path.join(DIRS.public, DIRS.assetsSubdir, "styles.scss"));
 
 
   // -------- Transforms --------
@@ -228,7 +236,7 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  
+
   return {
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
