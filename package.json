@@ -5,7 +5,8 @@
   "main": ".eleventy.js",
   "scripts": {
     "build": "eleventy",
-    "serve": "eleventy --serve"
+    "dev": "wrangler dev",
+    "clean": "rm -r _site .wrangler"
   },
   "repository": {
     "type": "git",
