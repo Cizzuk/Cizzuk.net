@@ -6,7 +6,7 @@ module.exports = function (eleventyConfig) {
     toDT,
     getCurrentYear,
     ensureDateFromFilename,
-    sortByDateDesc,
+    sortByDateAndFilenameDesc,
     // build helpers
     cleanDir,
     compileSass,
@@ -109,7 +109,7 @@ module.exports = function (eleventyConfig) {
     items.forEach(ensureDateFromFilename);
 
     const visible = items.filter((item) => !item.data.hidden);
-    const sorted = visible.sort(sortByDateDesc);
+    const sorted = visible.sort(sortByDateAndFilenameDesc);
     return sorted;
   });
 
@@ -118,7 +118,7 @@ module.exports = function (eleventyConfig) {
     items.forEach(ensureDateFromFilename);
 
     const visible = items.filter((item) => !item.data.hidden);
-    const sorted = visible.sort(sortByDateDesc);
+    const sorted = visible.sort(sortByDateAndFilenameDesc);
     return sorted;
   });
 

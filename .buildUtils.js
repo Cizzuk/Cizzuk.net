@@ -66,10 +66,18 @@ const ensureDateFromFilename = (item) => {
   }
 };
 
-const sortByDateDesc = (a, b) => {
+const sortByDateAndFilenameDesc = (a, b) => {
   const ad = a.data?.date || a.date;
   const bd = b.data?.date || b.date;
-  return new Date(bd) - new Date(ad);
+  
+  const dateComparison = new Date(bd) - new Date(ad);
+  if (dateComparison !== 0) {
+    return dateComparison;
+  }
+
+  const af = a.inputPath || a.file;
+  const bf = b.inputPath || b.file;
+  return bf.localeCompare(af);
 };
 
 // -------- Build helpers --------
@@ -310,7 +318,7 @@ module.exports = {
   toDT,
   getCurrentYear,
   ensureDateFromFilename,
-  sortByDateDesc,
+  sortByDateAndFilenameDesc,
   // build
   cleanDir,
   compileSass,
