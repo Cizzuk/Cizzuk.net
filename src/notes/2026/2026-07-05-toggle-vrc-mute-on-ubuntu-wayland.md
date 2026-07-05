@@ -52,7 +52,7 @@ sudo apt install liblo-tools
 
 ### VRChatでOSCを有効にする
 
-VRChatのExpressionsメニューから、オプション、OSCと進み、有効化します。
+VRChatのExpressionsメニューから、オプション、OSCと進み、有効にします。
 
 これでセットアップは完了です。
 
@@ -60,4 +60,4 @@ VRChatのExpressionsメニューから、オプション、OSCと進み、有効
 
 確認のために、Waylandにネイティブ対応している他のアプリにフォーカスを当てた状態で、設定したショートカットを実行してみましょう。
 
-非フォーカス状態のVRChatでマイクの状態が切り替わってたら成功です。
+非フォーカス状態のVRChatでマイクの状態が切り替わったら成功です。
