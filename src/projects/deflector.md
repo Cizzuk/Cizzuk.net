@@ -6,10 +6,10 @@ title: "Deflector"
 description: ""
 icon: "/assets/projects/deflector/icon.png"
 version: "0.1"
-# links:
-#   itunes_app: "6802068584"
-#   appstore: "https://apps.apple.com/app/deflector/id6802068584"
-#   source: "https://github.com/Cizzuk/Deflector"
+links:
+  itunes_app: "6802068584"
+  appstore: "https://apps.apple.com/app/deflector/id6802068584"
+  source: "https://github.com/Cizzuk/Deflector"
 ---
 
 {% from 'appbox.njk' import appbox %}
