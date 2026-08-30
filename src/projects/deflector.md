@@ -3,7 +3,7 @@ layout: "default"
 lang: "en"
 permalink: "/projects/deflector/"
 title: "Deflector"
-description: ""
+description: "Run any shortcut from the Dynamic Island or Side Button"
 icon: "/assets/projects/deflector/icon.png"
 version: "0.1"
 links:
@@ -15,6 +15,10 @@ links:
 {% from 'appbox.njk' import appbox %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 {{ appbox(thisapp, "h1") }}
+
+With Deflector, you can add buttons to the Dynamic Island and Lock Screen to run any shortcut. You can long-press the Dynamic Island to quickly run shortcuts.
+
+On supported iPhones in Japan, you can use your preferred voice assistant via shortcuts using the Side Button. You can create a shortcut that opens the app of the voice assistant or starts voice recognition, allowing you to use various assistants.
 
 ## Download
 
