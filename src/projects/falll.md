@@ -5,9 +5,9 @@ collection: "app"
 permalink: "/projects/falll/"
 title: "FALLLL"
 icon: "/assets/projects/falll/icon.png"
-version: "4.0.5"
+version: "4.0.6"
 links:
-  playweb: "https://i.cizzuk.net/junk/falll/"
+  playweb: "https://i.cizzuk.net/falll/"
   itunes_app: "1526930790"
   store:
     appstore: "https://apps.apple.com/app/fallll/id1526930790"
