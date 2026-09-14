@@ -5,7 +5,7 @@ permalink: "/projects/sidesearch/"
 title: "Side Search"
 description: "サイドボタンをカスタマイズ"
 icon: "/assets/projects/sidesearch/icon.png"
-version: "3.2"
+version: "4.0"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
@@ -31,8 +31,8 @@ links:
 <details>
   <summary>互換性</summary>
   <ul>
-    <li>iOS 26.2 またはそれ以降。</li>
-    <li>iPadOS 26.2 またはそれ以降。</li>
+    <li>iOS 27.0 またはそれ以降。</li>
+    <li>iPadOS 27.0 またはそれ以降。</li>
   </ul>
 </details>
 
