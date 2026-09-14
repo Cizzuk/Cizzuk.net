@@ -1,5 +1,6 @@
 module.exports = [
   "cse",
+  "deflector",
   "sidesearch",
   "cbnote",
   "alare",
