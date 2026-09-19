@@ -210,7 +210,7 @@ header {
 
   .drpct {
     cursor: grab;
-    margin: auto;
+    margin: 20px auto;
     user-select: none;
     view-transition-name: drpct;
     width: clamp(0px, 120px, 100%);
@@ -220,16 +220,25 @@ header {
     }
   }
 
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
   ul {
+    column-gap: 16px;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
-    margin: 10px 0;
+    margin: 0;
     padding: 0;
 
     li {
-      margin: 0 8px;
+      margin: 0;
 
       a {
         border-radius: 8px;
