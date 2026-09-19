@@ -378,6 +378,34 @@ footer {
   navigation: auto;
 }
 
+@media (min-width: 600px) and (horizontal-viewport-segments: 2) {
+  .profbox {
+    --segment-left-width: env(viewport-segment-width 0 0);
+    --segment-right-width: env(viewport-segment-width 1 0);
+    --segment-width: calc(var(--segment-left-width) + var(--segment-right-width));
+    --hinge-width: calc(env(viewport-segment-left 1 0) - env(viewport-segment-right 0 0));
+    --center-gap: max(var(--hinge-width), 20px);
+
+    align-items: center;
+    column-gap: var(--center-gap);
+    display: flex;
+    flex-wrap: wrap;
+
+    .proficon {
+      flex: 0 0 calc((100% - var(--center-gap)) * var(--segment-left-width) / var(--segment-width));
+      margin: 0 auto;
+      min-width: clamp(0px, 120px, 100%);
+    }
+
+    .profinfo {
+      flex: 0 0 calc((100% - var(--center-gap)) * var(--segment-right-width) / var(--segment-width));
+      margin: 0 auto;
+      min-width: clamp(0px, 180px, 100%);
+      text-align: left;
+    }
+  }
+}
+
 @media (max-width: 240px) {
   body {
     padding: 0 8px;
