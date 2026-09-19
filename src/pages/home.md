@@ -8,10 +8,12 @@ type: "home"
 {% from 'postbox.njk' import postbox %}
 
 <div class="profbox" itemscope itemtype="http://schema.org/Person">
-  <div class="proficon" aria-hidden data-svg="drpct">
-    <noscript>
-      <img src="{{ site.icons.proficon }}" alt itemprop="image">
-    </noscript>
+  <div class="proficon">
+    <div class="drpct" aria-hidden data-svg="drpct">
+      <noscript>
+        <img src="{{ site.icons.proficon }}" alt itemprop="image">
+      </noscript>
+    </div>
   </div>
   
   <div class="profinfo">

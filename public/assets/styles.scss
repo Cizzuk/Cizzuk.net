@@ -182,7 +182,7 @@ details {
 header {
   margin: 20px 4px;
 
-  .proficon {
+  .drpct {
     border-radius: 0;
     height: 24px;
     margin-inline-end: 8px;
@@ -208,17 +208,15 @@ header {
   margin: 60px auto;
   text-align: center;
 
-  .proficon {
-    display: inline-block;
-    margin: 0 auto;
+  .proficon .drpct {
+    cursor: grab;
+    margin: auto;
     user-select: none;
+    view-transition-name: drpct;
+    width: clamp(0px, 120px, 100%);
 
     * {
-      aspect-ratio: 3/2;
       border-radius: 0;
-      cursor: grab;
-      view-transition-name: drpct;
-      width: clamp(0px, 120px, 100%);
     }
   }
 
@@ -439,9 +437,8 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-  header .proficon,
-  .profbox .proficon {
+  header .drpct,
+  .profbox .proficon .drpct {
     view-transition-name: none;
   }
 }
