@@ -377,7 +377,7 @@ footer {
   navigation: auto;
 }
 
-@media only screen and (max-width: 240px) {
+@media (max-width: 240px) {
   body {
     padding: 0 8px;
   }
