@@ -208,7 +208,7 @@ header {
   margin: 60px auto;
   text-align: center;
 
-  .proficon .drpct {
+  .drpct {
     cursor: grab;
     margin: auto;
     user-select: none;
@@ -438,7 +438,7 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   header .drpct,
-  .profbox .proficon .drpct {
+  .profbox .drpct {
     view-transition-name: none;
   }
 }
