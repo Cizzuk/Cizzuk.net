@@ -13,8 +13,7 @@ body {
   color: var(--text);
   margin: 20px auto 40px;
   padding: 0 20px;
-  width: 100%;
-  max-width: 600px;
+  width: clamp(0px, 100%, 600px);
 }
 
 // Typography
@@ -210,17 +209,16 @@ header {
   text-align: center;
 
   .proficon {
-    aspect-ratio: 3/2;
-    cursor: grab;
     display: inline-block;
-    pointer-events: none;
+    margin: 0 auto;
     user-select: none;
-    view-transition-name: drpct;
-    max-width: 100%;
-    width: 120px;
 
     * {
+      aspect-ratio: 3/2;
       border-radius: 0;
+      cursor: grab;
+      view-transition-name: drpct;
+      width: clamp(0px, 120px, 100%);
     }
   }
 

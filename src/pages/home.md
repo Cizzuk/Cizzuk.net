@@ -13,32 +13,34 @@ type: "home"
       <img src="{{ site.icons.proficon }}" alt itemprop="image">
     </noscript>
   </div>
-  <h1 itemprop="name">{{ site.title }}</h1>
-  <p itemprop="description">{{ site.bio }}</p>
-
-  <ul>
-    <li>
-      <a href="{{ site.links.github }}" title="GitHub" aria-label="GitHub" data-svg="gh" rel="me" itemprop="sameAs">
-        <noscript>
-          <img src="/assets/home/icons/gh.png" alt="GitHub" class="dark-reverse">
-        </noscript>
-      </a>
-    </li>
-    <li>
-      <a href="/contact/" title="Contact" aria-label="Contact" data-svg="mail" itemprop="email">
-        <noscript>
-          <img src="/assets/home/icons/mail.png" alt="Contact" class="dark-reverse">
-        </noscript>
-      </a>
-    </li>
-    <li>
-      <a href="/tip/" title="Send a tip" aria-label="Send a tip" data-svg="heart">
-        <noscript>
-          <img src="/assets/home/icons/heart.png" alt="Send a tip" class="dark-reverse">
-        </noscript>
-      </a>
-    </li>
-  </ul>
+  
+  <div class="profinfo">
+    <h1 itemprop="name">{{ site.title }}</h1>
+    <p itemprop="description">{{ site.bio }}</p>
+    <ul>
+      <li>
+        <a href="{{ site.links.github }}" title="GitHub" aria-label="GitHub" data-svg="gh" rel="me" itemprop="sameAs">
+          <noscript>
+            <img src="/assets/home/icons/gh.png" alt="GitHub" class="dark-reverse">
+          </noscript>
+        </a>
+      </li>
+      <li>
+        <a href="/contact/" title="Contact" aria-label="Contact" data-svg="mail" itemprop="email">
+          <noscript>
+            <img src="/assets/home/icons/mail.png" alt="Contact" class="dark-reverse">
+          </noscript>
+        </a>
+      </li>
+      <li>
+        <a href="/tip/" title="Send a tip" aria-label="Send a tip" data-svg="heart">
+          <noscript>
+            <img src="/assets/home/icons/heart.png" alt="Send a tip" class="dark-reverse">
+          </noscript>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 {% if collections.projects | length > 0 %}
