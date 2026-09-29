@@ -80,7 +80,7 @@ struct ActivateVoiceBasedConversationSceneIntent {
 
 ## 規約に注意
 
-[ADPLA](https://developer.apple.com/support/terms/apple-developer-program-license-agreement/#j333)でサイドボタンを長押しするApp Intentでは、音声アシスタントを起動しなければならない(must)と書かれています。
+[ADPLA](https://developer.apple.com/support/terms/apple-developer-program-license-agreement/#ai-machine-learning-technologies)でサイドボタンを長押しするApp Intentでは、音声アシスタントを起動しなければならない(must)と書かれています。
 
 なのでこの記事に書かれていることをする場合、
 
