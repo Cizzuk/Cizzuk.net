@@ -424,15 +424,15 @@ footer {
 
 // Color variables
 :root {
-  color-scheme: light dark;
   --accent: #36f;
   --accent-dark: #2050be;
   --bg: #fafcff;
   --bg-accent: #dceaff;
   --bg-accent-high: #bad0f8;
+  --heart: #c39;
   --text: #383838;
   --text-gray: #707070;
-  --heart: #c39;
+  color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
