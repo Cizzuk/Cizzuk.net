@@ -18,7 +18,7 @@ links:
 
 With Deflector, you can add buttons to the Dynamic Island and Lock Screen to run any shortcut. You can long-press the Dynamic Island to quickly run shortcuts.
 
-On supported iPhones in Japan, you can use your preferred voice assistant via shortcuts using the Side Button.
+On supported iPhones in Japan, you can use your preferred voice assistant using shortcuts with the Side Button.
 
 ## Download
 
