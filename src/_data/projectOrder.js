@@ -2,7 +2,7 @@ module.exports = [
   "cse",
   "deflector",
   "sidesearch",
-  "cbnote",
   "alare",
+  "cbnote",
   "weba11y"
 ];
