@@ -338,9 +338,11 @@ article hgroup {
 // Footer
 footer {
   color: var(--text-gray);
+  column-gap: 2em;
   display: flex;
-  gap: 40px;
-  margin: 0;
+  flex-wrap: wrap;
+  margin: 40px 0;
+  row-gap: 10px;
 
   .copy {
     display: inline-block;
@@ -348,9 +350,9 @@ footer {
   }
 
   ul {
+    column-gap: 16px;
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 16px;
     list-style: none;
     margin: 0;
     padding: 0;
