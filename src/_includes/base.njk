@@ -24,6 +24,13 @@
         <li><a href="/posts/">Posts</a></li>
         <li><a href="/notes/">Notes</a></li>
       </ul>
+      {% if alternate_langs %}
+      <ul>
+        {% for alternate_lang in alternate_langs %}
+        <li><a href="{{ alternate_lang.url }}" lang="{{ alternate_lang.lang }}">{{ alternate_lang.lang | upper }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </footer>
   </body>
 </html>

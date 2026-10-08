@@ -338,23 +338,25 @@ article hgroup {
 // Footer
 footer {
   color: var(--text-gray);
-  margin: 40px 0;
+  display: flex;
+  gap: 40px;
+  margin: 0;
 
   .copy {
     display: inline-block;
     margin: 0;
-    margin-inline-end: 2em;
   }
 
   ul {
     display: inline-flex;
     flex-wrap: wrap;
+    gap: 16px;
     list-style: none;
+    margin: 0;
     padding: 0;
 
     li {
       margin: 0;
-      margin-inline-end: 16px;
 
       a {
         color: var(--text-gray);

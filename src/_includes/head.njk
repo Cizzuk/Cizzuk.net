@@ -71,6 +71,12 @@
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 {% endif %}
 
+{% if alternate_langs %}
+{% for alternate_lang in alternate_langs %}
+<link rel="alternate" hreflang="{{ alternate_lang.lang }}" href="{{ alternate_lang.url }}">
+{% endfor %}
+{% endif %}
+
 {% if links.itunes_app %}
 <meta name="apple-itunes-app" content="app-id={{ links.itunes_app }}">
 {% endif %}
