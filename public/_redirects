@@ -1,6 +1,8 @@
 /*/index.html /:splat/ 301
 /favicon.ico /assets/favicon.png 302
 
+/altstore/ https://i.cizzuk.net/altstore/ 302
+
 /app/* /projects/:splat 301
 /en/app/* /projects/:splat 301
 /ja/app/* /projects/:splat 301
