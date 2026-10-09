@@ -196,12 +196,15 @@ header {
 
 // Profile box
 .profbox {
+  align-items: center;
+  column-gap: 20px;
+  display: flex;
+  flex-wrap: nowrap;
   margin: 60px auto;
-  text-align: center;
 
   .drpct {
     cursor: grab;
-    margin: 20px auto;
+    margin: 30px auto;
     user-select: none;
     view-transition-name: drpct;
     width: clamp(0px, 120px, 100%);
@@ -211,19 +214,28 @@ header {
     }
   }
 
+  .proficon {
+    margin: 0;
+    min-width: clamp(0px, 200px, 100%);
+  }
+
+  .profinfo {
+    display: grid;
+    row-gap: 16px;
+  }
+
   h1 {
     margin: 0;
   }
 
   p {
-    margin: 20px 0;
+    margin: 0;
   }
 
   ul {
-    column-gap: 16px;
+    column-gap: 30px;
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: center;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -235,6 +247,7 @@ header {
         border-radius: 8px;
         display: inline-block;
         height: 42px;
+        margin: 0 -6px;
         padding: 6px;
         transition: background 0.2s;
         width: 42px;
@@ -373,35 +386,18 @@ footer {
   navigation: auto;
 }
 
-@media (min-width: 600px) and (horizontal-viewport-segments: 2) {
+@media (max-width: 599px) {
   .profbox {
-    --segment-left-width: env(viewport-segment-width 0 0);
-    --segment-right-width: env(viewport-segment-width 1 0);
-    --segment-width: calc(var(--segment-left-width) + var(--segment-right-width));
-    --hinge-width: calc(env(viewport-segment-left 1 0) - env(viewport-segment-right 0 0));
-    --center-gap: max(var(--hinge-width), 20px);
+    display: block;
+    text-align: center;
 
-    align-items: center;
-    column-gap: var(--center-gap);
-    display: flex;
-    flex-wrap: wrap;
-
-    .proficon {
-      flex: 0 0 calc((100% - var(--center-gap)) * var(--segment-left-width) / var(--segment-width));
-      margin: 0 auto;
-      min-width: clamp(0px, 120px, 100%);
-    }
-
-    .profinfo {
-      flex: 0 0 calc((100% - var(--center-gap)) * var(--segment-right-width) / var(--segment-width));
-      margin: 0 auto;
-      min-width: clamp(0px, 180px, 100%);
-      text-align: left;
+    ul {
+      justify-content: center;
     }
   }
 }
 
-@media (max-width: 240px) {
+@media (max-width: 239px) {
   body {
     padding: 0 8px;
   }
