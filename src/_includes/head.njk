@@ -72,6 +72,7 @@
 {% endif %}
 
 {% if alternate_langs %}
+<script src="/assets/alternate_lang_redirect.js" defer></script>
 {% for alternate_lang in alternate_langs %}
 <link rel="alternate" hreflang="{{ alternate_lang.lang }}" href="{{ alternate_lang.url }}">
 {% endfor %}
