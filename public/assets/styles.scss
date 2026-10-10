@@ -200,23 +200,21 @@ header {
   column-gap: 20px;
   display: flex;
   flex-wrap: nowrap;
-  margin: 60px auto;
+  justify-content: space-evenly;
+  margin: 60px 0;
 
   .drpct {
     cursor: grab;
-    margin: 30px auto;
+    flex-shrink: 0;
+    margin: 0;
+    max-width: 100%;
     user-select: none;
     view-transition-name: drpct;
-    width: clamp(0px, 120px, 100%);
+    width: 120px;
 
     * {
       border-radius: 0;
     }
-  }
-
-  .proficon {
-    margin: 0;
-    min-width: clamp(0px, 200px, 100%);
   }
 
   .profinfo {
@@ -390,6 +388,10 @@ footer {
   .profbox {
     display: block;
     text-align: center;
+
+    .drpct {
+      margin: 30px auto;
+    }
 
     ul {
       justify-content: center;
