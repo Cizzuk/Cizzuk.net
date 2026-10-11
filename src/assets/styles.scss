@@ -171,7 +171,13 @@ details {
 
 // Header
 header {
-  margin: 20px 4px;
+  align-items: center;
+  column-gap: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 30px;
+  row-gap: 10px;
 
   .drpct {
     border-radius: 0;
@@ -190,6 +196,25 @@ header {
 
     * {
       font-size: 1.2em;
+    }
+  }
+
+  .alternate-langs {
+    color: var(--text-gray);
+    column-gap: 16px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+
+      a {
+        color: var(--text-gray);
+        font-weight: normal;
+      }
     }
   }
 }
@@ -348,6 +373,7 @@ article hgroup {
 
 // Footer
 footer {
+  align-items: center;
   color: var(--text-gray);
   column-gap: 2em;
   display: flex;

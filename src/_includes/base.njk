@@ -12,6 +12,15 @@
         <img class="drpct" src="{{ site.icons.proficon }}" alt aria-hidden>
         <span>{{ site.title }}</span>
       </a>
+      {% if alternate_langs %}
+      <ul class="alternate-langs">
+        {% for alternate_lang in alternate_langs %}
+        {% if alternate_lang.lang != lang %}
+        <li><a href="{{ alternate_lang.url }}" lang="{{ alternate_lang.lang }}" hreflang="{{ alternate_lang.lang }}">{{ alternate_lang.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
     </header>
     {% endif %}
 
@@ -19,13 +28,11 @@
 
     <footer>
       <p class="copy">© {% currentYear %} Cizzuk</p>
-      {% if alternate_langs %}
       <ul>
-        {% for alternate_lang in alternate_langs %}
-        <li><a href="{{ alternate_lang.url }}" lang="{{ alternate_lang.lang }}">{{ alternate_lang.lang | upper }}</a></li>
-        {% endfor %}
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/posts/">Posts</a></li>
+        <li><a href="/notes/">Notes</a></li>
       </ul>
-      {% endif %}
     </footer>
   </body>
 </html>

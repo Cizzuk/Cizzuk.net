@@ -6,8 +6,10 @@ title: "AltStore PALソース"
 description: "Cizzuk SourceをAltStore PALに追加すれば、CizzukのアプリをAltStore PALからインストールできるようになります。"
 alternate_langs:
   - lang: "en"
+    name: "EN"
     url: "/altstore/en/"
   - lang: "ja"
+    name: "日本語"
     url: "/altstore/ja/"
 ---
 
