@@ -1,7 +1,7 @@
 /*/index.html /:splat/ 301
 /favicon.ico /assets/favicon.png 302
 
-/altstore/ /altstore/en/ 302
+/altstore/ /altstore/en/ 307
 
 /app/* /projects/:splat 301
 /en/app/* /projects/:splat 301
