@@ -3,6 +3,9 @@ layout: "default"
 lang: "en"
 permalink: "/"
 type: "home"
+scripts:
+  - src: "/assets/home/js/home.js"
+    defer: true
 ---
 {% from 'appbox.njk' import appbox %}
 {% from 'postbox.njk' import postbox %}
