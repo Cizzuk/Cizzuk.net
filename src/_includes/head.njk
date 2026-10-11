@@ -1,7 +1,7 @@
-{% if title and title != "" and type != "home" %}
-	{% set fullTitle = title + " - " + site.title %}
+{% if title and title != site.title and title != "" %}
+  {% set fullTitle = title + " - " + site.title %}
 {% else %}
-	{% set fullTitle = site.title %}
+  {% set fullTitle = site.title %}
 {% endif %}
 {% set iconCandidate = icon | default(image) | default(site.icons.siteicon) %}
 
@@ -27,32 +27,36 @@
 {% endif %}
 
 {% if layout == "post" %}
-	{% if date %}
-	<meta property="article:published_time" content="{{ date | dateISO }}">
-	{% endif %}
-	{% if update %}
-	<meta property="article:modified_time" content="{{ update | dateISO }}">
-	{% endif %}
-	{% if author %}
-	<meta property="article:author" content="{{ author | default(site.title) }}">
-	{% endif %}
+  {% if date %}
+  <meta property="article:published_time" content="{{ date | dateISO }}">
+  {% endif %}
+  {% if update %}
+  <meta property="article:modified_time" content="{{ update | dateISO }}">
+  {% endif %}
+  {% if author %}
+  <meta property="article:author" content="{{ author | default(site.title) }}">
+  {% endif %}
 {% endif %}
 
 <meta name="twitter:card" content="summary">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ fullTitle }}">
 <meta property="og:site_name" content="{{ site.title }}">
+
 {% if description %}
 <meta property="og:description" content="{{ description }}">
 {% elif type == "home" %}
 <meta property="og:description" content="{{ site.bio | striptags }}">
 {% endif %}
+
 {% if ogp or iconCandidate %}
 <meta property="og:image" content="{{ site.url }}{{ ogp | default(iconCandidate) }}">
 {% endif %}
+
 {% if ogp_alt %}
 <meta property="og:image:alt" content="{{ ogp_alt }}">
 {% endif %}
+
 {% if type == "home" %}
 <meta property="og:type" content="profile">
 {% elif layout == "post" %}
@@ -72,9 +76,9 @@
 {% endif %}
 
 {% if alternate_langs %}
-{% for alternate_lang in alternate_langs %}
-<link rel="alternate" hreflang="{{ alternate_lang.lang }}" href="{{ alternate_lang.url }}">
-{% endfor %}
+  {% for alternate_lang in alternate_langs %}
+  <link rel="alternate" hreflang="{{ alternate_lang.lang }}" href="{{ alternate_lang.url }}">
+  {% endfor %}
 {% endif %}
 
 {% if links.itunes_app %}
