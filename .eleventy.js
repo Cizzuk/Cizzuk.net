@@ -1,6 +1,7 @@
-module.exports = function (eleventyConfig) {
+module.exports = async function (eleventyConfig) {
   const path = require("node:path");
   const fs = require("node:fs");
+  const { IdAttributePlugin } = await import("@11ty/eleventy");
   const {
     // date helpers
     toDT,
@@ -63,6 +64,15 @@ module.exports = function (eleventyConfig) {
     renamePattern: "{name}-{hash}-opt{ext}",
   };
 
+  // -------- Plugins --------
+  eleventyConfig.addPlugin(IdAttributePlugin, {
+    slugify: (text) =>
+      text
+        .trim()
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}_-]+/gu, "-")
+        .replace(/^-+|-+$/g, ""),
+  });
 
   // -------- Filters --------
   eleventyConfig.addFilter("date", (value) => {
