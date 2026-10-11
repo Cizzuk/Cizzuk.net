@@ -205,18 +205,9 @@ module.exports = async function (eleventyConfig) {
     }
 
     // First pass: minify passthrough CSS/JS/XML
-    const { walkDir, minifyCss } = require("./.buildUtils");
+    const { walkDir } = require("./.buildUtils");
     await walkDir(outRoot, async (filePath) => {
-      if (filePath.endsWith(".css")) {
-        try {
-          const css = fs.readFileSync(filePath, "utf8");
-          const minified = minifyCss(css);
-          fs.writeFileSync(filePath, minified);
-          logTag("minify", `CSS ${filePath}`);
-        } catch (e) {
-          console.warn("CSS minify failed for", filePath, e.message);
-        }
-      } else if (filePath.endsWith(".js")) {
+      if (filePath.endsWith(".js")) {
         try {
           const js = fs.readFileSync(filePath, "utf8");
           const minified = await minifyJs(js);

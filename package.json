@@ -20,7 +20,6 @@
   "homepage": "https://github.com/Cizzuk/Cizzuk.net#readme",
   "devDependencies": {
     "@11ty/eleventy": "latest",
-    "csso": "latest",
     "html-minifier-terser": "latest",
     "luxon": "latest",
     "sass": "latest",

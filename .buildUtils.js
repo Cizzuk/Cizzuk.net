@@ -3,7 +3,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const sass = require("sass");
-const csso = require("csso");
 const htmlMinifier = require("html-minifier-terser");
 const Terser = require("terser");
 const { DateTime } = require("luxon");
@@ -133,10 +132,6 @@ const minifyJs = async (content) => {
     format: { comments: false },
   });
   return min.code || content;
-};
-
-const minifyCss = (content) => {
-  return csso.minify(content).css;
 };
 
 const minifyXml = (content) => {
@@ -328,7 +323,6 @@ module.exports = {
   // minifiers
   minifyHtml,
   minifyJs,
-  minifyCss,
   minifyXml,
   // fs
   walkDir,
