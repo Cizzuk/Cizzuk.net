@@ -2,9 +2,8 @@
   "name": "cizzuk-net",
   "version": "0.0.0",
   "description": "Build Cizzuk.net",
-  "main": ".eleventy.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy --config build_scripts/.eleventy.js",
     "dev": "wrangler dev",
     "clean": "rm -r _site .wrangler"
   },
@@ -13,7 +12,7 @@
     "url": "git+https://github.com/Cizzuk/Cizzuk.net.git"
   },
   "author": "Cizzuk",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Cizzuk/Cizzuk.net/issues"
   },

@@ -26,12 +26,6 @@ npx wrangler deploy
 
 ## Test
 
-### Eleventy
-
-```bash
-npm run serve
-```
-
 ### Wrangler
 
 ```bash
