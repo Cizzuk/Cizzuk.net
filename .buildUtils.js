@@ -104,18 +104,21 @@ const compileSass = (srcFile, outFile, { style = "expanded", sourceMap = false }
 // -------- Minifiers --------
 const minifyHtml = async (content) => {
   return htmlMinifier.minify(content, {
+    collapseBooleanAttributes: true,
     collapseWhitespace: true,
-    conservativeCollapse: false,
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeEmptyAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
     minifyCSS: true,
     minifyJS: true,
-    keepClosingSlash: true,
+    removeAttributeQuotes: true,
+    removeComments: true,
+    removeEmptyAttributes: true,
+    removeOptionalTags: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    removeTagWhitespace: true,
     sortAttributes: true,
     sortClassName: true,
+    useShortDoctype: true,
   });
 };
 
