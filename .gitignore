@@ -6,6 +6,7 @@ public/assets/styles.css
 .wrangler/
 
 # Dependencies
+package-lock.json
 node_modules/
 
 # Environment files
