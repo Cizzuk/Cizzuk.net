@@ -39,7 +39,7 @@ module.exports = function (eleventyConfig) {
     // Sass compilation targets
     sassFiles: [
       {
-        entry: path.join(__dirname, DIRS.public, DIRS.assetsSubdir, "styles.scss"),
+        entry: path.join(__dirname, DIRS.input, DIRS.assetsSubdir, "styles.scss"),
         out: path.join(__dirname, DIRS.output, DIRS.assetsSubdir, "styles.css"),
       },
     ],
