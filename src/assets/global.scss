@@ -182,7 +182,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: $base-margin 0;
+  margin: $base-margin 0 $base-margin*1.5;
   row-gap: $base-margin-small;
 
   .drpct {
