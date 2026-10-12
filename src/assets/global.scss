@@ -232,6 +232,7 @@ header {
   }
 
   .appbox-icon {
+    border-radius: 0;
     filter: drop-shadow(0 1.5px 2px rgba(0, 0, 0, 0.2));
     height: 80px;
     width: 80px;
@@ -266,7 +267,7 @@ header {
 
   * {
     border-radius: 0;
-    height: 50px;
+    max-height: 50px;
     width: auto;
   }
 }
@@ -280,8 +281,7 @@ header {
 
   * {
     border-radius: 0;
-    height: 400px;
-    max-width: initial;
+    max-height: 400px;
     width: auto;
   }
 }
