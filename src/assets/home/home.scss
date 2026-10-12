@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  margin: $base-margin-large 0;
+  margin: $base-margin*3 0;
 
   .drpct {
     cursor: grab;
