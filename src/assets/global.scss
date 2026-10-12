@@ -24,19 +24,21 @@ h2,
 h3 {
   font-weight: 500;
   line-height: 1.2;
-  margin: $base-margin-large 0 $base-margin;
 }
 
 h1 {
   font-size: 1.6em;
+  margin: $base-margin 0;
 }
 
 h2 {
   font-size: 1.5em;
+  margin: $base-margin-large 0 $base-margin;
 }
 
 h3 {
   font-size: 1.2em;
+  margin: $base-margin-large 0 $base-margin;
 }
 
 p {
@@ -180,7 +182,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: $base-margin 0;
+  margin: $base-margin 0 $base-margin-headerbelow;
   row-gap: $base-margin-small;
 
   .drpct {
@@ -287,7 +289,7 @@ header {
 // Post header
 article hgroup {
   display: grid;
-  margin: $base-margin-large 0 $base-margin;
+  margin: $base-margin 0;
   row-gap: $base-margin-small;
 
   h1 {

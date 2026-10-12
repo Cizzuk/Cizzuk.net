@@ -4,6 +4,7 @@ $base-width: 600px;
 $base-margin: 20px;
 $base-margin-small: 10px;
 $base-margin-large: 40px;
+$base-margin-headerbelow: $base-margin-large - 10px;
 %no-style-ul {
   list-style: none;
   margin: 0;
