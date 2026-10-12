@@ -24,21 +24,19 @@ h2,
 h3 {
   font-weight: 500;
   line-height: 1.2;
+  margin: $base-margin-large 0 $base-margin;
 }
 
 h1 {
   font-size: 1.8em;
-  margin: $base-margin 0;
 }
 
 h2 {
   font-size: 1.6em;
-  margin: $base-margin-large 0 $base-margin;
 }
 
 h3 {
   font-size: 1.2em;
-  margin: $base-margin-large 0 $base-margin;
 }
 
 p {
@@ -288,7 +286,7 @@ header {
 
 // Post header
 article hgroup {
-  margin: $base-margin auto;
+  margin: $base-margin-large 0 $base-margin;
 
   h1 {
     margin: 0;
