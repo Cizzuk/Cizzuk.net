@@ -301,8 +301,8 @@ header {
 .appbox {
   align-items: center;
   color: var(--text);
+  column-gap: $base-margin;
   display: flex;
-  gap: $base-margin;
   margin: $base-margin 0;
 
   &:hover,
@@ -316,20 +316,23 @@ header {
     width: 80px;
   }
 
-  .appbox-title {
-    display: block;
-    font-size: 1.4em;
-    font-weight: 500;
-    line-height: 1;
-    margin: 0;
-  }
+  .appbox-info {
+    display: grid;
+    row-gap: 0.25em;
 
-  h1.appbox-title {
-    font-size: 1.7em;
-  }
+    .appbox-title {
+      display: block;
+      font-size: 1.4em;
+      font-weight: 500;
+      line-height: 1;
+      margin: 0;
+    }
 
-  .appbox-desc {
-    color: var(--text-gray);
+    p {
+      color: var(--text-gray);
+      line-height: 1.2;
+      margin: 0;
+    }
   }
 }
 
@@ -451,10 +454,11 @@ footer {
     padding: 0 $base-margin-small;
   }
 
-  .app {
+  .appbox {
     flex-wrap: wrap;
+    row-gap: $base-margin-small;
 
-    .app-icon {
+    .appbox-icon {
       height: auto;
     }
   }

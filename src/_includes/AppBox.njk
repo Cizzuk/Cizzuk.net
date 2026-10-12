@@ -4,10 +4,10 @@
     {%- if data.icon -%}
     <img src="{{ data.icon }}" class="appbox-icon" alt aria-hidden>
     {%- endif -%}
-    <div>
+    <div class="appbox-info">
       <{{ heading }} class="appbox-title">{{ data.title }}</{{ heading }}>
       {%- if data.description -%}
-      <div class="appbox-desc">{{ data.description }}</div>
+      <p>{{ data.description }}</p>
       {%- endif -%}
     </div>
   {%- endset -%}
