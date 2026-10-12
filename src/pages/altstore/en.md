@@ -9,7 +9,7 @@ scripts:
     defer: true
 alternate_langs:
   - lang: "en"
-    name: "EN"
+    name: "English"
     url: "/altstore/en/"
   - lang: "ja"
     name: "日本語"
