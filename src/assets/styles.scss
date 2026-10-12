@@ -334,6 +334,21 @@ header {
   }
 }
 
+// App preview
+.app-preview {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+
+  * {
+    border-radius: 0;
+    height: 400px;
+    max-width: initial;
+    width: auto;
+  }
+}
+
 // Post header
 article hgroup {
   margin: 20px auto 30px;
@@ -494,8 +509,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  header .drpct,
-  .profbox .drpct {
-    view-transition-name: none;
+  body * {
+    view-transition-name: none !important;
   }
 }

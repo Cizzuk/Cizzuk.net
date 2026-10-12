@@ -5,6 +5,10 @@ permalink: "/projects/alare/"
 title: "Alare"
 description: "Alarm app to prevent oversleeping"
 icon: "/assets/projects/alare/icon.png"
+preview:
+  - "/assets/projects/alare/preview1.png"
+  - "/assets/projects/alare/preview2.png"
+  - "/assets/projects/alare/preview3.png"
 version: "2.1"
 links:
   itunes_app: "6759486773"
@@ -13,12 +17,16 @@ links:
 ---
 
 {% from 'appbox.njk' import appbox %}
+{% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
+
 {{ appbox(thisapp, "h1") }}
 
 This is an alarm app. However, you cannot stop it easily.
 
 Alare's alarm will continue to snooze automatically until you perform a special action. To prevent oversleeping, select an action that you believe will wake you up!
+
+{{ AppPreview(preview) }}
 
 ## Download
 

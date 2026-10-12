@@ -1,0 +1,7 @@
+{%- macro AppPreview(previews) -%}
+  <div class="app-preview">
+    {%- for preview in previews -%}
+      <img src="{{ preview }}" alt="Preview {{ loop.index }}">
+    {%- endfor -%}
+  </div>
+{%- endmacro -%}

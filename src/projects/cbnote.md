@@ -5,6 +5,10 @@ permalink: "/projects/cbnote/"
 title: "CBNote"
 description: "Replace Camera Control with Note app"
 icon: "/assets/projects/cbnote/icon.png"
+preview:
+  - "/assets/projects/cbnote/preview1.png"
+  - "/assets/projects/cbnote/preview2.png"
+  - "/assets/projects/cbnote/preview3.png"
 version: "2.8"
 links:
   itunes_app: "6756120567"
@@ -13,10 +17,14 @@ links:
 ---
 
 {% from 'appbox.njk' import appbox %}
+{% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
+
 {{ appbox(thisapp, "h1") }}
 
 This is a simple note app linked with the file system. You can quickly check and edit your notes using the device's buttons or shortcuts.
+
+{{ AppPreview(preview) }}
 
 ## Download
 

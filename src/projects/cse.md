@@ -5,6 +5,10 @@ permalink: "/projects/cse/"
 title: "Customize Search Engine"
 description: "Customize your Safari's Search Engine"
 icon: "/assets/projects/cse/icon.png"
+previews:
+  - "/assets/projects/cse/preview1.png"
+  - "/assets/projects/cse/preview2.png"
+  - "/assets/projects/cse/preview3.png"
 version: "5.1"
 links:
   itunes_app: "6445840140"
@@ -13,12 +17,16 @@ links:
 ---
 
 {% from 'appbox.njk' import appbox %}
+{% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
+
 {{ appbox(thisapp, "h1") }}
 
 This extension allows you to use your preferred search engines, such as non-default search engines or AI assistants.
 
 You can also use it to change search engine settings, for example, by hiding AI Overviews or changing language settings.
+
+{{ AppPreview(previews) }}
 
 ## Download
 

@@ -5,6 +5,10 @@ permalink: "/projects/deflector/"
 title: "Deflector"
 description: "Run shortcuts from Dynamic Island, Watch and more"
 icon: "/assets/projects/deflector/icon.png"
+preview:
+  - "/assets/projects/deflector/preview1.png"
+  - "/assets/projects/deflector/preview2.png"
+  - "/assets/projects/deflector/preview3.png"
 version: "1.0"
 links:
   itunes_app: "6802068584"
@@ -13,12 +17,16 @@ links:
 ---
 
 {% from 'appbox.njk' import appbox %}
+{% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
+
 {{ appbox(thisapp, "h1") }}
 
 With Deflector, you can add buttons to the Dynamic Island, Lock Screen and Apple Watch to run any shortcut.
 
 On supported iPhones in Japan, you can use your preferred voice assistant using shortcuts with the Side Button.
+
+{{ AppPreview(preview) }}
 
 ## Download
 

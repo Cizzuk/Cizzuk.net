@@ -6,6 +6,9 @@ permalink: "/projects/weba11y/"
 title: "WebA11Y"
 description: "Improve Web Accessibility in Safari"
 icon: "/assets/projects/weba11y/icon.png"
+preview:
+  - "/assets/projects/weba11y/preview1.png"
+  - "/assets/projects/weba11y/preview2.png"
 version: "3.7"
 links:
   itunes_app: "6445839110"
@@ -14,8 +17,20 @@ links:
 ---
 
 {% from 'appbox.njk' import appbox %}
+{% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
+
 {{ appbox(thisapp, "h1") }}
+
+You can make the following changes to the Website:
+
+- Boldens all text
+- Underline links and buttons
+- Reduce animations and transitions
+- Use custom fonts
+- Insert custom CSS
+
+{{ AppPreview(preview) }}
 
 ## Download
 
@@ -42,16 +57,6 @@ Latest Version: {{ version }}
     <li>Japanese</li>
   </ul>
 </details>
-
-## Features
-
-You can make the following changes to the Website:
-
-- Boldens all text
-- Underline links and buttons
-- Reduce animations and transitions
-- Use custom fonts
-- Insert custom CSS
 
 ## License
 
