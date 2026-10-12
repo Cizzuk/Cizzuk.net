@@ -3,8 +3,10 @@ layout: "default"
 lang: "en"
 permalink: "/"
 type: "home"
+styles:
+  - "/assets/home/home.css"
 scripts:
-  - src: "/assets/home/js/home.js"
+  - src: "/assets/home/home.js"
     defer: true
 ---
 {% from 'AppBox.njk' import AppBox %}

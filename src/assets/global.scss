@@ -1,17 +1,4 @@
-// Variables
-$base-border-radius: 20px;
-$base-width: 600px;
-$base-margin: 20px;
-$base-margin-small: 10px;
-$base-margin-large: 40px;
-%no-style-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  li {
-    margin: 0;
-  }
-}
+@use "variables" as *;
 
 // Base styles
 * {
@@ -231,72 +218,6 @@ header {
   }
 }
 
-// Profile box
-.profbox {
-  align-items: center;
-  column-gap: $base-margin;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  margin: $base-margin*3 0;
-
-  .drpct {
-    cursor: grab;
-    flex-shrink: 0;
-    height: 80px;
-    margin: 0;
-    max-width: 100%;
-    user-select: none;
-    view-transition-name: drpct;
-    width: 120px;
-
-    * {
-      border-radius: 0;
-    }
-  }
-
-  .profinfo {
-    display: grid;
-    row-gap: $base-margin;
-  }
-
-  h1 {
-    line-height: 1;
-    margin: 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  ul {
-    @extend %no-style-ul;
-    $--link-padding: 10px;
-    column-gap: 30px;
-    display: inline-flex;
-    flex-wrap: wrap;
-
-    li a {
-      border-radius: $--link-padding;
-      display: inline-block;
-      height: 30px + $--link-padding*2;
-      margin: $--link-padding*-1;
-      padding: $--link-padding;
-      transition: background 0.2s;
-      width: 30px + $--link-padding*2;
-
-      &:hover {
-        background: var(--bg-accent);
-      }
-
-      img,
-      svg {
-        border-radius: 0;
-      }
-    }
-  }
-}
-
 // App box
 .appbox {
   align-items: center;
@@ -432,21 +353,6 @@ footer {
 // View transitions
 @view-transition {
   navigation: auto;
-}
-
-@media (max-width: ($base-width - 1px)) {
-  .profbox {
-    display: block;
-    text-align: center;
-
-    .drpct {
-      margin: $base-margin auto;
-    }
-
-    ul {
-      justify-content: center;
-    }
-  }
 }
 
 @media (max-width: 239px) {

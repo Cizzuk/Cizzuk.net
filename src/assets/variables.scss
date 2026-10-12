@@ -1,0 +1,14 @@
+// Variables
+$base-border-radius: 20px;
+$base-width: 600px;
+$base-margin: 20px;
+$base-margin-small: 10px;
+$base-margin-large: 40px;
+%no-style-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+  }
+}
