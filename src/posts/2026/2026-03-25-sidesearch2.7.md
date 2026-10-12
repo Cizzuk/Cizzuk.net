@@ -15,7 +15,7 @@ tags: ['sidesearch']
 - Removed the "Assistant Screen Size" setting
 - Made some other adjustments
 
-Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ site.links.altstore }}).
+Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ collections.projects.sidesearch.links.altstore }}).
 
 <details lang="ja">
 <summary>日本語</summary>

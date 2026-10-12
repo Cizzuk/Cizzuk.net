@@ -13,7 +13,7 @@ version: "3.7"
 links:
   itunes_app: "6445839110"
   appstore: "https://apps.apple.com/app/weba11y/id6445839110"
-  altstore: "/altstore/?appname=WebA11Y&bundleid=com.tsg0o0.weba11y"
+  altstore: "/altstore/?appname=WebA11Y&bundleid=com.tsg0o0.safariweba11y"
   source: "https://github.com/Cizzuk/WebA11Y"
 ---
 

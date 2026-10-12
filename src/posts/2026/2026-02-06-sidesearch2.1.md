@@ -13,7 +13,7 @@ tags: ['sidesearch']
 - Fixed an issue where speech recognition could start while the assistant was loading
 - Made some other adjustments
 
-Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ site.links.altstore }}).
+Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ collections.projects.sidesearch.links.altstore }}).
 
 <details lang="ja">
 <summary>日本語</summary>

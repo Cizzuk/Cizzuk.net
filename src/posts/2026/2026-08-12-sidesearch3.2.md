@@ -11,7 +11,7 @@ tags: ['sidesearch']
 - Changed haptics to occur even when sound effects are disabled
 - Changed the default setting for sound effects to "Background Only"
 
-Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ site.links.altstore }}).
+Update is available on the [App Store]({{ collections.projects.sidesearch.links.appstore }}) and [AltStore PAL]({{ collections.projects.sidesearch.links.altstore }}).
 
 <details lang="ja">
 <summary>日本語</summary>
