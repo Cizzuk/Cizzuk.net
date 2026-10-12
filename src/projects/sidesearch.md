@@ -13,6 +13,7 @@ version: "4.1"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
+  altstore: "/altstore/?appname=Side%20Search&bundleid=net.cizzuk.sidesearch"
   source: "https://github.com/Cizzuk/Side-Search"
 ---
 
@@ -23,7 +24,7 @@ links:
 
 {{ AppBox(thisapp, "h1") }}
 
-{{ AppDownload(links.appstore, site.links.altstore) }}
+{{ AppDownload(links.appstore, links.altstore) }}
 
 サイドボタンやアクションボタンから素早く起動して、お好みのAIアシスタントや検索エンジンを、音声アシスタントとして利用できます。
 

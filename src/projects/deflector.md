@@ -13,6 +13,7 @@ version: "1.0"
 links:
   itunes_app: "6802068584"
   appstore: "https://apps.apple.com/app/deflector/id6802068584"
+  altstore: "/altstore/?appname=Deflector&bundleid=net.cizzuk.deflector"
   source: "https://github.com/Cizzuk/Deflector"
 ---
 
@@ -23,7 +24,7 @@ links:
 
 {{ AppBox(thisapp, "h1") }}
 
-{{ AppDownload(links.appstore, site.links.altstore) }}
+{{ AppDownload(links.appstore, links.altstore) }}
 
 With Deflector, you can add buttons to the Dynamic Island, Lock Screen and Apple Watch to run any shortcut.
 

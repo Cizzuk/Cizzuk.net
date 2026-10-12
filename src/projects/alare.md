@@ -13,6 +13,7 @@ version: "2.1"
 links:
   itunes_app: "6759486773"
   appstore: "https://apps.apple.com/app/alare/id6759486773"
+  altstore: "/altstore/?appname=Alare&bundleid=net.cizzuk.alare"
   source: "https://github.com/Cizzuk/Alare"
 ---
 
@@ -23,7 +24,7 @@ links:
 
 {{ AppBox(thisapp, "h1") }}
 
-{{ AppDownload(links.appstore, site.links.altstore) }}
+{{ AppDownload(links.appstore, links.altstore) }}
 
 This is an alarm app. However, you cannot stop it easily.
 

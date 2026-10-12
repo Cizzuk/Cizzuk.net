@@ -16,7 +16,14 @@
       <ul>
         {% for alternate_lang in alternate_langs %}
         {% if alternate_lang.lang != lang %}
-        <li><a href="{{ alternate_lang.url }}" lang="{{ alternate_lang.lang }}" hreflang="{{ alternate_lang.lang }}">{{ alternate_lang.name }}</a></li>
+        <li>
+          <a href="{{ alternate_lang.url }}"
+             lang="{{ alternate_lang.lang }}"
+             hreflang="{{ alternate_lang.lang }}"
+             data-alternate-lang="{{ alternate_lang.lang }}">
+            {{ alternate_lang.name }}
+          </a>
+        </li>
         {% endif %}
         {% endfor %}
       </ul>

@@ -13,6 +13,7 @@ version: "3.7"
 links:
   itunes_app: "6445839110"
   appstore: "https://apps.apple.com/app/weba11y/id6445839110"
+  altstore: "/altstore/?appname=WebA11Y&bundleid=com.tsg0o0.weba11y"
   source: "https://github.com/Cizzuk/WebA11Y"
 ---
 
@@ -23,7 +24,7 @@ links:
 
 {{ AppBox(thisapp, "h1") }}
 
-{{ AppDownload(links.appstore, site.links.altstore) }}
+{{ AppDownload(links.appstore, links.altstore) }}
 
 You can make the following changes to the Website:
 

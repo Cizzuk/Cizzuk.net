@@ -13,6 +13,7 @@ version: "2.8"
 links:
   itunes_app: "6756120567"
   appstore: "https://apps.apple.com/app/cbnote/id6756120567"
+  altstore: "/altstore/?appname=CBNote&bundleid=net.cizzuk.cbnote"
   source: "https://github.com/Cizzuk/CBNote"
 ---
 
@@ -23,7 +24,7 @@ links:
 
 {{ AppBox(thisapp, "h1") }}
 
-{{ AppDownload(links.appstore, site.links.altstore) }}
+{{ AppDownload(links.appstore, links.altstore) }}
 
 This is a simple note app linked with the file system. You can quickly check and edit your notes using the device's buttons or shortcuts.
 

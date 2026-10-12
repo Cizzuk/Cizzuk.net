@@ -13,6 +13,7 @@ version: "5.1"
 links:
   itunes_app: "6445840140"
   appstore: "https://apps.apple.com/app/cse/id6445840140"
+  altstore: "/altstore/?appname=Customize%20Search%20Engine&bundleid=com.tsg0o0.cse"
   source: "https://github.com/Cizzuk/CSE"
 ---
 
@@ -23,7 +24,7 @@ links:
 
 {{ AppBox(thisapp, "h1") }}
 
-{{ AppDownload(links.appstore, site.links.altstore) }}
+{{ AppDownload(links.appstore, links.altstore) }}
 
 This extension allows you to use your preferred search engines, such as non-default search engines or AI assistants.
 
