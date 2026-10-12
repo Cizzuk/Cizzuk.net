@@ -2,22 +2,22 @@
   {%- set data = item.data if item.data else item -%}
   {%- set content -%}
     {%- if data.icon -%}
-    <img src="{{ data.icon }}" class="app-icon" alt aria-hidden>
+    <img src="{{ data.icon }}" class="appbox-icon" alt aria-hidden>
     {%- endif -%}
-    <div class="app-info">
-      <{{ heading }} class="app-title">{{ data.title }}</{{ heading }}>
+    <div>
+      <{{ heading }} class="appbox-title">{{ data.title }}</{{ heading }}>
       {%- if data.description -%}
-      <div class="app-desc">{{ data.description }}</div>
+      <div class="appbox-desc">{{ data.description }}</div>
       {%- endif -%}
     </div>
   {%- endset -%}
 
   {%- if item.url -%}
-  <a href="{{ item.url }}" class="app">
+  <a href="{{ item.url }}" class="appbox">
     {{ content | safe }}
   </a>
   {%- else -%}
-  <div class="app">
+  <div class="appbox">
     {{ content | safe }}
   </div>
   {%- endif -%}

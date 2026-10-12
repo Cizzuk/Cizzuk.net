@@ -1,3 +1,18 @@
+// Variables
+$base-border-radius: 20px;
+$base-width: 600px;
+$base-margin: 20px;
+$base-margin-small: 10px;
+$base-margin-large: 40px;
+%no-style-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+  }
+}
+
 // Base styles
 * {
   box-sizing: border-box;
@@ -11,9 +26,9 @@
 body {
   background: var(--bg);
   color: var(--text);
-  margin: 20px auto 40px;
-  padding: 0 20px;
-  width: clamp(0px, 100%, 600px);
+  margin: $base-margin auto $base-margin-large;
+  padding: 0 $base-margin;
+  width: clamp(0px, 100%, $base-width);
 }
 
 // Typography
@@ -26,21 +41,21 @@ h3 {
 
 h1 {
   font-size: 1.8em;
-  margin: 20px 0;
+  margin: $base-margin 0;
 }
 
 h2 {
   font-size: 1.6em;
-  margin: 50px 0 20px;
+  margin: $base-margin-large 0 $base-margin;
 }
 
 h3 {
   font-size: 1.2em;
-  margin: 40px 0 20px;
+  margin: $base-margin-large 0 $base-margin;
 }
 
 p {
-  margin: 20px 0;
+  margin: $base-margin 0;
 }
 
 a {
@@ -68,7 +83,7 @@ b {
 hr {
   border: none;
   border-top: 2px solid var(--bg-accent);
-  margin: 40px 0;
+  margin: $base-margin-large 0;
 }
 
 time {
@@ -85,14 +100,14 @@ img {
 
 img,
 svg {
-  border-radius: 16px;
+  border-radius: $base-border-radius;
   vertical-align: middle;
 }
 
 // Lists
 ol,
 ul {
-  margin: 20px 0;
+  margin: $base-margin 0;
   padding-inline-start: 2em;
 }
 
@@ -109,7 +124,7 @@ li {
 table {
   border-collapse: collapse;
   display: block;
-  margin: 20px 0;
+  margin: $base-margin 0;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
@@ -117,7 +132,7 @@ table {
   th,
   td {
     border: 1px solid var(--bg-accent-high);
-    padding: 6px 12px;
+    padding: 0.5em 1em;
   }
 
   tbody th {
@@ -133,31 +148,35 @@ code * {
   font-family: monospace, system-ui, sans-serif;
 }
 
+pre {
+  margin: $base-margin 0;
+}
+
 code {
+  $--radius: 0.25em;
   background: var(--bg-accent);
-  border-radius: 6px;
+  border-radius: $--radius;
   font-size: 0.95em;
-  margin: 0 1px;
-  padding: 1px 4px;
+  padding: $--radius*0.5 $--radius;
 }
 
 pre code {
-  border-radius: 16px;
+  border-radius: $base-border-radius;
   direction: ltr;
   display: block;
-  margin: 20px 0;
+  margin: $base-margin 0;
   overflow-x: auto;
-  padding: 12px 18px;
+  padding: $base-border-radius*0.5 $base-border-radius;
 }
 
 // Sections
 section {
-  margin: 20px 0;
+  margin: $base-margin 0;
 }
 
 // Details
 details {
-  margin: 20px 4px;
+  margin: $base-margin 0;
 
   summary {
     cursor: pointer;
@@ -165,7 +184,7 @@ details {
   }
 
   &> :nth-child(2) {
-    margin-top: 8px;
+    margin-top: $base-margin-small;
   }
 }
 
@@ -176,13 +195,12 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20px 0 30px;
-  row-gap: 10px;
+  margin: $base-margin 0;
+  row-gap: $base-margin-small;
 
   .drpct {
     border-radius: 0;
     height: 24px;
-    margin-inline-end: 8px;
     pointer-events: none;
     user-select: none;
     view-transition-name: drpct;
@@ -192,6 +210,7 @@ header {
   a {
     align-items: center;
     color: var(--text);
+    column-gap: $base-margin-small;
     display: inline-flex;
 
     * {
@@ -200,20 +219,14 @@ header {
   }
 
   ul {
-    column-gap: 16px;
+    @extend %no-style-ul;
+    column-gap: $base-margin;
     display: inline-flex;
     flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 
-    li {
-      margin: 0;
-
-      a {
-        color: var(--text-gray);
-        font-weight: normal;
-      }
+    li a {
+      color: var(--text-gray);
+      font-weight: normal;
     }
   }
 }
@@ -221,15 +234,16 @@ header {
 // Profile box
 .profbox {
   align-items: center;
-  column-gap: 20px;
+  column-gap: $base-margin;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  margin: 60px 0;
+  margin: $base-margin*3 0;
 
   .drpct {
     cursor: grab;
     flex-shrink: 0;
+    height: 80px;
     margin: 0;
     max-width: 100%;
     user-select: none;
@@ -243,10 +257,11 @@ header {
 
   .profinfo {
     display: grid;
-    row-gap: 16px;
+    row-gap: $base-margin;
   }
 
   h1 {
+    line-height: 1;
     margin: 0;
   }
 
@@ -255,82 +270,66 @@ header {
   }
 
   ul {
+    @extend %no-style-ul;
+    $--link-padding: 10px;
     column-gap: 30px;
     display: inline-flex;
     flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 
-    li {
-      margin: 0;
+    li a {
+      border-radius: $--link-padding;
+      display: inline-block;
+      height: 30px + $--link-padding*2;
+      margin: $--link-padding*-1;
+      padding: $--link-padding;
+      transition: background 0.2s;
+      width: 30px + $--link-padding*2;
 
-      a {
-        border-radius: 8px;
-        display: inline-block;
-        height: 42px;
-        margin: 0 -6px;
-        padding: 6px;
-        transition: background 0.2s;
-        width: 42px;
+      &:hover {
+        background: var(--bg-accent);
+      }
 
-        &:hover {
-          background: var(--bg-accent);
-        }
-
-        img,
-        svg {
-          border-radius: 0;
-        }
+      img,
+      svg {
+        border-radius: 0;
       }
     }
   }
 }
 
 // App box
-.app {
+.appbox {
   align-items: center;
   color: var(--text);
   display: flex;
-  flex-wrap: wrap;
-  margin: 20px 0;
+  gap: $base-margin;
+  margin: $base-margin 0;
 
   &:hover,
   &:focus {
     color: var(--text);
   }
 
-  .app-icon {
+  .appbox-icon {
     filter: drop-shadow(0 1.5px 2px rgba(0, 0, 0, 0.2));
-    flex-grow: 0;
     height: 80px;
-    margin: 2px 0;
-    margin-inline-end: 16px;
     width: 80px;
   }
 
-  .app-info {
-    flex-grow: 1;
-    margin: 2px 0;
-    min-width: 122px;
-    width: calc(100% - 118px);
-  }
-
-  .app-title {
+  .appbox-title {
     display: block;
     font-size: 1.4em;
     font-weight: 500;
     line-height: 1;
-    margin: 0 0 3px;
+    margin: 0;
   }
 
-  h1.app-title {
+  h1.appbox-title {
     font-size: 1.7em;
   }
 
-  .app-desc {
+  .appbox-desc {
     color: var(--text-gray);
-    line-height: 1.2;
   }
 }
 
@@ -338,8 +337,8 @@ header {
 .app-download {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  margin: 20px 0;
+  gap: $base-margin;
+  margin: $base-margin 0;
 
   * {
     border-radius: 0;
@@ -351,8 +350,8 @@ header {
 // App preview
 .app-preview {
   display: flex;
-  gap: 20px;
-  margin: 20px 0;
+  gap: $base-margin;
+  margin: $base-margin 0;
   overflow-x: auto;
 
   * {
@@ -365,20 +364,20 @@ header {
 
 // Post header
 article hgroup {
-  margin: 20px auto 30px;
+  margin: $base-margin auto;
 
   h1 {
-    margin: 4px 0;
+    margin: 0;
   }
 
   time {
     display: inline-block;
-    margin-inline-end: 20px;
+    margin-inline-end: $base-margin;
   }
 }
 
 .postbox {
-  margin: 20px 0;
+  margin: $base-margin 0;
 
   .postbox-title {
     font-size: 1.4em;
@@ -390,7 +389,6 @@ article hgroup {
   a {
     color: var(--text);
     display: block;
-    padding: 4px 0;
   }
 
   time {
@@ -407,8 +405,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 40px 0;
-  row-gap: 10px;
+  margin: $base-margin-large 0;
+  row-gap: $base-margin-small;
 
   .copy {
     display: inline-block;
@@ -416,20 +414,14 @@ footer {
   }
 
   ul {
-    column-gap: 16px;
+    @extend %no-style-ul;
+    column-gap: $base-margin;
     display: inline-flex;
     flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 
-    li {
-      margin: 0;
-
-      a {
-        color: var(--text-gray);
-        font-weight: normal;
-      }
+    li a {
+      color: var(--text-gray);
+      font-weight: normal;
     }
   }
 }
@@ -439,13 +431,13 @@ footer {
   navigation: auto;
 }
 
-@media (max-width: 599px) {
+@media (max-width: ($base-width - 1px)) {
   .profbox {
     display: block;
     text-align: center;
 
     .drpct {
-      margin: 30px auto;
+      margin: $base-margin auto;
     }
 
     ul {
@@ -456,16 +448,14 @@ footer {
 
 @media (max-width: 239px) {
   body {
-    padding: 0 8px;
+    padding: 0 $base-margin-small;
   }
 
   .app {
+    flex-wrap: wrap;
+
     .app-icon {
       height: auto;
-    }
-
-    .app-info {
-      min-width: 100%;
     }
   }
 }
