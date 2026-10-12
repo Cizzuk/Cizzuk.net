@@ -16,11 +16,11 @@ links:
   source: "https://github.com/Cizzuk/WebA11Y"
 ---
 
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
-{{ appbox(thisapp, "h1") }}
+{{ AppBox(thisapp, "h1") }}
 
 You can make the following changes to the Website:
 

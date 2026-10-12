@@ -16,11 +16,11 @@ links:
   source: "https://github.com/Cizzuk/Alare"
 ---
 
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
-{{ appbox(thisapp, "h1") }}
+{{ AppBox(thisapp, "h1") }}
 
 This is an alarm app. However, you cannot stop it easily.
 

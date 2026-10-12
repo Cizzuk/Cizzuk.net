@@ -16,11 +16,11 @@ links:
   source: "https://github.com/Cizzuk/Deflector"
 ---
 
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
-{{ appbox(thisapp, "h1") }}
+{{ AppBox(thisapp, "h1") }}
 
 With Deflector, you can add buttons to the Dynamic Island, Lock Screen and Apple Watch to run any shortcut.
 

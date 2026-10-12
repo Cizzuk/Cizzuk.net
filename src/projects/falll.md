@@ -23,9 +23,9 @@ links:
 hidden: true
 ---
 
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
-{{ appbox(thisapp, "h1") }}
+{{ AppBox(thisapp, "h1") }}
 
 [Play on the Web]({{ links.playweb }})
 

@@ -16,11 +16,11 @@ links:
   source: "https://github.com/Cizzuk/CBNote"
 ---
 
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
-{{ appbox(thisapp, "h1") }}
+{{ AppBox(thisapp, "h1") }}
 
 This is a simple note app linked with the file system. You can quickly check and edit your notes using the device's buttons or shortcuts.
 

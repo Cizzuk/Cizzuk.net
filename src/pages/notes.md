@@ -5,7 +5,7 @@ permalink: "/notes/"
 title: "Notes"
 description: "Cizzukが書いたノートの一覧"
 ---
-{% from 'postbox.njk' import postbox %}
+{% from 'PostBox.njk' import PostBox %}
 
 # {{ title }}
 
@@ -14,7 +14,7 @@ description: "Cizzukが書いたノートの一覧"
 {% if collections.notes | length > 0 %}
 <section>
   {% for post in collections.notes %}
-  {{ postbox(post, "h3") }}
+  {{ PostBox(post, "h3") }}
   {% endfor %}
 </section>
 {% else %}

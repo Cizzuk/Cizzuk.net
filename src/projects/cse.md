@@ -16,11 +16,11 @@ links:
   source: "https://github.com/Cizzuk/CSE"
 ---
 
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
-{{ appbox(thisapp, "h1") }}
+{{ AppBox(thisapp, "h1") }}
 
 This extension allows you to use your preferred search engines, such as non-default search engines or AI assistants.
 

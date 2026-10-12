@@ -16,11 +16,11 @@ links:
   source: "https://github.com/Cizzuk/Side-Search"
 ---
 
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
-{{ appbox(thisapp, "h1") }}
+{{ AppBox(thisapp, "h1") }}
 
 サイドボタンやアクションボタンから素早く起動して、お好みのAIアシスタントや検索エンジンを、音声アシスタントとして利用できます。
 

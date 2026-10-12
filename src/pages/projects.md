@@ -5,14 +5,14 @@ permalink: "/projects/"
 title: "Projects"
 description: "List of my projects"
 ---
-{% from 'appbox.njk' import appbox %}
+{% from 'AppBox.njk' import AppBox %}
 
 # {{ title }}
 
 {% if collections.projects | length > 0 %}
 <section>
   {% for project in collections.projects %}
-  {{ appbox(project, "h2") }}
+  {{ AppBox(project, "h2") }}
   {% endfor %}
 </section>
 {% else %}

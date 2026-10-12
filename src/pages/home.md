@@ -7,8 +7,8 @@ scripts:
   - src: "/assets/home/js/home.js"
     defer: true
 ---
-{% from 'appbox.njk' import appbox %}
-{% from 'postbox.njk' import postbox %}
+{% from 'AppBox.njk' import AppBox %}
+{% from 'PostBox.njk' import PostBox %}
 
 <div class="profbox" itemscope itemtype="http://schema.org/Person">
   <div class="drpct" aria-hidden data-svg="drpct">
@@ -50,7 +50,7 @@ scripts:
 <section>
   <h2><a href="/projects/">Projects</a></h2>
   {% for project in collections.projects %}
-  {{ appbox(project, "h3") }}
+  {{ AppBox(project, "h3") }}
   {% endfor %}
 </section>
 {% endif %}
@@ -59,7 +59,7 @@ scripts:
 <section>
   <h2><a href="/posts/">Posts</a></h2>
   {% for post in collections.posts | firstItems(3) %}
-  {{ postbox(post, "h3") }}
+  {{ PostBox(post, "h3") }}
   {% endfor %}
 </section>
 {% endif %}
@@ -68,7 +68,7 @@ scripts:
 <section>
   <h2><a href="/notes/">Notes</a></h2>
   {% for post in collections.notes | firstItems(3) %}
-  {{ postbox(post, "h3") }}
+  {{ PostBox(post, "h3") }}
   {% endfor %}
 </section>
 {% endif %}

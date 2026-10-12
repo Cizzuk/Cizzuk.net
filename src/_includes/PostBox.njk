@@ -1,4 +1,4 @@
-{%- macro postbox(item, heading="b") -%}
+{%- macro PostBox(item, heading="b") -%}
   <article class="postbox"{% if item.data.lang %} lang="{{ item.data.lang }}"{% endif %}>
     <a href="{{ item.url }}">
       <{{ heading }} class="postbox-title">{{ item.data.title | escape }}</{{ heading }}>
