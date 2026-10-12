@@ -17,10 +17,13 @@ links:
 ---
 
 {% from 'AppBox.njk' import AppBox %}
+{% from 'AppDownload.njk' import AppDownload %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
 {{ AppBox(thisapp, "h1") }}
+
+{{ AppDownload(links.appstore, site.links.altstore) }}
 
 You can make the following changes to the Website:
 
@@ -32,13 +35,9 @@ You can make the following changes to the Website:
 
 {{ AppPreview(preview) }}
 
-## Download
+## Information
 
-[Download on the App Store]({{ links.appstore }})
-
-[AltStore PAL Source]({{ site.links.altstore }})
-
-Latest Version: {{ version }}
+Version: {{ version }}
 
 <details>
   <summary>Compatibility</summary>
@@ -58,10 +57,10 @@ Latest Version: {{ version }}
   </ul>
 </details>
 
-## License
+### License
 
 This application is licensed under the [MIT License]({{ links.source }}/blob/main/LICENSE).
 
-## Source Code
+### Source Code
 
 The app is open source, the source code is available on [GitHub]({{ links.source }}).

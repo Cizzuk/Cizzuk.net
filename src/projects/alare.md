@@ -17,10 +17,13 @@ links:
 ---
 
 {% from 'AppBox.njk' import AppBox %}
+{% from 'AppDownload.njk' import AppDownload %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
 {{ AppBox(thisapp, "h1") }}
+
+{{ AppDownload(links.appstore, site.links.altstore) }}
 
 This is an alarm app. However, you cannot stop it easily.
 
@@ -28,13 +31,22 @@ Alare's alarm will continue to snooze automatically until you perform a special 
 
 {{ AppPreview(preview) }}
 
-## Download
+## Wake-up Actions
 
-[Download on the App Store]({{ links.appstore }})
+Here are the actions available to stop an alarm:
 
-[AltStore PAL Source]({{ site.links.altstore }})
+- Wave Device
+  - Wave the device slowly and broadly like a flag.
+- Scan Code
+  - Scan the code placed outside the bed.
+- Drum Roll
+  - Drum roll your fingers on the screen.
+- Tap Button
+  - Just tap the button once.
 
-Latest Version: {{ version }}
+## Information
+
+Version: {{ version }}
 
 <details>
   <summary>Compatibility</summary>
@@ -52,23 +64,10 @@ Latest Version: {{ version }}
   </ul>
 </details>
 
-## Wake-up Actions
-
-Here are the actions available to stop an alarm:
-
-- Wave Device
-  - Wave the device slowly and broadly like a flag.
-- Scan Code
-  - Scan the code placed outside the bed.
-- Drum Roll
-  - Drum roll your fingers on the screen.
-- Tap Button
-  - Just tap the button once.
-
-## License
+### License
 
 This application is licensed under the [MIT License]({{ links.source }}/blob/main/LICENSE).
 
-## Source Code
+### Source Code
 
 The app is open source, the source code is available on [GitHub]({{ links.source }}).

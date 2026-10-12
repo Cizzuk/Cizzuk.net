@@ -17,22 +17,39 @@ links:
 ---
 
 {% from 'AppBox.njk' import AppBox %}
+{% from 'AppDownload.njk' import AppDownload %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
 {{ AppBox(thisapp, "h1") }}
 
+{{ AppDownload(links.appstore, site.links.altstore) }}
+
 This is a simple note app linked with the file system. You can quickly check and edit your notes using the device's buttons or shortcuts.
 
 {{ AppPreview(preview) }}
 
-## Download
+## Features
 
-[Download on the App Store]({{ links.appstore }})
+In app settings, you can choose the action for launching from Camera Control from the following options:
 
-[AltStore PAL Source]({{ site.links.altstore }})
+- Launch In-App Camera
+- Paste from Clipboard
+- Add New Note
+- Start Audio Recording
+- Open CBNote Only
+- Open Custom URL
 
-Latest Version: {{ version }}
+And other features:
+
+- Quick access to notes by launching from the Action Button, Camera Control, Control Center and other shortcut actions
+- Easily add new notes by pasting from the clipboard
+- Notes can be easily copied to the clipboard with a swipe gesture
+- Compatible with many file formats
+
+## Information
+
+Version: {{ version }}
 
 <details>
   <summary>Compatibility</summary>
@@ -53,28 +70,10 @@ Latest Version: {{ version }}
   </ul>
 </details>
 
-## Features
-
-In app settings, you can choose the action for launching from Camera Control from the following options:
-
-- Launch In-App Camera
-- Paste from Clipboard
-- Add New Note
-- Start Audio Recording
-- Open CBNote Only
-- Open Custom URL
-
-And other features:
-
-- Quick access to notes by launching from the Action Button, Camera Control, Control Center and other shortcut actions
-- Easily add new notes by pasting from the clipboard
-- Notes can be easily copied to the clipboard with a swipe gesture
-- Compatible with many file formats
-
-## License
+### License
 
 This application is licensed under the [MIT License]({{ links.source }}/blob/main/LICENSE).
 
-## Source Code
+### Source Code
 
 The app is open source, the source code is available on [GitHub]({{ links.source }}).

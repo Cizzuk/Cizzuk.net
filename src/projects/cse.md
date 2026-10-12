@@ -17,52 +17,19 @@ links:
 ---
 
 {% from 'AppBox.njk' import AppBox %}
+{% from 'AppDownload.njk' import AppDownload %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
 {{ AppBox(thisapp, "h1") }}
+
+{{ AppDownload(links.appstore, site.links.altstore) }}
 
 This extension allows you to use your preferred search engines, such as non-default search engines or AI assistants.
 
 You can also use it to change search engine settings, for example, by hiding AI Overviews or changing language settings.
 
 {{ AppPreview(previews) }}
-
-## Download
-
-[Download on the App Store]({{ links.appstore }})
-
-[AltStore PAL Source]({{ site.links.altstore }})
-
-Latest Version: {{ version }}
-
-<details>
-  <summary>Compatibility</summary>
-  <ul>
-    <li>iOS 16.0 or later.</li>
-    <li>iPadOS 16.0 or later.</li>
-    <li>macOS 13.0 or later.</li>
-    <li>visionOS 1.0 or later.</li>
-  </ul>
-</details>
-
-<details>
-  <summary>Languages</summary>
-  <ul>
-    <li>Arabic</li>
-    <li>English</li>
-    <li>French</li>
-    <li>German</li>
-    <li>Japanese</li>
-    <li>Korean</li>
-    <li>Portuguese</li>
-    <li>Russian</li>
-    <li>Simplified Chinese</li>
-    <li>Spanish</li>
-    <li>Traditional Chinese</li>
-    <li>Ukrainian</li>
-  </ul>
-</details>
 
 ## Features
 
@@ -92,10 +59,42 @@ If you enter only one emoji, you can search it on [Emojipedia.org](https://emoji
 
 You can use a different custom search engine or disable CSE while at work, school, etc.
 
-## License
+## Information
+
+Version: {{ version }}
+
+<details>
+  <summary>Compatibility</summary>
+  <ul>
+    <li>iOS 16.0 or later.</li>
+    <li>iPadOS 16.0 or later.</li>
+    <li>macOS 13.0 or later.</li>
+    <li>visionOS 1.0 or later.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Languages</summary>
+  <ul>
+    <li>Arabic</li>
+    <li>English</li>
+    <li>French</li>
+    <li>German</li>
+    <li>Japanese</li>
+    <li>Korean</li>
+    <li>Portuguese</li>
+    <li>Russian</li>
+    <li>Simplified Chinese</li>
+    <li>Spanish</li>
+    <li>Traditional Chinese</li>
+    <li>Ukrainian</li>
+  </ul>
+</details>
+
+### License
 
 This application is licensed under the [MIT License]({{ links.source }}/blob/main/LICENSE).
 
-## Source Code
+### Source Code
 
 The app is open source, the source code is available on [GitHub]({{ links.source }}).

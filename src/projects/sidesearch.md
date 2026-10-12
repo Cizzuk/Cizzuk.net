@@ -17,40 +17,19 @@ links:
 ---
 
 {% from 'AppBox.njk' import AppBox %}
+{% from 'AppDownload.njk' import AppDownload %}
 {% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
 
 {{ AppBox(thisapp, "h1") }}
+
+{{ AppDownload(links.appstore, site.links.altstore) }}
 
 サイドボタンやアクションボタンから素早く起動して、お好みのAIアシスタントや検索エンジンを、音声アシスタントとして利用できます。
 
 このアプリは[Side Button Access](https://developer.apple.com/documentation/AppIntents/Launching-your-voice-based-conversational-app-from-the-side-button-of-iPhone)を利用した、サイドボタンをカスタマイズするための音声ベース会話アプリです。
 
 {{ AppPreview(preview) }}
-
-## ダウンロード
-
-[App Storeからダウンロード]({{ links.appstore }})
-
-[AltStore PAL ソース]({{ site.links.altstore }})
-
-最新バージョン: {{ version }}
-
-<details>
-  <summary>互換性</summary>
-  <ul>
-    <li>iOS 27.0 またはそれ以降。</li>
-    <li>iPadOS 27.0 またはそれ以降。</li>
-  </ul>
-</details>
-
-<details>
-  <summary>言語</summary>
-  <ul>
-    <li>英語</li>
-    <li>日本語</li>
-  </ul>
-</details>
 
 ## 機能
 
@@ -81,10 +60,30 @@ Apple Intelligenceに対応しているデバイスで、プライバシー重�
 
 より高度なユーザー向けに、[Side Bridge](https://cizz.uk/sidebridge)と呼ばれるエンドポイントを作成することで、任意のアシスタントを利用できます。
 
-## ライセンス
+## 情報
+
+バージョン: {{ version }}
+
+<details>
+  <summary>互換性</summary>
+  <ul>
+    <li>iOS 27.0 またはそれ以降。</li>
+    <li>iPadOS 27.0 またはそれ以降。</li>
+  </ul>
+</details>
+
+<details>
+  <summary>言語</summary>
+  <ul>
+    <li>英語</li>
+    <li>日本語</li>
+  </ul>
+</details>
+
+### ライセンス
 
 このアプリは[MIT License]({{ links.source }}/blob/main/LICENSE)でライセンスされています。
 
-## ソースコード
+### ソースコード
 
 このアプリはオープンソースです。ソースコードは[GitHub]({{ links.source }})で利用できます。

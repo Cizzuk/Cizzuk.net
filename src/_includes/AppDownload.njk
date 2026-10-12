@@ -1,0 +1,17 @@
+{%- macro AppDownload(appstore, altstore) -%}
+  <div class="app-download">
+    {%- if appstore -%}
+    <a href="{{ appstore }}" aria-label="Download on the App Store">
+      <img src="/assets/thirds/appstore_download.png" alt="Download on the App Store">
+    </a>
+    {%- endif -%}
+    {%- if altstore -%}
+    <a href="{{ altstore }}" aria-label="Download on AltStore">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="/assets/thirds/altstore_download_dark.png">
+        <img src="/assets/thirds/altstore_download.png" alt="Download on AltStore">
+      </picture>
+    </a>
+    {%- endif -%}
+  </div>
+{%- endmacro -%}
