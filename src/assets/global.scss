@@ -234,6 +234,7 @@ header {
   .appbox-icon {
     border-radius: 0;
     filter: drop-shadow(0 1.5px 2px rgba(0, 0, 0, 0.2));
+    flex: 0 0 auto;
     height: 80px;
     width: 80px;
   }
