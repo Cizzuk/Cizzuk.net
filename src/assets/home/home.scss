@@ -1,84 +1,80 @@
 @use '../variables' as *;
 
-// Profile box
-.profbox {
+.home-firstview {
   align-items: center;
-  column-gap: $base-margin;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  margin: $base-margin*3 0;
+  flex-direction: column;
+  gap: $base-margin-large;
+  justify-content: center;
+  margin: 0 auto calc(100lvh - 100svh);
+  min-height: 100svh;
+  padding: $base-margin-large 0;
+  text-align: center;
 
-  .drpct {
-    cursor: grab;
-    flex-shrink: 0;
-    height: 80px;
-    margin: 0;
-    max-width: 100%;
-    user-select: none;
-    view-transition-name: drpct;
-    width: 120px;
+  .profile {
+    display: flex;
+    flex-direction: column;
+    gap: $base-margin;
 
-    * {
-      border-radius: 0;
+    .dropcat {
+      cursor: grab;
+      height: 80px;
+      max-width: 100%;
+      view-transition-name: drpct;
+      width: 120px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0;
     }
   }
 
-  .profinfo {
-    display: grid;
-    row-gap: $base-margin-small;
-  }
-
-  h1 {
-    line-height: 1;
-    margin: 0;
-  }
-
-  p {
-    color: var(--text-gray);
-    margin: 0;
-  }
-
-  ul {
+  .links {
     @extend %no-style-ul;
-    $--link-padding: 10px;
-    column-gap: 30px;
-    display: inline-flex;
-    flex-wrap: wrap;
-    margin-top: 0.25em;
 
-    li a {
-      border-radius: $--link-padding;
-      display: inline-block;
-      height: 30px + $--link-padding*2;
-      margin: $--link-padding*-1;
-      padding: $--link-padding;
-      transition: background 0.2s;
-      width: 30px + $--link-padding*2;
+    display: flex;
+    flex-direction: column;
+    gap: $base-margin-small;
+    text-align: start;
 
-      &:hover {
-        background: var(--bg-accent);
-      }
+    li {
+      position: relative;
 
-      img,
-      svg {
-        border-radius: 0;
+      a {
+        display: inline-block;
+        padding-inline-end: 2em;
+        width: 100%;
+
+        &::after {
+          content: ">";
+          inset-inline-end: 0;
+          position: absolute;
+        }
       }
     }
   }
-}
 
-@media (max-width: ($base-width - 1px)) {
-  .profbox {
-    display: block;
-    text-align: center;
+  .scroll-guide {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: $base-margin-small;
 
-    .drpct {
-      margin: $base-margin auto;
-    }
-
-    ul {
+    .guide {
+      color: var(--text-gray);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 0.4em;
       justify-content: center;
     }
+
+    svg {
+      height: 11px;
+      width: 18px;
+      animation: scroll-guide-icon 1s infinite alternate;
+    }
   }
 }
+
+@media (max-width: ($base-width - 1px)) {}
