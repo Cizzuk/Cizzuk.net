@@ -91,15 +91,13 @@
   .app-preview-sticky {
     height: 0;
     position: sticky;
-    top: 0;
+    top: calc(50dvh - 50svh);
     z-index: 1;
   }
 
   #app-preview-wrapper {
     height: 100svh;
     position: relative;
-    top: 0;
-    bottom: 0;
     width: 100%;
 
     // animation: app-preview-away-animation(awayToInlineStartWrapper);
