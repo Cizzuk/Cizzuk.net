@@ -50,7 +50,7 @@ scripts:
 </div>
 
 <div class="home-apps">
-  <section data-app-intro="deflector">
+  <section id="app-intro-deflector">
     {% set deflector = collections.projects.deflector %}
     {% set deflector = { title: deflector.title, icon: deflector.icon, url: deflector.url } %}
     {{ AppBox(deflector, "h2") }}
@@ -58,33 +58,41 @@ scripts:
   </section>
 
   <div class="app-preview-sticky-scope">
-    <div class="app-preview-sticky">
+    <div id="app-preview-main">
       <div id="app-preview-wrapper">
-        <img id="app-preview" src="/assets/home/previews/deflector.png" alt="" aria-hidden>
+        <img id="app-preview-deflector" src="/assets/home/previews/deflector.png" class="app-preview-image" alt=""
+          aria-hidden loading="lazy">
+        <img id="app-preview-sidesearch" src="/assets/home/previews/sidesearch.png" class="app-preview-image" alt=""
+          aria-hidden loading="lazy">
+        <img id="app-preview-cbnote" src="/assets/home/previews/cbnote.png" class="app-preview-image" alt="" aria-hidden
+          loading="lazy">
+        <img id="app-preview-alare" src="/assets/home/previews/alare.png" class="app-preview-image" alt="" aria-hidden
+          loading="lazy">
       </div>
     </div>
 
-    <section data-app-intro="sidesearch" class="screen-height at-trailing">
+    <section id="app-intro-sidesearch" class="screen-height">
       {% set sidesearch = collections.projects.sidesearch %}
       {% set sidesearch = { title: sidesearch.title, icon: sidesearch.icon, url: sidesearch.url } %}
       {{ AppBox(sidesearch, "h2") }}
       <p class="description">The first app that gives users the freedom to choose which voice assistant to use with the
         Side Button.</p>
     </section>
+
+    <section id="app-intro-cbnote" class="screen-height">
+      {% set cbnote = collections.projects.cbnote %}
+      {% set cbnote = { title: cbnote.title, icon: cbnote.icon, url: cbnote.url } %}
+      {{ AppBox(cbnote, "h2") }}
+      <p class="description">Don't use the camera? Replace Camera Control with features like notes, a clipboard manager,
+        or voice recording.</p>
+    </section>
   </div>
 
-  <section data-app-intro="cbnote" class="screen-height at-trailing">
-    {% set cbnote = collections.projects.cbnote %}
-    {% set cbnote = { title: cbnote.title, icon: cbnote.icon, url: cbnote.url } %}
-    {{ AppBox(cbnote, "h2") }}
-    <p class="description">Don't use the camera? Replace Camera Control with features like notes, a clipboard manager,
-      or voice recording.</p>
-  </section>
-
-  <section data-app-intro="alare">
+  <section id="app-intro-alare">
     {% set alare = collections.projects.alare %}
     {% set alare = { title: alare.title, icon: alare.icon, url: alare.url } %}
     {{ AppBox(alare, "h2") }}
-    <p class="description">An alarm app integrated with the system, but dismissing the alarm requires an additional action to wake up.</p>
+    <p class="description">An alarm app integrated with the system, but dismissing the alarm requires an additional
+      action to wake up.</p>
   </section>
 </div>

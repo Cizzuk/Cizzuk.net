@@ -79,16 +79,14 @@
 }
 
 .home-apps {
-  $app-preview-away-ratio: 30%;
-  $app-preview-away-margin: $base-margin/2;
-
-  @function app-preview-away-animation($name) {
-    @return $name 1.5s cubic-bezier(0.2, 0, 0, 1) forwards;
-  }
-
   position: relative;
 
-  .app-preview-sticky {
+  .app-preview-sticky-scope {
+    margin-bottom: 100svh;
+  }
+
+  #app-preview-main {
+    display: none;
     height: 0;
     position: sticky;
     top: calc(50dvh - 50svh);
@@ -99,62 +97,38 @@
     height: 100svh;
     position: relative;
     width: 100%;
-
-    // animation: app-preview-away-animation(awayToInlineStartWrapper);
-    transform: translateX(0);
   }
 
-  #app-preview {
+  .app-preview-image {
     height: 100%;
     position: absolute;
-    top: 0;
-    width: auto;
-
-    // animation: app-preview-away-animation(awayToInlineStart);
     right: 50%;
+    top: 0;
     transform: translateX(50%);
-  }
-
-  @keyframes awayToInlineStartWrapper {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(calc((-100% + $app-preview-away-ratio) - $app-preview-away-margin));
-    }
-  }
-
-  @keyframes awayToInlineStart {
-    from {
-      right: 50%;
-      transform: translateX(50%);
-    }
-
-    to {
-      right: 0;
-      transform: translateX(0%);
-    }
+    width: auto;
   }
 
   section {
     margin: 0 auto;
-    padding: $base-margin-large 0;
+    padding: $base-margin 0;
   }
 
   section.screen-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     margin: 0 auto;
     min-height: 100svh;
   }
 
-  section.at-trailing {
-    // animation: app-preview-away-animation(fade);
-    opacity: 0;
-    padding-inline-start: calc($app-preview-away-ratio + $app-preview-away-margin);
-  }
-
   .description {
     color: var(--text-gray);
+  }
+
+  section.fadable {
+    animation: app-preview-away-animation(fade);
+    animation-play-state: paused;
+    opacity: 0;
   }
 }
 
