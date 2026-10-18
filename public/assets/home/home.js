@@ -45,7 +45,7 @@ const fadeInTumbling = [
 // App Preview Slide
 
 const appPreviewSlideRatio = '30%';
-const appPreviewSlideMargin = '20px';
+const appPreviewSlideMargin = '3%';
 
 const appPreviewWrapperSlideTumbling = reduceMotion ? [
     { transform: 'translateX(0)', opacity: 1 },
