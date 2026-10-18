@@ -2,7 +2,7 @@
   {%- set data = item.data if item.data else item -%}
   {%- set content -%}
     {%- if data.icon -%}
-    <img src="{{ data.icon }}" class="appbox-icon" alt aria-hidden {{ "loading=lazy" if lazy else "" }}>
+    <img src="{{ data.icon }}" class="appbox-icon" alt role="none" {{ "loading=lazy" if lazy else "" }}>
     {%- endif -%}
     <div class="appbox-info">
       <{{ heading }} class="appbox-title">{{ data.title }}</{{ heading }}>

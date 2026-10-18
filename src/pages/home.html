@@ -21,7 +21,7 @@ scripts:
   <div class="profile">
     <div id="dropcat" aria-hidden>
       <noscript>
-        <img src="{{ site.icons.proficon }}" alt itemprop="image">
+        <img src="{{ site.icons.proficon }}" alt role="none">
       </noscript>
     </div>
     <h1 itemprop="name">{{ site.title }}</h1>
@@ -73,16 +73,18 @@ scripts:
   </section>
 
   <div data-script-class="app-preview-sticky-scope">
-    <div id="app-preview-main">
+    <div id="app-preview-main" aria-hidden>
       <div id="app-preview-wrapper">
-        <img id="app-preview-deflector" src="/assets/home/previews/deflector.png"
-          class="app-preview-image" alt="" aria-hidden loading="lazy">
-        <img id="app-preview-sidesearch" src="/assets/home/previews/sidesearch.png"
-          class="app-preview-image" alt="" aria-hidden loading="lazy">
-        <img id="app-preview-cbnote" src="/assets/home/previews/cbnote.png"
-          class="app-preview-image" alt="" aria-hidden loading="lazy">
-        <img id="app-preview-alare" src="/assets/home/previews/alare.png"
-          class="app-preview-image" alt="" aria-hidden loading="lazy">
+        {% set app_previews = [
+          { id: "app-preview-deflector", src: "/assets/home/previews/deflector.png" },
+          { id: "app-preview-sidesearch", src: "/assets/home/previews/sidesearch.png" },
+          { id: "app-preview-cbnote", src: "/assets/home/previews/cbnote.png" },
+          { id: "app-preview-alare", src: "/assets/home/previews/alare.png" }
+        ] %}
+        {% for preview in app_previews %}
+        <img id="{{ preview.id }}" src="{{ preview.src }}"
+          class="app-preview-image" alt role="none" loading="lazy">
+        {% endfor %}
       </div>
     </div>
 
@@ -170,4 +172,4 @@ scripts:
 {% endif %}
 
 <!-- Safety for .fadein class (bottom: 15%) -->
-<img class="home-bottom-dropcat" src="{{ site.icons.proficon }}" alt aria-hidden loading="lazy">
+<img class="home-bottom-dropcat" src="{{ site.icons.proficon }}" alt role="none" loading="lazy">
