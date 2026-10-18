@@ -126,6 +126,11 @@ Object.values(appPreviews).forEach((element) => {
 
 appPreviewMain.style.display = 'block';
 
+document.querySelectorAll('[data-script-class]').forEach((element) => {
+    const className = element.dataset.scriptClass;
+    element.classList.add(className);
+});
+
 document.querySelectorAll('[data-script-style]').forEach((element) => {
     const style = element.dataset.scriptStyle;
     element.style.cssText += style;
