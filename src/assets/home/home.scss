@@ -57,11 +57,9 @@
 
   .scroll-guide {
     align-items: center;
-    animation: fade 0.8s ease-out 0.2s forwards;
     display: flex;
     flex-direction: column;
     gap: $base-margin-small;
-    opacity: 0;
 
     .guide {
       color: var(--text-gray);
@@ -103,6 +101,7 @@
     height: 100%;
     position: absolute;
     right: 50%;
+    pointer-events: none;
     top: 0;
     transform: translateX(50%);
     width: auto;
@@ -123,22 +122,6 @@
 
   .description {
     color: var(--text-gray);
-  }
-
-  section.fadable {
-    animation: app-preview-away-animation(fade);
-    animation-play-state: paused;
-    opacity: 0;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
   }
 }
 
