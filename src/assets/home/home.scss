@@ -80,19 +80,19 @@
   position: relative;
 
   .app-preview-sticky-scope {
-    margin-bottom: 100svh;
+    margin-bottom: 100lvh;
   }
 
   #app-preview-main {
     display: none;
     height: 0;
     position: sticky;
-    top: calc(50dvh - 50svh);
+    top: 0;
     z-index: 1;
   }
 
   #app-preview-wrapper {
-    height: 100svh;
+    height: 100lvh;
     position: relative;
     width: 100%;
   }
@@ -109,7 +109,7 @@
 
   section {
     margin: 0 auto;
-    padding: $base-margin 0;
+    padding: $base-margin-small 0;
   }
 
   section.screen-height {
