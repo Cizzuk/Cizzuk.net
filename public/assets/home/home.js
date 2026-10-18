@@ -136,7 +136,7 @@ const observerShowDeflector = new IntersectionObserver((entries) => {
     });
 }, {
   root: null,
-  rootMargin: "0px 0px -25% 0px",
+  rootMargin: "-20% 0px -50% 0px",
   threshold: 0
 });
 observerShowDeflector.observe(appIntros.deflector);
@@ -151,7 +151,7 @@ const observerShowSidesearch = new IntersectionObserver((entries) => {
     });
 }, {
   root: null,
-  rootMargin: "0px 0px -80% 0px",
+  rootMargin: "-20% 0px -80% 0px",
   threshold: 0
 });
 observerShowSidesearch.observe(appIntros.sidesearch);
@@ -166,7 +166,7 @@ const observerShowCbnote = new IntersectionObserver((entries) => {
     });
 }, {
   root: null,
-  rootMargin: "0px 0px -80% 0px",
+  rootMargin: "-10% 0px -80% 0px",
   threshold: 0
 });
 observerShowCbnote.observe(appIntros.cbnote);
@@ -181,7 +181,7 @@ const observerShowAlare = new IntersectionObserver((entries) => {
     });
 }, {
   root: null,
-  rootMargin: "0px 0px 0px 0px",
+  rootMargin: "-10% 0px 0% 0px",
   threshold: 0
 });
 observerShowAlare.observe(appIntros.alare);
