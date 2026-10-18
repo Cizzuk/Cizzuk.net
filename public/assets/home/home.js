@@ -120,10 +120,6 @@ Object.values(appPreviews).forEach((element) => {
     element.style.opacity = 0;
 });
 
-[appIntros.sidesearch, appIntros.cbnote].forEach((element) => {
-    element.style.paddingInlineStart = `calc(${appPreviewSlideRatio} + ${appPreviewSlideMargin})`;
-});
-
 appPreviewMain.style.display = 'block';
 
 document.querySelectorAll('[data-script-class]').forEach((element) => {
@@ -134,6 +130,10 @@ document.querySelectorAll('[data-script-class]').forEach((element) => {
 document.querySelectorAll('[data-script-style]').forEach((element) => {
     const style = element.dataset.scriptStyle;
     element.style.cssText += style;
+});
+
+[appIntros.sidesearch, appIntros.cbnote].forEach((element) => {
+    element.style.paddingInlineStart = `calc(${appPreviewSlideRatio} + ${appPreviewSlideMargin})`;
 });
 
 // Animation Triggers
