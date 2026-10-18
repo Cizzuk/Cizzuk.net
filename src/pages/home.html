@@ -49,6 +49,7 @@ scripts:
     {% set deflector = { title: deflector.title, icon: deflector.icon, url: deflector.url } %}
     {{ AppBox(deflector, "h2", lazy=true) }}
     <p class="description">A magical app to run any shortcut from the Dynamic Island, Apple Watch, or Side Button.</p>
+    <a class="learn-more" href="{{ deflector.url }}">Learn more</a>
   </section>
 
   <div class="app-preview-sticky-scope">
@@ -68,8 +69,8 @@ scripts:
       {% set sidesearch = collections.projects.sidesearch %}
       {% set sidesearch = { title: sidesearch.title, icon: sidesearch.icon, url: sidesearch.url } %}
       {{ AppBox(sidesearch, "h2", lazy=true) }}
-      <p class="description">The first app that gives users the freedom to choose which voice assistant to use with the
-        Side Button.</p>
+      <p class="description">The first app that gives users the freedom to choose which voice assistant to use with the Side Button.</p>
+      <a class="learn-more" href="{{ sidesearch.url }}">Learn more</a>
     </section>
 
     <!-- Spacer based on the animation trigger (Side Search top, CBNote bottom) -->
@@ -79,8 +80,8 @@ scripts:
       {% set cbnote = collections.projects.cbnote %}
       {% set cbnote = { title: cbnote.title, icon: cbnote.icon, url: cbnote.url } %}
       {{ AppBox(cbnote, "h2", lazy=true) }}
-      <p class="description">Don't use the camera? Replace Camera Control with features like notes, a clipboard manager,
-        or voice recording.</p>
+      <p class="description">Don't use the camera? Replace Camera Control with features like notes, a clipboard manager, or voice recording.</p>
+      <a class="learn-more" href="{{ cbnote.url }}">Learn more</a>
     </section>
   </div>
 
@@ -88,7 +89,7 @@ scripts:
     {% set alare = collections.projects.alare %}
     {% set alare = { title: alare.title, icon: alare.icon, url: alare.url } %}
     {{ AppBox(alare, "h2", lazy=true) }}
-    <p class="description">An alarm app integrated with the system, but dismissing the alarm requires an additional
-      action to wake up.</p>
+    <p class="description">An alarm app integrated with the system, but dismissing the alarm requires an additional action to wake up.</p>
+    <a class="learn-more" href="{{ alare.url }}">Learn more</a>
   </section>
 </div>

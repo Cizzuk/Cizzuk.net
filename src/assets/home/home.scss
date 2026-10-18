@@ -114,11 +114,22 @@
 
   section {
     margin: 0 auto;
-    padding: $base-margin-small 0;
+    padding: $base-margin 0;
   }
 
   .description {
     color: var(--text-gray);
+    margin: $base-margin-small 0;
+  }
+
+  .learn-more {
+    display: block;
+    margin: $base-margin-small 0;
+
+    &::after {
+      content: ">";
+      padding-inline-start: 0.5em;
+    }
   }
 }
 
