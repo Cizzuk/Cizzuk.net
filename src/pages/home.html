@@ -123,6 +123,25 @@ scripts:
     <p class="description">Powered by AlarmKit, it doesn't need to stay open overnight, unlike many other alarm apps. That means less battery impact and no need to remember to open the app before bed.</p>
   </section>
 
+  <h2>Safari Extensions</h2>
+
+  <section id="app-intro-cse">
+    {% set cse = collections.projects.cse %}
+    {% set cse = { title: 'CSE', icon: cse.icon, url: cse.url } %}
+    {{ AppBox(cse, "h3", lazy=true) }}
+    <p class="description">A Safari extension to customize Safari's default search engine on iOS, iPadOS, macOS, and visionOS.</p>
+    {{ LearnMoreLink(cse.url) }}
+    <p class="description">Additionally, it can instantly switch search engines using keywords, or flexibly update search engine settings using Focus or Shortcuts.</p>
+  </section>
+
+  <section id="app-intro-weba11y">
+    {% set weba11y = collections.projects.weba11y %}
+    {% set weba11y = { title: 'WebA11y', icon: weba11y.icon, url: weba11y.url } %}
+    {{ AppBox(weba11y, "h3", lazy=true) }}
+    <p class="description">A Safari extension that applies additional styles for accessibility, such as bolding text, underlining buttons, and changing fonts.</p>
+    {{ LearnMoreLink(weba11y.url) }}
+  </section>
+
   <section id="altstore-intro">
     <h2>AltStore PAL Source</h2>
     <p class="description">AltStore PAL is where my app is distributed as an alternative to the App Store. It is the first Recommended Source for AltStore PAL from Japan.</p>
