@@ -126,6 +126,11 @@ Object.values(appPreviews).forEach((element) => {
 
 appPreviewMain.style.display = 'block';
 
+document.querySelectorAll('[data-script-style]').forEach((element) => {
+    const style = element.dataset.scriptStyle;
+    element.style.cssText += style;
+});
+
 // Animation Triggers
 // rootMargin tops have an additional -5%
 
