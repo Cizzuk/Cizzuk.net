@@ -14,17 +14,12 @@ scripts:
 
 <div class="home-firstview" itemscope itemtype="http://schema.org/Person">
   <div class="profile">
-    <svg class="dropcat" aria-hidden viewBox="0 0 72 48" fill="none" stroke="#36F" stroke-width="4"
-      stroke-linejoin="round" stroke-linecap="round">
-      <path
-        d="M12 46c-7 0-10-4-10-8s1-9 6-14 14-5 22-5 11-5 12-7c5-10 12-10 17-10 0 17 0 17 5 22s6 10 6 14-3 8-10 8zm18-34c-5-10-12-10-17-10v12" />
+    <svg class="dropcat" aria-hidden viewBox="0 0 72 48" fill="none" stroke="#36F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M12 46c-7 0-10-4-10-8s1-9 6-14 14-5 22-5 11-5 12-7c5-10 12-10 17-10 0 17 0 17 5 22s6 10 6 14-3 8-10 8zm18-34c-5-10-12-10-17-10v12" />
       <path d="M 29,28 V 38 M 43,28 V 38">
-        <animate id="drpct-blink" attributeName="d" dur="0.2s" begin="indefinite"
-          values="M 29,28 V 38 M 43,28 V 38;M 29,36 V 37 M 43,36 V 37;M 29,28 V 38 M 43,28 V 38" />
-        <animateTransform id="drpct-right" attributeName="transform" type="translate" dur="1.5s" begin="indefinite"
-          keyTimes="0;0.1;0.9;1" values="0,0;-3,0;-3,0;0,0" />
-        <animateTransform id="drpct-left" attributeName="transform" type="translate" dur="1.5s" begin="indefinite"
-          keyTimes="0;0.1;0.9;1" values="0,0;3,0;3,0;0,0" />
+        <animate id="drpct-blink" attributeName="d" dur="0.2s" begin="indefinite" values="M 29,28 V 38 M 43,28 V 38;M 29,36 V 37 M 43,36 V 37;M 29,28 V 38 M 43,28 V 38" />
+        <animateTransform id="drpct-right" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;-3,0;-3,0;0,0" />
+        <animateTransform id="drpct-left" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;3,0;3,0;0,0" />
       </path>
     </svg>
     <h1 itemprop="name">{{ site.title }}</h1>
@@ -42,8 +37,7 @@ scripts:
     <div class="guide">
       <span>I develop some iOS apps.</span><span>Scroll down to take a look.</span>
     </div>
-    <svg aria-hidden viewBox="0 0 18 11" fill="none" stroke="var(--text-gray)" stroke-width="2" stroke-linejoin="round"
-      stroke-linecap="round">
+    <svg aria-hidden viewBox="0 0 18 11" fill="none" stroke="var(--text-gray)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
       <path d="M16 2 9 9 2 2" />
     </svg>
   </div>
@@ -53,28 +47,24 @@ scripts:
   <section id="app-intro-deflector">
     {% set deflector = collections.projects.deflector %}
     {% set deflector = { title: deflector.title, icon: deflector.icon, url: deflector.url } %}
-    {{ AppBox(deflector, "h2") }}
+    {{ AppBox(deflector, "h2", lazy=true) }}
     <p class="description">A magical app to run any shortcut from the Dynamic Island, Apple Watch, or Side Button.</p>
   </section>
 
   <div class="app-preview-sticky-scope">
     <div id="app-preview-main">
       <div id="app-preview-wrapper">
-        <img id="app-preview-deflector" src="/assets/home/previews/deflector.png" class="app-preview-image" alt=""
-          aria-hidden loading="lazy">
-        <img id="app-preview-sidesearch" src="/assets/home/previews/sidesearch.png" class="app-preview-image" alt=""
-          aria-hidden loading="lazy">
-        <img id="app-preview-cbnote" src="/assets/home/previews/cbnote.png" class="app-preview-image" alt="" aria-hidden
-          loading="lazy">
-        <img id="app-preview-alare" src="/assets/home/previews/alare.png" class="app-preview-image" alt="" aria-hidden
-          loading="lazy">
+        <img id="app-preview-deflector" src="/assets/home/previews/deflector.png" class="app-preview-image" alt="" aria-hidden loading="lazy">
+        <img id="app-preview-sidesearch" src="/assets/home/previews/sidesearch.png" class="app-preview-image" alt="" aria-hidden loading="lazy">
+        <img id="app-preview-cbnote" src="/assets/home/previews/cbnote.png" class="app-preview-image" alt="" aria-hidden loading="lazy">
+        <img id="app-preview-alare" src="/assets/home/previews/alare.png" class="app-preview-image" alt="" aria-hidden loading="lazy">
       </div>
     </div>
 
     <section id="app-intro-sidesearch" class="screen-height">
       {% set sidesearch = collections.projects.sidesearch %}
       {% set sidesearch = { title: sidesearch.title, icon: sidesearch.icon, url: sidesearch.url } %}
-      {{ AppBox(sidesearch, "h2") }}
+      {{ AppBox(sidesearch, "h2", lazy=true) }}
       <p class="description">The first app that gives users the freedom to choose which voice assistant to use with the
         Side Button.</p>
     </section>
@@ -82,7 +72,7 @@ scripts:
     <section id="app-intro-cbnote" class="screen-height">
       {% set cbnote = collections.projects.cbnote %}
       {% set cbnote = { title: cbnote.title, icon: cbnote.icon, url: cbnote.url } %}
-      {{ AppBox(cbnote, "h2") }}
+      {{ AppBox(cbnote, "h2", lazy=true) }}
       <p class="description">Don't use the camera? Replace Camera Control with features like notes, a clipboard manager,
         or voice recording.</p>
     </section>
@@ -91,7 +81,7 @@ scripts:
   <section id="app-intro-alare">
     {% set alare = collections.projects.alare %}
     {% set alare = { title: alare.title, icon: alare.icon, url: alare.url } %}
-    {{ AppBox(alare, "h2") }}
+    {{ AppBox(alare, "h2", lazy=true) }}
     <p class="description">An alarm app integrated with the system, but dismissing the alarm requires an additional
       action to wake up.</p>
   </section>

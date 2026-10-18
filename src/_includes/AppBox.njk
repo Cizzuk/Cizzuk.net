@@ -1,8 +1,8 @@
-{%- macro AppBox(item, heading="b") -%}
+{%- macro AppBox(item, heading="b", lazy=false) -%}
   {%- set data = item.data if item.data else item -%}
   {%- set content -%}
     {%- if data.icon -%}
-    <img src="{{ data.icon }}" class="appbox-icon" alt aria-hidden>
+    <img src="{{ data.icon }}" class="appbox-icon" alt aria-hidden {{ "loading=lazy" if lazy else "" }}>
     {%- endif -%}
     <div class="appbox-info">
       <{{ heading }} class="appbox-title">{{ data.title }}</{{ heading }}>
