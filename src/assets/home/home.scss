@@ -16,12 +16,17 @@
     flex-direction: column;
     gap: $base-margin;
 
-    .dropcat {
+    #dropcat {
       cursor: grab;
       height: 80px;
       max-width: 100%;
       view-transition-name: drpct;
       width: 120px;
+
+      img {
+        border-radius: 0;
+        pointer-events: none;
+      }
     }
 
     h1 {
