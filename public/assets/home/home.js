@@ -162,7 +162,7 @@ const observerShowSidesearch = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    rootMargin: `-30% 0px -50% 0px`, // top = CBNote bottom
+    rootMargin: `-30% 0px -50% 0px`,
     threshold: 0
 });
 observerShowSidesearch.observe(appIntros.sidesearch);
