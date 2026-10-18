@@ -41,6 +41,7 @@ Version: {{ version }}
   <ul>
     <li>iOS 27.0 or later.</li>
     <li>iPadOS 27.0 or later.</li>
+    <li>watchOS 26.6 or later.</li>
   </ul>
 </details>
 
