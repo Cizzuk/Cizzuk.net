@@ -13,7 +13,7 @@
 body {
   background: var(--bg);
   color: var(--text);
-  margin: $base-margin auto $base-margin-large;
+  margin: 0 auto;
   padding: 0 $base-margin;
   width: clamp(0px, 100%, $base-width);
 }

@@ -1,46 +1,262 @@
 (function() {
 "use strict";
 
-// SVG Icons
-const iconData = {
-  gh: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 98"><path fill="var(--text)" fill-rule="evenodd" d="M48.9.8C21.8.8 0 22.8 0 50c0 21.8 14 40.2 33.4 46.7 2.4.5 3.3-1.1 3.3-2.4 0-1.1-.1-5-.1-9.1-13.6 2.9-16.4-5.9-16.4-5.9-2.2-5.7-5.4-7.2-5.4-7.2-4.4-3 .3-3 .3-3 4.9.3 7.5 5.1 7.5 5.1 4.4 7.5 11.4 5.4 14.2 4.1.4-3.2 1.7-5.4 3.1-6.6-10.8-1.1-22.2-5.4-22.2-24.3 0-5.4 1.9-9.8 5-13.2-.5-1.2-2.2-6.3.5-13 0 0 4.1-1.3 13.4 5.1 3.9-1.1 8.1-1.6 12.2-1.6s8.3.6 12.2 1.6c9.3-6.4 13.4-5.1 13.4-5.1 2.7 6.8 1 11.8.5 13 3.2 3.4 5 7.8 5 13.2 0 18.9-11.4 23.1-22.3 24.3 1.8 1.5 3.3 4.5 3.3 9.1 0 6.6-.1 11.9-.1 13.5 0 1.3.9 2.9 3.3 2.4C83.5 90.2 97.5 71.8 97.5 50 97.7 22.8 75.9.8 48.9.8z"/></svg>',
-  mail: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M19.5 5h-15C3.3 5 2.3 6 2.3 7.2v9.6c0 1.2 1 2.2 2.2 2.2h15c1.2 0 2.2-1 2.2-2.2V7.2c0-1.2-1-2.2-2.2-2.2Z"/><path d="M21.5 8 12 12 2.5 8"/></svg>',
-  heart: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke="var(--heart)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 21C6 17 2 14 2 9c0-6 7-8 10-2 3-6 10-4 10 2 0 5-4 8-10 12z"/></svg>',
-  drpct: '<svg viewBox="0 0 72 48" fill="none" stroke="#36F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 46c-7 0-10-4-10-8s1-9 6-14 14-5 22-5 11-5 12-7c5-10 12-10 17-10 0 17 0 17 5 22s6 10 6 14-3 8-10 8zm18-34c-5-10-12-10-17-10v12"/><path d="M 29,28 V 38 M 43,28 V 38"><animate id="drpct-blink" attributeName="d" dur="0.2s" begin="indefinite" values="M 29,28 V 38 M 43,28 V 38;M 29,36 V 37 M 43,36 V 37;M 29,28 V 38 M 43,28 V 38"/><animateTransform id="drpct-right" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;-3,0;-3,0;0,0"/><animateTransform id="drpct-left" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;3,0;3,0;0,0"/></path></svg>'
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// --- App Intro & Preview Animations ---
+
+const appPreviewMain = document.getElementById('app-preview-main');
+const appPreviewWrapper = document.getElementById('app-preview-wrapper');
+
+const appIntros = {
+    deflector: document.getElementById('app-intro-deflector'),
+    sidesearch: document.getElementById('app-intro-sidesearch'),
+    cbnote: document.getElementById('app-intro-cbnote'),
+    alare: document.getElementById('app-intro-alare'),
 };
 
-// Replace icons with SVG
-document.querySelectorAll('[data-svg]').forEach(icons => {
-  const iconId = icons.dataset.svg;
-  if (iconData[iconId]) {
-    icons.innerHTML = iconData[iconId];
-  }
+const appPreviews = {
+    deflector: document.getElementById('app-preview-deflector'),
+    sidesearch: document.getElementById('app-preview-sidesearch'),
+    cbnote: document.getElementById('app-preview-cbnote'),
+    alare: document.getElementById('app-preview-alare'),
+};
+
+// Animations
+
+const sharedAnimationTiming = {
+    duration: 1000,
+    easing: 'cubic-bezier(0.2, 0, 0, 1)',
+    fill: 'forwards'
+}
+
+const sharedAnimationTimingReverse = {
+    duration: 1000,
+    direction: 'reverse',
+    easing: 'cubic-bezier(1, 0, 0.8, 1)',
+    fill: 'forwards'
+}
+
+const fadeInTumbling = [
+    { opacity: 0 },
+    { opacity: 1 }
+];
+
+// App Preview Slide
+
+const appPreviewSlideRatio = '30%';
+const appPreviewSlideMargin = '3%';
+
+const appPreviewWrapperSlideTumbling = reduceMotion ? [
+    { transform: 'translateX(0)', opacity: 1 },
+    { transform: 'translateX(0)', opacity: 0, offset: 0.5 },
+    { transform: 'translateX(calc(-100% + 30% - 20px))', opacity: 0, offset: 0.5 },
+    { transform: 'translateX(calc(-100% + 30% - 20px))', opacity: 1 }
+] : [
+    { transform: 'translateX(0)' },
+    { transform: `translateX(calc((-100% + ${appPreviewSlideRatio}) - ${appPreviewSlideMargin}))` }
+];
+
+const appPreviewSlideTumbling = reduceMotion ? [
+    { right: '50%', transform: 'translateX(50%)' },
+    { right: '50%', transform: 'translateX(50%)', offset: 0.5 },
+    { right: '0', transform: 'translateX(0)', offset: 0.5 },
+    { right: '0', transform: 'translateX(0)' }
+] : [
+    { right: '50%', transform: 'translateX(50%)' },
+    { right: '0', transform: 'translateX(0)' }
+];
+
+let slidedAppPreview = false;
+const slideAppPreview = () => {
+    if (slidedAppPreview) return;
+    appPreviewWrapper.animate(appPreviewWrapperSlideTumbling, sharedAnimationTiming);
+    Object.values(appPreviews).forEach((element) => {
+        element.animate(appPreviewSlideTumbling, sharedAnimationTiming);
+    });
+    slidedAppPreview = true;
+}
+const unslideAppPreview = () => {
+    if (!slidedAppPreview) return;
+    appPreviewWrapper.animate(appPreviewWrapperSlideTumbling, sharedAnimationTimingReverse);
+    Object.values(appPreviews).forEach((element) => {
+        element.animate(appPreviewSlideTumbling, sharedAnimationTimingReverse);
+    });
+    slidedAppPreview = false;
+}
+
+const showApp = (introElement, previewElement) => {
+    Object.values(appIntros).forEach((element) => {
+        if (element === introElement) {
+            if (element.dataset.isShown !== 'true') {
+                element.animate(fadeInTumbling, sharedAnimationTiming);
+                element.dataset.isShown = 'true';
+            }
+        } else if (element.dataset.isShown === 'true') {
+            element.animate(fadeInTumbling, sharedAnimationTimingReverse);
+            element.dataset.isShown = 'false';
+        }
+    });
+    Object.values(appPreviews).forEach((element) => {
+        if (element === previewElement) {
+            if (element.dataset.isShown !== 'true') {
+                element.animate(fadeInTumbling, sharedAnimationTiming);
+                element.dataset.isShown = 'true';
+            }
+        } else if (element.dataset.isShown === 'true') {
+            element.animate(fadeInTumbling, sharedAnimationTimingReverse);
+            element.dataset.isShown = 'false';
+        }
+    });
+}
+
+// Initialize Styles
+
+Object.values(appIntros).forEach((element) => {
+    element.style.opacity = 0;
 });
 
+Object.values(appPreviews).forEach((element) => {
+    element.style.opacity = 0;
+});
+
+appPreviewMain.style.display = 'block';
+
+document.querySelectorAll('[data-script-class]').forEach((element) => {
+    const className = element.dataset.scriptClass;
+    element.classList.add(className);
+});
+
+document.querySelectorAll('[data-script-style]').forEach((element) => {
+    const style = element.dataset.scriptStyle;
+    element.style.cssText += style;
+});
+
+[appIntros.sidesearch, appIntros.cbnote].forEach((element) => {
+    element.style.paddingInlineStart = `calc(${appPreviewSlideRatio} + ${appPreviewSlideMargin})`;
+});
+
+// Animation Triggers
+// rootMargin tops have an additional -5%
+
+// Show Deflector
+const observerShowDeflector = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            showApp(appIntros.deflector, appPreviews.deflector);
+            unslideAppPreview();
+        }
+    });
+}, {
+    rootMargin: `-5% 0px -50% 0px`,
+    threshold: 0
+});
+observerShowDeflector.observe(appIntros.deflector);
+
+// Show Side Search
+const observerShowSidesearch = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            showApp(appIntros.sidesearch, appPreviews.sidesearch);
+            slideAppPreview();
+        }
+    });
+}, {
+    rootMargin: `-30% 0px -50% 0px`,
+    threshold: 0
+});
+observerShowSidesearch.observe(appIntros.sidesearch);
+
+// Show CBNote
+const observerShowCbnote = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            showApp(appIntros.cbnote, appPreviews.cbnote);
+            slideAppPreview();
+        }
+    });
+}, {
+    rootMargin: `-5% 0px -40% 0px`,
+    threshold: 0
+});
+observerShowCbnote.observe(appIntros.cbnote);
+
+// Show Alare
+const observerShowAlare = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            showApp(appIntros.alare, appPreviews.alare);
+            unslideAppPreview();
+        }
+    });
+}, {
+    rootMargin: `0% 0px 0% 0px`,
+    threshold: 0
+});
+observerShowAlare.observe(appIntros.alare);
+
+// --- Fade-In Animations ---
+
+const fadeInClassElements = document.querySelectorAll('.fadein');
+
+const observerShowNormalFade = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.animate(fadeInTumbling, sharedAnimationTiming);
+            observerShowNormalFade.unobserve(entry.target);
+        }
+    });
+}, {
+    rootMargin: `0% 0px -15% 0px`,
+    threshold: 0
+});
+
+fadeInClassElements.forEach((element) => {
+    element.style.opacity = 0;
+    observerShowNormalFade.observe(element);
+});
+
+// --- dropcat SVG Animations ---
+
+const dropcat = document.getElementById('dropcat');
+const dropcatSVG = `
+    <svg class="dropcat" aria-hidden viewBox="0 0 72 48" fill="none" stroke="#36F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M12 46c-7 0-10-4-10-8s1-9 6-14 14-5 22-5 11-5 12-7c5-10 12-10 17-10 0 17 0 17 5 22s6 10 6 14-3 8-10 8zm18-34c-5-10-12-10-17-10v12" />
+      <path d="M 29,28 V 38 M 43,28 V 38">
+        <animate id="drpct-blink" attributeName="d" dur="0.2s" begin="indefinite" values="M 29,28 V 38 M 43,28 V 38;M 29,36 V 37 M 43,36 V 37;M 29,28 V 38 M 43,28 V 38" />
+        <animateTransform id="drpct-right" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;-3,0;-3,0;0,0" />
+        <animateTransform id="drpct-left" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;3,0;3,0;0,0" />
+      </path>
+    </svg>
+    `
+
+// Replace icons with SVG
+dropcat.innerHTML = dropcatSVG;
+
 // Skip animation if user prefers reduced motion
-if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+if (!reduceMotion) {
+    const [blink, right, left] = ['drpct-blink', 'drpct-right', 'drpct-left']
+        .map(id => document.getElementById(id));
 
-const [blink, right, left] = ['drpct-blink', 'drpct-right', 'drpct-left']
-  .map(id => document.getElementById(id));
+    // Random blink animation
+    const randomBlink = () => {
+        blink.beginElement();
+        if (Math.random() < 0.5) {
+            setTimeout(() => blink.beginElement(), 250);
+        }
+        setTimeout(randomBlink, Math.random() * 4000 + 4000); // 4-8s
+    };
 
-// Random blink animation
-const randomBlink = () => {
-    blink.beginElement();
-    if (Math.random() < 0.5) {
-        setTimeout(() => blink.beginElement(), 250);
-    }
-    setTimeout(randomBlink, Math.random() * 4000 + 4000); // 4-8s
-};
+    // Random look around animation
+    let lookDir = Math.random() < 0.5 ? right : left;
+    const randomLook = () => {
+        lookDir.beginElement();
+        lookDir = lookDir === right ? left : right;
+        setTimeout(randomLook, Math.random() * 9000 + 6000); // 6-15s
+    };
 
-// Random look around animation
-let lookDir = Math.random() < 0.5 ? right : left;
-const randomLook = () => {
-    lookDir.beginElement();
-    lookDir = lookDir === right ? left : right;
-    setTimeout(randomLook, Math.random() * 9000 + 6000); // 6-15s
-};
-
-setTimeout(randomBlink, Math.random() * 1000 + 2000); // 2-3s
-setTimeout(randomLook, Math.random() * 3000 + 2000); // 2-5s
+    setTimeout(randomBlink, Math.random() * 1000 + 2000); // 2-3s
+    setTimeout(randomLook, Math.random() * 3000 + 2000); // 2-5s
+}
 
 })();

@@ -13,7 +13,9 @@
   "routes": [
     {
       "pattern": "cizzuk.net",
-      "custom_domain": true
+      "custom_domain": true,
+      "previews_enabled": true
     }
-  ]
+  ],
+  "previews": {}
 }

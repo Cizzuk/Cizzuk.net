@@ -9,56 +9,150 @@ scripts:
   - src: "/assets/home/home.js"
     defer: true
 ---
-{% from 'AppBox.njk' import AppBox %}
-{% from 'PostBox.njk' import PostBox %}
 
-<div class="profbox" itemscope itemtype="http://schema.org/Person">
-  <div class="drpct" aria-hidden data-svg="drpct">
-    <noscript>
-      <img src="{{ site.icons.proficon }}" alt itemprop="image">
-    </noscript>
-  </div>
-  
-  <div class="profinfo">
+{% from 'AppBox.njk' import AppBox %}
+{% set LinkArrow %}
+  <svg aria-hidden viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="1 2 7 7 1 12"></polyline>
+  </svg>
+{% endset %}
+
+<div class="home-firstview" itemscope itemtype="http://schema.org/Person">
+  <div class="profile">
+    <div id="dropcat" aria-hidden>
+      <noscript>
+        <img src="{{ site.icons.proficon }}" alt itemprop="image">
+      </noscript>
+    </div>
     <h1 itemprop="name">{{ site.title }}</h1>
-    <p itemprop="description">{{ site.bio }}</p>
-    <ul>
-      <li>
-        <a href="{{ site.links.github }}" title="GitHub" aria-label="GitHub" data-svg="gh" rel="me" itemprop="sameAs">
-          <noscript>
-            <img src="/assets/home/icons/gh.png" alt="GitHub" class="dark-reverse">
-          </noscript>
-        </a>
-      </li>
-      <li>
-        <a href="/contact/" title="Contact" aria-label="Contact" data-svg="mail" itemprop="email">
-          <noscript>
-            <img src="/assets/home/icons/mail.png" alt="Contact" class="dark-reverse">
-          </noscript>
-        </a>
-      </li>
-      <li>
-        <a href="/tip/" title="Send a tip" aria-label="Send a tip" data-svg="heart">
-          <noscript>
-            <img src="/assets/home/icons/heart.png" alt="Send a tip" class="dark-reverse">
-          </noscript>
-        </a>
-      </li>
-    </ul>
+  </div>
+
+  <ul class="links">
+    {% set links = [
+      { title: "GitHub", url: "https://github.com/Cizzuk" },
+      { title: "Projects", url: "/projects/" },
+      { title: "Posts", url: "/posts/" },
+      { title: "Notes", url: "/notes/" },
+      { title: "Contact", url: "/contact/" }
+    ] %}
+    {% for link in links %}
+    <li>
+      <a href="{{ link.url }}">
+        {{ link.title }}
+        {{ LinkArrow | safe }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="scroll-guide">
+    <div class="guide">
+      <span>I develop some iOS apps.</span><span>Scroll down to take a look.</span>
+    </div>
+    <svg aria-hidden viewBox="0 0 18 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M16 2 9 9 2 2" />
+    </svg>
   </div>
 </div>
 
-{% if collections.projects | length > 0 %}
-<section>
-  <h2><a href="/projects/">Projects</a></h2>
-  {% for project in collections.projects %}
-  {{ AppBox(project, "h3") }}
-  {% endfor %}
-</section>
-{% endif %}
+<div class="home-apps">
+  {% macro LearnMoreLink(url, text="Learn more") %}
+    <a href="{{ url }}" class='learn-more'>
+      {{ text }}
+      {{ LinkArrow | safe }}
+    </a>
+  {% endmacro %}
+
+  <section id="app-intro-deflector">
+    {% set deflector = collections.projects.deflector %}
+    {% set deflector = { title: deflector.title, icon: deflector.icon, url: deflector.url } %}
+    {{ AppBox(deflector, "h2", lazy=true) }}
+    <p class="description">A magical app to run any shortcut from Dynamic Island, Apple Watch, or Side Button.</p>
+    {{ LearnMoreLink(deflector.url) }}
+    <p class="description">It works with Automations in the Shortcuts app to run shortcuts in ways that would normally be impossible. The Watch app lets you run shortcuts on your iPhone, rather than on the Watch itself.</p>
+  </section>
+
+  <div data-script-class="app-preview-sticky-scope">
+    <div id="app-preview-main">
+      <div id="app-preview-wrapper">
+        <img id="app-preview-deflector" src="/assets/home/previews/deflector.png"
+          class="app-preview-image" alt="" aria-hidden loading="lazy">
+        <img id="app-preview-sidesearch" src="/assets/home/previews/sidesearch.png"
+          class="app-preview-image" alt="" aria-hidden loading="lazy">
+        <img id="app-preview-cbnote" src="/assets/home/previews/cbnote.png"
+          class="app-preview-image" alt="" aria-hidden loading="lazy">
+        <img id="app-preview-alare" src="/assets/home/previews/alare.png"
+          class="app-preview-image" alt="" aria-hidden loading="lazy">
+      </div>
+    </div>
+
+    <!-- Spacer based on the animation trigger (Side Search bottom) -->
+    <div data-script-style="height: 50lvh;"></div>
+
+    <section id="app-intro-sidesearch">
+      {% set sidesearch = collections.projects.sidesearch %}
+      {% set sidesearch = { title: sidesearch.title, icon: sidesearch.icon, url: sidesearch.url } %}
+      {{ AppBox(sidesearch, "h2", lazy=true) }}
+      <p class="description">The first app that lets users choose which voice assistant to use with the Side Button.</p>
+      {{ LearnMoreLink(sidesearch.url) }}
+      <p class="description">Use Side Button Access, available only on iPhones in Japan, to set a voice assistant other than Siri to launch from the Side Button. The assistant can be powered by Claude, Gemini, web URLs, app URL schemes or a custom server.</p>
+    </section>
+
+    <!-- Spacer based on the animation trigger (Side Search top, CBNote bottom) -->
+    <div data-script-style="height: 30lvh;"></div>
+
+    <section id="app-intro-cbnote">
+      {% set cbnote = collections.projects.cbnote %}
+      {% set cbnote = { title: cbnote.title, icon: cbnote.icon, url: cbnote.url } %}
+      {{ AppBox(cbnote, "h2", lazy=true) }}
+      <p class="description">Don't use the camera? Replace Camera Control with features like notes, a clipboard manager, or voice recording.</p>
+      {{ LearnMoreLink(cbnote.url) }}
+      <p class="description">It's mostly a note app, but it is also a camera app that can be assigned to the Camera Control. In app settings, another action can be assigned to the Camera Control.</p>
+    </section>
+  </div>
+
+  <section id="app-intro-alare">
+    {% set alare = collections.projects.alare %}
+    {% set alare = { title: alare.title, icon: alare.icon, url: alare.url } %}
+    {{ AppBox(alare, "h2", lazy=true) }}
+    <p class="description">Do you accidentally dismiss the alarm or fall back asleep? Here is an alarm app that won't stop until you move your body.</p>
+    {{ LearnMoreLink(alare.url) }}
+    <p class="description">Powered by AlarmKit, it doesn't need to stay open overnight, unlike many other alarm apps. That means less battery impact and no need to remember to open the app before bed.</p>
+  </section>
+
+
+  <h2 class="fadein">Safari Extensions</h2>
+
+  <section class="fadein">
+    {% set cse = collections.projects.cse %}
+    {% set cse = { title: 'CSE', icon: cse.icon, url: cse.url } %}
+    {{ AppBox(cse, "h3", lazy=true) }}
+    <p class="description">A Safari extension to customize Safari's default search engine on iOS, iPadOS, macOS, and visionOS.</p>
+    {{ LearnMoreLink(cse.url) }}
+    <p class="description">Additionally, it can instantly switch search engines using keywords, or flexibly update search engine settings using Focus or Shortcuts.</p>
+  </section>
+
+  <section class="fadein">
+    {% set weba11y = collections.projects.weba11y %}
+    {% set weba11y = { title: 'WebA11y', icon: weba11y.icon, url: weba11y.url } %}
+    {{ AppBox(weba11y, "h3", lazy=true) }}
+    <p class="description">A Safari extension that applies additional styles for accessibility, such as bolding text, underlining buttons, and changing fonts.</p>
+    {{ LearnMoreLink(weba11y.url) }}
+  </section>
+
+  <section class="fadein">
+    <h2>AltStore PAL Source</h2>
+    <p class="description">AltStore PAL is where my app is distributed as an alternative to the App Store. It is the first Recommended Source for AltStore PAL from Japan.</p>
+    {{ LearnMoreLink("/altstore/", "Add Cizzuk Source to AltStore PAL") }}
+  </section>
+</div>
+
+<hr>
+
+{% from 'PostBox.njk' import PostBox %}
 
 {% if collections.posts | length > 0 %}
-<section>
+<section class="fadein">
   <h2><a href="/posts/">Posts</a></h2>
   {% for post in collections.posts | firstItems(3) %}
   {{ PostBox(post, "h3") }}
@@ -67,10 +161,13 @@ scripts:
 {% endif %}
 
 {% if collections.notes | length > 0 %}
-<section>
+<section class="fadein">
   <h2><a href="/notes/">Notes</a></h2>
   {% for post in collections.notes | firstItems(3) %}
   {{ PostBox(post, "h3") }}
   {% endfor %}
 </section>
 {% endif %}
+
+<!-- Safety for .fadein class (bottom: 15%) -->
+<img class="home-bottom-dropcat" src="{{ site.icons.proficon }}" alt aria-hidden loading="lazy">
