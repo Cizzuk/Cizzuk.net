@@ -1,6 +1,8 @@
 (function() {
 "use strict";
 
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // --- App Intro & Preview Animations ---
 
 const appPreviewMain = document.getElementById('app-preview-main');
@@ -45,12 +47,22 @@ const fadeInTumbling = [
 const appPreviewSlideRatio = '30%';
 const appPreviewSlideMargin = '20px';
 
-const appPreviewWrapperSlideTumbling = [
+const appPreviewWrapperSlideTumbling = reduceMotion ? [
+    { transform: 'translateX(0)', opacity: 1 },
+    { transform: 'translateX(0)', opacity: 0, offset: 0.5 },
+    { transform: 'translateX(calc(-100% + 30% - 20px))', opacity: 0, offset: 0.5 },
+    { transform: 'translateX(calc(-100% + 30% - 20px))', opacity: 1 }
+] : [
     { transform: 'translateX(0)' },
     { transform: `translateX(calc((-100% + ${appPreviewSlideRatio}) - ${appPreviewSlideMargin}))` }
 ];
 
-const appPreviewSlideTumbling = [
+const appPreviewSlideTumbling = reduceMotion ? [
+    { right: '50%', transform: 'translateX(50%)' },
+    { right: '50%', transform: 'translateX(50%)', offset: 0.5 },
+    { right: '0', transform: 'translateX(0)', offset: 0.5 },
+    { right: '0', transform: 'translateX(0)' }
+] : [
     { right: '50%', transform: 'translateX(50%)' },
     { right: '0', transform: 'translateX(0)' }
 ];
@@ -178,7 +190,7 @@ observerShowAlare.observe(appIntros.alare);
 // --- dropcat SVG Animations ---
 
 // Skip animation if user prefers reduced motion
-if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+if (reduceMotion) return;
 
 const [blink, right, left] = ['drpct-blink', 'drpct-right', 'drpct-left']
   .map(id => document.getElementById(id));
