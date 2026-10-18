@@ -81,7 +81,7 @@
   $app-preview-image-padding: 14px;
 
   .app-preview-sticky-scope {
-    margin-bottom: calc(100lvh - $app-preview-image-padding);
+    margin-bottom: 100lvh;
   }
 
   #app-preview-main {
@@ -107,10 +107,6 @@
     top: 0;
     transform: translateX(50%);
     width: auto;
-  }
-
-  .screen-spacer {
-    height: 30lvh;
   }
 
   section {
