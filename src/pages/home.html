@@ -11,6 +11,11 @@ scripts:
 ---
 
 {% from 'AppBox.njk' import AppBox %}
+{% set LinkArrow %}
+  <svg aria-hidden viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="1 2 7 7 1 12"></polyline>
+  </svg>
+{% endset %}
 
 <div class="home-firstview" itemscope itemtype="http://schema.org/Person">
   <div class="profile">
@@ -26,30 +31,47 @@ scripts:
   </div>
 
   <ul class="links">
-    <li><a href="https://github.com/Cizzuk" rel="me" itemprop="sameAs">GitHub</a></li>
-    <li><a href="/projects/">Projects</a></li>
-    <li><a href="/posts/">Posts</a></li>
-    <li><a href="/notes/">Notes</a></li>
-    <li><a href="/contact/" itemprop="email">Contact</a></li>
+    {% set links = [
+      { title: "GitHub", url: "https://github.com/Cizzuk" },
+      { title: "Projects", url: "/projects/" },
+      { title: "Posts", url: "/posts/" },
+      { title: "Notes", url: "/notes/" },
+      { title: "Contact", url: "/contact/" }
+    ] %}
+    {% for link in links %}
+    <li>
+      <a href="{{ link.url }}">
+        {{ link.title }}
+        {{ LinkArrow | safe }}
+      </a>
+    </li>
+    {% endfor %}
   </ul>
 
   <div class="scroll-guide">
     <div class="guide">
       <span>I develop some iOS apps.</span><span>Scroll down to take a look.</span>
     </div>
-    <svg aria-hidden viewBox="0 0 18 11" fill="none" stroke="var(--text-gray)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <svg aria-hidden viewBox="0 0 18 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
       <path d="M16 2 9 9 2 2" />
     </svg>
   </div>
 </div>
 
 <div class="home-apps">
+  {% macro LearnMoreLink(url) %}
+    <a href="{{ url }}" class='learn-more'>
+      Learn more
+      {{ LinkArrow | safe }}
+    </a>
+  {% endmacro %}
+
   <section id="app-intro-deflector">
     {% set deflector = collections.projects.deflector %}
     {% set deflector = { title: deflector.title, icon: deflector.icon, url: deflector.url } %}
     {{ AppBox(deflector, "h2", lazy=true) }}
     <p class="description">A magical app to run any shortcut from the Dynamic Island, Apple Watch, or Side Button.</p>
-    <a class="learn-more" href="{{ deflector.url }}">Learn more</a>
+    {{ LearnMoreLink(deflector.url) }}
     <p class="description">It works with Automations in the Shortcuts app to run shortcuts in ways that would normally be impossible. The Watch app lets you run shortcuts on your iPhone, rather than on the Watch itself.</p>
   </section>
 
@@ -75,7 +97,7 @@ scripts:
       {% set sidesearch = { title: sidesearch.title, icon: sidesearch.icon, url: sidesearch.url } %}
       {{ AppBox(sidesearch, "h2", lazy=true) }}
       <p class="description">The first app that lets users choose which voice assistant to use with the Side Button.</p>
-      <a class="learn-more" href="{{ sidesearch.url }}">Learn more</a>
+      {{ LearnMoreLink(sidesearch.url) }}
       <p class="description">Use Side Button Access, available only on iPhones in Japan, to set a voice assistant other than Siri to launch from the Side Button. The assistant can be powered by Claude, Gemini, web URLs, app URL schemes or a custom server.</p>
     </section>
 
@@ -87,7 +109,7 @@ scripts:
       {% set cbnote = { title: cbnote.title, icon: cbnote.icon, url: cbnote.url } %}
       {{ AppBox(cbnote, "h2", lazy=true) }}
       <p class="description">Don't use the camera? Replace Camera Control with features like notes, a clipboard manager, or voice recording.</p>
-      <a class="learn-more" href="{{ cbnote.url }}">Learn more</a>
+      {{ LearnMoreLink(cbnote.url) }}
       <p class="description">It's mostly a note app, but it is also a camera app that can be assigned to the Camera Control. In app settings, another action can be assigned to the Camera Control.</p>
     </section>
   </div>
@@ -97,7 +119,29 @@ scripts:
     {% set alare = { title: alare.title, icon: alare.icon, url: alare.url } %}
     {{ AppBox(alare, "h2", lazy=true) }}
     <p class="description">Do you accidentally dismiss the snooze or fall back asleep? Here is an alarm app that won't stop until you move your body.</p>
-    <a class="learn-more" href="{{ alare.url }}">Learn more</a>
+    {{ LearnMoreLink(alare.url) }}
     <p class="description">Powered by AlarmKit, it doesn't need to stay open overnight, unlike many other alarm apps. That means less battery impact and no need to remember to open the app before bed.</p>
   </section>
 </div>
+
+<hr>
+
+{% from 'PostBox.njk' import PostBox %}
+
+{% if collections.posts | length > 0 %}
+<section>
+  <h2><a href="/posts/">Posts</a></h2>
+  {% for post in collections.posts | firstItems(3) %}
+  {{ PostBox(post, "h3") }}
+  {% endfor %}
+</section>
+{% endif %}
+
+{% if collections.notes | length > 0 %}
+<section>
+  <h2><a href="/notes/">Notes</a></h2>
+  {% for post in collections.notes | firstItems(3) %}
+  {{ PostBox(post, "h3") }}
+  {% endfor %}
+</section>
+{% endif %}

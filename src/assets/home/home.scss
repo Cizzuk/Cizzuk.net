@@ -47,10 +47,13 @@
         padding-inline-end: 2em;
         width: 100%;
 
-        &::after {
-          content: ">";
-          inset-inline-end: 0;
+        svg {
+          height: 1em;
           position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: auto;
         }
       }
     }
@@ -58,12 +61,12 @@
 
   .scroll-guide {
     align-items: center;
+    color: var(--text-gray);
     display: flex;
     flex-direction: column;
     gap: $base-margin-small;
 
     .guide {
-      color: var(--text-gray);
       display: flex;
       flex-wrap: wrap;
       gap: 0 0.4em;
@@ -122,10 +125,15 @@
   .learn-more {
     display: block;
     margin: $base-margin-small 0;
+    position: relative;
 
-    &::after {
-      content: ">";
-      padding-inline-start: 0.5em;
+    svg {
+      height: 1em;
+      padding-inline-start: 1em;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
     }
   }
 }
