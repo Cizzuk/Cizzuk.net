@@ -126,6 +126,9 @@ Object.values(appPreviews).forEach((element) => {
 
 appPreviewMain.style.display = 'block';
 
+// Animation Triggers
+// rootMargin tops have an additional -5%
+
 // Show Deflector
 const observerShowDeflector = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -135,7 +138,7 @@ const observerShowDeflector = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    rootMargin: `0% 0px -50% 0px`,
+    rootMargin: `-5% 0px -50% 0px`,
     threshold: 0
 });
 observerShowDeflector.observe(appIntros.deflector);
@@ -149,7 +152,7 @@ const observerShowSidesearch = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    rootMargin: `0% 0px -100% 0px`,
+    rootMargin: `-30% 0px -50% 0px`, // top = CBNote bottom
     threshold: 0
 });
 observerShowSidesearch.observe(appIntros.sidesearch);
@@ -163,7 +166,7 @@ const observerShowCbnote = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    rootMargin: `0% 0px -100% 0px`,
+    rootMargin: `-5% 0px -25% 0px`,
     threshold: 0
 });
 observerShowCbnote.observe(appIntros.cbnote);

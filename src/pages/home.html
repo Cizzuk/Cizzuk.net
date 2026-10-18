@@ -61,7 +61,10 @@ scripts:
       </div>
     </div>
 
-    <section id="app-intro-sidesearch" class="screen-height">
+    <!-- Spacer based on the animation trigger (Side Search bottom) -->
+    <div style="height: 50lvh;"></div>
+
+    <section id="app-intro-sidesearch">
       {% set sidesearch = collections.projects.sidesearch %}
       {% set sidesearch = { title: sidesearch.title, icon: sidesearch.icon, url: sidesearch.url } %}
       {{ AppBox(sidesearch, "h2", lazy=true) }}
@@ -69,7 +72,10 @@ scripts:
         Side Button.</p>
     </section>
 
-    <section id="app-intro-cbnote" class="screen-height">
+    <!-- Spacer based on the animation trigger (Side Search top, CBNote bottom) -->
+    <div style="height: 50lvh;"></div>
+
+    <section id="app-intro-cbnote">
       {% set cbnote = collections.projects.cbnote %}
       {% set cbnote = { title: cbnote.title, icon: cbnote.icon, url: cbnote.url } %}
       {{ AppBox(cbnote, "h2", lazy=true) }}

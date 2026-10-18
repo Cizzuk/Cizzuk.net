@@ -108,17 +108,13 @@
     width: auto;
   }
 
+  .screen-spacer {
+    height: 30lvh;
+  }
+
   section {
     margin: 0 auto;
     padding: $base-margin-small 0;
-  }
-
-  section.screen-height {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin: 0 auto;
-    min-height: 100svh;
   }
 
   .description {
