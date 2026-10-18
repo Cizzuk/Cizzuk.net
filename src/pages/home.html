@@ -123,9 +123,10 @@ scripts:
     <p class="description">Powered by AlarmKit, it doesn't need to stay open overnight, unlike many other alarm apps. That means less battery impact and no need to remember to open the app before bed.</p>
   </section>
 
-  <h2>Safari Extensions</h2>
 
-  <section id="app-intro-cse">
+  <h2 class="fadein">Safari Extensions</h2>
+
+  <section class="fadein">
     {% set cse = collections.projects.cse %}
     {% set cse = { title: 'CSE', icon: cse.icon, url: cse.url } %}
     {{ AppBox(cse, "h3", lazy=true) }}
@@ -134,7 +135,7 @@ scripts:
     <p class="description">Additionally, it can instantly switch search engines using keywords, or flexibly update search engine settings using Focus or Shortcuts.</p>
   </section>
 
-  <section id="app-intro-weba11y">
+  <section class="fadein">
     {% set weba11y = collections.projects.weba11y %}
     {% set weba11y = { title: 'WebA11y', icon: weba11y.icon, url: weba11y.url } %}
     {{ AppBox(weba11y, "h3", lazy=true) }}
@@ -142,7 +143,7 @@ scripts:
     {{ LearnMoreLink(weba11y.url) }}
   </section>
 
-  <section id="altstore-intro">
+  <section class="fadein">
     <h2>AltStore PAL Source</h2>
     <p class="description">AltStore PAL is where my app is distributed as an alternative to the App Store. It is the first Recommended Source for AltStore PAL from Japan.</p>
     {{ LearnMoreLink("/altstore/", "Add Cizzuk Source to AltStore PAL") }}
@@ -154,7 +155,7 @@ scripts:
 {% from 'PostBox.njk' import PostBox %}
 
 {% if collections.posts | length > 0 %}
-<section>
+<section class="fadein">
   <h2><a href="/posts/">Posts</a></h2>
   {% for post in collections.posts | firstItems(3) %}
   {{ PostBox(post, "h3") }}
@@ -163,10 +164,13 @@ scripts:
 {% endif %}
 
 {% if collections.notes | length > 0 %}
-<section>
+<section class="fadein">
   <h2><a href="/notes/">Notes</a></h2>
   {% for post in collections.notes | firstItems(3) %}
   {{ PostBox(post, "h3") }}
   {% endfor %}
 </section>
 {% endif %}
+
+<!-- Safety for .fadein class (bottom: 15%) -->
+<img class="home-bottom-dropcat" src="/assets/dropcat.png" alt aria-hidden loading="lazy">

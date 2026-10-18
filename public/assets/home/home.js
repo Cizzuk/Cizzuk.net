@@ -12,14 +12,14 @@ const appIntros = {
     deflector: document.getElementById('app-intro-deflector'),
     sidesearch: document.getElementById('app-intro-sidesearch'),
     cbnote: document.getElementById('app-intro-cbnote'),
-    alare: document.getElementById('app-intro-alare')
+    alare: document.getElementById('app-intro-alare'),
 };
 
 const appPreviews = {
     deflector: document.getElementById('app-preview-deflector'),
     sidesearch: document.getElementById('app-preview-sidesearch'),
     cbnote: document.getElementById('app-preview-cbnote'),
-    alare: document.getElementById('app-preview-alare')
+    alare: document.getElementById('app-preview-alare'),
 };
 
 // Animations
@@ -195,6 +195,26 @@ const observerShowAlare = new IntersectionObserver((entries) => {
 });
 observerShowAlare.observe(appIntros.alare);
 
+// --- Fade-In Animations ---
+
+const fadeInClassElements = document.querySelectorAll('.fadein');
+
+const observerShowNormalFade = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.animate(fadeInTumbling, sharedAnimationTiming);
+            observerShowNormalFade.unobserve(entry.target);
+        }
+    });
+}, {
+    rootMargin: `0% 0px -15% 0px`,
+    threshold: 0
+});
+
+fadeInClassElements.forEach((element) => {
+    element.style.opacity = 0;
+    observerShowNormalFade.observe(element);
+});
 
 // --- dropcat SVG Animations ---
 
