@@ -136,7 +136,7 @@ scripts:
 
   <section class="fadein">
     {% set weba11y = collections.projects.weba11y %}
-    {% set weba11y = { title: 'WebA11y', icon: weba11y.icon, url: weba11y.url } %}
+    {% set weba11y = { title: weba11y.title, icon: weba11y.icon, url: weba11y.url } %}
     {{ AppBox(weba11y, "h3", lazy=true) }}
     <p class="description">A Safari extension that applies additional styles for accessibility, such as bolding text, underlining buttons, and changing fonts.</p>
     {{ LearnMoreLink(weba11y.url) }}
