@@ -77,10 +77,11 @@
 }
 
 .home-apps {
-  position: relative;
+  $app-preview-image-padding: 14px;
 
   .app-preview-sticky-scope {
-    margin-bottom: 100lvh;
+    margin: -$app-preview-image-padding;
+    margin-bottom: calc(100lvh - 14px);
   }
 
   #app-preview-main {
