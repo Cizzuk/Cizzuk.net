@@ -9,17 +9,17 @@ const appPreviewMain = document.getElementById('app-preview-main');
 const appPreviewWrapper = document.getElementById('app-preview-wrapper');
 
 const appIntros = {
-  deflector: document.getElementById('app-intro-deflector'),
-  sidesearch: document.getElementById('app-intro-sidesearch'),
-  cbnote: document.getElementById('app-intro-cbnote'),
-  alare: document.getElementById('app-intro-alare')
+    deflector: document.getElementById('app-intro-deflector'),
+    sidesearch: document.getElementById('app-intro-sidesearch'),
+    cbnote: document.getElementById('app-intro-cbnote'),
+    alare: document.getElementById('app-intro-alare')
 };
 
 const appPreviews = {
-  deflector: document.getElementById('app-preview-deflector'),
-  sidesearch: document.getElementById('app-preview-sidesearch'),
-  cbnote: document.getElementById('app-preview-cbnote'),
-  alare: document.getElementById('app-preview-alare')
+    deflector: document.getElementById('app-preview-deflector'),
+    sidesearch: document.getElementById('app-preview-sidesearch'),
+    cbnote: document.getElementById('app-preview-cbnote'),
+    alare: document.getElementById('app-preview-alare')
 };
 
 // Animations
@@ -89,8 +89,8 @@ const showApp = (introElement, previewElement) => {
     Object.values(appIntros).forEach((element) => {
         if (element === introElement) {
             if (element.dataset.isShown !== 'true') {
-              element.animate(fadeInTumbling, sharedAnimationTiming);
-              element.dataset.isShown = 'true';
+                element.animate(fadeInTumbling, sharedAnimationTiming);
+                element.dataset.isShown = 'true';
             }
         } else if (element.dataset.isShown === 'true') {
             element.animate(fadeInTumbling, sharedAnimationTimingReverse);
@@ -100,8 +100,8 @@ const showApp = (introElement, previewElement) => {
     Object.values(appPreviews).forEach((element) => {
         if (element === previewElement) {
             if (element.dataset.isShown !== 'true') {
-              element.animate(fadeInTumbling, sharedAnimationTiming);
-              element.dataset.isShown = 'true';
+                element.animate(fadeInTumbling, sharedAnimationTiming);
+                element.dataset.isShown = 'true';
             }
         } else if (element.dataset.isShown === 'true') {
             element.animate(fadeInTumbling, sharedAnimationTimingReverse);
@@ -135,9 +135,9 @@ const observerShowDeflector = new IntersectionObserver((entries) => {
         }
     });
 }, {
-  root: null,
-  rootMargin: "-20% 0px -50% 0px",
-  threshold: 0
+    root: null,
+    rootMargin: "-20% 0px -50% 0px",
+    threshold: 0
 });
 observerShowDeflector.observe(appIntros.deflector);
 
@@ -150,9 +150,9 @@ const observerShowSidesearch = new IntersectionObserver((entries) => {
         }
     });
 }, {
-  root: null,
-  rootMargin: "-20% 0px -80% 0px",
-  threshold: 0
+    root: null,
+    rootMargin: "-20% 0px -80% 0px",
+    threshold: 0
 });
 observerShowSidesearch.observe(appIntros.sidesearch);
 
@@ -165,9 +165,9 @@ const observerShowCbnote = new IntersectionObserver((entries) => {
         }
     });
 }, {
-  root: null,
-  rootMargin: "-10% 0px -80% 0px",
-  threshold: 0
+    root: null,
+    rootMargin: "-10% 0px -80% 0px",
+    threshold: 0
 });
 observerShowCbnote.observe(appIntros.cbnote);
 
@@ -180,9 +180,9 @@ const observerShowAlare = new IntersectionObserver((entries) => {
         }
     });
 }, {
-  root: null,
-  rootMargin: "-10% 0px 0% 0px",
-  threshold: 0
+    root: null,
+    rootMargin: "-10% 0px 0% 0px",
+    threshold: 0
 });
 observerShowAlare.observe(appIntros.alare);
 
@@ -190,29 +190,29 @@ observerShowAlare.observe(appIntros.alare);
 // --- dropcat SVG Animations ---
 
 // Skip animation if user prefers reduced motion
-if (reduceMotion) return;
+if (!reduceMotion) {
+    const [blink, right, left] = ['drpct-blink', 'drpct-right', 'drpct-left']
+        .map(id => document.getElementById(id));
 
-const [blink, right, left] = ['drpct-blink', 'drpct-right', 'drpct-left']
-  .map(id => document.getElementById(id));
+    // Random blink animation
+    const randomBlink = () => {
+        blink.beginElement();
+        if (Math.random() < 0.5) {
+            setTimeout(() => blink.beginElement(), 250);
+        }
+        setTimeout(randomBlink, Math.random() * 4000 + 4000); // 4-8s
+    };
 
-// Random blink animation
-const randomBlink = () => {
-    blink.beginElement();
-    if (Math.random() < 0.5) {
-        setTimeout(() => blink.beginElement(), 250);
-    }
-    setTimeout(randomBlink, Math.random() * 4000 + 4000); // 4-8s
-};
+    // Random look around animation
+    let lookDir = Math.random() < 0.5 ? right : left;
+    const randomLook = () => {
+        lookDir.beginElement();
+        lookDir = lookDir === right ? left : right;
+        setTimeout(randomLook, Math.random() * 9000 + 6000); // 6-15s
+    };
 
-// Random look around animation
-let lookDir = Math.random() < 0.5 ? right : left;
-const randomLook = () => {
-    lookDir.beginElement();
-    lookDir = lookDir === right ? left : right;
-    setTimeout(randomLook, Math.random() * 9000 + 6000); // 6-15s
-};
-
-setTimeout(randomBlink, Math.random() * 1000 + 2000); // 2-3s
-setTimeout(randomLook, Math.random() * 3000 + 2000); // 2-5s
+    setTimeout(randomBlink, Math.random() * 1000 + 2000); // 2-3s
+    setTimeout(randomLook, Math.random() * 3000 + 2000); // 2-5s
+}
 
 })();
