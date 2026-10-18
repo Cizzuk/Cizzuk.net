@@ -66,7 +66,7 @@ scripts:
   <section id="app-intro-deflector">
     {% set deflector = collections.projects.deflector %}
     {% set deflector = { title: deflector.title, icon: deflector.icon, url: deflector.url } %}
-    {{ AppBox(deflector, "h2", lazy=true) }}
+    {{ AppBox(deflector, "h2") }}
     <p class="description">A magical app to run any shortcut from Dynamic Island, Apple Watch, or Side Button.</p>
     {{ LearnMoreLink(deflector.url) }}
     <p class="description">It works with Automations in the Shortcuts app to run shortcuts in ways that would normally be impossible. The Watch app lets you run shortcuts on your iPhone, rather than on the Watch itself.</p>
@@ -83,7 +83,7 @@ scripts:
         ] %}
         {% for preview in app_previews %}
         <img id="{{ preview.id }}" src="{{ preview.src }}"
-          class="app-preview-image" alt role="none" loading="lazy">
+          class="app-preview-image" alt role="none">
         {% endfor %}
       </div>
     </div>
