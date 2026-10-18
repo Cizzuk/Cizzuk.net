@@ -176,7 +176,7 @@ const observerShowCbnote = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    rootMargin: `-5% 0px -25% 0px`,
+    rootMargin: `-5% 0px -40% 0px`,
     threshold: 0
 });
 observerShowCbnote.observe(appIntros.cbnote);
