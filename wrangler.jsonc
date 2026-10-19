@@ -14,7 +14,7 @@
     {
       "pattern": "cizzuk.net",
       "custom_domain": true,
-      "previews_enabled": true
+      "previews_enabled": false
     }
   ],
   "previews": {}
