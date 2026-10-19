@@ -44,21 +44,18 @@
     text-align: start;
 
     li {
-      position: relative;
-
       a {
-        display: inline-block;
+        align-items: center;
+        column-gap: 2em;
+        display: flex;
         font-size: 1.1em;
-        padding-inline-end: 2em;
+        justify-content: space-between;
         width: 100%;
 
         svg {
+          flex-shrink: 0;
           height: 1em;
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: auto;
+          width: 0.5em;
         }
       }
     }
@@ -128,17 +125,16 @@
   }
 
   .learn-more {
-    display: block;
+    align-items: center;
+    column-gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
     margin: $base-margin-small 0;
-    position: relative;
 
     svg {
+      flex-shrink: 0;
       height: 1em;
-      padding-inline-start: 1em;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: auto;
+      width: 0.5em;
     }
   }
 }
