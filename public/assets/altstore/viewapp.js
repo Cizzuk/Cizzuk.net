@@ -12,7 +12,7 @@ if (appBundleId) {
 
   viewappButton.href = `altstore-pal://viewapp?bundleid=${encodeURIComponent(appBundleId)}`;
   if (appName) viewappName.outerText = appName;
-  viewappDiv.style.display = 'block';
+  viewappDiv.classList.remove('hidden');
 }
 
 const alternateLangLinks = document.querySelectorAll('a[data-alternate-lang]');

@@ -22,7 +22,7 @@ Adding the Cizzuk Source to AltStore PAL allows you to install my iOS apps from 
 
 [About AltStore PAL sources](https://faq.altstore.io/altstore-pal/sources)
 
-<div id="viewapp" style="display:none">
+<div id="viewapp" class="hidden">
   <h2>If you have already added the source</h2>
   <a id="viewapp-button">Open <span id="viewapp-name">app page</span> in AltStore PAL</a>
 </div>
