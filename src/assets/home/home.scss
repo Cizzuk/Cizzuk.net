@@ -92,15 +92,24 @@
   #app-preview-main {
     height: 0;
     margin: -$app-preview-image-padding;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1;
+
+    &.sticky {
+      position: sticky;
+    }
   }
 
   #app-preview-wrapper {
     height: 100lvh;
     position: relative;
+    transition: height 0.2s ease-out;
     width: 100%;
+
+    &.dvh {
+      height: 100dvh;
+    }
   }
 
   .app-preview-image {

@@ -178,6 +178,8 @@ document.querySelectorAll('[data-script-style]').forEach((element) => {
 const observerShowDeflector = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
+            appPreviewMain.classList.remove('sticky'); // Dynamic Sticky for iOS Safari
+            appPreviewWrapper.classList.remove('dvh');
             showApp(appIntros.deflector, appPreviews.deflector);
             unslideAppPreview();
         }
@@ -192,6 +194,8 @@ observerShowDeflector.observe(appIntros.deflector);
 const observerShowSidesearch = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
+            appPreviewMain.classList.add('sticky');
+            appPreviewWrapper.classList.add('dvh');
             showApp(appIntros.sidesearch, appPreviews.sidesearch);
             slideAppPreview();
         }
@@ -206,6 +210,8 @@ observerShowSidesearch.observe(appIntros.sidesearch);
 const observerShowCbnote = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
+            appPreviewMain.classList.add('sticky');
+            appPreviewWrapper.classList.add('dvh');
             showApp(appIntros.cbnote, appPreviews.cbnote);
             slideAppPreview();
         }
@@ -220,6 +226,8 @@ observerShowCbnote.observe(appIntros.cbnote);
 const observerShowAlare = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
+            appPreviewMain.classList.add('sticky');
+            appPreviewWrapper.classList.remove('dvh');
             showApp(appIntros.alare, appPreviews.alare);
             unslideAppPreview();
         }
