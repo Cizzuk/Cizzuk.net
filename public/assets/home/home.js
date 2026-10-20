@@ -6,9 +6,9 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 // --- dropcat SVG Animations ---
 
+
 // Show dropcat SVG
-const dropcatSVG = document.getElementById('dropcat-svg');
-dropcatSVG.classList.remove('hidden');
+document.getElementById('dropcat-svg').classList.remove('hidden');
 
 // Skip animation if user prefers reduced motion
 if (!reduceMotion) {
