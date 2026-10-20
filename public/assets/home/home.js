@@ -6,21 +6,9 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 // --- dropcat SVG Animations ---
 
-
-const dropcat = document.getElementById('dropcat');
-const dropcatSVG = `
-    <svg class="dropcat" aria-hidden viewBox="0 0 72 48" fill="none" stroke="#36F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-      <path d="M12 46c-7 0-10-4-10-8s1-9 6-14 14-5 22-5 11-5 12-7c5-10 12-10 17-10 0 17 0 17 5 22s6 10 6 14-3 8-10 8zm18-34c-5-10-12-10-17-10v12" />
-      <path d="M 29,28 V 38 M 43,28 V 38">
-        <animate id="drpct-blink" attributeName="d" dur="0.2s" begin="indefinite" values="M 29,28 V 38 M 43,28 V 38;M 29,36 V 37 M 43,36 V 37;M 29,28 V 38 M 43,28 V 38" />
-        <animateTransform id="drpct-right" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;-3,0;-3,0;0,0" />
-        <animateTransform id="drpct-left" attributeName="transform" type="translate" dur="1.5s" begin="indefinite" keyTimes="0;0.1;0.9;1" values="0,0;3,0;3,0;0,0" />
-      </path>
-    </svg>
-    `
-
-// Replace icons with SVG
-dropcat.innerHTML = dropcatSVG;
+// Show dropcat SVG
+const dropcatSVG = document.getElementById('dropcat-svg');
+dropcatSVG.classList.remove('hidden');
 
 // Skip animation if user prefers reduced motion
 if (!reduceMotion) {
@@ -159,6 +147,8 @@ const showApp = (introElement, previewElement) => {
 
 // Initialize Styles
 
+appPreviewMain.classList.remove('hidden');
+
 Object.values(appIntros).forEach((element) => {
     element.style.opacity = 0;
 });
@@ -166,8 +156,6 @@ Object.values(appIntros).forEach((element) => {
 Object.values(appPreviews).forEach((element) => {
     element.style.opacity = 0;
 });
-
-appPreviewMain.style.display = 'block';
 
 document.querySelectorAll('[data-script-class]').forEach((element) => {
     const className = element.dataset.scriptClass;
