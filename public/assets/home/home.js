@@ -93,13 +93,13 @@ const appPreviewWrapperSlideTumbling = reduceMotion ? [
 ];
 
 const appPreviewSlideTumbling = reduceMotion ? [
-    { right: '50%', transform: 'translateX(50%)' },
-    { right: '50%', transform: 'translateX(50%)', offset: 0.5 },
-    { right: '0', transform: 'translateX(0)', offset: 0.5 },
-    { right: '0', transform: 'translateX(0)' }
+    { transform: 'translateX(50%)' },
+    { transform: 'translateX(50%)', offset: 0.5 },
+    { transform: 'translateX(50cqw)', offset: 0.5 },
+    { transform: 'translateX(50cqw)' }
 ] : [
-    { right: '50%', transform: 'translateX(50%)' },
-    { right: '0', transform: 'translateX(0)' }
+    { transform: 'translateX(50%)' },
+    { transform: 'translateX(50cqw)' }
 ];
 
 let slidedAppPreview = false;

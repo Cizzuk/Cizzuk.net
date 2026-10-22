@@ -102,6 +102,7 @@
   }
 
   #app-preview-wrapper {
+    container-type: inline-size;
     height: 100lvh;
     position: relative;
     transition: height 0.2s ease-out;
