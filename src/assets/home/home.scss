@@ -87,30 +87,22 @@
 
   .app-preview-sticky-scope {
     margin-bottom: 100lvh;
+    opacity: 0.9999; // To avoid iOS Safari's rendering bug behind the toolbar
   }
 
   #app-preview-main {
     height: 0;
     margin: -$app-preview-image-padding;
-    position: relative;
+    position: sticky;
     top: 0;
     z-index: 1;
-
-    &.sticky {
-      position: sticky;
-    }
   }
 
   #app-preview-wrapper {
     container-type: inline-size;
     height: 100lvh;
     position: relative;
-    transition: height 0.2s ease-out;
     width: 100%;
-
-    &.dvh {
-      height: 100dvh;
-    }
   }
 
   .app-preview-image {

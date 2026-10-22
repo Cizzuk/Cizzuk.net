@@ -61,14 +61,14 @@ const appPreviews = {
 
 const sharedAnimationTiming = {
     duration: 1000,
-    easing: 'cubic-bezier(0.2, 0, 0, 1)',
+    easing: 'cubic-bezier(0.2, 0.2, 0.2, 1)',
     fill: 'forwards'
 }
 
 const sharedAnimationTimingReverse = {
     duration: 1000,
     direction: 'reverse',
-    easing: 'cubic-bezier(1, 0, 0.8, 1)',
+    easing: 'cubic-bezier(0.8, 0, 0.8, 0.8)',
     fill: 'forwards'
 }
 
@@ -178,14 +178,12 @@ document.querySelectorAll('[data-script-style]').forEach((element) => {
 const observerShowDeflector = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            appPreviewMain.classList.remove('sticky'); // Dynamic Sticky for iOS Safari
-            appPreviewWrapper.classList.remove('dvh');
             showApp(appIntros.deflector, appPreviews.deflector);
             unslideAppPreview();
         }
     });
 }, {
-    rootMargin: `-10% 0px -50% 0px`,
+    rootMargin: `-7% 0px -50% 0px`,
     threshold: 0
 });
 observerShowDeflector.observe(appIntros.deflector);
@@ -194,14 +192,12 @@ observerShowDeflector.observe(appIntros.deflector);
 const observerShowSidesearch = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            appPreviewMain.classList.add('sticky');
-            appPreviewWrapper.classList.add('dvh');
             showApp(appIntros.sidesearch, appPreviews.sidesearch);
             slideAppPreview();
         }
     });
 }, {
-    rootMargin: `-30% 0px -45% 0px`,
+    rootMargin: `-30% 0px -48% 0px`,
     threshold: 0
 });
 observerShowSidesearch.observe(appIntros.sidesearch);
@@ -210,14 +206,12 @@ observerShowSidesearch.observe(appIntros.sidesearch);
 const observerShowCbnote = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            appPreviewMain.classList.add('sticky');
-            appPreviewWrapper.classList.add('dvh');
             showApp(appIntros.cbnote, appPreviews.cbnote);
             slideAppPreview();
         }
     });
 }, {
-    rootMargin: `-5% 0px -40% 0px`,
+    rootMargin: `-2% 0px -40% 0px`,
     threshold: 0
 });
 observerShowCbnote.observe(appIntros.cbnote);
@@ -226,8 +220,6 @@ observerShowCbnote.observe(appIntros.cbnote);
 const observerShowAlare = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            appPreviewMain.classList.add('sticky');
-            appPreviewWrapper.classList.remove('dvh');
             showApp(appIntros.alare, appPreviews.alare);
             unslideAppPreview();
         }
