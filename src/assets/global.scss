@@ -281,8 +281,9 @@ header {
 .app-preview {
   display: flex;
   gap: $base-margin;
-  margin: $base-margin 0;
+  margin: $base-margin calc(-50vw + 50%);
   overflow-x: auto;
+  padding-inline: calc(50vw - 50%);
 
   * {
     border-radius: 0;
