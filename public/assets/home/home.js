@@ -61,7 +61,7 @@ const appPreviews = {
 
 const sharedAnimationTiming = {
     duration: 1000,
-    easing: 'cubic-bezier(0.2, 0.2, 0.2, 1)',
+    easing: 'cubic-bezier(0.2, 0.2, 0.1, 1)',
     fill: 'forwards'
 }
 
