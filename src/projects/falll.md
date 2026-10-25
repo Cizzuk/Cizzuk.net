@@ -5,7 +5,7 @@ collection: "app"
 permalink: "/projects/falll/"
 title: "FALLLL"
 icon: "/assets/projects/falll/icon.png"
-version: "4.0.6"
+version: "4.1.0"
 links:
   playweb: "https://i.cizzuk.net/falll/"
   itunes_app: "1526930790"
@@ -51,11 +51,11 @@ Latest Version: {{ version }}
 <details>
   <summary>Compatibility</summary>
   <ul>
-    <li>iOS 12.0 or later.</li>
-    <li>iPadOS 12.0 or later.</li>
-    <li>macOS 10.13.0 or later.</li>
-    <li>tvOS 12.0 or later.</li>
-    <li>Windows 10 Version 10240.0 or later.</li>
+    <li>iOS 15.0 or later.</li>
+    <li>iPadOS 15.0 or later.</li>
+    <li>macOS 12.0 or later.</li>
+    <li>tvOS 15.0 or later.</li>
+    <li>Windows 10 Version 21H1 or later.</li>
     <ul>
       <li>x86</li>
       <li>x64</li>
