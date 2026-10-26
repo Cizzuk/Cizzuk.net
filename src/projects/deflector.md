@@ -9,7 +9,7 @@ preview:
   - "/assets/projects/deflector/preview1.png"
   - "/assets/projects/deflector/preview2.png"
   - "/assets/projects/deflector/preview3.png"
-version: "1.1"
+version: "1.2"
 links:
   itunes_app: "6802068584"
   appstore: "https://apps.apple.com/app/deflector/id6802068584"
