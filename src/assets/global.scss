@@ -279,11 +279,12 @@ header {
 
 // App preview
 .app-preview {
+  $--app-preview-overflow-padding: min($base-margin-large, calc(50vw - 50%));
   display: flex;
   gap: $base-margin;
-  margin: $base-margin calc(-50vw + 50%);
+  margin: $base-margin calc(-1 * $--app-preview-overflow-padding);
   overflow-x: auto;
-  padding-inline: calc(50vw - 50%);
+  padding-inline: $--app-preview-overflow-padding;
 
   * {
     border-radius: 0;
