@@ -18,8 +18,8 @@ body {
   background: var(--bg);
   color: var(--text);
   margin: 0 auto;
+  max-width: $base-width;
   padding: 0 $base-margin;
-  width: clamp(0px, 100%, $base-width);
 }
 
 // Typography
@@ -35,17 +35,22 @@ h1 {
   margin: $base-margin 0;
 }
 
+h2,
+h3 {
+  margin: $base-margin-large 0 $base-margin;
+}
+
 h2 {
   font-size: 1.5em;
-  margin: $base-margin-large 0 $base-margin;
 }
 
 h3 {
   font-size: 1.2em;
-  margin: $base-margin-large 0 $base-margin;
 }
 
-p {
+p,
+pre,
+section {
   margin: $base-margin 0;
 }
 
@@ -55,14 +60,14 @@ a {
   font-weight: 500;
   text-decoration: none;
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     color: var(--accent-dark);
     text-decoration: underline;
   }
 }
 
-i {
+i,
+time {
   color: var(--text-gray);
 }
 
@@ -77,14 +82,9 @@ hr {
   margin: $base-margin-large 0;
 }
 
-time {
-  color: var(--text-gray);
-}
-
 // Images
 img {
   border-radius: $base-border-radius;
-  height: auto;
   max-width: 100%;
   object-fit: contain;
   width: 100%;
@@ -106,7 +106,6 @@ li {
   margin: 0.2em 0;
 }
 
-// Nested lists
 :is(ol, ul) :is(ol, ul) {
   margin: 0;
 }
@@ -116,7 +115,7 @@ table {
   border-collapse: collapse;
   display: block;
   margin: $base-margin 0;
-  overflow-x: auto;
+  overflow: auto;
   white-space: nowrap;
   width: 100%;
 
@@ -131,8 +130,7 @@ table {
     font-weight: 600;
   }
 
-  &> :is(thead, tbody, tfoot):first-child>tr:first-child>*,
-  &>tr:first-child>* {
+  > :is(thead, tbody, tfoot):first-child>tr:first-child>* {
     border-top: 0;
 
     &:first-child {
@@ -144,8 +142,7 @@ table {
     }
   }
 
-  &> :is(thead, tbody, tfoot):last-child>tr:last-child>*,
-  &>tr:last-child>* {
+  > :is(thead, tbody, tfoot):last-child>tr:last-child>* {
     border-bottom: 0;
 
     &:first-child {
@@ -157,14 +154,14 @@ table {
     }
   }
 
-  &> :is(thead, tbody, tfoot)>tr>*:first-child,
-  &>tr>*:first-child {
-    border-inline-start: 0;
-  }
+  > :is(thead, tbody, tfoot)>tr>* {
+    &:first-child {
+      border-inline-start: 0;
+    }
 
-  &> :is(thead, tbody, tfoot)>tr>*:last-child,
-  &>tr>*:last-child {
-    border-inline-end: 0;
+    &:last-child {
+      border-inline-end: 0;
+    }
   }
 }
 
@@ -175,29 +172,20 @@ code * {
   font-family: monospace, system-ui, sans-serif;
 }
 
-pre {
-  margin: $base-margin 0;
-}
-
 code {
-  $--radius: 0.25em;
+  $radius: 0.25em;
+
   background: var(--bg-accent);
-  border-radius: $--radius;
+  border-radius: $radius;
   font-size: 0.95em;
-  padding: $--radius*0.5 $--radius;
+  padding: $radius*0.5 $radius;
 }
 
 pre code {
   border-radius: $base-border-radius;
-  direction: ltr;
   display: block;
-  overflow-x: auto;
+  overflow: auto;
   padding: $base-border-radius*0.5 $base-border-radius;
-}
-
-// Sections
-section {
-  margin: $base-margin 0;
 }
 
 // Details
@@ -209,40 +197,19 @@ details {
     font-weight: 600;
   }
 
-  &> :nth-child(2) {
+  summary+* {
     margin-top: $base-margin-small;
   }
 }
 
-// Header
-header {
+// Header and footer
+header,
+footer {
   align-items: center;
-  column-gap: 2em;
   display: flex;
   flex-wrap: wrap;
+  gap: $base-margin-small 2em;
   justify-content: space-between;
-  margin: $base-margin 0 $base-margin-headerbelow;
-  row-gap: $base-margin-small;
-
-  .drpct {
-    border-radius: 0;
-    height: 24px;
-    pointer-events: none;
-    user-select: none;
-    view-transition-name: drpct;
-    width: 36px;
-  }
-
-  a {
-    align-items: center;
-    color: var(--text);
-    column-gap: $base-margin-small;
-    display: inline-flex;
-
-    * {
-      font-size: 1.2em;
-    }
-  }
 
   ul {
     @extend %no-style-ul;
@@ -257,33 +224,64 @@ header {
   }
 }
 
+header {
+  margin: $base-margin 0 $base-margin-headerbelow;
+
+  .drpct {
+    border-radius: 0;
+    height: 24px;
+    pointer-events: none;
+    user-select: none;
+    view-transition-name: drpct;
+    width: 36px;
+  }
+
+  a {
+    align-items: center;
+    color: var(--text);
+    display: inline-flex;
+    gap: $base-margin-small;
+
+    span {
+      font-size: 1.2em;
+    }
+  }
+}
+
+footer {
+  color: var(--text-gray);
+  margin: $base-margin-large 0;
+
+  .copy {
+    margin: 0;
+  }
+}
+
 // App box
 .appbox {
   align-items: center;
-  color: var(--text);
-  column-gap: $base-margin;
   display: flex;
+  gap: $base-margin-small $base-margin;
   margin: $base-margin 0;
 
-  &:hover,
-  &:focus {
+  &,
+  &:is(:hover, :focus) {
     color: var(--text);
   }
 
   .appbox-icon {
     border-radius: 0;
     filter: drop-shadow(0 1.5px 2px rgba(0, 0, 0, 0.2));
-    flex: 0 0 auto;
+    flex: none;
     height: 80px;
     width: 80px;
   }
 
   .appbox-info {
     display: grid;
-    row-gap: 0.25em;
+    gap: 0.25em;
 
     .appbox-title {
-      display: block;
       font-size: 1.4em;
       font-weight: 500;
       line-height: 1;
@@ -317,7 +315,7 @@ header {
   display: flex;
   gap: $base-margin;
   margin: ($base-margin) (-$base-margin);
-  overflow-x: auto;
+  overflow: auto;
   padding-inline: $base-margin;
 
   * {
@@ -327,19 +325,14 @@ header {
   }
 }
 
-// Post header
+// Posts
 article hgroup {
   display: grid;
+  gap: $base-margin-small;
   margin: $base-margin 0;
-  row-gap: $base-margin-small;
 
   h1 {
     margin: 0;
-  }
-
-  time {
-    display: inline-block;
-    margin-inline-end: $base-margin;
   }
 }
 
@@ -364,36 +357,6 @@ article hgroup {
   }
 }
 
-// Footer
-footer {
-  align-items: center;
-  color: var(--text-gray);
-  column-gap: 2em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: $base-margin-large 0;
-  row-gap: $base-margin-small;
-
-  .copy {
-    display: inline-block;
-    margin: 0;
-  }
-
-  ul {
-    @extend %no-style-ul;
-    column-gap: $base-margin;
-    display: inline-flex;
-    flex-wrap: wrap;
-
-    li a {
-      color: var(--text-gray);
-      font-weight: normal;
-    }
-  }
-}
-
-// View transitions
 @view-transition {
   navigation: auto;
 }
@@ -409,7 +372,6 @@ footer {
 
   .appbox {
     flex-wrap: wrap;
-    row-gap: $base-margin-small;
   }
 
   .app-preview {
