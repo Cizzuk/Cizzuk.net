@@ -122,13 +122,13 @@ table {
 
   th,
   td {
-    border: 1px solid var(--bg-accent-high);
+    background: var(--bg-accent);
+    border: 2px solid var(--bg);
     padding: 0.5em 1em;
   }
 
-  tbody th {
+  th {
     font-weight: 600;
-    text-align: initial;
   }
 }
 
@@ -279,16 +279,15 @@ header {
 
 // App preview
 .app-preview {
-  $--app-preview-overflow-padding: min($base-margin-large, calc(50vw - 50%));
   display: flex;
   gap: $base-margin;
-  margin: $base-margin calc(-1 * $--app-preview-overflow-padding);
+  margin: ($base-margin) (-$base-margin);
   overflow-x: auto;
-  padding-inline: $--app-preview-overflow-padding;
+  padding-inline: $base-margin;
 
   * {
     border-radius: 0;
-    height: 400px;
+    max-height: 376px;
     width: auto;
   }
 }
@@ -377,6 +376,11 @@ footer {
     flex-wrap: wrap;
     row-gap: $base-margin-small;
   }
+
+  .app-preview {
+    margin: ($base-margin) (-$base-margin-small);
+    padding-inline: $base-margin-small;
+  }
 }
 
 // Color variables
@@ -386,7 +390,6 @@ footer {
   --bg: #fafcff;
   --bg-accent: #dceaff;
   --bg-accent-high: #bad0f8;
-  --heart: #c39;
   --text: #383838;
   --text-gray: #707070;
   color-scheme: light dark;
@@ -401,7 +404,6 @@ footer {
     --bg-accent-high: #303a6a;
     --text: #dcdce0;
     --text-gray: #909095;
-    --heart: #faa0f0;
   }
 
   .dark-reverse {
