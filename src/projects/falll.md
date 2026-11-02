@@ -5,6 +5,9 @@ collection: "app"
 permalink: "/projects/falll/"
 title: "FALLLL"
 icon: "/assets/projects/falll/icon.png"
+preview:
+  - "/assets/projects/falll/preview1.png"
+  - "/assets/projects/falll/preview2.png"
 version: "4.1.0"
 links:
   playweb: "https://i.cizzuk.net/falll/"
@@ -24,10 +27,14 @@ hidden: true
 ---
 
 {% from 'AppBox.njk' import AppBox %}
+{% from 'AppPreview.njk' import AppPreview %}
 {% set thisapp = { title: title, description: description, icon: icon } %}
+
 {{ AppBox(thisapp, "h1") }}
 
 [Play on the Web]({{ links.playweb }})
+
+{{ AppPreview(preview) }}
 
 ## Download
 
