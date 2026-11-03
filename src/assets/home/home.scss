@@ -1,15 +1,90 @@
 @use '../variables' as *;
 
 .home-firstview {
+  $icon-size: 70px;
+  $icon-edge-inset: 5px;
+  $icon-track-min: 400px;
+  $icon-track-max: $base-width + $icon-size * 0.5;
+  $icon-safe-inline: max(0px, $icon-edge-inset + $icon-size * 0.5 - $base-margin);
+  $icon-inset: max($icon-edge-inset, calc((100% - #{$icon-track-max}) / 2));
+
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: $base-margin-large;
   justify-content: center;
-  margin: 0 auto calc(100lvh - 100svh);
+  margin-bottom: calc(100lvh - 100svh);
   min-height: 100svh;
-  padding: $base-margin-large 0;
+  padding: $base-margin-large $icon-safe-inline;
   text-align: center;
+
+  > :not(.app-icons) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .app-icons {
+    inset: 0 calc(50% - 50vw);
+    overflow: clip;
+    pointer-events: none;
+    position: absolute;
+
+    ul {
+      @extend %no-style-ul;
+
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-evenly;
+      position: absolute;
+      top: 0;
+      width: max-content;
+
+      a {
+        display: block;
+        opacity: 0.5;
+        pointer-events: auto;
+        transition: opacity 0.3s ease-in-out;
+
+        &:is(:hover, :focus) {
+          opacity: 1;
+        }
+      }
+
+      img {
+        border-radius: 0;
+        height: $icon-size;
+        max-width: none;
+        width: $icon-size;
+      }
+    }
+
+    .app-icons-left,
+    .app-icons-right {
+      animation: 1s icon-fade-in 0.2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .app-icons-left {
+      left: $icon-inset;
+      transform: translateX(-50%);
+    }
+
+    .app-icons-right {
+      right: $icon-inset;
+      transform: translateX(50%);
+    }
+
+    @keyframes icon-fade-in {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: ($icon-track-min - 1px)) {
+      display: none;
+    }
+  }
 
   .profile {
     display: flex;

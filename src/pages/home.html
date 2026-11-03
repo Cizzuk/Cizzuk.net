@@ -65,6 +65,32 @@ scripts:
       <path d="M16 2 9 9 2 2" />
     </svg>
   </div>
+
+  {% set firstview_apps = {
+    left: [
+      { app: collections.projects.alare, image: "/assets/home/appsymbols/alare.png" },
+      { app: collections.projects.cse, image: "/assets/home/appsymbols/cse.png" },
+      { app: collections.projects.weba11y, image: "/assets/home/appsymbols/weba11y.png" }
+    ],
+    right: [
+      { app: collections.projects.deflector, image: "/assets/home/appsymbols/deflector.png" },
+      { app: collections.projects.sidesearch, image: "/assets/home/appsymbols/sidesearch.png" },
+      { app: collections.projects.cbnote, image: "/assets/home/appsymbols/cbnote.png" }
+    ]
+  } %}
+  <div class="app-icons" aria-hidden="true">
+    {% for side, apps in firstview_apps %}
+    <ul class="app-icons-{{ side }}">
+      {% for item in apps %}
+      <li>
+        <a href="{{ item.app.url }}" title="{{ item.app.title }}" aria-hidden="true">
+          <img src="{{ item.image }}" alt="" role="none">
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
 </div>
 
 <div class="home-apps">
