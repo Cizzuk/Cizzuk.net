@@ -9,7 +9,7 @@ preview:
   - "/assets/projects/sidesearch/preview1.png"
   - "/assets/projects/sidesearch/preview2.png"
   - "/assets/projects/sidesearch/preview3.png"
-version: "4.1"
+version: "4.2"
 links:
   itunes_app: "6756973793"
   appstore: "https://apps.apple.com/app/side-search/id6756973793"
