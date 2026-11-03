@@ -83,7 +83,7 @@ scripts:
     <ul class="app-icons-{{ side }}">
       {% for item in apps %}
       <li>
-        <a href="{{ item.app.url }}" title="{{ item.app.title }}" aria-hidden="true">
+        <a href="{{ item.app.url }}" title="{{ item.app.title }}" tabindex="-1" aria-hidden="true">
           <img src="{{ item.image }}" alt="" role="none">
         </a>
       </li>
