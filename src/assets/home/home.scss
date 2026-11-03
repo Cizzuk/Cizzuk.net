@@ -1,5 +1,11 @@
 @use '../variables' as *;
 
+%arrow-icon {
+  flex-shrink: 0;
+  height: 1em;
+  width: 0.5em;
+}
+
 .home-firstview {
   $icon-size: 70px;
   $icon-edge-inset: 5px;
@@ -106,7 +112,7 @@
 
     h1 {
       font-size: 2em;
-      margin: 0;
+      margin-block: 0;
     }
   }
 
@@ -118,20 +124,15 @@
     gap: $base-margin-small;
     text-align: start;
 
-    li {
-      a {
-        align-items: center;
-        column-gap: 2em;
-        display: flex;
-        font-size: 1.1em;
-        justify-content: space-between;
-        width: 100%;
+    a {
+      align-items: center;
+      column-gap: 2em;
+      display: flex;
+      font-size: 1.1em;
+      justify-content: space-between;
 
-        svg {
-          flex-shrink: 0;
-          height: 1em;
-          width: 0.5em;
-        }
+      svg {
+        @extend %arrow-icon;
       }
     }
   }
@@ -144,9 +145,9 @@
     gap: $base-margin-small;
 
     .guide {
+      column-gap: 0.4em;
       display: flex;
       flex-wrap: wrap;
-      gap: 0 0.4em;
       justify-content: center;
     }
 
@@ -177,7 +178,6 @@
     container-type: inline-size;
     height: 100lvh;
     position: relative;
-    width: 100%;
   }
 
   .app-preview-image {
@@ -191,13 +191,16 @@
   }
 
   section {
-    margin: 0 auto;
-    padding: $base-margin 0;
+    margin-block: 0;
+    padding-block: $base-margin;
+  }
+
+  :is(.description, .learn-more) {
+    margin-block: $base-margin-small;
   }
 
   .description {
     color: var(--text-gray);
-    margin: $base-margin-small 0;
   }
 
   .learn-more {
@@ -205,12 +208,9 @@
     column-gap: 1em;
     display: flex;
     flex-wrap: wrap;
-    margin: $base-margin-small 0;
 
     svg {
-      flex-shrink: 0;
-      height: 1em;
-      width: 0.5em;
+      @extend %arrow-icon;
     }
   }
 }
@@ -219,7 +219,8 @@
   border-radius: 0;
   display: block;
   height: 24px;
-  margin: 15lvh auto 0;
+  margin-inline: auto;
+  margin-top: 15lvh;
   pointer-events: none;
   width: 36px;
 }
