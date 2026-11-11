@@ -12,15 +12,15 @@ scripts:
 
 {% from 'AppBox.njk' import AppBox %}
 {% set LinkArrow %}
-  <svg aria-hidden viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg aria-hidden="true" viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="1 2 7 7 1 12"></polyline>
   </svg>
 {% endset %}
 
-<div class="home-firstview" itemscope itemtype="http://schema.org/Person">
+<div class="home-firstview" itemscope itemtype="https://schema.org/Person">
   <div class="profile">
-    <div id="dropcat" aria-hidden>
-      <svg id="dropcat-svg" class="dropcat hidden" aria-hidden
+    <div id="dropcat" aria-hidden="true">
+      <svg id="dropcat-svg" class="dropcat hidden" aria-hidden="true"
         viewBox="0 0 72 48" fill="none" stroke="#36F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
         <path d="M12 46c-7 0-10-4-10-8s1-9 6-14 14-5 22-5 11-5 12-7c5-10 12-10 17-10 0 17 0 17 5 22s6 10 6 14-3 8-10 8zm18-34c-5-10-12-10-17-10v12" />
         <path d="M 29,28 V 38 M 43,28 V 38">
@@ -61,7 +61,7 @@ scripts:
     <div class="guide">
       <span>I develop some iOS apps.</span><span>Scroll down to take a look.</span>
     </div>
-    <svg aria-hidden viewBox="0 0 18 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <svg aria-hidden="true" viewBox="0 0 18 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
       <path d="M16 2 9 9 2 2" />
     </svg>
   </div>
@@ -111,7 +111,7 @@ scripts:
   </section>
 
   <div data-script-class="app-preview-sticky-scope">
-    <div id="app-preview-main" class="hidden" aria-hidden>
+    <div id="app-preview-main" class="hidden" aria-hidden="true">
       <div id="app-preview-wrapper">
         {% set app_previews = [
           { id: "app-preview-deflector", src: "/assets/home/previews/deflector.png" },
