@@ -62,16 +62,18 @@ Latest Version: {{ version }}
     <li>iPadOS 15.0 or later.</li>
     <li>macOS 12.0 or later.</li>
     <li>tvOS 15.0 or later.</li>
-    <li>Windows 10 Version 21H1 or later.</li>
-    <ul>
-      <li>x86</li>
-      <li>x64</li>
-      <li>Arm64</li>
-    </ul>
-    <li>Linux</li>
-    <ul>
-      <li>x64</li>
-    </ul>
+    <li>Windows 10 Version 21H1 or later.
+      <ul>
+        <li>x86</li>
+        <li>x64</li>
+        <li>Arm64</li>
+      </ul>
+    </li>
+    <li>Linux
+      <ul>
+        <li>x64</li>
+      </ul>
+    </li>
     <li>Android 9.0 or later.</li>
   </ul>
 </details>
