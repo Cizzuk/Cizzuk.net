@@ -9,7 +9,7 @@ previews:
   - "/assets/projects/cse/preview1.png"
   - "/assets/projects/cse/preview2.png"
   - "/assets/projects/cse/preview3.png"
-version: "5.1"
+version: "5.2"
 links:
   itunes_app: "6445840140"
   appstore: "https://apps.apple.com/app/cse/id6445840140"
