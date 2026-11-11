@@ -14,7 +14,7 @@ description: "Cizzukが書いたノートの一覧"
 {% if collections.notes | length > 0 %}
 <section>
   {% for post in collections.notes %}
-  {{ PostBox(post, "h3") }}
+  {{ PostBox(post, "h2") }}
   {% endfor %}
 </section>
 {% else %}
