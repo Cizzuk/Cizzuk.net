@@ -1,6 +1,5 @@
 # Build outputs
 _site/
-public/assets/styles.css
 
 # Wrangler
 .wrangler/
