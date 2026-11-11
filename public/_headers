@@ -1,18 +1,21 @@
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; frame-ancestors 'none'; require-trusted-types-for 'script';
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; require-trusted-types-for 'script';
   Cross-Origin-Opener-Policy: same-origin
   Permissions-Policy: accelerometer=(), bluetooth=(), browsing-topics=(), camera=(), clipboard-read=(), clipboard-write=(), display-capture=(), geolocation=(), gyroscope=(), hid=(), interest-cohort=(), local-network=(), loopback-network=(), magnetometer=(), microphone=(), midi=(), payment=(), screen-wake-lock=(), serial=(), usb=(), xr-spatial-tracking=()
   Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   X-Robots-Tag: noarchive
 
-/cdn-cgi/*
-  X-Robots-Tag: none
-
 /.well-known/*
+  ! X-Robots-Tag
   X-Robots-Tag: none
 
 /.well-known/openpgpkey/*
    Content-Type: application/octet-stream
    Access-Control-Allow-Origin: *
+
+/.well-known/matrix/*
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
