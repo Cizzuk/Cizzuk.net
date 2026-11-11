@@ -5,7 +5,6 @@ permalink: "/notes/shooting-dynamic-island-on-simulator/"
 canonical: "https://zenn.dev/cizzuk/articles/d2affa72d3f012"
 title: "Device HubでDynamic Islandを撮影する"
 description: "Device HubのSimulatorでスクリーンショットを撮影するとDynamic Islandが消えてしまうので、他の撮影方法を紹介します。"
-noindex: true
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**

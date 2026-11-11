@@ -5,7 +5,6 @@ permalink: "/notes/activate-schema-background/"
 canonical: "https://zenn.dev/cizzuk/articles/ddc675c870d852"
 title: "Side Button Accessでアプリの強制起動を回避する"
 description: "Side Button Accessで使用するactivateスキーマに準拠したApp Intentを、バックグラウンドで実行する方法を解説します。"
-noindex: true
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**

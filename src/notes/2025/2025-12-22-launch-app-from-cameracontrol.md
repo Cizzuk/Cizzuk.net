@@ -5,7 +5,6 @@ permalink: "/notes/launch-app-from-cameracontrol/"
 canonical: "https://zenn.dev/cizzuk/articles/2d647a606a12a2"
 title: "カメラコントロールからアプリを起動できるようにする"
 description: "iPhoneのカメラコントロールから自身のアプリを起動できるようにするための設定とコードを解説します。"
-noindex: true
 ---
 
 **これはZennで公開した記事のミラーです。[現物はこちら]({{ canonical }})**

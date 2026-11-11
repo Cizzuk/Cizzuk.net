@@ -41,13 +41,10 @@
   {% if update %}
   <meta property="article:modified_time" content="{{ update | dateISO }}">
   {% endif %}
-  {% if author %}
-  <meta property="article:author" content="{{ author | default(site.title) }}">
-  {% endif %}
 {% endif %}
 
 <meta name="twitter:card" content="summary">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:url" content="{{ canonical or (site.url + page.url) }}">
 <meta property="og:title" content="{{ fullTitle }}">
 <meta property="og:site_name" content="{{ site.title }}">
 

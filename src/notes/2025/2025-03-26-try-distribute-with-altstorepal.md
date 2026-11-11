@@ -5,7 +5,6 @@ permalink: "/notes/try-distribute-with-altstorepal/"
 canonical: "https://zenn.dev/cizzuk/articles/9636f9dba0acf4"
 title: "AltStore PALでアプリを配信してみる"
 description: "面白そうだし、せっかくなので記事にしようと思います。"
-noindex: true
 update: "2025-12-31"
 ---
 
