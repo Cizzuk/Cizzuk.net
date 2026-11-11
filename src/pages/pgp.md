@@ -15,30 +15,32 @@ Last update: {{ update | date }}
   <thead>
   <tr>
     <td></td>
-    <th>Primary</th>
-    <th>Sub</th>
+    <th scope="col">Primary</th>
+    <th scope="col">Sub</th>
   </tr>
   </thead>
+  <tbody>
   <tr>
-    <th>Create</th>
-  <td>{{ "2025-03-17" | date }}</td>
-  <td>{{ "2025-03-17" | date }}</td>
+    <th scope="row">Create</th>
+    <td>{{ "2025-03-17" | date }}</td>
+    <td>{{ "2025-03-17" | date }}</td>
   </tr>
   <tr>
-    <th>Key ID</th>
+    <th scope="row">Key ID</th>
     <td>A433F36A3A071462</td>
     <td>E7930483B159E7C0</td>
   </tr>
   <tr>
-    <th>Fingerprint</th>
+    <th scope="row">Fingerprint</th>
     <td>A844 2349 35ED D7C5 8311  C73D A433 F36A 3A07 1462</td>
     <td>36DB 6F30 50E9 D0F6 2EA4  0489 E793 0483 B159 E7C0</td>
   </tr>
   <tr>
-    <th>Key Type</th>
+    <th scope="row">Key Type</th>
     <td>Curve 25519 (Cert, Sign)</td>
     <td>RSA-4096 (Enc)</td>
   </tr>
+  </tbody>
 </table>
 
 [Download this Public Key](/assets/pgp/A844234935EDD7C58311C73DA433F36A3A071462.asc)
