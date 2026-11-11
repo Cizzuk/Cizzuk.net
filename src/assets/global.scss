@@ -401,10 +401,6 @@ article hgroup {
     --text: #dcdce0;
     --text-gray: #909095;
   }
-
-  .dark-reverse {
-    filter: invert(1) hue-rotate(180deg);
-  }
 }
 
 @media (prefers-contrast: more) {
