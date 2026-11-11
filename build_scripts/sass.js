@@ -5,7 +5,7 @@ import { findFiles } from "./files.js";
 import { log } from "./log.js";
 
 export const compileSass = (root, outputRoot) => {
-  for (const input of findFiles(root, (filePath) => filePath.endsWith(".scss"))) {
+  for (const input of findFiles(root, (filePath) => filePath.endsWith(".scss") && !path.basename(filePath).startsWith("_"))) {
     const relative = path.relative(root, input).replace(/\.scss$/, ".css");
     const output = path.join(outputRoot, relative);
     fs.mkdirSync(path.dirname(output), { recursive: true });
