@@ -16,7 +16,7 @@ description: ".onionドメインのWebサイトでHTTPSを利用できるよう�
 
 残念ながら、記事作成時点ではLet's Encryptは.onionドメインに対応していません。それどころか、対応しているCAは以下の2つしかなく、いずれも有料です。
 
-- [Digicert](https://www.digicert.com/)
+- [DigiCert](https://www.digicert.com/)
 - [HARICA](https://harica.gr/)
 
 Digicertは組織向けのEV証明書を発行するので非常に高価です。なので特に個人の場合はHARICAでDV証明書を取得することになります。

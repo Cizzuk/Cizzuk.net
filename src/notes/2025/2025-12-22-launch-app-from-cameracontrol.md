@@ -141,7 +141,7 @@ struct CaptureIntent: CameraCaptureIntent {
 
 まずcameraControlDidActivateという名前のNotificationを追加しました。それから`perform()`が実行されたときにcameraControlDidActivateが送信されるようにしています。
 
-このNotificationを受け取ったらカメラを使用する処理を実行するようにします。SwiftUIでは以下の例ようにレシーバーを簡単に設定できます。
+このNotificationを受け取ったらカメラを使用する処理を実行するようにします。SwiftUIでは以下の例のようにレシーバーを簡単に設定できます。
 
 ```swift
 ContentView()
@@ -169,7 +169,7 @@ CameraPreview(session: session)
 
 今回の記事に沿ったデモのアプリをGitHub上で公開しています。クローンしてTeamを設定すれば、すぐにビルドして試すことができます。[Appleのカメラアプリのサンプル](https://developer.apple.com/documentation/avfoundation/avcam-building-a-camera-app)もかなり参考になりますが、こちらの方がコードの量が圧倒的に少ないので見やすいと思います。両方参考にするのが良いですね。
 
-[Cizzuk/OpenFromCameraControllDemo: カメラコントロールからアプリを起動するデモプロジェクト](https://github.com/Cizzuk/OpenFromCameraControllDemo)
+[Cizzuk/OpenFromCameraControlDemo: カメラコントロールからアプリを起動するデモプロジェクト](https://github.com/Cizzuk/OpenFromCameraControlDemo)
 
 またCBNoteでは、カメラコントロールから起動したときもシステムによる強制終了を免れながら、カメラ起動以外の他の機能に置き換える設定を提供しています。しかもApp Storeの審査で承認されています。ただこの記事で推奨したり解説するのは気が引けるので、実装したい場合は[CBNoteのソースコード](https://github.com/Cizzuk/CBNote)を読むか、独自で強制終了の回避策を考えて実装してください。
 

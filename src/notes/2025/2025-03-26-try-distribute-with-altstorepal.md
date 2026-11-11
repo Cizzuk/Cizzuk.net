@@ -101,7 +101,7 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
 
 [Make a Source \| AltStore](https://faq.altstore.io/developers/make-a-source)
 
-私のソースも参考適度に覗いてみてください: [https://i.cizzuk.net/altstore/source.pal.json](https://i.cizzuk.net/altstore/source.pal.json)
+私のソースも参考程度に覗いてみてください: [https://i.cizzuk.net/altstore/source.pal.json](https://i.cizzuk.net/altstore/source.pal.json)
 
 また、ソース内のアプリは[Patreon](https://www.patreon.com)と連携させて、パトロンだけがインストールできるようにすることができます。CTFの財源を確保したい場合に便利な機能だと思います。この記事では紹介しないので、[公式のドキュメント](https://faq.altstore.io/developers/make-a-source#patreon)を参考に設定してください。
 
@@ -194,7 +194,7 @@ AltStore PALの前身、AltStore Classic時代からあるもので、パッケ�
 - `screenshots`: オプションで、例のように簡単に設定することもできますが、iPad向けに別の画像を用意したり横向きの画像を設定することもできます。詳しくは[公式のドキュメント](https://faq.altstore.io/developers/make-a-source#screenshots)を参考にしてください。
 - `versions`: このあと説明します。
 - `appPermissions`: アプリのEntitlementsとプライバシーに関する情報を入力します。以下2つのEntitlementsはすべてのアプリに必ず含まれるものであるため省略できます。そのほかは必須です。EntitlementsはApp Store Connectでビルドのメタデータから確認することができます。
-  - `com.app.developer.team-identifier`
+  - `com.apple.developer.team-identifier`
   - `application-identifier`
 
 ### バージョンを追加

@@ -61,7 +61,7 @@ ContactInfo example@example.com
 ```
 
 - `ORPort`のポートを開く必要はありません。
-- `BridgeDistribution`と`PublishServerDescriptor`はこのobfs4ブリッジを非公開にするように設定にしてあります。
+- `BridgeDistribution`と`PublishServerDescriptor`はこのobfs4ブリッジを非公開にするように設定してあります。
   - ブリッジを公式のTelegramやメール等で公開することもできますが、中国などの検閲の強い地域からブロックされる可能性があるので、個人のブリッジの場合は非公開にすることを推奨します。
 - `ServerTransportListenAddr`にはクライアントがobfs4に接続するときのポートを設定します。
   - このポートは開いておいてください。
