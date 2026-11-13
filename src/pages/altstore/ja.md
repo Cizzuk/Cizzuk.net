@@ -24,7 +24,7 @@ Cizzuk SourceをAltStore PALに追加すれば、私のiOSアプリをAltStore P
 
 <div id="viewapp" class="hidden">
   <h2>すでにソースを追加している場合</h2>
-  <a id="viewapp-button">AltStore PALで<span id="viewapp-name">アプリのページ</span>を開く</a>
+  <a id="viewapp-button">AltStore PALで{appName}を開く</a>
 </div>
 
 ## ソースを追加する
