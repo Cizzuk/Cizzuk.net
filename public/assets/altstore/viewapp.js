@@ -10,7 +10,7 @@ if (appName && appBundleId) {
   const viewappButton = document.getElementById('viewapp-button');
 
   viewappButton.href = `altstore-pal://viewapp?bundleid=${encodeURIComponent(appBundleId)}`;
-  viewappButton.textContent = viewappButton.textContent.replace("{appName}", appName);
+  viewappButton.textContent = viewappButton.textContent.replace("{appName}", () => appName);
   viewappDiv.classList.remove('hidden');
 
   const alternateLangLinks = document.querySelectorAll('a[data-alternate-lang]');
