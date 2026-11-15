@@ -9,7 +9,7 @@ icon: "/assets/projects/weba11y/icon.png"
 preview:
   - "/assets/projects/weba11y/preview1.png"
   - "/assets/projects/weba11y/preview2.png"
-version: "3.7"
+version: "3.8"
 links:
   itunes_app: "6445839110"
   appstore: "https://apps.apple.com/app/weba11y/id6445839110"
