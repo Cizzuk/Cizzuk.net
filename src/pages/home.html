@@ -114,14 +114,19 @@ scripts:
     <div id="app-preview-main" class="hidden" aria-hidden="true">
       <div id="app-preview-wrapper">
         {% set app_previews = [
-          { id: "app-preview-deflector", src: "/assets/home/previews/deflector.png" },
-          { id: "app-preview-sidesearch", src: "/assets/home/previews/sidesearch.png" },
-          { id: "app-preview-cbnote", src: "/assets/home/previews/cbnote.png" },
+          { id: "app-preview-deflector", src: "/assets/home/previews/deflector.png", darkSrc: "/assets/home/previews/deflector-dark.png" },
+          { id: "app-preview-sidesearch", src: "/assets/home/previews/sidesearch.png", darkSrc: "/assets/home/previews/sidesearch-dark.png" },
+          { id: "app-preview-cbnote", src: "/assets/home/previews/cbnote.png", darkSrc: "/assets/home/previews/cbnote-dark.png" },
           { id: "app-preview-alare", src: "/assets/home/previews/alare.png" }
         ] %}
         {% for preview in app_previews %}
-        <img id="{{ preview.id }}" src="{{ preview.src }}"
-          class="app-preview-image" alt role="none" loading="lazy">
+        <picture>
+          {% if preview.darkSrc %}
+          <source media="(prefers-color-scheme: dark)" srcset="{{ preview.darkSrc }}">
+          {% endif %}
+          <img id="{{ preview.id }}" src="{{ preview.src }}"
+            class="app-preview-image" alt role="none" loading="lazy">
+        </picture>
         {% endfor %}
       </div>
     </div>

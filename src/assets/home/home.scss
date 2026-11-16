@@ -179,6 +179,12 @@
     container-type: inline-size;
     height: 100lvh;
     position: relative;
+
+    picture {
+      display: block;
+      height: 0;
+      width: 0;
+    }
   }
 
   .app-preview-image {
