@@ -1,7 +1,7 @@
 ---
 layout: "default"
 lang: "en"
-permalink: "/commit-signature/"
+permalink: "/security/commit-signature/"
 title: "Commit Signature"
 description: "GPG or SSH keys used for signing Git commits"
 update: 2026-11-23
