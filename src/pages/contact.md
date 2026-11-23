@@ -14,4 +14,4 @@ I am a native Japanese speaker and a beginner in English. For other languages, I
 
 [{{ site.mail }}](mailto:{{ site.mail }})
 
-If you require encryption, here is my [OpenPGP public key](/pgp/).
+If you require encryption for security reasons, here is my [OpenPGP public key](/security/openpgp/).
