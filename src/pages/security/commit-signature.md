@@ -25,6 +25,8 @@ In addition to the keys above, commits made via GitHub Apps or on GitHub.com are
 
 | Type | Key ID | Expires | Public Key |
 |-|-|-|-|
+| GPG | A433F36A3A071462 | {{ '2026-11-23' | date }} | [Download](/assets/openpgp/revoked/A844234935EDD7C58311C73DA433F36A3A071462.asc) |
+| GPG | E7930483B159E7C0 | {{ '2026-11-23' | date }} | [Download](/assets/openpgp/revoked/A844234935EDD7C58311C73DA433F36A3A071462.asc) |
 | GPG | 849A021923D522D8 | {{ '2025-03-17' | date }} | |
 | GPG | B8A25D94B557E718 | {{ '2025-03-17' | date }} | |
 | GPG | 6EA23EB68B3002AD | {{ '2025-01-27' | date }} | |
