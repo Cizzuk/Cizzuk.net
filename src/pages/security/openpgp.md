@@ -1,0 +1,80 @@
+---
+layout: "default"
+lang: "en"
+permalink: "/security/openpgp/"
+title: "OpenPGP Key for Reporting Security Issues"
+description: "My OpenPGP public key for reporting security issues"
+update: 2026-11-23
+---
+
+# {{ title }}
+
+Last update: {{ update | date }}
+
+When reporting critical issues such as security problems, you can encrypt your message using the OpenPGP public key below before sending it by email.
+
+Note: Unless encryption is required for reasons such as security, it is generally unnecessary. Please send general bug reports via regular email or by creating an issue on GitHub.
+
+## Public Key
+
+- Key ID: 10AE 2D8B 210E CABC
+- Fingerprint: C165 8239 DEB4 2D29 0613 9CF5 10AE 2D8B 210E CABC
+- Type: RSA 4096
+- Expires: {{ '2028-12-31' | date }}
+
+[Download this Public Key](/assets/pgp/C1658239DEB42D2906139CF510AE2D8B210ECABC.asc)
+
+```plaintext
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+mQWA
+=E1gU
+-----END PGP PUBLIC KEY BLOCK-----
+```
