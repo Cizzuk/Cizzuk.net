@@ -22,7 +22,7 @@ Note: Unless encryption is required for reasons such as security, it is generall
 - Type: RSA 4096
 - Expires: {{ '2028-12-31' | date }}
 
-[Download this Public Key](/assets/openpgp/C1658239DEB42D2906139CF510AE2D8B210ECABC.asc)
+[Download this Public Key](/assets/keys/openpgp/C1658239DEB42D2906139CF510AE2D8B210ECABC.asc)
 
 ```plaintext
 -----BEGIN PGP PUBLIC KEY BLOCK-----
