@@ -19,11 +19,11 @@ I sign the commits to my public Git repositories. This page provides the keys us
 |-|-|-|-|
 | SSH | SHA256:eQaEgbw27wmJhNruwqJyjsb7/lRfhuQmwSmX/LP8/IU | None | [Download](/assets/keys/ssh/BF357A44100ACAA3C60D3255D77D050596B12E1D.pub) |
 
-In addition to the keys above, commits made via GitHub Apps or on GitHub.com are signed by GitHub. For more details, please refer to the [GitHub documentation](https://docs.github.com/ja/authentication/managing-commit-signature-verification/about-commit-signature-verification#signature-verification-for-rebase-and-merge) or check the current [GitHub GPG public key](https://github.com/web-flow.gpg).
+In addition to the keys above, commits made via GitHub Apps or on GitHub.com are signed by GitHub. For more details, please refer to the [GitHub documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#signature-verification-for-rebase-and-merge) or check the current [GitHub GPG public key](https://github.com/web-flow.gpg).
 
 ## Revoked
 
-| Type | Key ID | Expires | Public Key |
+| Type | Key ID | Revoked on | Public Key |
 |-|-|-|-|
 | GPG | A433F36A3A071462 | {{ '2026-11-23' | date }} | [Download](/assets/keys/openpgp/revoked/A844234935EDD7C58311C73DA433F36A3A071462.asc) |
 | GPG | E7930483B159E7C0 | {{ '2026-11-23' | date }} | [Download](/assets/keys/openpgp/revoked/A844234935EDD7C58311C73DA433F36A3A071462.asc) |
