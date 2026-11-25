@@ -8,7 +8,7 @@ tags: ['sidesearch']
 ---
 
 - Made Apple Foundation Models, Gemini API, and Claude API unavailable in mainland China
-  - Strengthened the region detection process
+  - Updated the region detection process
 - Prevented assistants from being started directly from URL schemes
 - Improved how credentials are sent when fetching models with the Gemini API
 - Made some other adjustments
