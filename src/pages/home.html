@@ -41,7 +41,6 @@ scripts:
 
   <ul class="links">
     {% set links = [
-      { title: "GitHub", url: "https://github.com/Cizzuk" },
       { title: "Projects", url: "/projects/" },
       { title: "Posts", url: "/posts/" },
       { title: "Notes", url: "/notes/" },
@@ -52,6 +51,24 @@ scripts:
       <a href="{{ link.url }}">
         {{ link.title }}
         {{ LinkArrow | safe }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <ul class="socials">
+    {% set socials = [
+      { title: "GitHub", url: site.links.github, icon: "github" },
+      { title: "X", url: site.links.twitter, icon: "twitter" },
+      { title: "Bluesky", url: site.links.atproto, icon: "bluesky" }
+    ] %}
+    {% for social in socials %}
+    <li>
+      <a href="{{ social.url }}" aria-label="{{ social.title }}" itemprop="sameAs">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="/assets/home/socials/{{ social.icon }}-dark.png">
+          <img src="/assets/home/socials/{{ social.icon }}.png" alt="">
+        </picture>
       </a>
     </li>
     {% endfor %}

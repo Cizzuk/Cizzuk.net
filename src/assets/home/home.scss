@@ -138,6 +138,30 @@
     }
   }
 
+  .socials {
+    @extend %no-style-ul;
+
+    display: flex;
+    gap: $base-margin-large;
+    justify-content: center;
+
+    a {
+      display: block;
+      line-height: 0;
+
+      &:is(:hover, :focus) {
+        text-decoration: none;
+      }
+    }
+
+    img {
+      border-radius: 0;
+      height: 30px;
+      max-width: none;
+      width: 30px;
+    }
+  }
+
   .scroll-guide {
     align-items: center;
     color: var(--text-gray);
