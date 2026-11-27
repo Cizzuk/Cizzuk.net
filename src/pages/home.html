@@ -64,10 +64,10 @@ scripts:
     ] %}
     {% for social in socials %}
     <li>
-      <a href="{{ social.url }}" aria-label="{{ social.title }}" itemprop="sameAs">
+      <a href="{{ social.url }}" title="{{ social.title }}" itemprop="sameAs">
         <picture>
           <source media="(prefers-color-scheme: dark)" srcset="/assets/home/socials/{{ social.icon }}-dark.png">
-          <img src="/assets/home/socials/{{ social.icon }}.png" alt="">
+          <img src="/assets/home/socials/{{ social.icon }}.png" alt="{{ social.title }}">
         </picture>
       </a>
     </li>
